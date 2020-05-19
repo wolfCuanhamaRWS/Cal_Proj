@@ -7,6 +7,8 @@
 
 #include <string>
 
+using namespace std;
+
 class Denuncia {
 
 private:
@@ -15,9 +17,16 @@ private:
 
 public:
     Denuncia();
-    Denuncia( string &esecialidade , int &gravidade);
+
+    Denuncia(const string &esecialidade, const int &gravidade);
+
+    void set_gravidade(const int gravidade);
 
     int get_gravidade();
+
+    void set_especialidade(const string especialidade);
+
+    string get_especialidade();
 };
 
 

@@ -6,6 +6,7 @@
 #define PROJ_GRAFOS_INSPETOR_H
 
 using namespace std;
+
 class Inspetor {
 private:
     string especiadidade;
@@ -15,11 +16,16 @@ private:
 
 public:
     Inspetor();
-    Inspetor(string especialidade);
+
+    Inspetor(const int &id, const string &especialidade);
+
     string get_especialidade();
 
+    void set_especialidade(const string &especialidade);
 
-    void set_especialidade(string especialidade);
+    int get_id();
+
+    void set_id(const int &id);
 
 
 };

@@ -10,32 +10,34 @@
 #include "AgenteEconomico.h"
 #include "Inspetor.h"
 
+using namespace std;
+
 class Autoridade_Publica {
 
 private:
-    vector<AgenteEconomico> agentes_economicos;
-    vector<Denuncia> denuncias; //todo trocar por um melhor estrutura de dados
-    vector<Inspetor> inspetores;
+    vector<AgenteEconomico *> agentes_economicos;
+    vector<Denuncia *> denuncias; //todo trocar por um melhor estrutura de dados
+    vector<Inspetor *> inspetores;
 
 
 public:
-    void get_agentes_economicos();
+    void set_agentes_economicos(vector<AgenteEconomico *> agentes_Economicos);
 
-    vector<AgenteEconomico> set_agente_economico();
+    vector<AgenteEconomico *> get_agente_economicos();
 
-    void add_agente_economico();
+    void add_agente_economico(const AgenteEconomico &agenteEconomico);
 
-    vector<Denuncia> get_denuncias();
+    vector<Denuncia *> get_denuncias();
 
-    vector<Denuncia> set_agente_economico();
+    void set_denumcias(vector<Denuncia *> &denuncias);
 
-    void add_denucia();
+    void add_denucia(const Denuncia denuncia);
 
-    void get_inspetores();
+    vector<Inspetor *> get_inspetores();
 
-    vector<Inspetor> set_inspetores();
+    void set_inspetores(vector<Inspetor *> inspetores);
 
-    void add_inspetor();
+    void add_inspetor(const Inspetor &inspetor);
 
 };
 

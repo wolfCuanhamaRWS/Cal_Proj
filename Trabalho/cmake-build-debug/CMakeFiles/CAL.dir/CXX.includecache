@@ -6,35 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/MutablePriorityQueue.h
-vector
--
-
-/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/graph.h
-iostream
--
-vector
--
-queue
--
-list
--
-limits
--
-cmath
--
-map
--
-unordered_map
--
-node.h
-/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/node.h
-MutablePriorityQueue.h
-/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/MutablePriorityQueue.h
-
 /Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/node.h
 
-/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Source/graph.cpp
-../Header/graph.h
-/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/graph.h
+/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Source/node.cpp
+../Header/node.h
+/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/node.h
 
