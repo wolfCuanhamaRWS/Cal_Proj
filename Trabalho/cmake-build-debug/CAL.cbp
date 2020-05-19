@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/Erro.h">
+			<Option target="CAL"/>
+		</Unit>
 		<Unit filename="/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Header/MutablePriorityQueue.h">
 			<Option target="CAL"/>
 		</Unit>

@@ -19,5 +19,10 @@ CMakeFiles/CAL.dir/Source/node.cpp.o: ../Source/node.cpp
 CMakeFiles/CAL.dir/Source/utils.cpp.o: ../Header/utils.h
 CMakeFiles/CAL.dir/Source/utils.cpp.o: ../Source/utils.cpp
 
+CMakeFiles/CAL.dir/main.cpp.o: ../Header/AgenteEconomico.h
+CMakeFiles/CAL.dir/main.cpp.o: ../Header/Autoridade_Publica.h
+CMakeFiles/CAL.dir/main.cpp.o: ../Header/Denuncia.h
+CMakeFiles/CAL.dir/main.cpp.o: ../Header/Inspetor.h
+CMakeFiles/CAL.dir/main.cpp.o: ../Source/Denuncia.cpp
 CMakeFiles/CAL.dir/main.cpp.o: ../main.cpp
 
