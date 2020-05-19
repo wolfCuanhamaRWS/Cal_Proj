@@ -1,0 +1,66 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/GraphViewer-master/cpp/connection.h
+cstdio
+-
+cstdlib
+-
+cstring
+-
+arpa/inet.h
+-
+sys/socket.h
+-
+sys/types.h
+-
+netdb.h
+-
+winsock2.h
+-
+string
+-
+iostream
+-
+
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/GraphViewer-master/cpp/edgetype.h
+
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/GraphViewer-master/cpp/graphviewer.h
+unistd.h
+-
+winsock2.h
+-
+Windows.h
+-
+stdlib.h
+-
+signal.h
+-
+string
+-
+edgetype.h
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/GraphViewer-master/cpp/edgetype.h
+connection.h
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/GraphViewer-master/cpp/connection.h
+
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/menus.cpp
+menus.h
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/menus.h
+
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/menus.h
+iostream
+-
+utils.h
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/utils.h
+GraphViewer-master/cpp/graphviewer.h
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/GraphViewer-master/cpp/graphviewer.h
+
+C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/utils.h
+iostream
+-
+
