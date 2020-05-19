@@ -1,13 +1,11 @@
 file(REMOVE_RECURSE
-  "CAL.exe"
-  "CAL.exe.manifest"
+  "CAL"
   "CAL.pdb"
-  "CMakeFiles/CAL.dir/graph.cpp.obj"
-  "CMakeFiles/CAL.dir/main.cpp.obj"
-  "CMakeFiles/CAL.dir/menus.cpp.obj"
-  "CMakeFiles/CAL.dir/node.cpp.obj"
-  "CMakeFiles/CAL.dir/utils.cpp.obj"
-  "libCAL.dll.a"
+  "CMakeFiles/CAL.dir/Source/graph.cpp.o"
+  "CMakeFiles/CAL.dir/Source/menus.cpp.o"
+  "CMakeFiles/CAL.dir/Source/node.cpp.o"
+  "CMakeFiles/CAL.dir/Source/utils.cpp.o"
+  "CMakeFiles/CAL.dir/main.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

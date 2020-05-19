@@ -2,7 +2,7 @@
 // Created by Amanda  on 12/05/20.
 //
 
-#include "AgenteEconomico.h"
+#include "../headers/AgenteEconomico.h"
 
 AgenteEconomico::AgenteEconomico(vector<string> especialidades) {
     this->especialidade = especialidades;

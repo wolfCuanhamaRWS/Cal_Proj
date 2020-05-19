@@ -1,3 +1,3 @@
-C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir
-C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir

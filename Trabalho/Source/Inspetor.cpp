@@ -2,7 +2,7 @@
 // Created by Amanda  on 12/05/20.
 //
 
-#include "Inspetor.h"
+#include "../headers/inspetor.h"
 
 using namespace std;
 string Inspetor::get_especialidade() {

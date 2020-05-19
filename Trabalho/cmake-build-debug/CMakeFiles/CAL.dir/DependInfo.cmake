@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/graph.cpp" "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/graph.cpp.obj"
-  "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/main.cpp" "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/main.cpp.obj"
-  "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/menus.cpp" "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/menus.cpp.obj"
-  "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/node.cpp" "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/node.cpp.obj"
-  "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/utils.cpp" "C:/Users/luisa/OneDrive/Ambiente de Trabalho/CAL/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/utils.cpp.obj"
+  "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Source/graph.cpp" "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/Source/graph.cpp.o"
+  "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Source/menus.cpp" "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/Source/menus.cpp.o"
+  "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Source/node.cpp" "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/Source/node.cpp.o"
+  "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/Source/utils.cpp" "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/Source/utils.cpp.o"
+  "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/main.cpp" "/Users/amanda/CLionProjects/Cal_Proj/Trabalho/cmake-build-debug/CMakeFiles/CAL.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

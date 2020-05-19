@@ -29,7 +29,7 @@ class Connection {
 #ifdef linux
   int sock;
 #else
-  SOCKET sock;
+ SOCKET sock;
 #endif
 };
 

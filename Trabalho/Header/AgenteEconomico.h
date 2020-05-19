@@ -4,7 +4,7 @@
 #include <vector>
 #include <map>
 #include <stack>
-#include "Denuncia.cpp"
+#include "../Source/Denuncia.cpp"
 #include "Denuncia.h"
 
 #define PROJ_GRAFOS_AGENTEECONOMICO_H
