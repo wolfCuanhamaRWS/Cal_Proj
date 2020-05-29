@@ -1,7 +1,3 @@
-//
-// Created by Amanda  on 12/05/20.
-//
-
 #ifndef PROJ_GRAFOS_DENUNCIA_H
 #define PROJ_GRAFOS_DENUNCIA_H
 
@@ -12,6 +8,7 @@ using namespace std;
 class Denuncia {
 
 private:
+    int id; //id da denúncia
     int gravidade; // Podedendo variariar de 1 a 5 (leve, muito grave)
     string especialidade;  //
 

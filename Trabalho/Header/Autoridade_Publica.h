@@ -1,7 +1,3 @@
-//
-// Created by Amanda  on 12/05/20.
-//
-
 #ifndef PROJ_GRAFOS_AUTORIDADE_PUBLICA_H
 #define PROJ_GRAFOS_AUTORIDADE_PUBLICA_H
 
@@ -21,6 +17,8 @@ private:
 
 
 public:
+    Autoridade_Publica(); //constructor
+
     void set_agentes_economicos(vector<AgenteEconomico *> agentes_Economicos);
 
     vector<AgenteEconomico *> get_agente_economicos();

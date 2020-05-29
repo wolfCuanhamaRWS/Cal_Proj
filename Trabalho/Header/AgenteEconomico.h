@@ -1,28 +1,42 @@
-//
-// Created by Amanda  on 12/05/20.
-//
+#define PROJ_GRAFOS_AGENTEECONOMICO_H
+
+/*
+ * Estrutura do ficheiro agente_economico:
+ * nome do agente económico
+ * intervalo funcionamento (<hora abertura>(espaço)<hora de fecho>)
+ * id's das denúncias separados por vírgula
+ * atividades económicas em que o agente se escontra, separados por vírgula
+ * localização
+ * tuplos de inspeções separados por vírgula (<id da denúncia>, <true/false>)
+ */
 #include <vector>
 #include <map>
-#include <stack>
+#include <string>
+#include <fstream>
+
 #include "../Source/Denuncia.cpp"
 #include "Denuncia.h"
 
-#define PROJ_GRAFOS_AGENTEECONOMICO_H
-
 using namespace std;
 
-class AgenteEconomico {
+class AgenteEconomico
+{
 private:
 
+    string nome;
     pair<int, int> intervalo_funcionamento;
     vector<Denuncia> denuncias;
-    vector<string> especialidade;// trocar por uma hash table para
+    vector<string> atividades_economicas; //Obras, Atividade Comercial, Ambiental e Intervenção na Via Pública
+                                          //Segurança e Salubridade de Edificações, Géneros Alimentícios (e.g. talhos, restauração...)
     //todo localizacao
-    stack<pair<Denuncia, bool>>inspecoes;// Dicionario com a denuncia e o seu resultado de A-F
-    int numero_de_visitas;
+    vector<pair<Denuncia, bool>>inspecoes;// Vector de inspeções já efetuadas; Dicionario com a denuncia e o seu resultado (true se passou, false se chumbou)
 
 public:
-    AgenteEconomico(vector<string> especialidades);//
+    /*
+     * Constructor
+     * Lê e processa as informações do ficheiro agente_economico.txt
+     */
+    AgenteEconomico(string nome, pair<int, int> intervalo_funcionamento, vector<Denuncia> denuncias, vector<string> atividades_economicas, vector< pair<Denuncia, bool> >inspecoes);
 
     int set_horario_funcionamento(int &abertura, int &fechado);
 
