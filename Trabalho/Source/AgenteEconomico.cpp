@@ -1,11 +1,12 @@
-//
-// Created by Amanda  on 12/05/20.
-//
+#include "../Header/AgenteEconomico.h"
 
-#include "../headers/AgenteEconomico.h"
+AgenteEconomico::AgenteEconomico(string nome, pair<int, int> intervalo_funcionamento, vector<Denuncia> denuncias,
+                                 vector<string> atividades_economicas, vector<pair<Denuncia, bool>> inspecoes)
+{
+    //Processamento das informações do ficheiro agente_economico.txt
 
-AgenteEconomico::AgenteEconomico(vector<string> especialidades) {
-    this->especialidade = especialidades;
+
+
 }
 
 void AgenteEconomico::add_inspecao(Denuncia &denuncia, bool &resultado) {
@@ -34,3 +35,5 @@ int AgenteEconomico::set_horario_funcionamento(int &abertura, int &fechado) {
     intervalo_funcionamento.first = abertura;
     intervalo_funcionamento.second =  fechado;
 }
+
+
