@@ -27,7 +27,7 @@ public:
 
     vector<Denuncia *> get_denuncias();
 
-    void set_denumcias(vector<Denuncia *> &denuncias);
+    void set_denuncias(vector<Denuncia *> &denuncias);
 
     void add_denucia(const Denuncia denuncia);
 

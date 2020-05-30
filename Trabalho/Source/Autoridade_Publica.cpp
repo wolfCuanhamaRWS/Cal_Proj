@@ -17,29 +17,26 @@ vector<AgenteEconomico *> Autoridade_Publica::get_agente_economicos() {
 }
 
 void Autoridade_Publica::set_agentes_economicos(vector<AgenteEconomico *> agentes_economico) {
-    this->agentes_economicos = agenteEconomico;
+    this->agentes_economicos = agentes_economico;
 }
 
 void Autoridade_Publica::set_denuncias(vector<Denuncia *> &denuncias) {
     this->denuncias = denuncias;
 }
 
-void Autoridade_Publica::set_inspetores(vector<Inspetor *> inspetores) {
-    this->inspetores == inspetores;
-}
 
 void Autoridade_Publica::set_inspetores(vector<Inspetor *> inspetores) {
     this->inspetores = inspetores;
 }
 
-void Autoridade_Publica::add_agente_economico(const AgenteEconomico &agenteEconomico) {
-    agentes_economicos.insert(agenteEconomico);
-}
-
-void Autoridade_Publica::add_denucia(const Denuncia &denuncia) {
-    denuncias.insert(denuncia);
-}
-
-void Autoridade_Publica::add_inspetor(const Inspetor &inspetor) {
-    inspetores.insert(inspetor);
-}
+//void Autoridade_Publica::add_agente_economico(const AgenteEconomico &agenteEconomico) {
+//    agentes_economicos.insert(agenteEconomico);
+//}
+//
+//void Autoridade_Publica::add_denucia(const Denuncia &denuncia) {
+//    denuncias.insert(denuncia);
+//}
+//
+//void Autoridade_Publica::add_inspetor(const Inspetor &inspetor) {
+//    inspetores.insert(inspetor);
+//}

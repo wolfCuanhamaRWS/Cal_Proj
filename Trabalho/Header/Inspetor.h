@@ -5,6 +5,9 @@
 #ifndef PROJ_GRAFOS_INSPETOR_H
 #define PROJ_GRAFOS_INSPETOR_H
 
+#include <string>
+#include <fstream>
+
 using namespace std;
 
 class Inspetor {

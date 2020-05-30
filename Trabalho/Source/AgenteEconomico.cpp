@@ -27,11 +27,7 @@ stack<pair<Denuncia, bool>> AgenteEconomico::get_inspecoes() {
     return inspecoes;
 }
 
-int AgenteEconomico::get_numero_visitas() {
-    return  numero_de_visitas;
-}
-
-int AgenteEconomico::set_horario_funcionamento(int &abertura, int &fechado) {
+void AgenteEconomico::set_horario_funcionamento(int &abertura, int &fechado) {
     intervalo_funcionamento.first = abertura;
     intervalo_funcionamento.second =  fechado;
 }

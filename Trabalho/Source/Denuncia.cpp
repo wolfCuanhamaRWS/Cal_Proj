@@ -14,8 +14,7 @@ int Denuncia::get_gravidade() {
     return gravidade;
 }
 
-void Denuncia::set_gravidade(const int gravidade) {}
-
+void Denuncia::set_gravidade(const int gravidade)
 {
 this->
 gravidade = gravidade;

@@ -1,13 +1,13 @@
 #include "../Header/connection.h"
 
 void myerror(string msg) {
-  printf("%s\n", msg.c_str());
-  exit(-1);
+    printf("%s\n", msg.c_str());
+    exit(-1);
 }
 
 Connection::Connection(short port) {
 #ifdef linux
-  struct sockaddr_in echoServAddr; /* Echo server address */
+    struct sockaddr_in echoServAddr; /* Echo server address */
   struct  hostent  *ptrh;
   
   /* Create a reliable, stream socket using TCP */
@@ -27,12 +27,12 @@ Connection::Connection(short port) {
   if (connect(sock, (struct sockaddr *) &echoServAddr, sizeof(echoServAddr)) < 0)
     myerror("connect() failed");
 #else
-		WSADATA wsaData;
+    WSADATA wsaData;
     int iResult = WSAStartup(MAKEWORD(2,2), &wsaData);
     if (iResult != NO_ERROR)
-				printf("Client: Error at WSAStartup().\n");
+        printf("Client: Error at WSAStartup().\n");
 
-	// Create a socket.
+    // Create a socket.
     sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (sock == INVALID_SOCKET) {
         printf("Client: socket() - Error at socket(): %d\n", WSAGetLastError());
@@ -54,21 +54,21 @@ Connection::Connection(short port) {
 }
 
 bool Connection::sendMsg(string msg) {
-  int res = send(sock, msg.c_str(), msg.size(), 0);
-  if (res < 0) 
-    myerror("Unable to send");
-  string answer = readLine();
-  return answer == "ok";
+    int res = send(sock, msg.c_str(), msg.size(), 0);
+    if (res < 0)
+        myerror("Unable to send");
+    string answer = readLine();
+    return answer == "ok";
 }
 
 string Connection::readLine() {
-  string msg;  
-  char ch;
-  while (true) {
-    recv(sock, &ch, 1, 0);
-    if (ch == '\n')
-      break;
-    msg.push_back(ch);
-  }
-  return msg;
+    string msg;
+    char ch;
+    while (true) {
+        recv(sock, &ch, 1, 0);
+        if (ch == '\n')
+            break;
+        msg.push_back(ch);
+    }
+    return msg;
 }

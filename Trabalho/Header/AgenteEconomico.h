@@ -1,5 +1,5 @@
+#ifndef PROJ_GRAFOS_AGENTEECONOMICO_H
 #define PROJ_GRAFOS_AGENTEECONOMICO_H
-
 /*
  * Estrutura do ficheiro agente_economico:
  * nome do agente económico
@@ -13,8 +13,8 @@
 #include <map>
 #include <string>
 #include <fstream>
+#include <stack>
 
-#include "../Source/Denuncia.cpp"
 #include "Denuncia.h"
 
 using namespace std;
@@ -29,7 +29,7 @@ private:
     vector<string> atividades_economicas; //Obras, Atividade Comercial, Ambiental e Intervenção na Via Pública
                                           //Segurança e Salubridade de Edificações, Géneros Alimentícios (e.g. talhos, restauração...)
     //todo localizacao
-    vector<pair<Denuncia, bool>>inspecoes;// Vector de inspeções já efetuadas; Dicionario com a denuncia e o seu resultado (true se passou, false se chumbou)
+    stack<pair<Denuncia, bool>>inspecoes;// Vector de inspeções já efetuadas; Dicionario com a denuncia e o seu resultado (true se passou, false se chumbou)
 
 public:
     /*
@@ -38,7 +38,7 @@ public:
      */
     AgenteEconomico(string nome, pair<int, int> intervalo_funcionamento, vector<Denuncia> denuncias, vector<string> atividades_economicas, vector< pair<Denuncia, bool> >inspecoes);
 
-    int set_horario_funcionamento(int &abertura, int &fechado);
+    void set_horario_funcionamento(int &abertura, int &fechado);
 
     int get_horario_abertura();
 
@@ -52,12 +52,7 @@ public:
 
     bool get_resultado_ultima_visita();
 
-    void set_numero_visitas(int &n);
-
-    int get_numero_visitas();
-
-
 };
 
-
+#endif //PROJ_GRAFOS_AGENTEECONOMICO_H
 
