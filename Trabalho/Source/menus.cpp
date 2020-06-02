@@ -9,12 +9,8 @@
 #include "../Header/Autoridade_Publica.h"
 #include "../Header/utils.h"
 
-
-//Autoridade_Publica autoridadePublica ;// todo outra solucao inves de criar uma variavel global aqui, talvez colocar o mainMenu na main
-
-void AutoridadePublicaMenu();
-
-void printAutoridadePublicaMenu() {
+void printAutoridadePublicaMenu()
+{
 
 
     cout << "=====================================================================================" << endl
@@ -22,18 +18,20 @@ void printAutoridadePublicaMenu() {
          << "=====================================================================================" << endl
          << "           AGENTES ECONOMICOS            |               INSPETORES                  " << endl
          << "=========================================|===========================================" << endl
-         << "Adicionar Agente economico         [1]   |   Adicionar inspetor                  [6] " << endl
-         << "Remover especialidade              [2]   |   Mudar Id                            [7] " << endl
-         << "Mudar horario de funcionamento     [3]   |   Mudar especialiade                  [8] " << endl
-         << "Adicionar especialidade            [4]   |   Remover inspetor                    [9] " << endl
-         << "Remover agente economico           [5]   |   Visualizar rota diaria             [10] " << endl
+         << "Visualizar Agentes economicos      [1]   |   Visualizar inspetores               [7] " << endl
+         << "Adicionar Agente economico         [2]   |   Adicionar inspetor                  [8] " << endl
+         << "Remover especialidade              [3]   |   Mudar Id                            [9] " << endl
+         << "Mudar horario de funcionamento     [4]   |   Mudar especialiade                  [10] " << endl
+         << "Adicionar especialidade            [5]   |   Remover inspetor                    [11] " << endl
+         << "Remover agente economico           [6]   |   Visualizar rota diaria              [12] " << endl
          << "Exit                               [0]   |                                           " << endl;
 
 }
 
-
-void autoridadePublicaMenu() {
-    while (true) {
+void autoridadePublicaMenu(Autoridade_Publica &autoridade)
+{
+    while (true)
+    {
         printAutoridadePublicaMenu();
         int option;
         option = checkOption(0, 10);
@@ -41,8 +39,13 @@ void autoridadePublicaMenu() {
 
         if (option == 0)                                            //exit option
             break;
-        switch (option) {
-            case 6:
+        switch (option)
+        {
+            case 1:
+                cout << endl << "Lista de todos os agentes economicos:" << endl;
+                autoridade.imprimirAgentesEconomicos();
+                break;
+            case 7:
                 //nspetor *inspetor;
                 vector<string *> vector_buffer;
                 long int nif;
@@ -122,28 +125,31 @@ void printMainMenu() {
          << "=====================================================================================" << endl
          << "           DENUNCIAS                     |          AUTORIDADE PUBLICA               " << endl
          << "=========================================|========================================== " << endl
-         << "Fazer denuncica                    [1]   |   gerenciar autoridade publica        [2] " << endl
+         << "Fazer denuncica                    [1]   |   Gerenciar autoridade publica        [2] " << endl
          << "Exit                               [0]   |                                           " << endl;
 
 }
 
-void mainMenu() {
-    while (true) {
+void mainMenu(Autoridade_Publica &autoridade)
+{
+    while (true)
+    {
         printMainMenu();
         int option;
         option = checkOption(0, 2);
         //screenClear(); // n funciona
 
-        if (option == 0)                                            //exit option
+        if (option == 0) //exit option
             break;
-        switch (option) {
+        switch (option)
+        {
             case 1:
                 denunciasMenu();
 
                 break;
 
             case 2:
-                autoridadePublicaMenu();
+                autoridadePublicaMenu(autoridade);
                 break;
 
 

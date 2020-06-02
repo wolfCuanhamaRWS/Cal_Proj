@@ -1,34 +1,11 @@
 #include"../Header/utils.h"
 
-int verifyOption(int option1, int option2) {
-    int option;
-    bool stop = false;
-
-    while (!stop) {
-        cout << "Choose an option (" << option1 << "-" << option2 << "): ";
-
-        //Apenas aceita como input números entre o limite inferior e superior (inclusive)
-        if (cin >> option && option1 <= option && option2 >= option) {
-            stop = true;
-            cin.ignore(1000, '\n');
-        }
-            //Input é recusado, e ciclo é executada de novo até ser introduzido uma opção válida
-        else {
-            cout << "Invalid option, try again..." << endl << endl;
-            cin.clear();
-            cin.ignore(1000, '\n');
-        }
-    }
-
-    return option;
-}
-
-
 int checkOption(int min, int max) {
     int input;
 
     while (true) {
         try {
+            cout << "Escolha uma opcao (" << min << "-" << max << "): ";
             cin >> input;
             if (cin.fail()) {
                 cin.clear();
@@ -50,6 +27,48 @@ int checkOption(int min, int max) {
         }
     }
 
+}
+
+string elem_two_spaces(string str)
+{
+    while (str.find("  ") != string::npos)
+    {
+        str.erase(str.find("  "), 1);
+    }
+    return str;
+}
+
+/***************************************************************************************************************/
+
+vector<string> string_split(string str, char sep)
+{
+    vector<string> result;
+    string component = "";
+
+    for (int i = 0; i < str.size(); i++)
+    {
+        char ch = str.at(i);
+        if (ch != sep)
+        {
+            component.append(1, ch);
+        }
+        else
+        {
+            component = elem_two_spaces(component);
+            if (component.at(component.size() - 1) == ' ') component.pop_back();
+            if (component.at(0) == ' ') component.erase(0, 1);
+            result.push_back(component);
+            component = "";
+        }
+        if (i == (str.size() - 1))
+        {
+            component = elem_two_spaces(component);
+            if (component.at(component.size() - 1) == ' ') component.pop_back();
+            if (component.at(0) == ' ') component.erase(0, 1);
+            result.push_back(component);
+        }
+    }
+    return result;
 }
 
 void screenClear() {
