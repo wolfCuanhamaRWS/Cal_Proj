@@ -16,15 +16,15 @@ void printAutoridadePublicaMenu()
     cout << "=====================================================================================" << endl
          << "                       InspectIT: Rotas de Inspecao                                  " << endl
          << "=====================================================================================" << endl
-         << "           AGENTES ECONOMICOS            |               INSPETORES                  " << endl
+         << "           AGENTES ECONOMICOS            |                 BRIGADAS                  " << endl
          << "=========================================|===========================================" << endl
-         << "Visualizar Agentes economicos      [1]   |   Visualizar inspetores               [7] " << endl
-         << "Adicionar Agente economico         [2]   |   Adicionar inspetor                  [8] " << endl
+         << "Visualizar Agentes economicos      [1]   |   Visualizar brigadas                 [7] " << endl
+         << "Adicionar Agente economico         [2]   |   Adicionar brigada                   [8] " << endl
          << "Remover especialidade              [3]   |   Mudar Id                            [9] " << endl
          << "Mudar horario de funcionamento     [4]   |   Mudar especialiade                  [10] " << endl
-         << "Adicionar especialidade            [5]   |   Remover inspetor                    [11] " << endl
+         << "Adicionar especialidade            [5]   |   Remover brigada                     [11] " << endl
          << "Remover agente economico           [6]   |   Visualizar rota diaria              [12] " << endl
-         << "Exit                               [0]   |                                           " << endl;
+         << "Exit                               [0]   |                                            " << endl;
 
 }
 
@@ -46,6 +46,10 @@ void autoridadePublicaMenu(Autoridade_Publica &autoridade)
                 autoridade.imprimirAgentesEconomicos();
                 break;
             case 7:
+                cout << endl << "Lista de todos as brigadas:" << endl;
+                autoridade.imprimirBrigadas();
+                break;
+            case 8:
                 //nspetor *inspetor;
                 vector<string *> vector_buffer;
                 long int nif;

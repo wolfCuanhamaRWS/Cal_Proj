@@ -1,26 +1,50 @@
-//
-// Created by Amanda  on 12/05/20.
-//
 #include "../Header/Denuncia.h"
 
-Denuncia::Denuncia(const string &especialidade, const int &gravidade) {
-    this->especialidade = especialidade;
+Denuncia::Denuncia(int id, int id_agente, int gravidade, string especialidade)
+{
+    this->id = id;
+    this->id_agente = id_agente;
     this->gravidade = gravidade;
+    this->especialidade = especialidade;
 }
 
-Denuncia::Denuncia() {}
+int Denuncia::get_id() const
+{
+    return this->id;
+}
 
-int Denuncia::get_gravidade() {
+void Denuncia::set_id(int id)
+{
+    this->id = id;
+
+}
+
+int Denuncia::get_id_agente() const
+{
+    return this->id_agente;
+}
+
+void Denuncia::set_id_agente(int id_agente)
+{
+    this->id_agente = id_agente;
+}
+
+int Denuncia::get_gravidade() const
+{
     return gravidade;
 }
 
-void Denuncia::set_gravidade(const int gravidade)
+void Denuncia::set_gravidade(int gravidade)
 {
-this->
-gravidade = gravidade;
-
+    this->gravidade = gravidade;
 }
 
-void Denuncia::set_especialidade(const string especialidade) {
+string Denuncia::get_especialidade() const
+{
+    return especialidade;
+}
+
+void Denuncia::set_especialidade(string especialidade)
+{
     this->especialidade = especialidade;
 }

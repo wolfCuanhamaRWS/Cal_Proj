@@ -1,6 +1,6 @@
 #include "../Header/Brigada.h"
 
-Brigada::Brigada(string especialidade, int ID, int hora_comeco, int numero_horas_diario)
+Brigada::Brigada(int ID, string especialidade, int hora_comeco, int numero_horas_diario)
 {
     this->especialidade = especialidade;
     this->ID = ID;

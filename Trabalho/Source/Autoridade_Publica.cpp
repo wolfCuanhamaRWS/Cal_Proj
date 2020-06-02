@@ -102,6 +102,8 @@ Autoridade_Publica::Autoridade_Publica()
 
     //Processamento das informações do ficheiro brigadas.txt
     ifstream file2;
+    int ID2, hora_comeco, numero_horas_diario;
+    string especialidade;
 
     file2.open("../Trabalho/TextFiles/brigadas.txt");
     if(file2.fail())
@@ -109,8 +111,64 @@ Autoridade_Publica::Autoridade_Publica()
         cout << "Erro na abertura do ficheiro brigadas.txt "  << endl;
     }
 
-    /*while(!file2.eof())
+    while(!file2.eof())
     {
+        //separador
+        getline(file2, input);
+
+        //ID
+        getline(file2, input);
+        ID2 = stoi(input);
+
+        //especialidade
+        getline(file2, especialidade);
+
+        //hora começo
+        getline(file2, input);
+        hora_comeco = stoi(input);
+
+        //numero_horas_diario
+        getline(file2, input);
+        numero_horas_diario = stoi(input);
+
+        Brigada* brigada = new Brigada(ID2, especialidade, hora_comeco, numero_horas_diario);
+        brigadas.push_back(brigada);
+
+    }
+
+    //Processamento das informações do ficheiro denuncias.txt
+    ifstream file3;
+    int id, id_agente, gravidade;
+
+    file3.open("../Trabalho/TextFiles/denuncias.txt");
+    if(file3.fail())
+    {
+        cout << "Erro na abertura do ficheiro denuncias.txt "  << endl;
+    }
+
+    /*
+    while(!file2.eof())
+    {
+        //separador
+        getline(file2, input);
+
+        //ID
+        getline(file2, input);
+        ID2 = stoi(input);
+
+        //especialidade
+        getline(file2, especialidade);
+
+        //hora começo
+        getline(file2, input);
+        hora_comeco = stoi(input);
+
+        //numero_horas_diario
+        getline(file2, input);
+        numero_horas_diario = stoi(input);
+
+        Brigada* brigada = new Brigada(ID2, especialidade, hora_comeco, numero_horas_diario);
+        brigadas.push_back(brigada);
 
     }*/
 
@@ -207,9 +265,21 @@ void Autoridade_Publica::set_brigadas(vector<Brigada *> inspetores)
 }
 
 /*
-void Autoridade_Publica::add_inspetor(const Inspetor &inspetor)
+void Autoridade_Publica::add_brigada(const Inspetor &inspetor)
 {
 
 }*/
 
+void Autoridade_Publica::imprimirBrigadas() const
+{
+    vector <Brigada *> copia_brigadas = brigadas;
+    for (unsigned i = 0; i < copia_brigadas.size(); i++)
+    {
+        cout << "ID: " << copia_brigadas.at(i)->get_ID() << " | "
+             << "Hora comeco: " << copia_brigadas.at(i)->get_hora_comeco() << " | "
+             << "Numero horas diario: " << copia_brigadas.at(i)->get_num_horas() << " | "
+             << "Especialidade: " << copia_brigadas.at(i)->get_especialidade() << endl;
 
+    }
+
+}
