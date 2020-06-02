@@ -16,7 +16,7 @@ private:
     int numero_horas_diario; //número de horas diário total para as inspeções mais as viagens
 
 public:
-    Brigada(string especialidade, int ID, int hora_comeco, int numero_horas_diario);
+    Brigada(int ID, string especialidade, int hora_comeco, int numero_horas_diario);
 
     //ID
     int get_ID() const;

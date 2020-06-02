@@ -41,10 +41,11 @@ public:
     void set_denuncias(vector<Denuncia *> &denuncias);
     void add_denuncia(const Denuncia denuncia);
 
-    //Funções relacionadas com os inspetores
+    //Funções relacionadas com as brigadas
     vector<Brigada *> get_brigadas() const;
     void set_brigadas(vector<Brigada *> brigadas);
     void add_brigada(const Brigada &brigada);
+    void imprimirBrigadas() const;
 
 };
 
