@@ -6,9 +6,12 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello, World!" << endl;
+    cout << "Bem vindo!" << endl;
 
-    mainMenu();
+    Autoridade_Publica autoridade;
+
+
+    mainMenu(autoridade);
 
     return 0;
 }
