@@ -1,6 +1,18 @@
+::::::::::::::::::::::::::
+1
 Talho do Povo
-6 20
-0
-Atividade Comercial, Segurança e Salubridade de Edificações, Géneros Alimentícios
+20.0
+6-20
+0, 1, 2
+Atividade Comercial, Seguranca e Salubridade de Edificacoes, Generos Alimenticios
 (localizacao) 
-(0, false)
+0,reprovado|1,aprovado|2,aprovado
+::::::::::::::::::::::::::
+2
+Casa Viva Todas as Obras
+0.0
+9-19
+3, 4, 5
+Atividade Comercial, Obras
+(localizacao)
+3,reprovado|4,aprovado|5,desconhecido
