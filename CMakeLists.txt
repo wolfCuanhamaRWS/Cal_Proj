@@ -21,6 +21,7 @@ add_executable(Cal_Proj_master
         #Trabalho/Header/MutablePriorityQueue.h
         #Trabalho/Header/node.h
         Trabalho/Header/utils.h
+        Trabalho/Header/FileUtils.h
         Trabalho/Source/Local.cpp
         Trabalho/Source/AgenteEconomico.cpp
         Trabalho/Source/Autoridade_Publica.cpp
@@ -35,4 +36,5 @@ add_executable(Cal_Proj_master
         Trabalho/main.cpp
         Trabalho/TextFiles
         Trabalho/Source/Data.cpp
-        Trabalho/Header/Data.h)
+        Trabalho/Header/Data.h
+        Trabalho/Source/FileUtils.cpp )
