@@ -97,6 +97,51 @@ void AgenteEconomico::set_inspecoes(set<pair<int, string>> inspecoes) {
     this->inspecoes = inspecoes;
 }
 
+void AgenteEconomico::imprimir(ostream& out ) const
+{
+    out << ID << " | "
+        <<nome << " | "
+        << area << " | "
+        << horario_funcionamento.first << " - " << horario_funcionamento.second << " | ";
+    if(ids_denuncias.empty())
+        cout << "Não existe" << " | ";
+    else
+    {
+        int j = 0;
+        for (set<int>::iterator it = ids_denuncias.begin(); it != ids_denuncias.end(); ++it)
+        {
+            cout << (*it);
+            if (j != (ids_denuncias.size() - 1)) cout << ", ";
+            j++;
+        }
+        cout<< " | ";
+    }
+
+    for(int h = 0; h < atividades_economicas.size(); h++)
+    {
+        cout << atividades_economicas.at(h);
+        if (h != (atividades_economicas.size() - 1)) cout << ", ";
+    }
+    cout << " | ";
+
+    if(inspecoes.empty())
+        cout << "Nao existe" << " | ";
+    else
+    {
+        vector <pair<int, string>> inspecoes_copia;
+        for (set<pair<int, string>>::iterator itr = inspecoes.begin(); itr != inspecoes.end(); ++itr)
+        {
+            inspecoes_copia.push_back(*itr);
+        }
+        for(int l = 0; l < inspecoes_copia.size(); l++)
+        {
+            cout << inspecoes_copia.at(l).first << "(" << inspecoes_copia.at(l).second << ")";
+            if (l != (inspecoes.size() - 1)) cout << ", ";
+        }
+        cout<<endl;
+    }
+
+}
 
 
 
