@@ -2,6 +2,7 @@
 #define PROJ_GRAFOS_BRIGADA_H
 
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ class Brigada
 {
 private:
     int ID;
-    string especialidade; //ou se forem várias especialidades: vector<string> atividades_economicas;
+    string especialidade;//ou se forem várias especialidades: vector<string> atividades_economicas;
                             //Obras, Atividade Comercial, Ambiental e Intervenção na Via Pública
                             //Segurança e Salubridade de Edificações, Géneros Alimentícios (e.g. talhos, restauração...)
     int hora_comeco; //hora do dia em que a brigada começa a sua atividade

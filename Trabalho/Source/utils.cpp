@@ -17,7 +17,7 @@ int checkOption(int min, int max) {
             else if (input > max || input < min) {
                 cin.clear();
                 cin.ignore(1000, '\n');
-                throw WrongInput_option("Input invalido. Escreva um inteiro");
+                throw WrongInput_option("Input invalido. Escreva um valor valido");
             } else
                 return input;
         }

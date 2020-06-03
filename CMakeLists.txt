@@ -9,6 +9,7 @@ include_directories(Trabalho/Source)
 add_executable(Cal_Proj_master
         Trabalho/Header/AgenteEconomico.h
         Trabalho/Header/Autoridade_Publica.h
+        Trabalho/Header/Local.h
         #Trabalho/Header/connection.h
         Trabalho/Header/Denuncia.h
         #Trabalho/Header/edgetype.h
@@ -20,6 +21,7 @@ add_executable(Cal_Proj_master
         #Trabalho/Header/MutablePriorityQueue.h
         #Trabalho/Header/node.h
         Trabalho/Header/utils.h
+        Trabalho/Source/Local.cpp
         Trabalho/Source/AgenteEconomico.cpp
         Trabalho/Source/Autoridade_Publica.cpp
         #Trabalho/Source/connection.cpp
@@ -31,4 +33,6 @@ add_executable(Cal_Proj_master
         #Trabalho/Source/node.cpp
         Trabalho/Source/utils.cpp
         Trabalho/main.cpp
-        Trabalho/TextFiles Trabalho/Source/Data.cpp Trabalho/Source/Data.h)
+        Trabalho/TextFiles
+        Trabalho/Source/Data.cpp
+        Trabalho/Header/Data.h)

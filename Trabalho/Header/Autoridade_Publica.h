@@ -44,7 +44,7 @@ public:
     //Funções relacionadas com as brigadas
     vector<Brigada *> get_brigadas() const;
     void set_brigadas(vector<Brigada *> brigadas);
-    void add_brigada(const Brigada &brigada);
+    void add_brigada(int ID, string especialidade, int hora_comeco, int numero_horas_diario);
     void imprimirBrigadas() const;
 
 };

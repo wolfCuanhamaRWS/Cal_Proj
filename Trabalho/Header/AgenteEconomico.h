@@ -22,6 +22,7 @@
 #include <iostream>
 
 #include "Data.h"
+#include "Local.h"
 
 using namespace std;
 
@@ -36,12 +37,16 @@ private:
     set<int> ids_denuncias; //set que guarda os id's das denúncias (não pode haver id's repetidos daí ser um set)
     vector<string> atividades_economicas; //Obras, Atividade Comercial, Ambiental e Intervenção na Via Pública
                                           //Segurança e Salubridade de Edificações, Géneros Alimentícios (e.g. talhos, restauração...)
-    //todo localizacao
+    Local morada;
     set<pair<int, string>> inspecoes;// Vetor de inspeções já efetuadas; Dicionario com a denuncia e o seu resultado ("aprovado", "reprovado", "desconhecido")
 
 public:
+    AgenteEconomico();
 
-    AgenteEconomico(int ID, string nome, float area, pair<int, int> horario_funcionamento, set<int> ids_denuncias, vector<string> atividades_economicas, set<pair<int, string>>inspecoes);
+    AgenteEconomico(int ID, string nome, float area, pair<int, int> horario_funcionamento, set<int> ids_denuncias, vector<string> atividades_economicas, set<pair<int, string>>inspecoes,long double latitude,long double longuitude);
+
+
+    //AgenteEconomico(int ID, string nome, float area, pair<int, int> horario_funcionamento, set<int> ids_denuncias, vector<string> atividades_economicas, set<pair<int, string>>inspecoes);
 
     //ID
     int get_ID() const;

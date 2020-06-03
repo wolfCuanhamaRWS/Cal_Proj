@@ -9,8 +9,6 @@ int main()
     cout << "Bem vindo!" << endl;
 
     Autoridade_Publica autoridade;
-
-
     mainMenu(autoridade);
 
     return 0;

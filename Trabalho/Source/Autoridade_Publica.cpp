@@ -18,6 +18,7 @@ Autoridade_Publica::Autoridade_Publica()
     int id1, ID1;
     float area;
     bool resultado;
+    //long double latitude, longitude;
     vector<string> atividades_economicas;
 
     file1.open("../Trabalho/TextFiles/agente_economico.txt");
@@ -74,9 +75,6 @@ Autoridade_Publica::Autoridade_Publica()
 
         }
 
-        //localização (por fazer)
-        getline(file1, input);
-
         //inspeções
         getline(file1, input);
         vector<string> pairs = string_split(input, '|');
@@ -90,8 +88,13 @@ Autoridade_Publica::Autoridade_Publica()
             //problema aqui
             inspecoes.insert(inspecao);
         }
+        string latitude, longitude;
+        //morada
+        getline(file1,latitude);
+        getline(file1,longitude);
 
-        AgenteEconomico* agente = new AgenteEconomico(ID1, nome, area, intervalo_funcionamento, ids_denuncias, atividades_economicas, inspecoes);
+
+        AgenteEconomico* agente = new AgenteEconomico(ID1, nome, area, intervalo_funcionamento, ids_denuncias, atividades_economicas, inspecoes, stold(latitude),stold(longitude));
         agentes_economicos.push_back(agente);
 
         ids_denuncias.clear();
@@ -264,11 +267,12 @@ void Autoridade_Publica::set_brigadas(vector<Brigada *> inspetores)
     this->brigadas = brigadas;
 }
 
-/*
-void Autoridade_Publica::add_brigada(const Inspetor &inspetor)
-{
 
-}*/
+void Autoridade_Publica::add_brigada(int ID, string especialidade, int hora_comeco, int numero_horas_diario)
+{
+    auto b = new Brigada(ID,especialidade, hora_comeco, numero_horas_diario);
+    this->brigadas.insert(brigadas.end()--,b);
+}
 
 void Autoridade_Publica::imprimirBrigadas() const
 {

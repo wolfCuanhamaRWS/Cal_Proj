@@ -11,6 +11,6 @@ using namespace std;
 int checkOption(int min, int max);
 vector<string> string_split(string str, char sep);
 string elem_two_spaces(string str);
-
+void wait();
 
 #endif //CAL_UTILS_H

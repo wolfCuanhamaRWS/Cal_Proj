@@ -1,16 +1,14 @@
-#include <winsock2.h>
+
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdlib>
-//#include <term.h>
+
 
 #include "../Header/menus.h"
-#include "../Header/Autoridade_Publica.h"
-#include "../Header/utils.h"
 
-void printAutoridadePublicaMenu()
-{
+
+
+void printAutoridadePublicaMenu() {
 
 
     cout << "=====================================================================================" << endl
@@ -21,17 +19,15 @@ void printAutoridadePublicaMenu()
          << "Visualizar Agentes economicos      [1]   |   Visualizar brigadas                 [7] " << endl
          << "Adicionar Agente economico         [2]   |   Adicionar brigada                   [8] " << endl
          << "Remover especialidade              [3]   |   Mudar Id                            [9] " << endl
-         << "Mudar horario de funcionamento     [4]   |   Mudar especialiade                  [10] " << endl
-         << "Adicionar especialidade            [5]   |   Remover brigada                     [11] " << endl
-         << "Remover agente economico           [6]   |   Visualizar rota diaria              [12] " << endl
+         << "Mudar horario de funcionamento     [4]   |   Mudar especialiade                 [10] " << endl
+         << "Adicionar especialidade            [5]   |   Remover brigada                    [11] " << endl
+         << "Remover agente economico           [6]   |   Visualizar rota diaria             [12] " << endl
          << "Exit                               [0]   |                                            " << endl;
 
 }
 
-void autoridadePublicaMenu(Autoridade_Publica &autoridade)
-{
-    while (true)
-    {
+void autoridadePublicaMenu(Autoridade_Publica &autoridade) {
+    while (true) {
         printAutoridadePublicaMenu();
         int option;
         option = checkOption(0, 10);
@@ -39,8 +35,7 @@ void autoridadePublicaMenu(Autoridade_Publica &autoridade)
 
         if (option == 0)                                            //exit option
             break;
-        switch (option)
-        {
+        switch (option) {
             case 1:
                 cout << endl << "Lista de todos os agentes economicos:" << endl;
                 autoridade.imprimirAgentesEconomicos();
@@ -50,20 +45,25 @@ void autoridadePublicaMenu(Autoridade_Publica &autoridade)
                 autoridade.imprimirBrigadas();
                 break;
             case 8:
-                //nspetor *inspetor;
-                vector<string *> vector_buffer;
-                long int nif;
-                cout << "digite o nif do inspector a ser adicionado" << endl;
-                cin >> nif;//todo verificar nif
+                int ID, hora_comeco, numero_horas_diario;
                 string especialidade;
-                while (especialidade != "0") {
-                    cout << "digite uma especialidade do inspector [EXIT 0]" << endl;
-                    cin >> especialidade;
-                    vector_buffer.insert(vector_buffer.begin(), &especialidade);
-                    especialidade = "";
-                    //screenClear();
-                }
-                //nspetor = new Inspetor(nif, vector_buffer);
+                cout << "Digite o ID da brigada a ser adicionada" << endl;
+                cin >> ID;
+                if (ID == 0) { return; }
+                wait();
+                cout << "Caso a brigada tenha somente uma especialidade a di digite, caso controtrio aperte 1" << endl;
+                getline(cin,especialidade);
+                if(especialidade == "0"){ return;}
+                wait();
+                cout << "Digite o horario de inicio do comercio:" << endl;
+                cin>>hora_comeco;
+                if (hora_comeco == 0) { return; }
+                wait();
+                cout << "Digite o numero de horas que o comercio permanece aberto:" << endl;
+                cin>>numero_horas_diario;
+                if (numero_horas_diario == 0) { return; }
+                wait();
+                autoridade.add_brigada(ID,especialidade,hora_comeco, numero_horas_diario);
                 break;
         }
     }
@@ -82,7 +82,7 @@ void denunciasMenu() {
 
     printDenuciasMenu();
 
-    //screenClear();
+
 
     //cin nome no agente economico
     string nome;
@@ -134,10 +134,8 @@ void printMainMenu() {
 
 }
 
-void mainMenu(Autoridade_Publica &autoridade)
-{
-    while (true)
-    {
+void mainMenu(Autoridade_Publica &autoridade) {
+    while (true) {
         printMainMenu();
         int option;
         option = checkOption(0, 2);
@@ -145,8 +143,7 @@ void mainMenu(Autoridade_Publica &autoridade)
 
         if (option == 0) //exit option
             break;
-        switch (option)
-        {
+        switch (option) {
             case 1:
                 denunciasMenu();
 

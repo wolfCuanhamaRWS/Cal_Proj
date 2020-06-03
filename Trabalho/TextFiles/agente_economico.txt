@@ -1,18 +1,20 @@
 ::::::::::::::::::::::::::
 1
-Talho do Povo
+Farmacia Parente
 20.0
 6-20
 0, 1, 2
 Atividade Comercial, Seguranca e Salubridade de Edificacoes, Generos Alimenticios
-(localizacao) 
 0,reprovado|1,aprovado|2,aprovado
+41.14398769
+-8.6132574
 ::::::::::::::::::::::::::
 2
-Casa Viva Todas as Obras
+Mercador Cafe
 0.0
 9-19
 3, 4, 5
 Atividade Comercial, Obras
-(localizacao)
 3,reprovado|4,aprovado|5,desconhecido
+41.14433494
+-8.61270654
