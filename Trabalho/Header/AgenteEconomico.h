@@ -5,7 +5,7 @@
  * separador (::::::::::::::::::::::::::)
  * ID
  * nome do agente económico
- * área em metros quadrados (se a área for igual a 0.0, então significa que é variável, por exemplo obras)
+ * área em metros quadrados
  * intervalo funcionamento (<hora abertura>-<hora de fecho>)
  * id's das denúncias separados por vírgula
  * atividades económicas em que o agente se escontra, separados por vírgula
@@ -37,16 +37,13 @@ private:
     set<int> ids_denuncias; //set que guarda os id's das denúncias (não pode haver id's repetidos daí ser um set)
     vector<string> atividades_economicas; //Obras, Atividade Comercial, Ambiental e Intervenção na Via Pública
                                           //Segurança e Salubridade de Edificações, Géneros Alimentícios (e.g. talhos, restauração...)
-    Local morada;
     set<pair<int, string>> inspecoes;// Vetor de inspeções já efetuadas; Dicionario com a denuncia e o seu resultado ("aprovado", "reprovado", "desconhecido")
+    Local morada;
 
 public:
     AgenteEconomico();
 
     AgenteEconomico(int ID, string nome, float area, pair<int, int> horario_funcionamento, set<int> ids_denuncias, vector<string> atividades_economicas, set<pair<int, string>>inspecoes,long double latitude,long double longuitude);
-
-
-    //AgenteEconomico(int ID, string nome, float area, pair<int, int> horario_funcionamento, set<int> ids_denuncias, vector<string> atividades_economicas, set<pair<int, string>>inspecoes);
 
     //ID
     int get_ID() const;
@@ -78,6 +75,10 @@ public:
     set<pair<int, string>> get_inspecoes() const;
     void set_inspecoes(set<pair<int, string>> inspecoes);
 
+    /*morada
+    Local get_morada() const;
+    void set_morada(Local inspecoes);*/
+
 
     void add_inspecao(int &denuncia, bool &resultado);
     bool get_resultado_ultima_visita();
@@ -89,6 +90,12 @@ public:
     int get_numero_inspecoes_aprovadas();
     int get_numero_inspecoes_reprovadas();
     Data get_data_ultima_inspecao();
+
+    /**
+     * Escreve para uma ostream out o valor de todos os membros-dado de forma formatada.
+     * @param out A stream de output para onde serão escritos os valores dos membros-dado
+     */
+    void imprimir(ostream& out) const;
 
 };
 
