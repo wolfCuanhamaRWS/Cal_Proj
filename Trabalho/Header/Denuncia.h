@@ -1,17 +1,5 @@
 #ifndef PROJ_GRAFOS_DENUNCIA_H
 #define PROJ_GRAFOS_DENUNCIA_H
-/*
- * Estrutura do ficheiro denuncias.txt:
- * separador (::::::::::::::::::::::::::)
- * id da denúncia
- * id do agente ecnómico denunciado
- * gravidade da denúncia (varia de 1 a 5, 1: muito leve
- *                                        2: leve
- *                                        3: normal
- *                                        4: grave
- *                                        5: muito grave)
- * especialidade em que é efetuada a denúncia
- */
 #include <string>
 
 using namespace std;
@@ -38,6 +26,7 @@ public:
 
     //gravidade
     int get_gravidade() const;
+    string get_gravidade_string() const;
     void set_gravidade(int gravidade);
 
     //especialidade
