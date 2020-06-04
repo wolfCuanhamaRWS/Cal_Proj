@@ -17,7 +17,7 @@ void printAutoridadePublicaMenu() {
          << "=========================================|===========================================" << endl
          << "Visualizar Agentes economicos      [1]   |   Visualizar brigadas                 [7] " << endl
          << "Adicionar Agente economico         [2]   |   Adicionar brigada                   [8] " << endl
-         << "Remover especialidade              [3]   |   Mudar especialiade                  [9] " << endl
+         << "Remover especialidade              [3]   | " << endl
          << "Mudar horario de funcionamento     [4]   |   Remover brigada                    [10] " << endl
          << "Adicionar especialidade            [5]   |   Visualizar rota diaria             [11] " << endl
          << "Remover agente economico           [6]   |                                           " << endl
@@ -130,46 +130,42 @@ void printDenuciasMenu() {
 }
 
 
-void denunciasMenu() {
+void denunciasMenu(Autoridade_Publica autoridade) {
 
     printDenuciasMenu();
+    //cin id_denuncia
+    int id_denuncia;
+    bool id_valido = false;
+    while (!id_valido) {
+        cout << "Atribua um interiro pra id da denucia [EXIT 0]: " << endl;
+        id_denuncia = checkOption(0, 100000000);
+        if (id_denuncia == 0) { return; }
+        id_valido = autoridade.id_valido(id_denuncia);
 
-
+    }
 
     //cin nome no agente economico
-    string nome;
-
-    cout << "Digite o nome agente economico [EXIT 0]: " << endl;
-
-    getline(cin, nome);
-
-    //(!autoridadePublica.check_Agente_Economico_Existe_por_nome(nome)){}//todo conferir se ao agente economico existe?
-    if (nome == "0") { return; }
-
+    int id_agente;
+    cout << "Digite o id agente economico [EXIT 0]: " << endl;
+    id_agente = checkOption(0, 100000000);
+    if (id_agente == 0) { return; }
 
     //cin gravidade d a denuncia
     int gravidade;
-
     cout << "Digite a Gravidade [EXIT 0]: " << endl;
     cout << "(Leve - 1, Moderada - 2, Grave - 3, Muito Grave - 4)" << endl;
     gravidade = checkOption(0, 4);
+    wait();
     if (gravidade == 0) return;   //abort option
-
-
 
     //cin especialidade
     string especialidade;
-
     cout << "Digite a especialidade [EXIT 0]: " << endl;
-    getline(cin, especialidade); //todo checar se essa especialide existe no agenteEconomico
+    getline(cin, especialidade);
     if (especialidade == "0") { return; }
+    autoridade.add_denuncia(id_denuncia, id_agente, gravidade, especialidade);
+    autoridade.write_denuncia();
 
-
-//    Denuncia *denuncia =new Denuncia(especialidade
-//    autoridadePublica.add_denucia(denuncia);
-
-
-    //screenClear();
 
 }
 
@@ -197,7 +193,7 @@ void mainMenu(Autoridade_Publica &autoridade) {
             break;
         switch (option) {
             case 1:
-                denunciasMenu();
+                denunciasMenu(autoridade);
 
                 break;
 
