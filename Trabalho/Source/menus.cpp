@@ -177,9 +177,13 @@ void printMainMenu() {
          << "=====================================================================================" << endl
          << "           DENUNCIAS                     |          AUTORIDADE PUBLICA               " << endl
          << "=========================================|========================================== " << endl
-         << "Fazer denuncica                    [1]   |   Gerenciar autoridade publica        [2] " << endl
+         << "Ver denuncicas                     [1]   |   Gerenciar autoridade publica        [3] " << endl
+         << "Fazer denuncica                    [2]   |                                           " << endl
          << "Exit                               [0]   |                                           " << endl;
 
+    /*
+     * Podem alterar isto, é só para ver se a leitura está correta
+     */
 }
 
 void mainMenu(Autoridade_Publica &autoridade) {
@@ -193,11 +197,15 @@ void mainMenu(Autoridade_Publica &autoridade) {
             break;
         switch (option) {
             case 1:
-                denunciasMenu(autoridade);
-
+                cout << endl << "Lista das denuncias:" << endl;
+                autoridade.imprimirDenuncias();
                 break;
 
             case 2:
+                denunciasMenu(autoridade);
+
+                break;
+            case 3:
                 autoridadePublicaMenu(autoridade);
                 break;
 

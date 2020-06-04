@@ -2,43 +2,11 @@
 
 #include <utility>
 
-
-
-
-/*
-while(!file2.eof())
+Autoridade_Publica::Autoridade_Publica()
 {
-    //separador
-    getline(file2, input);
-
-    //ID
-    getline(file2, input);
-    ID2 = stoi(input);
-
-    //especialidade
-    getline(file2, especialidade);
-
-    //hora começo
-    getline(file2, input);
-    hora_comeco = stoi(input);
-
-    //numero_horas_diario
-    getline(file2, input);
-    numero_horas_diario = stoi(input);
-
-    Brigada* brigada = new Brigada(ID2, especialidade, hora_comeco, numero_horas_diario);
-    brigadas.push_back(brigada);
-
-}*/
-
-
-
-
-Autoridade_Publica::Autoridade_Publica() {
-read_denuncias();
-read_brigada();
-read_agente();
-
+    read_denuncias();
+    read_brigada();
+    read_agente();
 }
 
 vector<AgenteEconomico *> Autoridade_Publica::get_agentes() const {
@@ -75,7 +43,8 @@ void Autoridade_Publica::set_denuncias(vector<Denuncia *> &denuncias) {
     this->denuncias = denuncias;
 }
 
-void Autoridade_Publica::add_denuncia(int id, int id_agente, int gravidade, string especialidade) {
+void Autoridade_Publica::add_denuncia(int id, int id_agente, int gravidade, string especialidade)
+{
     auto denuncia = new Denuncia(id, id_agente, gravidade, especialidade);
     this->denuncias.push_back(denuncia);
 }
@@ -116,8 +85,31 @@ bool Autoridade_Publica::id_valido(int id) {
     return true;
 }
 
-void Autoridade_Publica::read_agente() {
-//Processamento das informações do ficheiro agente_economico.txt
+void Autoridade_Publica::imprimirDenuncias() const
+{
+    vector<Denuncia *> copia_denuncias = denuncias;
+    for (unsigned i = 0; i < copia_denuncias.size(); i++) {
+        cout << "ID: " << copia_denuncias.at(i)->get_id() << " | "
+             << "ID do agente: " << copia_denuncias.at(i)->get_id_agente() << " | "
+             << "Gravidade: " << copia_denuncias.at(i)->get_gravidade_string() << " | "
+             << "Especialidade: " << copia_denuncias.at(i)->get_especialidade() << endl;
+
+    }
+}
+
+void Autoridade_Publica::read_agente()
+{
+    /*Ficheiro agente_economico.txt que tem a seguinte estrutura:
+    * separador (::::::::::::::::::::::::::)
+    * ID
+    * nome do agente económico
+    * área em metros quadrados
+    * intervalo funcionamento (<hora abertura>-<hora de fecho>)
+    * id's das denúncias separados por vírgula
+    * atividades económicas em que o agente se escontra, separados por vírgula
+    * tuplos de inspeções separados por "|" (<id da denúncia>, <true/false>)
+    * localização (latitude e longitude)
+    */
     ifstream file1;
     string input, tuplo;
     unsigned int pos, p;
@@ -209,30 +201,55 @@ void Autoridade_Publica::read_agente() {
     }
 }
 
-void Autoridade_Publica::read_denuncias() {
-
-
-    //Processamento das informações do ficheiro denuncias.txt
+void Autoridade_Publica::read_denuncias()
+{
+    /*Ficheiro denuncias.txt que tem a seguinte estrutura:
+    * separador (::::::::::::::::::::::::::)
+    * id da denuncia
+    * id do agente ecnómico denunciado
+    * gravidade da denúncia (varia de 1 a 5, 1: muito leve
+    *                                        2: leve
+    *                                        3: normal
+    *                                        4: grave
+    *                                        5: muito grave)
+    * especialidade em que é efetuada a denuncia
+    */
     ifstream file;
-    string especialidade, buffer;
-    string id, id_agente, gravidade;
+    string especialidade, input;
+    int id, id_agente, gravidade;
 
     file.open("../Trabalho/TextFiles/denuncias.txt");
-    if (file.fail()) {
+    if (file.fail())
+    {
         cout << "Erro na abertura do ficheiro denuncias.txt " << endl;
     }
-    while (!file.eof()) {
-        getline(file, buffer);
-        getline(file, id);
-        getline(file, id_agente);
-        getline(file, gravidade);
+    while (!file.eof())
+    {
+        //separador
+        getline(file, input);
+
+        //id da denuncia
+        getline(file, input);
+        id = stoi(input);
+
+        //id do agente
+        getline(file, input);
+        id_agente = stoi(input);
+
+        //gravidade
+        getline(file, input);
+        gravidade = stoi(input);
+
+        //especialidade
         getline(file, especialidade);
+
+        //adiciona o agente para o vector de denucias na autoridade publica
+        add_denuncia(id, id_agente, gravidade, especialidade);
     }
-    //adiciona o agente para o vector de denucias na autoridade publica
-    add_denuncia(stoi(id), stoi(id_agente), stoi(gravidade), especialidade);
 }
 
-void Autoridade_Publica::read_brigada() {
+void Autoridade_Publica::read_brigada()
+{
     //Processamento das informações do ficheiro brigadas.txt
     ifstream file2;
     int ID2, hora_comeco, numero_horas_diario;
