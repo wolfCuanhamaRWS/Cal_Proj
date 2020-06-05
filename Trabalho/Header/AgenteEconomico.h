@@ -1,5 +1,17 @@
 #ifndef PROJ_GRAFOS_AGENTEECONOMICO_H
 #define PROJ_GRAFOS_AGENTEECONOMICO_H
+/*
+ * Estrutura do ficheiro agente_economico:
+ * separador (::::::::::::::::::::::::::)
+ * ID
+ * nome do agente económico
+ * área em metros quadrados
+ * intervalo funcionamento (<hora abertura>-<hora de fecho>)
+ * id's das denúncias separados por vírgula
+ * atividades económicas em que o agente se escontra, separados por vírgula
+ * localização
+ * tuplos de inspeções separados por "|" (<id da denúncia>, <true/false>)
+ */
 #include <vector>
 #include <map>
 #include <string>

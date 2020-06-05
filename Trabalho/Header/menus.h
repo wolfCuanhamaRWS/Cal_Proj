@@ -7,7 +7,6 @@
 #include "../Header/graphviewer.h"
 #include "../Header/Autoridade_Publica.h"
 
-
 using namespace std;
 
 void printAutoridadePublicaMenu();
