@@ -34,23 +34,6 @@ int Denuncia::get_gravidade() const
     return gravidade;
 }
 
-string Denuncia::get_gravidade_string() const
-{
-    switch(gravidade)
-    {
-        case 1:
-            return "muito leve";
-        case 2:
-            return "leve";
-        case 3:
-            return "normal";
-        case 4:
-            return "grave";
-        case 5:
-            return "muito grave";
-    }
-}
-
 void Denuncia::set_gravidade(int gravidade)
 {
     this->gravidade = gravidade;
