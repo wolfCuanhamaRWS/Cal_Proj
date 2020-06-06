@@ -110,7 +110,7 @@ public:
 
     Estrutura do ficheiro:
      - separador (::::::::::::::::::::::::::)
-     - identificacao do agente
+     - id do agente
      - atividade económica em que se enquadra
      - area
      - horario de funcionamento (<hora de abertura>-<hora de fecho>)
@@ -169,7 +169,9 @@ public:
             return "";
     }
 
-    //identificacao
+
+
+    //id
     unsigned int get_id() const {return this->id;};
     void set_id(unsigned  int id){this-> id = id;};
 

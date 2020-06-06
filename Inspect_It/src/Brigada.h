@@ -23,7 +23,7 @@ Brigada:
 
     Estrutura do ficheiro brigadas.txt:
     - separador (::::::::::::::::::::::::::)
-    - identificacao
+    - id
     - atividades económicas em que a brigada se especializa
     - número de horas de trabalho
     - hora de inicio
@@ -34,21 +34,21 @@ class Brigada
 {
 
 private:
-    unsigned  int identificacao;
+    unsigned  int id;
     AtividadeEconomica atividades_economicas;
     unsigned int horas_trabalho;
     unsigned int hora_inicio;
 
 public:
     Brigada(unsigned  int id, AtividadeEconomica atividades_economicas, unsigned int horas_trabalho, unsigned int hora_inicio)
-            {this->identificacao = id;
+            {this->id = id;
              this->atividades_economicas = atividades_economicas;
              this-> horas_trabalho = horas_trabalho;
              this->hora_inicio = hora_inicio;}
 
-    //identificacao
-    unsigned int get_id()const{return identificacao;};
-    void set_id(unsigned int  id){this->identificacao = id;};
+    //id
+    unsigned int get_id()const{return id;};
+    void set_id(unsigned int  id){this->id = id;};
 
     //atividades economicas
     AtividadeEconomica get_atividades_economicas() const{return atividades_economicas;}

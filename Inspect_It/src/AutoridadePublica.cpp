@@ -28,7 +28,7 @@ unordered_map<unsigned int, AgenteEconomico *> AutoridadePublica::processarFiche
             //separador
             getline(ficheiro, input);
 
-            //identificacao do agente
+            //id do agente
             getline(ficheiro, input);
             id = stoi(input);
 
@@ -91,7 +91,7 @@ unordered_map<unsigned int, AgenteEconomico *> AutoridadePublica::processarFiche
             result[id] = agente;
 
         }
-    } else {cout << "Erro na abertura do ficheiro agentes.txt " << endl;}
+    } else { cout << "Erro na abertura do ficheiro agentes.txt " << endl; }
     return result;
 }
 
@@ -132,7 +132,7 @@ unordered_map<unsigned int, Brigada *> AutoridadePublica::processarFicheiroBriga
             //separador
             getline(ficheiro, input);
 
-            //identificacao da brigada
+            //id da brigada
             getline(ficheiro, input);
             id = stoi(input);
 
@@ -164,7 +164,7 @@ unordered_map<unsigned int, Brigada *> AutoridadePublica::processarFicheiroBriga
             //Brigada
             auto *brigada = new Brigada(id, atividade, horas_trabalho, hora_inicio);
             result[id] = brigada;
-
+            this->id_control_briagada = id;
         }
     } else { cout << "Erro na abertura do ficheiro brigadas.txt " << endl; }
     return result;
@@ -246,17 +246,43 @@ void AutoridadePublica::adicionarBrigada() {
     cout << "=====================================================================================" << endl
          << "                                 NOVA BRIGADA                                        " << endl
          << "=====================================================================================" << endl;
-    unsigned int id, horas_trabalho, hora_inicio;
 
 
-    //Brigada(unsigned  int identificacao, AtividadeEconomica atividades_economicas, unsigned int horas_trabalho, unsigned int hora_inicio);
+    //cin atividade economica
+    string atividadeEconomica;
+    cout << "Escreva a tividade economica da brigada" << endl;
+    cout << "OPCOES:" << endl;
+    cout << " - Todas" << endl
+         << " - Obras" << endl
+         << " - Comercial" << endl
+         << " - Ambiental" << endl
+         << " - IntervencaoViaPublica" << endl
+         << " - SegurancaSalubridadeEdificacoes" << endl
+         << " - GenerosAlimenticios" << endl;
+    cin >> atividadeEconomica;
 
+    //cin horas de trabalho
+    cout << "Escreva quantas horas o comercio permanece aberto" << endl;
+    cout<<"(obs. n a possibilidade de colocar minutos, caso seja necessrio aredonde para cima)"<<endl;
+    unsigned int horas_trabalho = checkOption(1, 24);
+
+    //cin horario de inicio
+    cout << "Escreva o horario de abertura do comercio" << endl;
+    cout<<"(obs. n a possibilidade de colocar minutos, caso seja necessrio aredonde para cima)"<<endl;
+    unsigned  int hora_inico = checkOption(0,24);//todo problema horario de abertura n n aceita
+
+    this->id_control_briagada++;
+    auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica),horas_trabalho,hora_inico);
+ // pair<unsigned int, Brigada*> nova_brigada(id_control_briagada,brigada);
+    this->brigadas[id_control_briagada] = brigada; wait();
 }
 
 /***************************************************************************************************************/
 
-void AutoridadePublica::removerBrigada() {
-
+void AutoridadePublica::removerBrigada(unsigned int id){
+    this->brigadas.erase(id);
 }
 
 /***************************************************************************************************************/
+
+

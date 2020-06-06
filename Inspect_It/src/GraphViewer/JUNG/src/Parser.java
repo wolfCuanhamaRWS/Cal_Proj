@@ -58,14 +58,14 @@ public class Parser {
 	
 	private boolean addNode1(String[] splitted) {
 		if (splitted.length == 2) {
-			Integer identificacao;
+			Integer id;
 			try {
-				identificacao = Integer.parseInt(splitted[1]);
+				id = Integer.parseInt(splitted[1]);
 			}
 			catch (Exception e) {
 				return false;
 			}
-			gvc.addNode(identificacao);
+			gvc.addNode(id);
 			return true;
 		}
 			
@@ -74,16 +74,16 @@ public class Parser {
 	
 	private boolean addNode3(String[] splitted) {
 		if (splitted.length == 4) {
-			Integer identificacao, x, y;
+			Integer id, x, y;
 			try {
-				identificacao = Integer.parseInt(splitted[1]);
+				id = Integer.parseInt(splitted[1]);
 				x = Integer.parseInt(splitted[2]);
 				y = Integer.parseInt(splitted[3]);
 			}
 			catch (Exception e) {
 				return false;
 			}
-			gvc.addNode(identificacao, x, y);
+			gvc.addNode(id, x, y);
 			return true;
 		}
 		return false;
@@ -91,10 +91,10 @@ public class Parser {
 	
 	private boolean addEdge(String[] splitted) {
 		if (splitted.length == 5) {
-			Integer identificacao, v1, v2, ntype;
+			Integer id, v1, v2, ntype;
 			EdgeType type;
 			try {
-				identificacao = Integer.parseInt(splitted[1]);
+				id = Integer.parseInt(splitted[1]);
 				v1 = Integer.parseInt(splitted[2]);
 				v2 = Integer.parseInt(splitted[3]);
 				ntype = Integer.parseInt(splitted[4]);
@@ -107,7 +107,7 @@ public class Parser {
 			else
 				type = EdgeType.UNDIRECTED;
 			
-			gvc.addEdge(identificacao, v1, v2, type);
+			gvc.addEdge(id, v1, v2, type);
 
 			return true;
 		}
@@ -116,14 +116,14 @@ public class Parser {
 
 	private boolean removeNode(String[] splitted) {
 		if (splitted.length == 2) {
-			Integer identificacao;
+			Integer id;
 			try {
-				identificacao = Integer.parseInt(splitted[1]);
+				id = Integer.parseInt(splitted[1]);
 			}
 			catch (Exception e) {
 				return false;
 			}
-			gvc.removeNode(identificacao);
+			gvc.removeNode(id);
 			return true;
 		}
 			
@@ -132,14 +132,14 @@ public class Parser {
 
 	private boolean removeEdge(String[] splitted) {
 		if (splitted.length == 2) {
-			Integer identificacao;
+			Integer id;
 			try {
-				identificacao = Integer.parseInt(splitted[1]);
+				id = Integer.parseInt(splitted[1]);
 			}
 			catch (Exception e) {
 				return false;
 			}
-			gvc.removeEdge(identificacao);
+			gvc.removeEdge(id);
 			return true;
 		}
 			

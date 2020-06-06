@@ -3,10 +3,8 @@
 int checkOption(int min, int max) {
     int input;
 
-    while (true)
-    {
-        try
-        {
+    while (true) {
+        try {
             cout << endl << "Escolha uma opcao (" << min << "-" << max << "): ";
             cin >> input;
             if (cin.fail()) {
@@ -31,10 +29,8 @@ int checkOption(int min, int max) {
 
 }
 
-string elem_two_spaces(string str)
-{
-    while (str.find("  ") != string::npos)
-    {
+string elem_two_spaces(string str) {
+    while (str.find("  ") != string::npos) {
         str.erase(str.find("  "), 1);
     }
     return str;
@@ -42,28 +38,22 @@ string elem_two_spaces(string str)
 
 /***************************************************************************************************************/
 
-vector<string> string_split(string str, char sep)
-{
+vector<string> string_split(string str, char sep) {
     vector<string> result;
     string component = "";
 
-    for (int i = 0; i < str.size(); i++)
-    {
+    for (int i = 0; i < str.size(); i++) {
         char ch = str.at(i);
-        if (ch != sep)
-        {
+        if (ch != sep) {
             component.append(1, ch);
-        }
-        else
-        {
+        } else {
             component = elem_two_spaces(component);
             if (component.at(component.size() - 1) == ' ') component.pop_back();
             if (component.at(0) == ' ') component.erase(0, 1);
             result.push_back(component);
             component = "";
         }
-        if (i == (str.size() - 1))
-        {
+        if (i == (str.size() - 1)) {
             component = elem_two_spaces(component);
             if (component.at(component.size() - 1) == ' ') component.pop_back();
             if (component.at(0) == ' ') component.erase(0, 1);
@@ -84,7 +74,7 @@ void screenClear() {
 }
 
 void wait() {
-    cout << endl << "[PRESS ENTER]";
+    cout << endl << "[PRESS ENTER TO CONTINUE]" << endl;
     cin.ignore();
     while (cin.get() != '\n') {};
 }

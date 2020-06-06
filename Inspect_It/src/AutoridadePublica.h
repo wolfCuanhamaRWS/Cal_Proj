@@ -35,8 +35,8 @@ private:
     size_t num_brigadas;
     size_t num_agentes;
 
-    static size_t id_control_briagada;
-    static size_t id_control_agente_economico;
+    size_t id_control_briagada = 0;
+    size_t id_control_agente_economico = 0;
     unordered_map<unsigned int, Brigada*> brigadas;
     unordered_map<unsigned int, AgenteEconomico*> agentes;
 
@@ -59,7 +59,7 @@ public:
      */
     unordered_map<unsigned int, Brigada*> processarFicheiroBrigadas();
 
-    /**Função que retorna mapa com as brigadas sinalizadas pelo seu identificacao
+    /**Função que retorna mapa com as brigadas sinalizadas pelo seu id
      *
      * @return mapa desordenado com as brigadas
      */
@@ -71,7 +71,7 @@ public:
      */
     void set_brigadas(unordered_map<unsigned int, Brigada*> brigadas){this->brigadas = brigadas;};
 
-    /**Função com mapa que tem agentes económicos sinalizados com o identificacao de cada Agente económico
+    /**Função com mapa que tem agentes económicos sinalizados com o id de cada Agente económico
      *
      * @return mapa com agentes económicos
      */
@@ -116,6 +116,26 @@ public:
     /**
     * Por fazer
     */
-    void removerBrigada();
+    void removerBrigada(unsigned  int id);
+
+    //atividade economica
+
+    AtividadeEconomica stringToAE(string atividades_economicas) {
+        if(atividades_economicas == "Todas")
+            return Todas;
+        else if(atividades_economicas == "Obras")
+            return Obras;
+        else if(atividades_economicas == "Comercial")
+            return Comercial;
+        else if(atividades_economicas == "Ambiental")
+            return Ambiental;
+        else if(atividades_economicas == "IntervencaoViaPublica")
+            return IntervencaoViaPublica;
+        else if(atividades_economicas == "SegurancaSalubridadeEdificacoes")
+            return SegurancaSalubridadeEdificacoes;
+        else if(atividades_economicas == "GenerosAlimenticios")
+            return GenerosAlimenticios;
+
+    }
 };
 #endif //CAL_PROJ_AUTORIDADEPUBLICA_H
