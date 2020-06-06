@@ -1,4 +1,0 @@
-/snap/clion/114/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/flavio/CAL/Cal_Proj
--- Configuring done
--- Generating done
--- Build files have been written to: /home/flavio/CAL/Cal_Proj/cmake-build-debug

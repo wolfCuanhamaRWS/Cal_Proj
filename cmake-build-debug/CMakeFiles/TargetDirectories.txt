@@ -1,3 +1,0 @@
-/home/flavio/CAL/Cal_Proj/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/flavio/CAL/Cal_Proj/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/flavio/CAL/Cal_Proj/cmake-build-debug/CMakeFiles/Cal_Proj_master.dir

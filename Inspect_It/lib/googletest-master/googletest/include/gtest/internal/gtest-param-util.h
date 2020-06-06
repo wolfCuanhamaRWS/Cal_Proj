@@ -469,7 +469,7 @@ class ParameterizedTestCaseInfoBase {
 
   // Base part of test case name for display purposes.
   virtual const std::string& GetTestCaseName() const = 0;
-  // Test case id to verify identity.
+  // Test case identificacao to verify identity.
   virtual TypeId GetTestCaseTypeId() const = 0;
   // UnitTest class invokes this method to register Tests in this
   // test case right before running them in RUN_ALL_TESTS macro.
@@ -510,7 +510,7 @@ class ParameterizedTestCaseInfo : public ParameterizedTestCaseInfoBase {
   const std::string& GetTestCaseName() const override {
     return test_case_name_;
   }
-  // Test case id to verify identity.
+  // Test case identificacao to verify identity.
   TypeId GetTestCaseTypeId() const override { return GetTypeId<TestCase>(); }
   // TEST_P macro uses AddTestPattern() to record information
   // about a single test in a LocalTestInfo structure.

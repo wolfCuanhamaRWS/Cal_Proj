@@ -1,4 +1,10 @@
+
+
+#ifndef CAL_PROJ_BRIGADA_H
+#define CAL_PROJ_BRIGADA_H
+
 #pragma once
+
 
 #include <vector>
 #include "AgenteEconomico.h"
@@ -17,7 +23,7 @@ Brigada:
 
     Estrutura do ficheiro brigadas.txt:
     - separador (::::::::::::::::::::::::::)
-    - id
+    - identificacao
     - atividades económicas em que a brigada se especializa
     - número de horas de trabalho
     - hora de inicio
@@ -28,21 +34,21 @@ class Brigada
 {
 
 private:
-    unsigned  int id;
+    unsigned  int identificacao;
     AtividadeEconomica atividades_economicas;
     unsigned int horas_trabalho;
     unsigned int hora_inicio;
 
 public:
     Brigada(unsigned  int id, AtividadeEconomica atividades_economicas, unsigned int horas_trabalho, unsigned int hora_inicio)
-            {this->id = id;
+            {this->identificacao = id;
              this->atividades_economicas = atividades_economicas;
              this-> horas_trabalho = horas_trabalho;
              this->hora_inicio = hora_inicio;}
 
-    //id
-    unsigned int get_id()const{return id;};
-    void set_id(unsigned int  id){this->id = id;};
+    //identificacao
+    unsigned int get_id()const{return identificacao;};
+    void set_id(unsigned int  id){this->identificacao = id;};
 
     //atividades economicas
     AtividadeEconomica get_atividades_economicas() const{return atividades_economicas;}
@@ -60,10 +66,13 @@ public:
             return "IntervencaoViaPublica";
         else if(atividades_economicas == SegurancaSalubridadeEdificacoes)
             return "SegurancaSalubridadeEdificacoes";
-        else if(atividades_economicas == GenerosAlimenticios)
+        else //if(atividades_economicas == GenerosAlimenticios)
             return "GenerosAlimenticios";
+/*
         else
             return "";
+            */
+
 
     }
 
@@ -89,3 +98,4 @@ public:
     }
 
 };
+#endif //CAL_PROJ_BRIGADA_H

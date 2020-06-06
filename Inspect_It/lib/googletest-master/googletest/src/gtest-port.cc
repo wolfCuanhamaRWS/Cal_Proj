@@ -546,7 +546,7 @@ class ThreadLocalRegistryImpl {
   // thread's ID.
   typedef std::map<DWORD, ThreadLocalValues> ThreadIdToThreadLocals;
 
-  // Holds the thread id and thread handle that we pass from
+  // Holds the thread identificacao and thread handle that we pass from
   // StartWatcherThreadFor to WatcherThreadFunc.
   typedef std::pair<DWORD, HANDLE> ThreadIdAndHandle;
 

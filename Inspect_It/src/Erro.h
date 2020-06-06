@@ -2,12 +2,12 @@
 // Created by Amanda  on 19/05/20.
 //
 
-#include <string>
-
 #ifndef CAL_ERRO_H
 #define CAL_ERRO_H
 
-#endif //CAL_ERRO_
+#include <string>
+
+
 
 using namespace std;
 
@@ -36,3 +36,4 @@ public:
 
     std::string getInfo() const { return info; };
 };
+#endif //CAL_ERRO_

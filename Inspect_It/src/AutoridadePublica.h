@@ -1,5 +1,10 @@
-#pragma once
 
+
+#ifndef CAL_PROJ_AUTORIDADEPUBLICA_H
+#define CAL_PROJ_AUTORIDADEPUBLICA_H
+
+
+#pragma once
 #include <cstddef>
 #include <unordered_map>
 #include <fstream>
@@ -54,7 +59,7 @@ public:
      */
     unordered_map<unsigned int, Brigada*> processarFicheiroBrigadas();
 
-    /**Função que retorna mapa com as brigadas sinalizadas pelo seu id
+    /**Função que retorna mapa com as brigadas sinalizadas pelo seu identificacao
      *
      * @return mapa desordenado com as brigadas
      */
@@ -66,7 +71,7 @@ public:
      */
     void set_brigadas(unordered_map<unsigned int, Brigada*> brigadas){this->brigadas = brigadas;};
 
-    /**Função com mapa que tem agentes económicos sinalizados com o id de cada Agente económico
+    /**Função com mapa que tem agentes económicos sinalizados com o identificacao de cada Agente económico
      *
      * @return mapa com agentes económicos
      */
@@ -113,3 +118,4 @@ public:
     */
     void removerBrigada();
 };
+#endif //CAL_PROJ_AUTORIDADEPUBLICA_H

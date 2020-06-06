@@ -1,4 +1,10 @@
+
+#ifndef CAL_PROJ_AGENTEECONOMICO_H
+#define CAL_PROJ_AGENTEECONOMICO_H
+
 #pragma once
+
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -15,8 +21,7 @@ enum AtividadeEconomica {Todas, Obras, Comercial,Ambiental, IntervencaoViaPublic
     TQ : Número total de queixas.
 
  */
-class Denuncias
-{
+class Denuncias{
 
     unsigned int num_graves;
     unsigned  int num_total;
@@ -105,7 +110,7 @@ public:
 
     Estrutura do ficheiro:
      - separador (::::::::::::::::::::::::::)
-     - id do agente
+     - identificacao do agente
      - atividade económica em que se enquadra
      - area
      - horario de funcionamento (<hora de abertura>-<hora de fecho>)
@@ -119,7 +124,7 @@ public:
 class AgenteEconomico
 {
 private:
-    static unsigned int id;
+    unsigned int id;
     AtividadeEconomica atividades_economicas;
     float area;
     pair<unsigned int, unsigned int> horario_funcionamento;
@@ -130,17 +135,16 @@ private:
 
 public:
 
-    AgenteEconomico(const AtividadeEconomica &atividadesEconomicas, float area,const pair<unsigned int ,unsigned int > &horario_funcionamento,Denuncias* denuncias,Inspecoes* inspecoes,Data* dataUI)
+    AgenteEconomico(unsigned int id,const AtividadeEconomica &atividadesEconomicas, float area, const pair<unsigned int ,unsigned int > &horario_funcionamento, Denuncias* denuncias, Inspecoes* inspecoes, Data* dataUI)
     {
         this-> atividades_economicas = atividadesEconomicas;
         this-> area = area;
         this-> horario_funcionamento = horario_funcionamento;
         this->denuncias = denuncias;
         this->inspecoes = inspecoes;
-        tmpInspecao = gerarTmpInspecao();
+        this->tmpInspecao = gerarTmpInspecao();
         this-> dataUI = dataUI;
-
-        AgenteEconomico::id = id + 1;
+        this->id = id;
     }
     //Atividades económicas
     AtividadeEconomica getAtividadeEconomica() const{return this->atividades_economicas;};
@@ -165,7 +169,7 @@ public:
             return "";
     }
 
-    //id
+    //identificacao
     unsigned int get_id() const {return this->id;};
     void set_id(unsigned  int id){this-> id = id;};
 
@@ -222,6 +226,6 @@ public:
 
 };
 
-unsigned int AgenteEconomico::id = 1;
+#endif //CAL_PROJ_AGENTEECONOMICO_H
 
 

@@ -14,7 +14,8 @@ add_executable(Inspect_It main.cpp
         #src/Graph.h
         #src/MutablePriorityQueue.h
         src/AgenteEconomico.h
-        src/AutoridadePublica.h src/AutoridadePublica.cpp
+        src/AutoridadePublica.h
+        src/AutoridadePublica.cpp
         src/Brigada.h
         src/Data.h src/Data.cpp
         src/menus.h src/menus.cpp

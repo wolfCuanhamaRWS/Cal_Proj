@@ -389,8 +389,8 @@ public class GraphViewerController extends javax.swing.JApplet {
 		vv.repaint();
 	}
 
-	public void addEdge(int id, int v1, int v2, EdgeType type) {
-		g.addEdge(id, v1, v2, type);
+	public void addEdge(int identificacao, int v1, int v2, EdgeType type) {
+		g.addEdge(identificacao, v1, v2, type);
 	}
 
 	public void removeEdge(int k) {

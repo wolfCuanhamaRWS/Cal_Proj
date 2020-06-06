@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/CAL.dir/main.cpp.o CMakeFiles/CAL.dir/Source/menus.cpp.o CMakeFiles/CAL.dir/Source/utils.cpp.o CMakeFiles/CAL.dir/Source/graph.cpp.o CMakeFiles/CAL.dir/Source/node.cpp.o  -o CAL 
