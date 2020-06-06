@@ -198,8 +198,8 @@ void AutoridadePublica::adicionarAgenteEconomico() {
 
 /***************************************************************************************************************/
 
-void AutoridadePublica::removerAgente() {
-
+void AutoridadePublica::removerAgente(unsigned  int id) {
+    this->agentes.erase(id);
 }
 
 /***************************************************************************************************************/
@@ -273,7 +273,6 @@ void AutoridadePublica::adicionarBrigada() {
 
     this->id_control_briagada++;
     auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica),horas_trabalho,hora_inico);
- // pair<unsigned int, Brigada*> nova_brigada(id_control_briagada,brigada);
     this->brigadas[id_control_briagada] = brigada; wait();
 }
 

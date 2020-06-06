@@ -99,9 +99,9 @@ public:
     void adicionarAgenteEconomico();
 
     /**
-     * Por fazer
+     * @param id do agente a ser removido
      */
-    void removerAgente();
+    void removerAgente( unsigned int id);
 
     /**
      * Inserir denuncia
@@ -114,7 +114,7 @@ public:
      void adicionarBrigada();
 
     /**
-    * Por fazer
+    * @param id da brigada a ser removida
     */
     void removerBrigada(unsigned  int id);
 

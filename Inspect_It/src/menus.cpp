@@ -34,16 +34,24 @@ void mainMenu(AutoridadePublica &autoridade) {
                 break;
 
             case 2: //Adicionar agente económico
-                autoridade.adicionarAgenteEconomico(); wait();
+                autoridade.adicionarAgenteEconomico();
+                wait();
                 break;
 
             case 3: //Inserir denuncia
-                autoridade.inserirDenuncia(); wait();
+                autoridade.inserirDenuncia();
+                wait();
                 break;
 
             case 4: //Remover agente economico
-                autoridade.removerAgente(); wait();
+            {
+                cout <<"Escreva o id do agente que deseja remover [EXIT 0]" << endl;
+                cin >> input;
+                if (input == 0) { return; }
+                autoridade.removerAgente(input);
+                wait();
                 break;
+            }
 
             case 5: //Visualizar brigadas
                 cout << endl << "Lista de todos as brigadas:" << endl;
@@ -52,14 +60,16 @@ void mainMenu(AutoridadePublica &autoridade) {
                 break;
 
             case 6: //Adicionar brigada
-                autoridade.adicionarBrigada(); wait();
+                autoridade.adicionarBrigada();
+                wait();
                 break;
 
-            case 7:
-                cout << "escreva o id da brigada que deseja remover[exit 0]:"<<endl;
+            case 7://Remover brigada
+                cout << "Escreva o id da brigada que deseja remover[exit 0]:" << endl;
                 cin >> input;
                 if (input == 0) { return; }
-                autoridade.removerBrigada(input); wait();
+                autoridade.removerBrigada(input);
+                wait();
                 break;
 
             case 8: //Visualizar rota diária
