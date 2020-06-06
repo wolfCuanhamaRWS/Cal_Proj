@@ -193,12 +193,70 @@ void AutoridadePublica::adicionarAgenteEconomico() {
          << "                                NOVO AGENTE ECONOMICO                                " << endl
          << "=====================================================================================" << endl;
 
+    //cin atividade economica
+    string atividadeEconomica;
+    cout << "Escreva a atividade economica do agente que deseja adicionar" << endl;
+    cout << "OPCOES:" << endl;
+    cout << " - Todas" << endl
+         << " - Obras" << endl
+         << " - Comercial" << endl
+         << " - Ambiental" << endl
+         << " - IntervencaoViaPublica" << endl
+         << " - SegurancaSalubridadeEdificacoes" << endl
+         << " - GenerosAlimenticios" << endl;
+    cin >> atividadeEconomica;
+
+    //cin area
+    float area;
+    cout << "Escreva a area do estabelecimento" << endl;
+    cin >> area;
+
+    //cin horario de funcionamento
+    unsigned int inicio, fim;
+    cout << "Escreva o horario de funcionamentp:" << endl;
+    cout << "Hora de inicio:" << endl;
+    cin >> inicio;
+    cout << "Hora de encerramento:";
+    cin >> fim;
+    pair<unsigned int, unsigned int> horario_funcionamento(inicio,fim);
+
+
+    //Denuncias
+    unsigned int graves , total;
+    cout<<"Escreva informacoes sobre as denuncias desse agente economico"<<endl;
+    cout<<"Numero total de denuncias do estabelecimento:"<<endl;
+    cin>> total;
+    cout<<"Destas denuncias quantas sao graves?"<<endl;
+    cin>>graves;
+    auto  *denuncias  = new Denuncias(graves,total);
+
+
+    //inpecoes
+    unsigned int aprovadas , falhas;
+    cout<<"Escreva informacoes sobre as Inspecoes"<<endl;
+    cout<<"Numero de inspecoes aprovadas:"<<endl;
+    cin>> aprovadas;
+    cout<<"Numero de inpecoes reprovadas"<<endl;
+    cin>> falhas;
+    auto *inpecoes = new Inspecoes(aprovadas,falhas);
+
+    //Data da ultima inspecao
+    string data;
+    cout<<"Qual foi a data da ultima inspecao? formato[yyyy/mm/dd]"<<endl;
+    cin >> data;
+    auto * dataUI = new Data(data);
+    this->id_control_agente_economico++;
+
+    auto *agente = new AgenteEconomico(id_control_agente_economico,stringToAE(atividadeEconomica),area,horario_funcionamento, denuncias, inpecoes,dataUI);
+    this->agentes[id_control_agente_economico] = agente;
+    wait();
+
 
 }
 
 /***************************************************************************************************************/
 
-void AutoridadePublica::removerAgente(unsigned  int id) {
+void AutoridadePublica::removerAgente(unsigned int id) {
     this->agentes.erase(id);
 }
 
@@ -263,22 +321,23 @@ void AutoridadePublica::adicionarBrigada() {
 
     //cin horas de trabalho
     cout << "Escreva quantas horas o comercio permanece aberto" << endl;
-    cout<<"(obs. n a possibilidade de colocar minutos, caso seja necessrio aredonde para cima)"<<endl;
+    cout << "(obs. n a possibilidade de colocar minutos, caso seja necessrio aredonde para cima)" << endl;
     unsigned int horas_trabalho = checkOption(1, 24);
 
     //cin horario de inicio
     cout << "Escreva o horario de abertura do comercio" << endl;
-    cout<<"(obs. n a possibilidade de colocar minutos, caso seja necessrio aredonde para cima)"<<endl;
-    unsigned  int hora_inico = checkOption(0,24);//todo problema horario de abertura n n aceita
+    cout << "(obs. n a possibilidade de colocar minutos, caso seja necessrio aredonde para cima)" << endl;
+    unsigned int hora_inico = checkOption(0, 24);//todo problema horario de abertura n n aceita
 
     this->id_control_briagada++;
-    auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica),horas_trabalho,hora_inico);
-    this->brigadas[id_control_briagada] = brigada; wait();
+    auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica), horas_trabalho, hora_inico);
+    this->brigadas[id_control_briagada] = brigada;
+    wait();
 }
 
 /***************************************************************************************************************/
 
-void AutoridadePublica::removerBrigada(unsigned int id){
+void AutoridadePublica::removerBrigada(unsigned int id) {
     this->brigadas.erase(id);
 }
 
