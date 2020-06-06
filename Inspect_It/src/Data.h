@@ -1,11 +1,3 @@
-//
-// Created by flavio on 06/06/20.
-//
-
-#ifndef CAL_FP05_DATA_H
-#define CAL_FP05_DATA_H
-
-
 #ifndef CAL_DATA_H
 #define CAL_DATA_H
 
@@ -24,10 +16,6 @@ private:
     int ano;
 
 public:
-    /**Construtor Default
-     *
-     */
-    Data();
     /**
      * Constructor de data que recebe uma string do utilizador, divide-a e coloca-a os respetivos valores nas variáveis.
      * @param string ano_mes_dia Data em formato aaaa/mm/dd
@@ -175,5 +163,3 @@ bool estaDepois (Data* data1, Data* data2);
 
 #endif //CAL_DATA_H
 
-
-#endif //CAL_FP05_DATA_H

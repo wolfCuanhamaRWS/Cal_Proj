@@ -1,7 +1,3 @@
-//
-// Created by flavio on 06/06/20.
-//
-
 #include "Data.h"
 #include <iostream>
 #include <string>
@@ -12,9 +8,6 @@ using namespace std;
 /****************************************************************************************************************
                             IMPLEMENTAÇÃO DAS FUNÇÕES RELACIONADAS COM Data
 ****************************************************************************************************************/
-
-Data:: Data() {};
-
 Data::Data(int ano, int mes, int dia)
 {
     this->dia = dia;

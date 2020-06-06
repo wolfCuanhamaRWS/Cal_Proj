@@ -3,9 +3,11 @@
 int checkOption(int min, int max) {
     int input;
 
-    while (true) {
-        try {
-            cout << "Escolha uma opcao (" << min << "-" << max << "): ";
+    while (true)
+    {
+        try
+        {
+            cout << endl << "Escolha uma opcao (" << min << "-" << max << "): ";
             cin >> input;
             if (cin.fail()) {
                 cin.clear();
