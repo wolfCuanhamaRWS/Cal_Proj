@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "AutoridadePublica.h"
 
 /****************************************************************************************************************
@@ -102,15 +103,15 @@ void AutoridadePublica::imprimirAgentesEconomicos() const {
          << endl;
 
     for (auto itr = agentes.begin(); itr != agentes.end(); ++itr) {
-        cout << (*itr).second->get_id() << " | "
-             << (*itr).second->getAtividadeString() << " | "
-             << (*itr).second->get_area() << " | "
-             << (*itr).second->get_horario_funcionamento().first << "-"
-             << (*itr).second->get_horario_funcionamento().second << " | "
-             << (*itr).second->getDenuncias()->get_num_graves() << " | "
-             << (*itr).second->getDenuncias()->get_num_total() << " | "
-             << (*itr).second->getInspecoes()->get_num_aprovadas() << " | "
-             << (*itr).second->getInspecoes()->get_num_reprovadas() << endl;
+        cout << setw(2) << (*itr).second->get_id() << " | "
+             << setw(5) << (*itr).second->getAtividadeString() << " | "
+             << setw(4) << (*itr).second->get_area() << " | "
+             << setw(4) << (*itr).second->get_horario_funcionamento().first << "-"
+             << setw(2) << (*itr).second->get_horario_funcionamento().second << " | "
+             << setw(2) << (*itr).second->getDenuncias()->get_num_graves() << " | "
+             << setw(2) << (*itr).second->getDenuncias()->get_num_total() << " | "
+             << setw(2) << (*itr).second->getInspecoes()->get_num_aprovadas() << " | "
+             << setw(2) << (*itr).second->getInspecoes()->get_num_reprovadas() << endl;
 
     }
 
@@ -218,38 +219,40 @@ void AutoridadePublica::adicionarAgenteEconomico() {
     cin >> inicio;
     cout << "Hora de encerramento:";
     cin >> fim;
-    pair<unsigned int, unsigned int> horario_funcionamento(inicio,fim);
+    pair<unsigned int, unsigned int> horario_funcionamento(inicio, fim);
 
 
     //Denuncias
-    unsigned int graves , total;
-    cout<<"Escreva informacoes sobre as denuncias desse agente economico"<<endl;
-    cout<<"Numero total de denuncias do estabelecimento:"<<endl;
-    cin>> total;
-    cout<<"Destas denuncias quantas sao graves?"<<endl;
-    cin>>graves;
-    auto  *denuncias  = new Denuncias(graves,total);
+    unsigned int graves, total;
+    cout << "Escreva informacoes sobre as denuncias desse agente economico" << endl;
+    cout << "Numero total de denuncias do estabelecimento:" << endl;
+    cin >> total;
+    cout << "Destas denuncias quantas sao graves?" << endl;
+    cin >> graves;
+    auto *denuncias = new Denuncias(graves, total);
 
 
     //inpecoes
-    unsigned int aprovadas , falhas;
-    cout<<"Escreva informacoes sobre as Inspecoes"<<endl;
-    cout<<"Numero de inspecoes aprovadas:"<<endl;
-    cin>> aprovadas;
-    cout<<"Numero de inpecoes reprovadas"<<endl;
-    cin>> falhas;
-    auto *inpecoes = new Inspecoes(aprovadas,falhas);
+    unsigned int aprovadas, falhas;
+    cout << "Escreva informacoes sobre as Inspecoes" << endl;
+    cout << "Numero de inspecoes aprovadas:" << endl;
+    cin >> aprovadas;
+    cout << "Numero de inpecoes reprovadas" << endl;
+    cin >> falhas;
+    auto *inpecoes = new Inspecoes(aprovadas, falhas);
 
     //Data da ultima inspecao
     string data;
-    cout<<"Qual foi a data da ultima inspecao? formato[yyyy/mm/dd]"<<endl;
+    cout << "Qual foi a data da ultima inspecao? formato[yyyy/mm/dd]" << endl;
     cin >> data;
-    auto * dataUI = new Data(data);
+    auto *dataUI = new Data(data);
     this->id_control_agente_economico++;
 
-    auto *agente = new AgenteEconomico(id_control_agente_economico,stringToAE(atividadeEconomica),area,horario_funcionamento, denuncias, inpecoes,dataUI);
+    auto *agente = new AgenteEconomico(id_control_agente_economico, stringToAE(atividadeEconomica), area,
+                                       horario_funcionamento, denuncias, inpecoes, dataUI);
     this->agentes[id_control_agente_economico] = agente;
-    wait();
+
+    cout<<"Agente economico adicionado com sucesso!"<<endl;
 
 
 }
@@ -258,44 +261,26 @@ void AutoridadePublica::adicionarAgenteEconomico() {
 
 void AutoridadePublica::removerAgente(unsigned int id) {
     this->agentes.erase(id);
+    cout<<"Agente economico removido com sucesso!"<<endl;
 }
 
 /***************************************************************************************************************/
 
-void AutoridadePublica::inserirDenuncia() {
-
-    /*
-
-    cout << "Digite o nome agente economico [EXIT 0]: " << endl;
-
-    getline(cin, nome);
-
-    //(!autoridadePublica.check_Agente_Economico_Existe_por_nome(nome)){}//todo conferir se ao agente economico existe?
-    if (nome == "0") { return; }
+void AutoridadePublica::inserirDenuncia(unsigned int id) {
+    unsigned int gravidade;
+    cout << "Escolha o grau da denuncia: " << endl
+         << "Leve ou Comum[0]" << endl
+         << "Grave ou de Urgencia[1]" << endl;
+    gravidade = checkOption(0, 1);
+    if (gravidade == 0) {
+        this->agentes[id]->getDenuncias()->adicionar_uma_normal();
 
 
-    //cin gravidade d a denuncia
-    int gravidade;
+    } else {
+        this->agentes[id]->getDenuncias()->adicionar_uma_grave();
 
-    cout << "Digite a Gravidade [EXIT 0]: " << endl;
-    cout << "(Leve - 1, Moderada - 2, Grave - 3, Muito Grave - 4)" << endl;
-    gravidade = checkOption(0, 4);
-    if (gravidade == 0) return;   //abort option
-
-
-
-    //cin especialidade
-    string especialidade;
-
-    cout << "Digite a especialidade [EXIT 0]: " << endl;
-    getline(cin, especialidade); //todo checar se essa especialide existe no agenteEconomico
-    if (especialidade == "0") { return; }
-
-
-//    Denuncia *denuncia =new Denuncia(especialidade
-//    autoridadePublica.add_denucia(denuncia);
-     */
-
+    }
+    cout<<"Denuncia inserida com sucesso!"<<endl;
 }
 
 /***************************************************************************************************************/
@@ -332,13 +317,14 @@ void AutoridadePublica::adicionarBrigada() {
     this->id_control_briagada++;
     auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica), horas_trabalho, hora_inico);
     this->brigadas[id_control_briagada] = brigada;
-    wait();
+    cout<<"Brigada inserida com sucesso!"<<endl;
 }
 
 /***************************************************************************************************************/
 
 void AutoridadePublica::removerBrigada(unsigned int id) {
     this->brigadas.erase(id);
+    cout<<"Brigada removida com sucesso!"<<endl;
 }
 
 /***************************************************************************************************************/

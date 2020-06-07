@@ -39,13 +39,16 @@ void mainMenu(AutoridadePublica &autoridade) {
                 break;
 
             case 3: //Inserir denuncia
-                autoridade.inserirDenuncia();
+            {
+                cout << "Escreva a o id do agente economico que deseja prestar uma queixa" << endl;
+                cin >> input;
+                autoridade.inserirDenuncia(input);
                 wait();
                 break;
-
+            }
             case 4: //Remover agente economico
             {
-                cout <<"Escreva o id do agente que deseja remover [EXIT 0]" << endl;
+                cout << "Escreva o id do agente que deseja remover [EXIT 0]" << endl;
                 cin >> input;
                 if (input == 0) { return; }
                 autoridade.removerAgente(input);

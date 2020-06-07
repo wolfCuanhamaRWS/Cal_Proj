@@ -10,6 +10,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include_next <sstream>
 
 #include "Brigada.h"
 #include "utils.h"
@@ -105,8 +106,9 @@ public:
 
     /**
      * Inserir denuncia
+     * @param id do agente economico a receber uma denuncia
      */
-    void inserirDenuncia();
+    void inserirDenuncia(unsigned  int id);
 
     /**
      * Por fazer
