@@ -98,4 +98,3 @@ void wait() {
     cin.ignore();
     while (cin.get() != '\n') {};
 }
-

@@ -1,3 +1,7 @@
+//
+// Created by Amanda  on 05/06/20.
+//
+
 #include <iomanip>
 #include <algorithm>
 #include "AutoridadePublica.h"
@@ -5,6 +9,7 @@
 /****************************************************************************************************************
                             IMPLEMENTAÇÃO DAS FUNÇÕES RELACIONADAS COM AutoridadePublica
 ****************************************************************************************************************/
+
 
 AutoridadePublica::AutoridadePublica()
 {
@@ -183,7 +188,7 @@ unordered_map<unsigned int, Brigada *> AutoridadePublica::processarFicheiroBriga
         hora_inicio = stoi(input);
 
         //Brigada
-        auto *brigada = new Brigada(id, atividade, horas_trabalho, hora_inicio);
+        auto *brigada = new Brigada(id, horas_trabalho, hora_inicio,atividade);
         result[id] = brigada;
         this->id_control_briagada = id;
     }
@@ -335,7 +340,7 @@ void AutoridadePublica::adicionarBrigada() {
     unsigned int hora_inico = checkOption(0, 24);//todo problema horario de abertura n n aceita
 
     this->id_control_briagada++;
-    auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica), horas_trabalho, hora_inico);
+    auto *brigada = new Brigada(id_control_briagada, horas_trabalho, hora_inico,stringToAE(atividadeEconomica));
     this->brigadas[id_control_briagada] = brigada;
     cout<<"Brigada inserida com sucesso!"<<endl;
 }
@@ -409,5 +414,17 @@ void AutoridadePublica::destrutor()
         delete (*it).second;
     }
     brigadas.clear();
+
+}
+
+
+
+
+void AutoridadePublica:: addBrigada(Brigada *brig){
+    brigadas[brig->get_id()] = brig;
+
+}
+void AutoridadePublica:: addAgenteEcon(AgenteEconomico *AgEcon){
+    agentes[AgEcon->get_idNo()]= AgEcon;
 
 }

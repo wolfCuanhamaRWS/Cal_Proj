@@ -1,54 +1,45 @@
+//
+// Created by Amanda  on 05/06/20.
+//
 
-#ifndef CAL_PROJ_AGENTEECONOMICO_H
-#define CAL_PROJ_AGENTEECONOMICO_H
 
 #pragma once
-
-
 #include <string>
 #include <vector>
-#include <iostream>
 #include "Data.h"
-
+#include <iostream>
 using namespace std;
 
-enum AtividadeEconomica
-{
-    Todas, Obras, Comercial, Ambiental, IntervencaoViaPublica, SegurancaSalubridadeEdificacoes, GenerosAlimenticios
-};
 
-/**
- * Classes que são atributos e são passados no construtor:
-    Denuncia:
-    QG : Número de queixas muito graves.
-    TQ : Número total de queixas.
+/** Classes que são atributos e são passados no construtor:
+Denuncias:
+QG : Número de queixas muito graves.
+TQ : Número total de queixas.
 
  */
-class Denuncias {
+class Denuncias{
 
     unsigned int num_graves;
-    unsigned int num_total;
+    unsigned  int num_total;
 
 public:
-    Denuncias(unsigned int num_graves, unsigned int num_total) {
+    Denuncias(){};
+    Denuncias(unsigned int num_graves, unsigned  int num_total){
         this->num_graves = num_graves;
         this->num_total = num_total;
     }
-
-    unsigned int get_num_graves() const {
+    unsigned int get_num_graves()const {
         return this->num_graves;
     }
-
-    void set_num_graves(unsigned int num_graves) {
+    void set_num_graves(unsigned  int  num_graves) {
         this->num_graves = num_graves;
     }
 
 
-    unsigned int get_num_total() const {
+    unsigned  int get_num_total() const {
         return this->num_total;
     }
-
-    void set_num_total(unsigned int num_total) {
+    void set_num_total(unsigned  int num_total) {
         this->num_total = num_total;
     }
 
@@ -61,21 +52,24 @@ public:
         this->num_total = num_total + 1;
     }
 
+
+
 };
 
 /** Inspeção
-       num_corretas : Número de  inspeções aprovadas.
-       num_falhas:Número de  inspeções reprovadas.
+       num_corretas : Número de  inspeções correctas.
+       num_falhas:Número de  inspeções falhadas.
        Temos tambmé funções get e set para os atributos referidos em cima.
  */
 
-class Inspecoes {
+class Inspecoes{
 
 
     unsigned int num_aprovadas;
     unsigned int num_reprovadas;
 
 public:
+    Inspecoes(){};
     Inspecoes(unsigned int num_aprovadas, unsigned int num_reprovadas) {
         this->num_aprovadas = num_aprovadas;
         this->num_reprovadas = num_reprovadas;
@@ -100,7 +94,10 @@ public:
     }
 
 
+
 };
+
+
 
 
 /**
@@ -120,23 +117,18 @@ public:
 
     dataUI : Data da última inspeção
     Temos também funções get e set referentes aos atributos referidos em cima.
-
-    Estrutura do ficheiro:
-     - separador (::::::::::::::::::::::::::)
-     - id do agente
-     - atividade económica em que se enquadra
-     - area
-     - horario de funcionamento (<hora de abertura>-<hora de fecho>)
-     - número de denúncias graves
-     - número de denúncias total
-     - número de denúncias aprovadas
-     - número de denúncias reprovadas
-     - Data da última inspeção no seguinte formato (aaaa/mm/dd)
 */
 
+
+
+using namespace std;
+
+enum AtividadeEconomica {Todas, Obras, Comercial,Ambiental, IntervencaoViaPublica, SegurancaSalubridadeEdificacoes,GenerosAlimenticios };
+
 class AgenteEconomico {
-private:
-    unsigned int id;
+
+    unsigned  int id;
+    int idNo = -1;
     AtividadeEconomica atividades_economicas;
     float area;
     pair<unsigned int, unsigned int> horario_funcionamento;
@@ -145,64 +137,38 @@ private:
     Inspecoes *inspecoes;
     Data *dataUI;
 
+
+
+
 public:
+
+    AgenteEconomico();
+    AgenteEconomico(const unsigned int id , const AtividadeEconomica &atividadesEconomicas, float area, const pair<unsigned int, unsigned int> &horario_funcionamento, Denuncias *denuncias,Inspecoes *inspecoes, Data *dataUI,int idNo );
 
     AgenteEconomico(unsigned int id, const AtividadeEconomica &atividadesEconomicas, float area,
                     const pair<unsigned int, unsigned int> &horario_funcionamento, Denuncias *denuncias,
-                    Inspecoes *inspecoes, Data *dataUI) {
-        this->atividades_economicas = atividadesEconomicas;
-        this->area = area;
-        this->horario_funcionamento = horario_funcionamento;
-        this->denuncias = denuncias;
-        this->inspecoes = inspecoes;
-        this->tmpInspecao = gerarTmpInspecao();
-        this->dataUI = dataUI;
-        this->id = id;
-    }
+                    Inspecoes *inspecoes, Data *dataUI);
 
-    //Atividades económicas
-    AtividadeEconomica getAtividadeEconomica() const { return this->atividades_economicas; };
+    //manipular atividades economicas
+    AtividadeEconomica getAtividadeEconomica() const{return this->atividades_economicas;};
+    void set_atividades(AtividadeEconomica atividades_economicas){this->atividades_economicas = atividades_economicas;};
+    string  getAtividadeString() const;
 
-    void
-    set_atividades(AtividadeEconomica atividades_economicas) { this->atividades_economicas = atividades_economicas; };
-
-    string getAtividadeString() const {
-        if (atividades_economicas == Todas)
-            return "Todas";
-        else if (atividades_economicas == Obras)
-            return "Obras";
-        else if (atividades_economicas == Comercial)
-            return "Comercial";
-        else if (atividades_economicas == Ambiental)
-            return "Ambiental";
-        else if (atividades_economicas == IntervencaoViaPublica)
-            return "IntervencaoViaPublica";
-        else if (atividades_economicas == SegurancaSalubridadeEdificacoes)
-            return "SegurancaSalubridadeEdificacoes";
-        else if (atividades_economicas == GenerosAlimenticios)
-            return "GenerosAlimenticios";
-        else
-            return "";
-    }
-
+    //idNo set ,get func
+    int get_idNo() const {return idNo;};
+    void set_idNo(int idNo )  { this->idNo = idNo;}
 
     //id
-    unsigned int get_id() const { return this->id; };
-
-    void set_id(unsigned int id) { this->id = id; };
-
+    unsigned int get_id() const {return this->id;};
+    void set_id(unsigned  int id){this-> id = id;};
     //area
-    float get_area() const { return this->area; };
-
-    void set_area(float area) { this->area = area; };
+    float get_area()const{return this-> area;};
+    void set_area(float area){this->area = area;};
 
     //horario funcionamento
-    pair<unsigned int, unsigned int> get_horario_funcionamento() const { return this->horario_funcionamento; };
+    pair<unsigned  int ,unsigned int> get_horario_funcionamento() const{return this-> horario_funcionamento;};
+    void set_horario_funcionamento(unsigned int abertura, unsigned int fecho){this->horario_funcionamento.first = abertura; this->horario_funcionamento.second = fecho;};
 
-    void set_horario_funcionamento(unsigned int abertura, unsigned int fecho) {
-        this->horario_funcionamento.first = abertura;
-        this->horario_funcionamento.second = fecho;
-    };
 
     //Denúncias
     Denuncias *getDenuncias() const { return this->denuncias; };
@@ -214,14 +180,15 @@ public:
 
     void setInspecoes(Inspecoes *inspecoes_) { this->inspecoes = inspecoes_; }
 
+
+
     //Data última inspeção
     Data *getDataUi() const { return this->dataUI; };
 
     void setDataUi(Data *dataUI) { this->dataUI = dataUI; }
-
-    /**
-     * Função que calcula tempo de inspeção em horas do agente usando a area
-     * @return tempo de inspeção em horas
+    /**Função que calcula tempo de inspeção de cada agenteEconómico usando area dos mesmos
+     *
+     * @return valor do tempo de inspeção calculado
      */
     float gerarTmpInspecao() {
         if (area <= 50.0)
@@ -230,26 +197,9 @@ public:
             return area / 100;
     }
 
-    /**
-     * Escreve para uma ostream out (neste caso, o ficheiro agentes.txt) o valor dos atributos com a formatação necessária em ficheiros
-     * @param out A stream de output para onde serão escritos os valores dos atributos
-     */
-    void imprimirFicheiro(ostream &out) const {
-        out <<"::::::::::::::::::::::::::" << endl
-            << get_id() << endl
-            << getAtividadeString() << endl
-            << get_area() << endl
-            << get_horario_funcionamento().first << "-" << get_horario_funcionamento().second << endl
-            << getDenuncias()->get_num_graves() << endl
-            << getDenuncias()->get_num_total() << endl
-            << getInspecoes()->get_num_aprovadas() << endl
-            << getInspecoes()->get_num_reprovadas() << endl
-            << getDataUi()->getData() << endl;
-    }
+    void  imprimirFicheiro(ostream &out) const;
 
 
 };
-
-#endif //CAL_PROJ_AGENTEECONOMICO_H
 
 

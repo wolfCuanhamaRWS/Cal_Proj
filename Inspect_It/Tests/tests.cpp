@@ -1,3 +1,4 @@
+/*
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
@@ -6,15 +7,42 @@
 #include <time.h>
 #include <chrono>
 #include "../src/Graph.h"
-
+#include "../src/AgenteEconomico.h"
+#include "../src/AutoridadePublica.h"
+#include "../src/Local.h"
+#include "../src/Brigada.h"
 using namespace std;
 using testing::Eq;
 
 
+Graph<Local> CreateTestGraph2() {
+    Graph<Local> myGraph;
+
+   //id, h_t, h_i, A_E
+
+   AgenteEconomico ag1(1,Obras,50,make_pair(9,19),new Denuncias(3,5),new Inspecoes(10,1),new Data(2019,12,11),2);
+   AgenteEconomico ag2(2,Obras,50,make_pair(9,19),new Denuncias(4,5),new Inspecoes(11,1),new Data(2019,12,11),14);
+   AgenteEconomico ag3(3,Obras,50,make_pair(9,19),new Denuncias(2,5),new Inspecoes(9,2),new Data(2019,12,10),22);
+
+
+    AutoridadePublica AtPub(1,3);
+    AtPub.addBrigada(new Brigada (1,8,9,Obras)); //id, h_t, h_i, A_E
+
+    AtPub.addAgenteEcon(&ag1);
+    AtPub.addAgenteEcon(&ag2);
+    AtPub.addAgenteEcon(&ag3);
+
+    cout << ag1.get_id() << endl;
+
+}
+
+
+*/
 /**
  * Auxiliary functions to tests...
  *
- */
+ *//*
+
 Graph<int> CreateTestGraph() {
     Graph<int> myGraph;
 
@@ -84,9 +112,11 @@ void checkSinglePath(vector<T> path, string expected) {
     EXPECT_EQ(expected, ss.str());
 }
 
+*/
 /**
  * Unit tests... must be uncommented to proceed...
- */
+ *//*
+
 
  //Uncomment the test below...
 TEST(CAL_FP05, test_unweightedShortestPath) {
@@ -168,5 +198,6 @@ TEST(CAL_FP05, test_floydWarshall) {
     checkSinglePath(myGraph.getfloydWarshallPath(5, 6), "5 7 6 ");
     checkSinglePath(myGraph.getfloydWarshallPath(7, 1), "7 6 4 3 1 ");
 }
+*/
 
 

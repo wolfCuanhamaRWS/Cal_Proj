@@ -16,6 +16,11 @@
 #include <cmath>
 #include <stack>
 #include "MutablePriorityQueue.h"
+#include "Local.h"
+#include <stdio.h>
+
+#define PI 3.14159265358979323846
+
 
 using namespace std;
 
@@ -28,11 +33,15 @@ template <class T> class Vertex;
 
 /************************* Vertex  **************************/
 
+enum Tag {AutPub,AgEcono, Other};
+
 template <class T>
 class Vertex {
-	T info;						// content of the vertex
+
+	T info;						// Classe Local com (x,y) e longitude e latitude para usar no graphView e calcular tempos distancias/tempos de viagem
 	vector<Edge<T> > adj;		// outgoing edges
-	
+    Local local;
+	Tag type;
 	double dist = 0;
 	Vertex<T> *path = NULL;
 	int queueIndex = 0; 		// required by MutablePriorityQueue
@@ -44,7 +53,22 @@ class Vertex {
 
 public:
 	Vertex(T in);
+	Local getLocal() const;
+	void  setLocal(Local local);
+
 	T getInfo() const;
+    /**Função utilizada para obter tempo de viagem entre dois locais usando longitude e latitude
+	 *
+	 *
+	 * @param dest Local de destino
+	 * @param velocKmH velocidade média de um veículo
+	 * @return valor do tempo de viagem
+	 */
+    double getTempViagem(Local dest ,double velocKmH);
+
+
+    Tag getTagType() const;
+    void setTagType(Tag type);
 	double getDist() const;
 	Vertex *getPath() const;
     void setDist(double dist);
@@ -52,11 +76,49 @@ public:
 	bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue comparam fields dist
 	friend class Graph<T>;
 	friend class MutablePriorityQueue<Vertex<T>>;
+
 };
+
+template<class T>
+double Vertex<T>::getTempViagem( Local dest,double velocKmH) {
+    //Factor multiplicação para obter distancia
+    double deg2radMultiplier = PI / 180;
+    //Local origem
+    double lat1 = local.get_latitude() * deg2radMultiplier;
+    double long1 = local.get_longitude() * deg2radMultiplier;
+    //Local Destino
+    double lat2 = dest.get_latitude() * deg2radMultiplier;
+    double long2 = dest.get_longitude() * deg2radMultiplier;
+
+
+    double radius = 6378.137; // earth mean radius defined by WGS84
+    double dlon = long2 - long1;
+    double result = acos(sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(dlon)) * radius;
+
+    result = result / velocKmH;
+    return result;
+
+}
 
 
 template <class T>
+Local Vertex<T>:: getLocal() const { return local ;}
+
+template <class T>
+void Vertex<T>:: setLocal(Local local){
+    this->local = local;
+}
+
+template <class T>
 Vertex<T>::Vertex(T in): info(in) {}
+
+template <class T>
+Tag Vertex<T>:: getTagType() const {return type;}
+
+
+template <class T>
+void Vertex<T>:: setTagType(Tag type)  {this->type = type;}
+
 
 /*
  * Auxiliary function to add an outgoing edge to a vertex (this),
@@ -77,6 +139,8 @@ T Vertex<T>::getInfo() const {
 	return this->info;
 }
 
+
+
 template <class T>
 double Vertex<T>::getDist() const {
 	return this->dist;
@@ -86,6 +150,8 @@ template <class T>
 Vertex<T> *Vertex<T>::getPath() const {
 	return this->path;
 }
+
+
 
 /********************** Edge  ****************************/
 
@@ -97,6 +163,7 @@ public:
 	Edge(Vertex<T> *d, double w);
 	friend class Graph<T>;
 	friend class Vertex<T>;
+
 };
 
 template <class T>
@@ -107,26 +174,40 @@ Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w) {}
 
 template <class T>
 class Graph {
-	 vector<Vertex<T> *> vertexSet;    // vertex set
-	 vector<vector<double>> distMin;
+     vector<Vertex<T> *> vertexSet;    // vértices para guardar Locais
+	 vector<vector<double>> distMin; //Matriz para algoritmo FloyWarshall e não só
 
-	 vector<vector<Vertex<T>*>>  pathMin;
+	 vector<vector<Vertex<T>*>>  pathMin; //Matriz para algoritmo FloydWarshall e não só
+    int minXGraphView = 0;
+    int maxXGraphView = 0;
+
+    int minYGraphView = 0;
+    int maxYGraphView = 0;
 
 
 public:
-	Vertex<T> *findVertex(const T &in) const;
+
+
+    int getMinXGraphView() const{return minXGraphView;};
+    void setMinXGraphView(int minX) {minXGraphView = minX;};
+
+    int getMinYGraphView() const{return minYGraphView;};
+    void setMinYGraphView(int minY) {minYGraphView = minY;};
+
+
+    Vertex<T> *findVertex(const T &in) const;
 	bool addVertex(const T &in);
 	bool addEdge(const T &sourc, const T &dest, double w);
 	int getNumVertex() const;
 	vector<Vertex<T> *> getVertexSet() const;
 
-	// Fp05 - single source
-	void unweightedShortestPath(const T &origin);    //TODO...
-	void dijkstraShortestPath(const T &origin);      //TODO...
-	void bellmanFordShortestPath(const T &orig);   //TODO...
-	vector<T> getPathTo(const T &dest) const;   //TODO...
 
-	// Fp05 - all pairs
+	void unweightedShortestPath(const T &origin);
+	void dijkstraShortestPath(const T &origin);
+	void bellmanFordShortestPath(const T &orig);
+	vector<T> getPathTo(const T &dest) const;
+
+	// Distancia mínima entre  todos os pares de vértices para guardar numa tabela de pré-processamento
 	void floydWarshallShortestPath();   //TODO...
 	vector<T> getfloydWarshallPath(const T &origin, const T &dest) const;   //TODO...
     //ex3-)b
@@ -191,6 +272,12 @@ bool Graph<T>::addVertex(const T &in) {
 
 	return true;
 }
+
+
+
+
+
+
 
 /*
  * Adds an edge to a graph (this), given the contents of the source and

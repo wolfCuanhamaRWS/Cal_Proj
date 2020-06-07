@@ -3,10 +3,12 @@
 #include <sstream>
 #include <stdio.h>
 #include "graphviewer.h"
-
+#include <csignal>
 void drawGraphFromFile(std::string name, unsigned int port);
 
 int main() {
+
+    signal(SIGINT, SIG_IGN);
     drawGraphFromFile("random", 7772);
     drawGraphFromFile("star", 7773);
     drawGraphFromFile("rainbow", 7774);

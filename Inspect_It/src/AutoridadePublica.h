@@ -1,8 +1,6 @@
-
-
-#ifndef CAL_PROJ_AUTORIDADEPUBLICA_H
-#define CAL_PROJ_AUTORIDADEPUBLICA_H
-
+//
+// Created by Amanda  on 05/06/20.
+//
 
 #pragma once
 
@@ -18,13 +16,11 @@
 
 using namespace std;
 
-class tamplate;
-
 /** Autoridade:
 	num_brigadas: Nº total de brigadas (actualizar quando se insere ou apaga)
 	num_agentes: Nº total de agentes económicos (actualizar quando se insere ou apaga)
 
-     id_control_brigada: variável estática que é incrementada sempre que se adiciona uma brigada ou se está a meter no map as brigadas)
+     id_control_briagada: variável estática que é incrementada sempre que se adiciona uma brigada ou se está a meter no map as brigadas)
 
      id_control_agente_economico: variável estática que é incrementada sempre que se adiciona um agente económico ou se está a meter no map os agentes económicos.
 
@@ -44,15 +40,14 @@ private:
     unordered_map<unsigned int, AgenteEconomico *> agentes;
 
 
+
 public:
-    /**
-     * Constructor
-     */
-    AutoridadePublica();
+        AutoridadePublica();
+        AutoridadePublica(size_t  num_brigadas, size_t num_agentes): num_brigadas(num_brigadas), num_agentes(num_agentes){};
 
     /**
-     * "Destructor" da autoridade pública que escreve a informação toda em ficheiros e depois liberta a memória alocada.
-     */
+ * "Destructor" da autoridade pública que escreve a informação toda em ficheiros e depois liberta a memória alocada.
+ */
     void destrutor();
 
     /**
@@ -148,6 +143,9 @@ public:
     }
 
 
-};
 
-#endif //CAL_PROJ_AUTORIDADEPUBLICA_H
+
+    void addBrigada(Brigada *brig);
+    void addAgenteEcon(AgenteEconomico *AgEcon);
+
+};
