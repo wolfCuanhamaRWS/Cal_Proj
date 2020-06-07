@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/flavio/CAL/Inspect/lib/googletest-master/googlemock/include -isystem /home/flavio/CAL/Inspect/lib/googletest-master/googletest/include -isystem /home/flavio/CAL/Inspect/lib/googletest-master/googletest 
+CXX_INCLUDES = -I/home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googlemock/include -isystem /home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest/include -isystem /home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest 
 

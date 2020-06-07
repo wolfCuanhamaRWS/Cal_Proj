@@ -1,4 +1,4 @@
-# Install script for directory: /home/flavio/CAL/Inspect
+# Install script for directory: /home/flavio/CAL/Cal_Proj/Inspect
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/flavio/CAL/Inspect/cmake-build-debug/lib/googletest-master/cmake_install.cmake")
+  include("/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/lib/googletest-master/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/flavio/CAL/Inspect/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

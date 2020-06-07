@@ -16,13 +16,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Inspect Test" << std::endl;
     return RUN_ALL_TESTS();
 
-    AutoridadePublica autoridade;
 
-    cout << "Bem vindo!" << endl;
-
-    mainMenu(autoridade);
-
-    return 0;
 
 }
 

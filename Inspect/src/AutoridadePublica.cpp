@@ -142,6 +142,7 @@ unordered_map<unsigned int, Brigada *> AutoridadePublica::processarFicheiroBriga
     string input;
     unsigned int id, horas_trabalho, hora_inicio;
     AtividadeEconomica atividade;
+
     unordered_map<unsigned int, Brigada *> result;
 
     ficheiro.open("../src/text/brigadas.txt");
@@ -377,7 +378,7 @@ void AutoridadePublica::destrutor()
         agente->imprimirFicheiro(ficheiro_agentes);
 
     }
-
+    ficheiro_agentes.close();
 
     ofstream ficheiro_brigadas;
     ficheiro_brigadas.open("../src/text/brigadas.txt",ofstream::out | ofstream::trunc);

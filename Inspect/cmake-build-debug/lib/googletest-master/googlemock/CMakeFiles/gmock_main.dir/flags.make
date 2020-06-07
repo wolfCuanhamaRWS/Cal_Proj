@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTH
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /home/flavio/CAL/Inspect/lib/googletest-master/googlemock/include -isystem /home/flavio/CAL/Inspect/lib/googletest-master/googlemock -isystem /home/flavio/CAL/Inspect/lib/googletest-master/googletest/include -isystem /home/flavio/CAL/Inspect/lib/googletest-master/googletest 
+CXX_INCLUDES = -isystem /home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googlemock/include -isystem /home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googlemock -isystem /home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest/include -isystem /home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest 
 
