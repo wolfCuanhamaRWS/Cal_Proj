@@ -5,17 +5,20 @@
 
 
 #pragma once
+
 #include <cstddef>
 #include <unordered_map>
 #include <fstream>
 #include <iostream>
 #include <string>
-#include_next <sstream>
+
 
 #include "Brigada.h"
 #include "utils.h"
 
 using namespace std;
+
+class tamplate;
 
 /** Autoridade:
 	num_brigadas: Nº total de brigadas (actualizar quando se insere ou apaga)
@@ -30,16 +33,15 @@ using namespace std;
 	    brigadas: unordered_map com ID de cada agente económico e o agente económico respectivo
 
  */
-class AutoridadePublica
-{
+class AutoridadePublica {
 private:
     size_t num_brigadas;
     size_t num_agentes;
 
     size_t id_control_briagada = 0;
     size_t id_control_agente_economico = 0;
-    unordered_map<unsigned int, Brigada*> brigadas;
-    unordered_map<unsigned int, AgenteEconomico*> agentes;
+    unordered_map<unsigned int, Brigada *> brigadas;
+    unordered_map<unsigned int, AgenteEconomico *> agentes;
 
 
 public:
@@ -52,37 +54,37 @@ public:
      * Função que lê a informação do ficheiro agentes.txt e processa essa informação
      * @return mapa desordenado com os agentes
      */
-    unordered_map<unsigned int, AgenteEconomico*> processarFicheiroAgentes();
+    unordered_map<unsigned int, AgenteEconomico *> processarFicheiroAgentes();
 
     /**
      * Função que lê a informação do ficheiro brigadas.txt e processa essa informação
      * @return mapa desordenado com as brigadas
      */
-    unordered_map<unsigned int, Brigada*> processarFicheiroBrigadas();
+    unordered_map<unsigned int, Brigada *> processarFicheiroBrigadas();
 
     /**Função que retorna mapa com as brigadas sinalizadas pelo seu id
      *
      * @return mapa desordenado com as brigadas
      */
-    unordered_map<unsigned int, Brigada*> get_brigadas() const{return brigadas;};
+    unordered_map<unsigned int, Brigada *> get_brigadas() const { return brigadas; };
 
     /**Função para substituir mapa com brigadas da autoridade pública
      *
      * @param  novo mapa com brigadas a ser introduzido
      */
-    void set_brigadas(unordered_map<unsigned int, Brigada*> brigadas){this->brigadas = brigadas;};
+    void set_brigadas(unordered_map<unsigned int, Brigada *> brigadas) { this->brigadas = brigadas; };
 
     /**Função com mapa que tem agentes económicos sinalizados com o id de cada Agente económico
      *
      * @return mapa com agentes económicos
      */
-    unordered_map<unsigned int, AgenteEconomico*> get_agentes() const{return agentes;};
+    unordered_map<unsigned int, AgenteEconomico *> get_agentes() const { return agentes; };
 
     /**Função para substituir mapa da autoridade pública
      *
      * @param  novo mapa com agentes a ser introduzido
      */
-    void set_agentes(unordered_map<unsigned int, AgenteEconomico*> agentes){ this->agentes = agentes;};
+    void set_agentes(unordered_map<unsigned int, AgenteEconomico *> agentes) { this->agentes = agentes; };
 
     /**
      *  Função que imprime na consola informação em relação aos agentes económicas
@@ -95,49 +97,63 @@ public:
     void imprimirBrigadas() const;
 
     /**
-     * Por fazer
+     * Adiciona agente economico ao map agentes
      */
     void adicionarAgenteEconomico();
 
     /**
      * @param id do agente a ser removido
      */
-    void removerAgente( unsigned int id);
+    void removerAgente(unsigned int id);
 
     /**
      * Inserir denuncia
      * @param id do agente economico a receber uma denuncia
      */
-    void inserirDenuncia(unsigned  int id);
+    void inserirDenuncia(unsigned int id);
 
     /**
-     * Por fazer
+     * Adiciona Brigada ao map brigadas
      */
-     void adicionarBrigada();
+    void adicionarBrigada();
 
     /**
     * @param id da brigada a ser removida
     */
-    void removerBrigada(unsigned  int id);
+    void removerBrigada(unsigned int id);
+
+    /**
+     * reescreve as brigadas no ficheiro
+     */
+
+    void reescreverBrigadas();
+
+    /**
+     * reescreve os agentes no ficheiro
+     */
+    void reescreverAgentes();
 
     //atividade economica
 
     AtividadeEconomica stringToAE(string atividades_economicas) {
-        if(atividades_economicas == "Todas")
+        if (atividades_economicas == "Todas")
             return Todas;
-        else if(atividades_economicas == "Obras")
+        else if (atividades_economicas == "Obras")
             return Obras;
-        else if(atividades_economicas == "Comercial")
+        else if (atividades_economicas == "Comercial")
             return Comercial;
-        else if(atividades_economicas == "Ambiental")
+        else if (atividades_economicas == "Ambiental")
             return Ambiental;
-        else if(atividades_economicas == "IntervencaoViaPublica")
+        else if (atividades_economicas == "IntervencaoViaPublica")
             return IntervencaoViaPublica;
-        else if(atividades_economicas == "SegurancaSalubridadeEdificacoes")
+        else if (atividades_economicas == "SegurancaSalubridadeEdificacoes")
             return SegurancaSalubridadeEdificacoes;
-        else if(atividades_economicas == "GenerosAlimenticios")
+        else if (atividades_economicas == "GenerosAlimenticios")
             return GenerosAlimenticios;
 
     }
+
+
 };
+
 #endif //CAL_PROJ_AUTORIDADEPUBLICA_H

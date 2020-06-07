@@ -1,4 +1,5 @@
 #include <iomanip>
+#include <algorithm>
 #include "AutoridadePublica.h"
 
 /****************************************************************************************************************
@@ -254,6 +255,8 @@ void AutoridadePublica::adicionarAgenteEconomico() {
 
     cout<<"Agente economico adicionado com sucesso!"<<endl;
 
+    //reescreverAgentes();
+
 
 }
 
@@ -262,6 +265,7 @@ void AutoridadePublica::adicionarAgenteEconomico() {
 void AutoridadePublica::removerAgente(unsigned int id) {
     this->agentes.erase(id);
     cout<<"Agente economico removido com sucesso!"<<endl;
+    //reescreverAgentes();
 }
 
 /***************************************************************************************************************/
@@ -281,6 +285,7 @@ void AutoridadePublica::inserirDenuncia(unsigned int id) {
 
     }
     cout<<"Denuncia inserida com sucesso!"<<endl;
+    //reescreverAgentes();
 }
 
 /***************************************************************************************************************/
@@ -318,6 +323,7 @@ void AutoridadePublica::adicionarBrigada() {
     auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica), horas_trabalho, hora_inico);
     this->brigadas[id_control_briagada] = brigada;
     cout<<"Brigada inserida com sucesso!"<<endl;
+    reescreverBrigadas();
 }
 
 /***************************************************************************************************************/
@@ -325,7 +331,74 @@ void AutoridadePublica::adicionarBrigada() {
 void AutoridadePublica::removerBrigada(unsigned int id) {
     this->brigadas.erase(id);
     cout<<"Brigada removida com sucesso!"<<endl;
+    reescreverBrigadas();
 }
+
+/***************************************************************************************************************/
+
+void AutoridadePublica::reescreverBrigadas() {
+    //criandp a vector de keys(ids) ordenadas
+    vector<unsigned  int > keys;
+
+    keys.reserve (this->brigadas.size());
+    for (auto& it : this->brigadas) {
+        keys.push_back(it.first);
+    }
+    sort (keys.begin(), keys.end());
+
+
+    ofstream  file("src/text/brigadas.txt");
+
+    for(auto  it : keys) {
+        auto *brigada =  brigadas[it];
+        file<<"::::::::::::::::::::::::::"<<endl
+           << brigada->get_id()<<endl
+           <<brigada->getAtividadeString_()<<endl
+           <<brigada->get_horas_trabalho()<<endl
+           <<brigada->get_hora_inicio()<<endl;
+
+    }
+    file.close();
+
+
+
+
+}
+
+/***************************************************************************************************************/
+
+void AutoridadePublica::reescreverAgentes() {
+    //criandp a vector de keys(ids) ordenadas
+    vector<unsigned  int > keys;
+
+    keys.reserve (this->agentes.size());
+    for (auto& it : this->agentes) {
+        keys.push_back(it.first);
+    }
+    sort (keys.begin(), keys.end());
+
+    ofstream file;
+    file.open("src/text/agentes.txt");
+
+    for(auto  it : keys) {
+        auto *agente =  agentes[it];
+
+        file<<"::::::::::::::::::::::::::"<<endl
+            << to_string( agente->get_id() )<<endl
+            <<agente->get_area()<<endl
+            <<agente->get_horario_funcionamento().first<<"-"<< agente->get_horario_funcionamento().second<<endl
+            <<agente->getDenuncias()->get_num_graves()<<endl
+            <<agente->getDenuncias()->get_num_total()<<endl
+            <<agente->getInspecoes()->get_num_aprovadas()<<endl
+            <<agente->getInspecoes()->get_num_reprovadas()<<endl
+            <<agente->getDataUi()->getData()<<endl;
+    }
+    file.close();
+
+
+
+}
+
 
 /***************************************************************************************************************/
 
