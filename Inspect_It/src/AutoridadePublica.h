@@ -51,6 +51,11 @@ public:
     AutoridadePublica();
 
     /**
+     * "Destructor" da autoridade pública que escreve a informação toda em ficheiros e depois liberta a memória alocada.
+     */
+    void destrutor();
+
+    /**
      * Função que lê a informação do ficheiro agentes.txt e processa essa informação
      * @return mapa desordenado com os agentes
      */
@@ -122,16 +127,6 @@ public:
     */
     void removerBrigada(unsigned int id);
 
-    /**
-     * reescreve as brigadas no ficheiro
-     */
-
-    void reescreverBrigadas();
-
-    /**
-     * reescreve os agentes no ficheiro
-     */
-    void reescreverAgentes();
 
     //atividade economica
 
@@ -150,7 +145,6 @@ public:
             return SegurancaSalubridadeEdificacoes;
         else if (atividades_economicas == "GenerosAlimenticios")
             return GenerosAlimenticios;
-
     }
 
 

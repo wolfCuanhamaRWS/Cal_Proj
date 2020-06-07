@@ -3,10 +3,11 @@
 #include "AutoridadePublica.h"
 
 /****************************************************************************************************************
-                            IMPLEMENTAÇÃO DAS FUNÇÕES RELACIONADAS COM Data todo data??????
+                            IMPLEMENTAÇÃO DAS FUNÇÕES RELACIONADAS COM AutoridadePublica
 ****************************************************************************************************************/
 
-AutoridadePublica::AutoridadePublica() {
+AutoridadePublica::AutoridadePublica()
+{
     this->agentes = processarFicheiroAgentes();
     this->brigadas = processarFicheiroBrigadas();
 
@@ -23,96 +24,107 @@ unordered_map<unsigned int, AgenteEconomico *> AutoridadePublica::processarFiche
     pair<unsigned int, unsigned int> horario_funcionamento;
     unordered_map<unsigned int, AgenteEconomico *> result;
 
-    ifstream ficheiro("src/text/agentes.txt");
+    ifstream ficheiro("../src/text/agentes.txt");
 
-    if (!ficheiro.fail()) {
-        while (!ficheiro.eof()) {
-            //separador
-            getline(ficheiro, input);
+    if (ficheiro.fail())
+    {
+        cout << "Erro na abertura do ficheiro agentes.txt " << endl;
+    }
 
-            //id do agente
-            getline(ficheiro, input);
-            id = stoi(input);
+    while (!ficheiro.eof())
+    {
+        //separador
+        getline(ficheiro, input);
 
-            //atividade económica
-            getline(ficheiro, input);
-            if (input == "Todas")
-                atividade = Todas;
-            else if (input == "Obras")
-                atividade = Obras;
-            else if (input == "Comercial")
-                atividade = Comercial;
-            else if (input == "Ambiental")
-                atividade = Ambiental;
-            else if (input == "IntervencaoViaPublica")
-                atividade = IntervencaoViaPublica;
-            else if (input == "SegurancaSalubridadeEdificacoes")
-                atividade = SegurancaSalubridadeEdificacoes;
-            else if (input == "GenerosAlimenticios")
-                atividade = GenerosAlimenticios;
+        //id do agente
+        getline(ficheiro, input);
+        id = stoi(input);
 
-            //area
-            getline(ficheiro, input);
-            area = stof(input);
+        //atividade económica
+        getline(ficheiro, input);
+        if (input == "Todas")
+            atividade = Todas;
+        else if (input == "Obras")
+            atividade = Obras;
+        else if (input == "Comercial")
+            atividade = Comercial;
+        else if (input == "Ambiental")
+            atividade = Ambiental;
+        else if (input == "IntervencaoViaPublica")
+            atividade = IntervencaoViaPublica;
+        else if (input == "SegurancaSalubridadeEdificacoes")
+            atividade = SegurancaSalubridadeEdificacoes;
+        else if (input == "GenerosAlimenticios")
+            atividade = GenerosAlimenticios;
 
-            //horário funcionamento
-            getline(ficheiro, input);
-            pos = input.find('-');
-            horario_funcionamento.first = stoi(input.substr(0, pos));
-            input = input.substr(pos + 1, string::npos);
-            horario_funcionamento.second = stoi(input);
+        //area
+        getline(ficheiro, input);
+        area = stof(input);
 
-            //número de denúncias graves
-            getline(ficheiro, input);
-            num_graves = stoi(input);
+        //horário funcionamento
+        getline(ficheiro, input);
+        pos = input.find('-');
+        horario_funcionamento.first = stoi(input.substr(0, pos));
+        input = input.substr(pos + 1, string::npos);
+        horario_funcionamento.second = stoi(input);
 
-            //número de denúncias total
-            getline(ficheiro, input);
-            num_total = stoi(input);
+        //número de denúncias graves
+        getline(ficheiro, input);
+        num_graves = stoi(input);
 
-            //número de denúncias aprovadas
-            getline(ficheiro, input);
-            num_aprovadas = stoi(input);
+        //número de denúncias total
+        getline(ficheiro, input);
+        num_total = stoi(input);
 
-            //número de denúncias total
-            getline(ficheiro, input);
-            num_reprovadas = stoi(input);
+        //número de denúncias aprovadas
+        getline(ficheiro, input);
+        num_aprovadas = stoi(input);
 
-            //denuncias
-            Denuncias *denuncias = new Denuncias(num_graves, num_total);
+        //número de denúncias reprovadas
+        getline(ficheiro, input);
+        num_reprovadas = stoi(input);
 
-            //inspeções
-            Inspecoes *inspecoes = new Inspecoes(num_aprovadas, num_reprovadas);
+        //denuncias
+        Denuncias *denuncias = new Denuncias(num_graves, num_total);
 
-            //Data última inspeção
-            getline(ficheiro, input);
-            Data *data = new Data(input);
+        //inspeções
+        Inspecoes *inspecoes = new Inspecoes(num_aprovadas, num_reprovadas);
 
-            //Agente económico
-            auto *agente = new AgenteEconomico(id, atividade, area, horario_funcionamento, denuncias, inspecoes, data);
-            result[id] = agente;
+        //Data última inspeção
+        getline(ficheiro, input);
+        Data *data = new Data(input);
 
-        }
-    } else { cout << "Erro na abertura do ficheiro agentes.txt " << endl; }
+        //Agente económico
+        auto *agente = new AgenteEconomico(id, atividade, area, horario_funcionamento, denuncias, inspecoes, data);
+        result[id] = agente;
+
+        this->id_control_agente_economico = id;
+
+    }
+
     return result;
 }
 
 /***************************************************************************************************************/
-
-void AutoridadePublica::imprimirAgentesEconomicos() const {
-    cout << "ID | ATIVIDADE ECONOMICA | AREA | HORARIO FUNCIONAMENTO | NUM GRAVES | NUM TOTAL | APROVADAS | REPROVADAS"
+void AutoridadePublica::imprimirAgentesEconomicos() const
+{
+    cout << "ID | ATIVIDADE ECONOMICA | AREA   | HORARIO FUNCIONAMENTO | NUM GRAVES | NUM TOTAL | APROVADAS | REPROVADAS"
          << endl;
 
-    for (auto itr = agentes.begin(); itr != agentes.end(); ++itr) {
-        cout << setw(2) << (*itr).second->get_id() << " | "
-             << setw(5) << (*itr).second->getAtividadeString() << " | "
-             << setw(4) << (*itr).second->get_area() << " | "
-             << setw(4) << (*itr).second->get_horario_funcionamento().first << "-"
-             << setw(2) << (*itr).second->get_horario_funcionamento().second << " | "
-             << setw(2) << (*itr).second->getDenuncias()->get_num_graves() << " | "
-             << setw(2) << (*itr).second->getDenuncias()->get_num_total() << " | "
-             << setw(2) << (*itr).second->getInspecoes()->get_num_aprovadas() << " | "
-             << setw(2) << (*itr).second->getInspecoes()->get_num_reprovadas() << endl;
+    int area_size;
+    for (auto itr = agentes.begin(); itr != agentes.end(); ++itr)
+    {
+        area_size = count_digits((*itr).second->get_area());
+
+        cout << (*itr).second->get_id() << setw (4) << " | "
+             << (*itr).second->getAtividadeString() << setw(17) << " | "
+             << (*itr).second->get_area() << setw(9 - area_size) << " | "
+             << (*itr).second->get_horario_funcionamento().first << "-"
+             << (*itr).second->get_horario_funcionamento().second << setw(20) << " | "
+             << (*itr).second->getDenuncias()->get_num_graves() << setw(12) << " | "
+             << (*itr).second->getDenuncias()->get_num_total() << setw(11) << " | "
+             << (*itr).second->getInspecoes()->get_num_aprovadas() << setw(11) << " | "
+             << (*itr).second->getInspecoes()->get_num_reprovadas() << endl;
 
     }
 
@@ -127,54 +139,61 @@ unordered_map<unsigned int, Brigada *> AutoridadePublica::processarFicheiroBriga
     AtividadeEconomica atividade;
     unordered_map<unsigned int, Brigada *> result;
 
-    ficheiro.open("src/text/brigadas.txt");
-    if (!ficheiro.fail()) {
+    ficheiro.open("../src/text/brigadas.txt");
 
-        while (!ficheiro.eof()) {
-            //separador
-            getline(ficheiro, input);
+    if (ficheiro.fail())
+    {
+        cout << "Erro na abertura do ficheiro brigadas.txt " << endl;
+    }
 
-            //id da brigada
-            getline(ficheiro, input);
-            id = stoi(input);
+    while (!ficheiro.eof())
+    {
+        //separador
+        getline(ficheiro, input);
 
-            //atividade económica
-            getline(ficheiro, input);
-            if (input == "Todas")
-                atividade = Todas;
-            else if (input == "Obras")
-                atividade = Obras;
-            else if (input == "Comercial")
-                atividade = Comercial;
-            else if (input == "Ambiental")
-                atividade = Ambiental;
-            else if (input == "IntervencaoViaPublica")
-                atividade = IntervencaoViaPublica;
-            else if (input == "SegurancaSalubridadeEdificacoes")
-                atividade = SegurancaSalubridadeEdificacoes;
-            else if (input == "GenerosAlimenticios")
-                atividade = GenerosAlimenticios;
+        //id da brigada
+        getline(ficheiro, input);
+        id = stoi(input);
 
-            //horas de trabalho
-            getline(ficheiro, input);
-            horas_trabalho = stoi(input);
+        //atividade económica
+        getline(ficheiro, input);
+        if (input == "Todas")
+            atividade = Todas;
+        else if (input == "Obras")
+            atividade = Obras;
+        else if (input == "Comercial")
+            atividade = Comercial;
+        else if (input == "Ambiental")
+            atividade = Ambiental;
+        else if (input == "IntervencaoViaPublica")
+            atividade = IntervencaoViaPublica;
+        else if (input == "SegurancaSalubridadeEdificacoes")
+            atividade = SegurancaSalubridadeEdificacoes;
+        else if (input == "GenerosAlimenticios")
+            atividade = GenerosAlimenticios;
 
-            //hora inicio
-            getline(ficheiro, input);
-            hora_inicio = stoi(input);
 
-            //Brigada
-            auto *brigada = new Brigada(id, atividade, horas_trabalho, hora_inicio);
-            result[id] = brigada;
-            this->id_control_briagada = id;
-        }
-    } else { cout << "Erro na abertura do ficheiro brigadas.txt " << endl; }
+        //horas de trabalho
+        getline(ficheiro, input);
+        horas_trabalho = stoi(input);
+
+
+        //hora inicio
+        getline(ficheiro, input);
+        hora_inicio = stoi(input);
+
+        //Brigada
+        auto *brigada = new Brigada(id, atividade, horas_trabalho, hora_inicio);
+        result[id] = brigada;
+        this->id_control_briagada = id;
+    }
     return result;
 }
 
 /***************************************************************************************************************/
 
-void AutoridadePublica::imprimirBrigadas() const {
+void AutoridadePublica::imprimirBrigadas() const
+{
     cout << "ID | ATIVIDADE ECONOMICA | NUMERO HORAS TRABALHO | HORA INICIO" << endl;
 
     for (auto itr = brigadas.begin(); itr != brigadas.end(); ++itr) {
@@ -255,9 +274,6 @@ void AutoridadePublica::adicionarAgenteEconomico() {
 
     cout<<"Agente economico adicionado com sucesso!"<<endl;
 
-    //reescreverAgentes();
-
-
 }
 
 /***************************************************************************************************************/
@@ -265,7 +281,7 @@ void AutoridadePublica::adicionarAgenteEconomico() {
 void AutoridadePublica::removerAgente(unsigned int id) {
     this->agentes.erase(id);
     cout<<"Agente economico removido com sucesso!"<<endl;
-    //reescreverAgentes();
+
 }
 
 /***************************************************************************************************************/
@@ -285,7 +301,6 @@ void AutoridadePublica::inserirDenuncia(unsigned int id) {
 
     }
     cout<<"Denuncia inserida com sucesso!"<<endl;
-    //reescreverAgentes();
 }
 
 /***************************************************************************************************************/
@@ -323,7 +338,6 @@ void AutoridadePublica::adicionarBrigada() {
     auto *brigada = new Brigada(id_control_briagada, stringToAE(atividadeEconomica), horas_trabalho, hora_inico);
     this->brigadas[id_control_briagada] = brigada;
     cout<<"Brigada inserida com sucesso!"<<endl;
-    reescreverBrigadas();
 }
 
 /***************************************************************************************************************/
@@ -331,75 +345,69 @@ void AutoridadePublica::adicionarBrigada() {
 void AutoridadePublica::removerBrigada(unsigned int id) {
     this->brigadas.erase(id);
     cout<<"Brigada removida com sucesso!"<<endl;
-    reescreverBrigadas();
 }
 
 /***************************************************************************************************************/
 
-void AutoridadePublica::reescreverBrigadas() {
-    //criandp a vector de keys(ids) ordenadas
-    vector<unsigned  int > keys;
+void AutoridadePublica::destrutor()
+{
+    /*
+     * Escreve nos ficheiros
+     */
+    ofstream ficheiro_agentes;
+    ficheiro_agentes.open("../src/text/agentes.txt",ofstream::out | ofstream::trunc);
 
-    keys.reserve (this->brigadas.size());
-    for (auto& it : this->brigadas) {
-        keys.push_back(it.first);
-    }
-    sort (keys.begin(), keys.end());
+    //criando o vector de keys(ids) ordenadas
+    vector<unsigned  int > keys_agentes;
 
-
-    ofstream  file("src/text/brigadas.txt");
-
-    for(auto  it : keys) {
-        auto *brigada =  brigadas[it];
-        file<<"::::::::::::::::::::::::::"<<endl
-           << brigada->get_id()<<endl
-           <<brigada->getAtividadeString_()<<endl
-           <<brigada->get_horas_trabalho()<<endl
-           <<brigada->get_hora_inicio()<<endl;
-
-    }
-    file.close();
-
-
-
-
-}
-
-/***************************************************************************************************************/
-
-void AutoridadePublica::reescreverAgentes() {
-    //criandp a vector de keys(ids) ordenadas
-    vector<unsigned  int > keys;
-
-    keys.reserve (this->agentes.size());
+    keys_agentes.reserve (this->agentes.size());
     for (auto& it : this->agentes) {
-        keys.push_back(it.first);
+        keys_agentes.push_back(it.first);
     }
-    sort (keys.begin(), keys.end());
+    sort (keys_agentes.begin(), keys_agentes.end());
 
-    ofstream file;
-    file.open("src/text/agentes.txt");
+    for(auto  it : keys_agentes)
+    {
+        auto *agente = agentes[it];
+        agente->imprimirFicheiro(ficheiro_agentes);
 
-    for(auto  it : keys) {
-        auto *agente =  agentes[it];
-
-        file<<"::::::::::::::::::::::::::"<<endl
-            << to_string( agente->get_id() )<<endl
-            <<agente->get_area()<<endl
-            <<agente->get_horario_funcionamento().first<<"-"<< agente->get_horario_funcionamento().second<<endl
-            <<agente->getDenuncias()->get_num_graves()<<endl
-            <<agente->getDenuncias()->get_num_total()<<endl
-            <<agente->getInspecoes()->get_num_aprovadas()<<endl
-            <<agente->getInspecoes()->get_num_reprovadas()<<endl
-            <<agente->getDataUi()->getData()<<endl;
     }
-    file.close();
 
 
+    ofstream ficheiro_brigadas;
+    ficheiro_brigadas.open("../src/text/brigadas.txt",ofstream::out | ofstream::trunc);
+
+    //criando o vector de keys(ids) ordenadas
+    vector<unsigned int> keys_brigadas;
+
+    keys_brigadas.reserve(this->brigadas.size());
+    for (auto &it : this->brigadas) {
+        keys_brigadas.push_back(it.first);
+    }
+    sort(keys_brigadas.begin(), keys_brigadas.end());
+
+    for (auto it : keys_brigadas)
+    {
+        auto *brigada = brigadas[it];
+        brigada->imprimirFicheiro(ficheiro_brigadas);
+    }
+    ficheiro_brigadas.close();
+
+
+    /*
+     * Apaga os objectos
+     */
+
+    for (auto it = agentes.begin(); it != agentes.end(); it++)
+    {
+        delete (*it).second;
+    }
+    agentes.clear();
+
+    for (auto it = brigadas.begin(); it != brigadas.end(); it++)
+    {
+        delete (*it).second;
+    }
+    brigadas.clear();
 
 }
-
-
-/***************************************************************************************************************/
-
-

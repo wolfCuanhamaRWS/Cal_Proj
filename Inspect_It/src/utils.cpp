@@ -63,6 +63,26 @@ vector<string> string_split(string str, char sep) {
     return result;
 }
 
+int count_digits(float num)
+{
+    string n = to_string(num);
+    int count = 0;
+    for(int i = 0; i <= n.size(); i++)
+    {
+        if(n.at(i) == '.')
+            break;
+        count = count + 1;
+    }
+
+    for(int i = n.find('.'); i < n.size(); i++)
+    {
+        if(n.at(i) == '0')
+            break;
+        count = count + 1;
+    }
+    return count;
+}
+
 void screenClear() {
 #ifdef WINDOWS
     std::system("cls");

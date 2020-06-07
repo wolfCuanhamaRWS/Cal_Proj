@@ -12,7 +12,8 @@
 
 using namespace std;
 
-enum AtividadeEconomica {
+enum AtividadeEconomica
+{
     Todas, Obras, Comercial, Ambiental, IntervencaoViaPublica, SegurancaSalubridadeEdificacoes, GenerosAlimenticios
 };
 
@@ -75,9 +76,9 @@ class Inspecoes {
     unsigned int num_reprovadas;
 
 public:
-    Inspecoes(unsigned int num_aprovadas, unsigned int num_falhas) {
+    Inspecoes(unsigned int num_aprovadas, unsigned int num_reprovadas) {
         this->num_aprovadas = num_aprovadas;
-        this->num_aprovadas = num_aprovadas;
+        this->num_reprovadas = num_reprovadas;
     }
 
     unsigned int get_num_aprovadas() const {
@@ -89,7 +90,8 @@ public:
     }
 
 
-    unsigned int get_num_reprovadas() const {
+    unsigned int get_num_reprovadas() const
+    {
         return this->num_reprovadas;
     }
 
@@ -233,7 +235,7 @@ public:
      * @param out A stream de output para onde serão escritos os valores dos atributos
      */
     void imprimirFicheiro(ostream &out) const {
-        out << "::::::::::::::::::::::::::" << endl
+        out <<"::::::::::::::::::::::::::" << endl
             << get_id() << endl
             << getAtividadeString() << endl
             << get_area() << endl
@@ -242,7 +244,7 @@ public:
             << getDenuncias()->get_num_total() << endl
             << getInspecoes()->get_num_aprovadas() << endl
             << getInspecoes()->get_num_reprovadas() << endl
-            << getDataUi() << endl;
+            << getDataUi()->getData() << endl;
     }
 
 

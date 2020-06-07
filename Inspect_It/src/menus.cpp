@@ -16,13 +16,15 @@ void mainMenu(AutoridadePublica &autoridade) {
              << "Adicionar agente economico         [2]   |   Adicionar brigada                   [6] " << endl
              << "Inserir denuncia                   [3]   |   Remover brigada                     [7] " << endl
              << "Remover agente economico           [4]   |   Visualizar rota diaria              [8] " << endl
-             << "Exit                               [0]   |                                            " << endl;
+             << "Exit                               [0]   |                                           " << endl;
 
 
         int option;
         option = checkOption(0, 8);
         unsigned int input;
-        if (option == 0) {
+        if (option == 0)
+        {
+            autoridade.destrutor();
             break;
         }
         switch (option) {

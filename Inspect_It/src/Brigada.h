@@ -1,6 +1,4 @@
-
-
-#ifndef CAL_PROJ_BRIGADA_H
+ #ifndef CAL_PROJ_BRIGADA_H
 #define CAL_PROJ_BRIGADA_H
 
 #pragma once
@@ -94,7 +92,7 @@ public:
             << get_id() << endl
             << getAtividadeString_() << endl
             << get_horas_trabalho() << endl
-            << get_hora_inicio();
+            << get_hora_inicio() << endl;
     }
 
 };
