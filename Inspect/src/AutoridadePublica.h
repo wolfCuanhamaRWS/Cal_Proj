@@ -31,6 +31,7 @@ using namespace std;
  */
 class AutoridadePublica {
 private:
+    unsigned int idNo;
     size_t num_brigadas;
     size_t num_agentes;
 
@@ -44,6 +45,10 @@ private:
 public:
         AutoridadePublica();
         AutoridadePublica(size_t  num_brigadas, size_t num_agentes): num_brigadas(num_brigadas), num_agentes(num_agentes){};
+
+        unsigned int getIdNo() const { return idNo;}
+        bool setIdNo(unsigned int idNo){ this->idNo = idNo;}
+
 
     /**
  * "Destructor" da autoridade pública que escreve a informação toda em ficheiros e depois liberta a memória alocada.

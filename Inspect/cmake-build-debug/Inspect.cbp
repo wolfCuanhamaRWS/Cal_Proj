@@ -45,6 +45,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest/include"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
@@ -71,6 +72,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest/include"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
@@ -383,19 +385,7 @@
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/Graph.h">
 			<Option target="Inspect"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.cpp">
-			<Option target="Inspect"/>
-		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.h">
-			<Option target="Inspect"/>
-		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/edgetype.h">
-			<Option target="Inspect"/>
-		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.cpp">
-			<Option target="Inspect"/>
-		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/HeuristicsFindRoute.h">
 			<Option target="Inspect"/>
 		</Unit>
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/Local.cpp">

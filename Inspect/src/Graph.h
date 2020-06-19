@@ -8,7 +8,7 @@
  */
 #ifndef GRAPH_H_
 #define GRAPH_H_
-
+#include "algorithm"
 #include <vector>
 #include <queue>
 #include <list>
@@ -18,7 +18,8 @@
 #include "MutablePriorityQueue.h"
 #include "Local.h"
 #include <stdio.h>
-
+#include <climits>
+#include "math.h"
 #define PI 3.14159265358979323846
 
 
@@ -38,12 +39,12 @@ enum Tag {AutPub,AgEcono, Other};
 template <class T>
 class Vertex {
 
-	T info;						// Classe Local com (x,y) e longitude e latitude para usar no graphView e calcular tempos distancias/tempos de viagem
+	T info;
 	vector<Edge<T> > adj;		// outgoing edges
-    Local local;
-	Tag type;
+    Local local;                // Classe Local com (x,y) e longitude e latitude para usar no graphView e calcular tempos distancias/tempos de viagem
+	Tag type = Other;
 	double dist = 0;
-	Vertex<T> *path = NULL;
+	Vertex<T> *path = nullptr;
 	int queueIndex = 0; 		// required by MutablePriorityQueue
 
 	bool visited = false;		// auxiliary field
@@ -54,8 +55,14 @@ class Vertex {
 public:
 	Vertex(T in);
 	Local getLocal() const;
-	void  setLocal(Local local);
+	void  setLocal(Local &local);
 
+	Vertex(T in, Local &local){
+	    this->info = in;
+	    this->local =local;
+
+	}
+    vector<Edge<T> > getEdges(){return adj;}
 	T getInfo() const;
     /**Função utilizada para obter tempo de viagem entre dois locais usando longitude e latitude
 	 *
@@ -66,13 +73,15 @@ public:
 	 */
     double getTempViagem(Local dest ,double velocKmH);
 
-
+    void setInfo(T info){this->info = info;}
     Tag getTagType() const;
     void setTagType(Tag type);
 	double getDist() const;
 	Vertex *getPath() const;
     void setDist(double dist);
     void setPath(Vertex<T> &path);
+    bool getVisited(){ return visited;}
+    void setVisited(bool visited){ this->visited = visited;}
 	bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue comparam fields dist
 	friend class Graph<T>;
 	friend class MutablePriorityQueue<Vertex<T>>;
@@ -105,7 +114,7 @@ template <class T>
 Local Vertex<T>:: getLocal() const { return local ;}
 
 template <class T>
-void Vertex<T>:: setLocal(Local local){
+void Vertex<T>:: setLocal(Local &local){
     this->local = local;
 }
 
@@ -126,7 +135,7 @@ void Vertex<T>:: setTagType(Tag type)  {this->type = type;}
  */
 template <class T>
 void Vertex<T>::addEdge(Vertex<T> *d, double w) {
-	adj.push_back(Edge<T>(d, w));
+	adj.push_back( Edge<T>(d, w));
 }
 
 template <class T>
@@ -163,7 +172,8 @@ public:
 	Edge(Vertex<T> *d, double w);
 	friend class Graph<T>;
 	friend class Vertex<T>;
-
+    double getWeight(){return weight;}
+	Vertex<T> *getDest(){return dest;}
 };
 
 template <class T>
@@ -174,44 +184,86 @@ Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w) {}
 
 template <class T>
 class Graph {
-     vector<Vertex<T> *> vertexSet;    // vértices para guardar Locais
-	 vector<vector<double>> distMin; //Matriz para algoritmo FloyWarshall e não só
 
-	 vector<vector<Vertex<T>*>>  pathMin; //Matriz para algoritmo FloydWarshall e não só
-    int minXGraphView = 0;
-    int maxXGraphView = 0;
+    double ** W = nullptr; // dist
+    int **P = nullptr; // path
 
-    int minYGraphView = 0;
-    int maxYGraphView = 0;
+
+
+    vector<Vertex<T> *> vertexSet;    // vértices para guardar Locais
+    vector<vector<double>> distMin; //Matriz para algoritmo FloyWarshall e não só
+    int MaxIdNo = (std::numeric_limits<double>::min() -1)* - 1;
+    vector<vector<Vertex<T> *>> pathMin; //Matriz para algoritmo FloydWarshall e não só
+    double minXGraphView = std::numeric_limits<double>::max();
+    double maxXGraphView = (std::numeric_limits<double>::min() - 1) * -1;
+    double numberOfEdges = 0;
+    double minYGraphView = std::numeric_limits<double>::max();
+    double maxYGraphView = (std::numeric_limits<double>::min() - 1) * -1;
 
 
 public:
+    //Graph();
+    vector<vector<Vertex<T> *>> getPathMin() { return pathMin; }
+    int findVertexIdx(const T &in) const;
+    vector<vector<double>> getDistMin() { return distMin; }
 
+    int getNumberOfEdges() const { return numberOfEdges; }
 
-    int getMinXGraphView() const{return minXGraphView;};
-    void setMinXGraphView(int minX) {minXGraphView = minX;};
+    void setNumberOfEdges(double numbOfEdg) { numberOfEdges = numbOfEdg; }
 
-    int getMinYGraphView() const{return minYGraphView;};
-    void setMinYGraphView(int minY) {minYGraphView = minY;};
+    double getMinXGraphView() const { return minXGraphView; }
 
+    void setMinXGraphView(double minX) { minXGraphView = minX; }
+
+    double getMinYGraphView() const { return minYGraphView; }
+
+    void setMinYGraphView(double minY) { minYGraphView = minY; }
+
+    double getMaxXGraphView() const { return maxXGraphView; }
+
+    void setMaxXGraphView(double maxX) { maxXGraphView = maxX; }
+
+    int getMaxYGraphView() const { return maxYGraphView; }
+
+    void setMaxYGraphView(double maxY) { maxYGraphView = maxY; }
+
+    int getMaxId(){
+        return MaxIdNo;
+    }
 
     Vertex<T> *findVertex(const T &in) const;
-	bool addVertex(const T &in);
+
+    bool addVertex(const T &in);
+
+    bool addCompleteVertex(Vertex<T> *aux) {
+        int size = vertexSet.size();
+        MaxIdNo = max(MaxIdNo, size);
+        MaxIdNo = max(MaxIdNo, aux->getInfo());
+        if (findVertex(aux->getInfo()) != nullptr)//só adicionamos se vértice não existir
+            return false;
+
+        vertexSet.push_back(aux);
+        return true;
+
+        vertexSet.push_back(aux);
+    }
+
 	bool addEdge(const T &sourc, const T &dest, double w);
 	int getNumVertex() const;
 	vector<Vertex<T> *> getVertexSet() const;
 
-
+    bool relax(Vertex<T> *vOrig, Vertex<T> *wDest, double edgeValue);
 	void unweightedShortestPath(const T &origin);
 	void dijkstraShortestPath(const T &origin);
 	void bellmanFordShortestPath(const T &orig);
 	vector<T> getPathTo(const T &dest) const;
 
 	// Distancia mínima entre  todos os pares de vértices para guardar numa tabela de pré-processamento
-	void floydWarshallShortestPath();   //TODO...
-	vector<T> getfloydWarshallPath(const T &origin, const T &dest) const;   //TODO...
-    //ex3-)b
 
+
+
+    vector<T> getfloydWarshallPath(const T &orig, const T &dest) const;
+    void floydWarshallShortestPath(unsigned int indexStartidNodes, double errorEPS);
     vector<T> bfs(const T &source) const;
 
 
@@ -219,10 +271,27 @@ public:
 
 
     vector<T> dfs() const;
-
+    void increasingTimeOrder(Vertex<T> *vertex, stack<Vertex<T> *> &stackVertex);
+    Graph<int > getInverseEdgesGraph();
+    vector<vector<int>> KosarajuMainAlgo();
+    void saveStrongCC(Vertex<T> *v,vector<int> &saveSSC);
 
     bool removeVertex(const T &in);
+
 };
+
+template <class T>
+int Graph<T>::findVertexIdx(const T &in) const {
+    for (unsigned i = 0; i < vertexSet.size(); i++)
+        if (vertexSet[i]->info == in)
+            return i;
+    return -1;
+}
+
+
+
+
+
 
 
 
@@ -256,7 +325,7 @@ Vertex<T> * Graph<T>::findVertex(const T &in) const {
 	for (auto v : vertexSet)
 		if (v->info == in)
 			return v;
-	return NULL;
+	return nullptr;
 }
 
 /*
@@ -265,12 +334,18 @@ Vertex<T> * Graph<T>::findVertex(const T &in) const {
  */
 template <class T>
 bool Graph<T>::addVertex(const T &in) {
-	if ( findVertex(in) != NULL)
+   /* int size = vertexSet.size();
+    MaxIdNo = max(MaxIdNo, size);
+    MaxIdNo = max(MaxIdNo, in);*/
+
+	if ( findVertex(in) != nullptr)
 		return false;
-	vertexSet.push_back(new Vertex<T>(in));
+	else {
+        vertexSet.push_back(new Vertex<T>(in));
 
 
-	return true;
+        return true;
+    }
 }
 
 
@@ -291,7 +366,7 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
 
     auto v1 = findVertex(sourc);
 	auto v2 = findVertex(dest);
-	if (v1 == NULL || v2 == NULL)
+	if (v1 == nullptr|| v2 == nullptr)
 		return false;
 	v1->addEdge(v2,w);
 	return true;
@@ -351,6 +426,32 @@ void Graph<T>::unweightedShortestPath(const T &orig) {
 
 }
 
+/**FUNÇÃO que verifica relaxamento em relação a uma aresta ,
+ * tendo emconta algoritmos de camminho mais curto como Dijkstra etc
+* Avalia se valor acumulado até wdest para suposta distancia minima usando por exemplo Dijktra
+ * é maior que o valor acumulado até vOrig + peso da aresta edgeValue até wDest
+ * Se maior, encontramos um caminho com vOrig como antecessor de wDest com pesos acumulados de arestasm menos
+ * do que até agora temos guardado em wDest->dist
+ * @tparam T
+ * @param v Vértice origem da aresta a ser avaliada
+ * @param w Vértice destino de aresta a ser avaliada
+ * @param weight valor da aresta entre vértices v e w
+ * @return true
+ */
+template<class T>
+bool Graph<T>::relax(Vertex<T> *vOrig, Vertex<T> *wDest, double edgeValue) {
+    if (wDest->dist > vOrig->dist + edgeValue ) { //avalia valores minimos acumulados até vértice wDest
+        wDest->dist = vOrig->dist + edgeValue; // se valor actual acumulado até wDest menor que valor acumulado até vorig + eddgeValue(até wDest)
+        wDest->path = vOrig; // actualizamos valor distMin que estaamos a procurar até vértice wDest, com vértice antecessor vOrig guardado em wDest->path
+        return true;
+    }
+    else
+        return false;
+}
+
+
+
+
 /**Parecido com o caso grafo dirigido sem pesos, mas agora arestas têm peso!
  *Sem pesos negativos
  * Algoritmo ganancioso Com uso de filas de prioridade alteráveis (mínimo á cabeça)
@@ -364,12 +465,13 @@ template<class T>
 void Graph<T>::dijkstraShortestPath(const T &origin) {
 	// TODO
 
-    for(auto v: this->vertexSet){
+    for(auto v: this->vertexSet){ // inicializar valores para usar algoritmos
         v->dist = INF;
-        v->path = NULL;
+        v->path = nullptr;
+       
         //não é necessário para o que queremos, mas até dá uma boa ideia do que se passa no código, utilizando
-        v->processing = false;
-        v->visited = false;
+       // v->processing = false;
+       // v->visited = false;
     }
     Vertex<T> *originV = findVertex(origin);//vértice inicial
     originV->dist= 0;//distancia do vértice de origem escolhido a ele próprio é zero!Importante
@@ -379,61 +481,54 @@ void Graph<T>::dijkstraShortestPath(const T &origin) {
 
     min_priority_queue.insert(originV);//apontador para vértice é passado na função
 
-    originV->processing = true;//vértice de origem  a ser processado/está na fila de prioridade//desnecessário
+    // vértice de origem  a ser processado/está na fila de prioridade//desnecessário
+   //originV->processing = true;
+
     while(!min_priority_queue.empty()){
 
         //greedy strategy
-        Vertex<T> *auxV = min_priority_queue.extractMin();//obter vértice extraído da fila de prioridade mutável
-
+        auto auxV = min_priority_queue.extractMin();//obter vértice extraído da fila de prioridade mutável
+       // auxV-> visited = true;
         //verificar vértices nas arestas de v, de forma a comparar pesos de arestas e tamanho de caminhos acumulados
-        for(auto w = auxV->adj.begin(); w != auxV->adj.end(); w++){
+        for(auto wDest :auxV->adj){ // verificar arestas e vértices destino das memas
             /**dist(w) acumulada ao vértice origem é infinita ou maior que a dist(v) acumulada desde a origem(vértice escolhido)
              * até vértice v +  o peso da aresta entre vértice v e w
              * Logo, há um caminho desde a origem até vértice w passando pelo vértice antecessor v que é mais curto
              * Fazendo a devida actualização da dist(w)->Ver numenclatura usada nas teóricas!
              */
-            if((*w).dest->dist > auxV->dist + (*w).weight ){
-                double auxINF =(*w).dest->dist;//distancia acumulada desde a origem até vértice w para verificar caso do ser infinito->não está na fila de prioridade
+            auto pastDist = wDest.dest->dist;//distancia acumulada desde a origem até vértice w para verificar caso do ser infinito->não está na fila de prioridade
 
-                (*w).dest->dist = auxV->dist + (*w).weight;
-                (*w).dest->path = auxV;//vértice anterior deste vértice do caminho será auxV
+            if(relax(auxV,wDest.dest,wDest.weight)) {
+                 if (pastDist == INF) { //dist acumulada do vértice adjacente a auxV da aresta era INFINITO-> esse vértice ainda não está na fila de prioridade mutável
+                     min_priority_queue.insert(wDest.dest); //primeira vez que "passamos aqui" ao "explorar" grafo
+                    // wDest.dest-> processing = true;
+                     //(*w)->dest->processing = true;//estamos a processar este vértice, visto que foi introduzido na fila de prioridades(desnecessário)
 
-
-
-
-                //primeira vez que "passamos aqui" ao "explorar" grafo
-                if(auxINF == INF) {//dist acumulada do vértice adjacente a auxV da aresta era INFINITO-> esse vértice ainda não está na fila de prioridade mutável
-                    Vertex<T> *auxDestVFromAdj = (*w).dest;
-
-                    min_priority_queue.insert(auxDestVFromAdj);//mesma explicação de porquê usar , assim passo apontador
-                    auxDestVFromAdj->processing = true;//estamos a processar este vértice, visto que foi introduzido na fila de prioridades
-                }
-
-
-                //vértice da aresta já existe na fila, logo tem de ver a sua prioridade na fila alterada/diminuída,pois vertice w passa a fazer parte de
-                //caminho mais curto
+                 }
+                    //vértice da aresta já existe na fila, logo tem de ver a sua prioridade na fila alterada/diminuída,pois vertice w passa a fazer parte de
+                    //caminho mais curto
                 else {
-                    Vertex<T> *auxDestVFromAdj = (*w).dest;
-                    //Alterando indíces do vértice  na fila de prioridade
-                    min_priority_queue.decreaseKey(auxDestVFromAdj);
-
+                    min_priority_queue.decreaseKey(wDest.dest);
                 }
+
             }
 
         }
-        //desnecessário
-        auxV->visited = true; //vector já foi "visitado" visto que já processamos todas as arestas/vértices adjacentes deste para  fila de prioridade
-                            //e actualizamos todas as dist acumuladas/path em relação aos seus vértices adjacentes!
+
     }
-
-
+        //desnecessário
+     //   Wdest.dest->visited = true; //vector já foi "visitado" visto que já processamos todas as arestas/vértices adjacentes deste para  fila de prioridade
+                            //e actualizamos todas as dist acumuladas/path em relação aos seus vértices adjacentes!
 }
+
+
+
 
 
 
 /**Permite existência de arestas negativas
  *
- * @tparam T
+ * @tparam
  * @param orig
  */
 template<class T>
@@ -442,8 +537,8 @@ void Graph<T>::bellmanFordShortestPath(const T &orig) {
     for(Vertex<T> *v : vertexSet){
         v->dist = INF;
         v->path = NULL;
-        v->visited = false;//não é necessário
-        v->processing = false;//não é necessário
+      //  v->visited = false;//não é necessário
+       // v->processing = false;//não é necessário
 
     }
 
@@ -492,58 +587,113 @@ vector<T> Graph<T>::getPathTo(const T &dest) const {
     // TODO
 
     Vertex<T> *aux = findVertex(dest);
+    if( aux == nullptr || aux->dist == INF)// se vértice não existir ou for desconectado após se chamar algorimto de rotams mínimas de uma origem para todos os outros (dijktra etc)
+        return res; // retorna vetor vazio
+
     stack<T> getPath;//uso de pilha para ordem que queremos
     getPath.push(aux->getInfo());
 
     //vou guardando os vértices antecessores desde o vértice dest até à origem
     //Origem terá dist == 0
-    while (aux->getDist() != 0) {
+    while (aux != nullptr) { //chegámos ao fim
 
-        aux = aux->getPath();//próximo vector, que é  antecessoer do vertice aux actual
-        getPath.push(aux->getInfo());//guardar info do vertice
+
+
+    res.push_back(aux->getInfo());
+    aux = aux->getPath();//próximo vector, que é  antecessoer do vertice aux actual tendo sido um algoritmo de caminho mínimo de uma origem para todos os outros vértices
 
     }
+
+    /*
     while (!getPath.empty()){//guardar path desde origem até dest por esta ordem
         res.push_back(getPath.top());
         getPath.pop();
     }
-
-
+*/
+    reverse(res.begin(),res.end());
+    
 	return res;
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
 /**************** All Pairs Shortest Path  ***************/
 
-template<class T>
-void Graph<T>::floydWarshallShortestPath() {
-    // TODO
 
+
+
+
+template<class T>
+vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const{
+    vector<T> res;
+    Vertex<T> *v = pathMin[orig][dest];
+
+
+    res.push_back(dest);
+
+    while(v->getInfo() != orig){
+        res.push_back(v->getInfo());
+        v = pathMin[orig][v->getInfo()];
+
+
+    }
+    res.push_back(orig);
+    // res.push_back(orig);//push no final da orig, pois usamos orig como condição no ciclo while
+    //quando chegamos à origem já percorremos o caminho mais curto entre dest e orig
+
+    reverse(res.begin(),res.end());//trocar ordem dos elementos de vector pra termos: orig->w->v->...dest
+    return res;
+
+
+}
+/**Função que calcula distancias mínimas entre cada par de vértices
+ * Possibilita o uso de numeração de vértices começando por 0 ou por 1
+ * Ter sempre em conta, que numeração de nós  por ordem crescente, 1 em 1 possibilita
+ * aceder a nós de forma mais rápida , daí o algoritmo ser usado tendo sempre antes de ter
+ * essa forma de numeração
+ * @tparam T
+ * @param indexStartidNodes valores 0 ou 1 consoante o identificação de vértices pretenidade
+ * @param errorEPS erro pretendido que queremos que seja tido em conta
+ */
+template<class T>
+void Graph<T>::floydWarshallShortestPath(unsigned int indexStartidNodes, double errorEPS) {
+
+    if(indexStartidNodes< 0 || indexStartidNodes > 1) {
+        cerr << "Valor para ajustar indíce do vetor com nós incorreto" << endl;
+        return;
+    }
+   // if(minXGraphView == 0)
     //inicializar matriz de adjacencias
     //Iteração k = 0, onde  k>= 0 && k <= numberVertex
     int numbVertex = getNumVertex();
-    /**Usaremos indíces de 1 até numVertex para bater certo com a numeração normalmente usada para os nós, onde
-     * onde se numera os nós de 1 até n ,evita ter de usar i +1, j + 1
-     *
-     */
+
     //matriz para as distancias do algoritmo floyd warshal
-    distMin = vector<vector<double>>(numbVertex +1,vector<double>(numbVertex + 1,INF));
+    distMin = vector<vector<double>>(numbVertex + indexStartidNodes,vector<double>(numbVertex + indexStartidNodes,INF));
     //vector para guardador predecessores de vertices e assim obter os nós/vértices do caminho mais curto pretendido
-    pathMin = vector<vector<Vertex<T> *>>(numbVertex + 1,vector<Vertex<T>*>(numbVertex + 1,NULL));
+    pathMin = vector<vector<Vertex<T> *>>(numbVertex + indexStartidNodes,vector<Vertex<T>*>(numbVertex + indexStartidNodes,NULL));
 
     //Incializar matrizes com os valores adjacentes iniciais do grafos/distancias entre vértices
     // por apenas uma aresta de distancia.
     //vértices sem arestas entre si, ficam com distancia infinita!
-    for(int i = 1; i < numbVertex + 1; i++)
-        for(int j = 1; j < numbVertex + 1; j++){
+    for(int i = indexStartidNodes; i < numbVertex + indexStartidNodes; i++)
+        for(int j = indexStartidNodes; j < numbVertex + indexStartidNodes; j++){
             if( i == j) {
                 distMin[i][j] = 0;//distancia Minima de um nó para si próprio
                 // o predecessor do caminho de um nó para si próprio é nulo
             }
             //predecessores iniciais, tendo em conta informações de arestas do grafo
             //distancias minimas iniciais inicializas com os pesos de arestas que ligam vértices directamente com apenas uma aresta
-            Vertex<T> *w = vertexSet[i -1];
+            Vertex<T> *w = vertexSet[i -indexStartidNodes];
             for(Edge<T> v: w->adj)
 
                 if(v.dest->getInfo() == j) {
@@ -558,27 +708,15 @@ void Graph<T>::floydWarshallShortestPath() {
 
 
     //Aqui, usando programação dinâmica iremos obter as distancias minimas entre vértice orig e dest pretendido!
-    /**Para qualquer par de vértices {\displaystyle (i,j)}(i,j)
-     * em {\displaystyle V}V, considere todos os caminhos de {\displaystyle i}i
-     * a {\displaystyle j}j cujos vértices intermédios pertencem ao subconjunto
-     * {\displaystyle {1,2,3\ldots ,k}}{1,2,3\ldots ,k}, e {\displaystyle p}p como
-     * o mais curto de todos eles;
-O algoritmo explora um relacionamento entre o caminho {\displaystyle p}p e os
-     caminhos mais curtos de {\displaystyle i}i a {\displaystyle j}j com todos
-     os vértices intermédios em {\displaystyle {1,2,3\ldots ,k-1}}{1,2,3\ldots ,k-1};
-O relacionamento depende de {\displaystyle k}k ser ou não um vértice intermédio
-     do caminho {\displaystyle p}p.
-     *https://pt.wikipedia.org/wiki/Algoritmo_de_Floyd-Warshall
-     *
-     *
-     */
-
-    for(int k = 1; k < numbVertex + 1; k++){//vértices intermédios a serem verificados entre caminhos i, j
-        for(int i = 1; i < numbVertex + 1; i++)
-            for(int j = 1; j < numbVertex + 1; j++) {
+    //ao iterar todos os caminhos entre i, j tendo em conta todos os vértices intermédios possíveis
+    //Ficamos com as disMin entre qualquer vértice e predecessores nesses caminhos
+    for(int k = indexStartidNodes; k < numbVertex + indexStartidNodes; k++){//vértices intermédios a serem verificados entre caminhos i, j
+        for(int i = indexStartidNodes; i < numbVertex + indexStartidNodes; i++)
+            for(int j = indexStartidNodes; j < numbVertex + indexStartidNodes; j++) {
                 //Se distMin entre i e j menor que a distMin passando pelo veŕtice k
                 //esse vértice pertence ao caminho mais curto que pretendemos
-                if(distMin[i][j] > distMin[i][k] + distMin[k][j]){
+                if(distMin[i][k] != INF &&
+                   distMin[k][j] != INF &&  (distMin[i][j]  - errorEPS) > distMin[i][k] + distMin[k][j]){//TEnta-se evitar propagação de erros usando valor escolhido
                     distMin[i][j] = distMin[i][k] + distMin[k][j];
                     //predecessor no caminho entre i e j é vértice intermédio k (= 1,2,...n)
                     pathMin[i][j] = pathMin[k][j];
@@ -587,36 +725,11 @@ O relacionamento depende de {\displaystyle k}k ser ou não um vértice interméd
 
             }
     }
-    //ao iterar todos os caminhos entre i, j tendo em conta todos os vértices intermédios possíveis
-    //Ficamos com as disMin entre qualquer vértice e predecessores nesses caminhos
-
-}
-template<class T>
-vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const{
-	vector<T> res;
-    Vertex<T> *v = pathMin[orig][dest];
-
-
-    res.push_back(dest);
-
-    while(true){
-        res.push_back(v->getInfo());
-        v = pathMin[orig][v->getInfo()];
-        if(v->getInfo() == orig)
-            break;
-    }
-
-    res.push_back(orig);//push no final da orig, pois usamos orig como condição no ciclo while
-    //quando chegamos à origem já percorremos o caminho mais curto entre dest e orig
-    reverse(res.begin(),res.end());//trocar ordem dos elementos de vector pra termos: orig->w->v->...dest
-    return res;
 
 
 }
 
 
-
-/****************** 1d) removeVertex ********************/
 
 /*
  *  Removes a vertex with a given content (in) from a graph (this), and
@@ -631,7 +744,7 @@ bool Graph<T>::removeVertex(const T &in) {
     //Temos de eliminar arestas in and out para este vertice
     Vertex<T> *aux = this->findVertex(in);//Obter apontador para o apontador do vertice pretendido
 
-    if(aux!= NULL) {
+    if(aux!= nullptr) {
         for(auto it = this->vertexSet.begin(); it != this->vertexSet.end(); it++) {
             (*it)->removeEdgeTo(aux);//remover arestas de outros vertices para o vertice que vamos apagar
 
@@ -650,7 +763,6 @@ bool Graph<T>::removeVertex(const T &in) {
 }
 
 
-/****************** 2a) dfs ********************/
 
 /*
  * Performs a depth-first search (dfs) in a graph (this).
@@ -696,7 +808,6 @@ void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
 
 }
 
-/****************** 2b) bfs ********************/
 
 /*
  * Performs a breadth-first search (bfs) in a graph (this), starting
@@ -743,6 +854,116 @@ vector<T> Graph<T>::bfs(const T & source) const {
 
 
     return res;
+}
+/**
+ *
+ * @tparam T
+ * @return
+ */
+template <class T>
+void Graph<T> :: saveStrongCC(Vertex<T> *v, vector<int> &saveSSC) {
+    v->setVisited(true);
+
+    saveSSC.push_back(v->getInfo());
+
+    for(Edge<T> adjV: v->adj )
+        if(adjV.dest->getVisited() == false){
+            saveStrongCC(adjV.dest,saveSSC); // chamda recursiva para ir obetendo todos os SCC
+        }
+}
+
+
+template <class T>
+void Graph<T> :: increasingTimeOrder(Vertex<T> *vertex, stack<Vertex<T> *> &stackVertex){
+    vertex->setVisited(true);
+    for(Edge<T> v: vertex->adj){
+       if( v.dest->getVisited() == false)
+           increasingTimeOrder(v.dest, stackVertex);
+    }
+
+    stackVertex.push(vertex);
+}
+
+/**Funções para obter todas as componentes fortemente conexas de um grafo
+ * Algortimo Kosaraju
+ */
+
+/**
+ *
+ * @tparam T
+ * @return
+ */
+template <class T>
+Graph<int> Graph<T> :: getInverseEdgesGraph(){
+    Graph<int> inverseEdgesGraph;
+    for(auto v: vertexSet){
+
+        inverseEdgesGraph.addVertex(v->getInfo());
+
+    }
+
+
+    for(Vertex<T> *v: vertexSet){
+
+        for(Edge<T>  w: v->adj){
+            inverseEdgesGraph.addEdge(w.getDest()->info,v->info,w.getWeight());
+        }
+
+    }
+    return inverseEdgesGraph;
+}
+
+/**
+ *
+ * @tparam T
+ * @return
+ */
+template <class T>
+vector<vector<int >> Graph<T> :: KosarajuMainAlgo(){
+
+    vector<vector<int> > saveAllSCC;
+    stack<Vertex<T> *> stackVertex;
+
+    //meter todos os veŕtices como não visitados
+    for(auto v: vertexSet){
+            v->setVisited(false);
+    }
+
+
+    for(auto v: vertexSet){
+        if(v->getVisited() == false)
+        increasingTimeOrder(v, stackVertex);
+    }
+
+    Graph<int> transpGraph = getInverseEdgesGraph();
+    // todos os vértices como não visitados para segunda pesquisa em profundidade
+    for(auto v: transpGraph.vertexSet){
+        v->setVisited(false);
+    }
+    for(auto v: vertexSet){
+        v->setVisited(false);
+    }
+    while(!stackVertex.empty()){
+        vector<int> singleSCC;
+
+
+        Vertex<T> *v = transpGraph.findVertex(stackVertex.top()->info);
+        stackVertex.pop();
+       // auto w = findVertex(v->getInfo());
+        if(v->getVisited() == false) {
+            transpGraph.saveStrongCC(v, singleSCC);
+
+
+            saveAllSCC.push_back(singleSCC);
+           // singleSCC.clear();
+        }
+    }
+
+    /*for(auto v: vertexSet){ // retornar a meter tudo como não visitado?
+        v->setVisited(false);
+    }
+    */
+    return saveAllSCC;
 }
 
 

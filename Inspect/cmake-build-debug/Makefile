@@ -383,60 +383,6 @@ src/Data.cpp.s:
 	$(MAKE) -f CMakeFiles/Inspect.dir/build.make CMakeFiles/Inspect.dir/src/Data.cpp.s
 .PHONY : src/Data.cpp.s
 
-src/GraphViewer/cpp/connection.o: src/GraphViewer/cpp/connection.cpp.o
-
-.PHONY : src/GraphViewer/cpp/connection.o
-
-# target to build an object file
-src/GraphViewer/cpp/connection.cpp.o:
-	$(MAKE) -f CMakeFiles/Inspect.dir/build.make CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o
-.PHONY : src/GraphViewer/cpp/connection.cpp.o
-
-src/GraphViewer/cpp/connection.i: src/GraphViewer/cpp/connection.cpp.i
-
-.PHONY : src/GraphViewer/cpp/connection.i
-
-# target to preprocess a source file
-src/GraphViewer/cpp/connection.cpp.i:
-	$(MAKE) -f CMakeFiles/Inspect.dir/build.make CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.i
-.PHONY : src/GraphViewer/cpp/connection.cpp.i
-
-src/GraphViewer/cpp/connection.s: src/GraphViewer/cpp/connection.cpp.s
-
-.PHONY : src/GraphViewer/cpp/connection.s
-
-# target to generate assembly for a file
-src/GraphViewer/cpp/connection.cpp.s:
-	$(MAKE) -f CMakeFiles/Inspect.dir/build.make CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.s
-.PHONY : src/GraphViewer/cpp/connection.cpp.s
-
-src/GraphViewer/cpp/graphviewer.o: src/GraphViewer/cpp/graphviewer.cpp.o
-
-.PHONY : src/GraphViewer/cpp/graphviewer.o
-
-# target to build an object file
-src/GraphViewer/cpp/graphviewer.cpp.o:
-	$(MAKE) -f CMakeFiles/Inspect.dir/build.make CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o
-.PHONY : src/GraphViewer/cpp/graphviewer.cpp.o
-
-src/GraphViewer/cpp/graphviewer.i: src/GraphViewer/cpp/graphviewer.cpp.i
-
-.PHONY : src/GraphViewer/cpp/graphviewer.i
-
-# target to preprocess a source file
-src/GraphViewer/cpp/graphviewer.cpp.i:
-	$(MAKE) -f CMakeFiles/Inspect.dir/build.make CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.i
-.PHONY : src/GraphViewer/cpp/graphviewer.cpp.i
-
-src/GraphViewer/cpp/graphviewer.s: src/GraphViewer/cpp/graphviewer.cpp.s
-
-.PHONY : src/GraphViewer/cpp/graphviewer.s
-
-# target to generate assembly for a file
-src/GraphViewer/cpp/graphviewer.cpp.s:
-	$(MAKE) -f CMakeFiles/Inspect.dir/build.make CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.s
-.PHONY : src/GraphViewer/cpp/graphviewer.cpp.s
-
 src/Local.o: src/Local.cpp.o
 
 .PHONY : src/Local.o
@@ -580,12 +526,6 @@ help:
 	@echo "... src/Data.o"
 	@echo "... src/Data.i"
 	@echo "... src/Data.s"
-	@echo "... src/GraphViewer/cpp/connection.o"
-	@echo "... src/GraphViewer/cpp/connection.i"
-	@echo "... src/GraphViewer/cpp/connection.s"
-	@echo "... src/GraphViewer/cpp/graphviewer.o"
-	@echo "... src/GraphViewer/cpp/graphviewer.i"
-	@echo "... src/GraphViewer/cpp/graphviewer.s"
 	@echo "... src/Local.o"
 	@echo "... src/Local.i"
 	@echo "... src/Local.s"

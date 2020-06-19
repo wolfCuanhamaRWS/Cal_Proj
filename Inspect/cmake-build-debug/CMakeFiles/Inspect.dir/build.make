@@ -148,35 +148,9 @@ CMakeFiles/Inspect.dir/src/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Inspect.dir/src/utils.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/flavio/CAL/Cal_Proj/Inspect/src/utils.cpp -o CMakeFiles/Inspect.dir/src/utils.cpp.s
 
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o: CMakeFiles/Inspect.dir/flags.make
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o: ../src/GraphViewer/cpp/connection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o -c /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.cpp
-
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.cpp > CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.i
-
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.cpp -o CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.s
-
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o: CMakeFiles/Inspect.dir/flags.make
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o: ../src/GraphViewer/cpp/graphviewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o -c /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.cpp
-
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.cpp > CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.i
-
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.cpp -o CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.s
-
 CMakeFiles/Inspect.dir/src/MapImport.cpp.o: CMakeFiles/Inspect.dir/flags.make
 CMakeFiles/Inspect.dir/src/MapImport.cpp.o: ../src/MapImport.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Inspect.dir/src/MapImport.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Inspect.dir/src/MapImport.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Inspect.dir/src/MapImport.cpp.o -c /home/flavio/CAL/Cal_Proj/Inspect/src/MapImport.cpp
 
 CMakeFiles/Inspect.dir/src/MapImport.cpp.i: cmake_force
@@ -189,7 +163,7 @@ CMakeFiles/Inspect.dir/src/MapImport.cpp.s: cmake_force
 
 CMakeFiles/Inspect.dir/src/menus.cpp.o: CMakeFiles/Inspect.dir/flags.make
 CMakeFiles/Inspect.dir/src/menus.cpp.o: ../src/menus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Inspect.dir/src/menus.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Inspect.dir/src/menus.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Inspect.dir/src/menus.cpp.o -c /home/flavio/CAL/Cal_Proj/Inspect/src/menus.cpp
 
 CMakeFiles/Inspect.dir/src/menus.cpp.i: cmake_force
@@ -202,7 +176,7 @@ CMakeFiles/Inspect.dir/src/menus.cpp.s: cmake_force
 
 CMakeFiles/Inspect.dir/src/Local.cpp.o: CMakeFiles/Inspect.dir/flags.make
 CMakeFiles/Inspect.dir/src/Local.cpp.o: ../src/Local.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Inspect.dir/src/Local.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Inspect.dir/src/Local.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Inspect.dir/src/Local.cpp.o -c /home/flavio/CAL/Cal_Proj/Inspect/src/Local.cpp
 
 CMakeFiles/Inspect.dir/src/Local.cpp.i: cmake_force
@@ -222,8 +196,6 @@ Inspect_OBJECTS = \
 "CMakeFiles/Inspect.dir/src/Brigada.cpp.o" \
 "CMakeFiles/Inspect.dir/src/Data.cpp.o" \
 "CMakeFiles/Inspect.dir/src/utils.cpp.o" \
-"CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o" \
-"CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o" \
 "CMakeFiles/Inspect.dir/src/MapImport.cpp.o" \
 "CMakeFiles/Inspect.dir/src/menus.cpp.o" \
 "CMakeFiles/Inspect.dir/src/Local.cpp.o"
@@ -238,8 +210,6 @@ Inspect: CMakeFiles/Inspect.dir/src/AutoridadePublica.cpp.o
 Inspect: CMakeFiles/Inspect.dir/src/Brigada.cpp.o
 Inspect: CMakeFiles/Inspect.dir/src/Data.cpp.o
 Inspect: CMakeFiles/Inspect.dir/src/utils.cpp.o
-Inspect: CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o
-Inspect: CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o
 Inspect: CMakeFiles/Inspect.dir/src/MapImport.cpp.o
 Inspect: CMakeFiles/Inspect.dir/src/menus.cpp.o
 Inspect: CMakeFiles/Inspect.dir/src/Local.cpp.o
@@ -248,7 +218,7 @@ Inspect: lib/libgtestd.a
 Inspect: lib/libgtest_maind.a
 Inspect: lib/libgtestd.a
 Inspect: CMakeFiles/Inspect.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable Inspect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Inspect"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Inspect.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,0 +1,3 @@
+1900 1000 0 1 0 0 -
+
+../resources/graphs/Porto_Strong_Component/porto_strong_component.png

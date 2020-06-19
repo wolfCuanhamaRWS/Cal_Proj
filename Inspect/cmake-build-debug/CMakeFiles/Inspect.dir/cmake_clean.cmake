@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Inspect.dir/src/AutoridadePublica.cpp.o"
   "CMakeFiles/Inspect.dir/src/Brigada.cpp.o"
   "CMakeFiles/Inspect.dir/src/Data.cpp.o"
-  "CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o"
-  "CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o"
   "CMakeFiles/Inspect.dir/src/Local.cpp.o"
   "CMakeFiles/Inspect.dir/src/MapImport.cpp.o"
   "CMakeFiles/Inspect.dir/src/menus.cpp.o"

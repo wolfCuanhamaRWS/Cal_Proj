@@ -41,6 +41,7 @@ CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../lib/googletest-master/googletest/in
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/HeuristicsFindRoute.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../Tests/tests.cpp
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/AgenteEconomico.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/AutoridadePublica.h
@@ -49,6 +50,7 @@ CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/Data.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/Erro.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/Graph.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/Local.h
+CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/MapImport.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/MutablePriorityQueue.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/menus.h
 CMakeFiles/Inspect.dir/Tests/tests.cpp.o: ../src/utils.h
@@ -186,14 +188,6 @@ CMakeFiles/Inspect.dir/src/Data.cpp.o: ../src/Data.cpp
 CMakeFiles/Inspect.dir/src/Data.cpp.o: ../src/Data.h
 CMakeFiles/Inspect.dir/src/Data.cpp.o: ../src/Erro.h
 CMakeFiles/Inspect.dir/src/Data.cpp.o: ../src/utils.h
-
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o: ../src/GraphViewer/cpp/connection.cpp
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o: ../src/GraphViewer/cpp/connection.h
-
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o: ../src/GraphViewer/cpp/connection.h
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o: ../src/GraphViewer/cpp/edgetype.h
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o: ../src/GraphViewer/cpp/graphviewer.cpp
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o: ../src/GraphViewer/cpp/graphviewer.h
 
 CMakeFiles/Inspect.dir/src/Local.cpp.o: ../src/Local.cpp
 CMakeFiles/Inspect.dir/src/Local.cpp.o: ../src/Local.h

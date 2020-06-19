@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-
+#include <csignal>
 #include <sstream>
 #include <random>
 #include <time.h>
@@ -11,13 +11,15 @@
 #include "../src/Local.h"
 #include "../src/Brigada.h"
 #include "../src/menus.h"
+#include "../src/MapImport.h"
+#include "HeuristicsFindRoute.h"
 using namespace std;
 using testing::Eq;
 
 
-Graph<Local> CreateTestGraph2() {
-    Graph<Local> myGraph;
+Graph<int> CreateTestGraph2() {
 
+    Graph<int> graph;
    //id, h_t, h_i, A_E
 
    AgenteEconomico ag1(1,Obras,50,make_pair(9,19),new Denuncias(3,5),new Inspecoes(10,1),new Data(2019,12,11),2);
@@ -31,8 +33,37 @@ Graph<Local> CreateTestGraph2() {
     AtPub.addAgenteEcon(&ag1);
     AtPub.addAgenteEcon(&ag2);
     AtPub.addAgenteEcon(&ag3);
+    AtPub.setIdNo(7);
+
+   loadGraphNodesInfo(graph,"../src/Mapas/GridGraphs/4x4/nodes.txt", "../src/Mapas/GridGraphs/4x4/nodesLatLng.txt","../src/Mapas/GridGraphs/4x4/edges.txt",40.0 );
+
+    //Sinalizar AutPub
+    cout << graph.getMaxXGraphView() << endl;
+    for(auto it : AtPub.get_agentes()){
+        auto et = graph.findVertex(it.second->get_idNo());
+        if( et != NULL){
+            et->setTagType(AgEcono);
+
+
+        }
+    }
+
+    //sinalizar AutPub
+    auto et = graph.findVertex(AtPub.getIdNo());
+    if( et != NULL){
+        et->setTagType(AutPub);
+
+
+    }
 
     cout << ag1.get_id() << endl;
+
+
+    cout << graph.getMaxXGraphView() << endl;
+
+    cout << graph.getNumVertex()<< "NumVertex" << endl;
+
+    return graph;
 
 }
 
@@ -114,7 +145,7 @@ void checkSinglePath(vector<T> path, string expected) {
  * Unit tests... must be uncommented to proceed...
  */
 
- //Uncomment the test below...
+ /*//Uncomment the test below...
 TEST(Inspect, test_unweightedShortestPath) {
     Graph<int> myGraph = CreateTestGraph();
 
@@ -124,7 +155,7 @@ TEST(Inspect, test_unweightedShortestPath) {
 
     myGraph.unweightedShortestPath(5);
     checkSinglePath(myGraph.getPathTo(6), "5 7 6 ");
-}
+}*/
 
 
 
@@ -182,6 +213,8 @@ TEST(Inspect, test_bellmanFord) {
 
     myGraph.bellmanFordShortestPath(7);
     checkSinglePath(myGraph.getPathTo(1), "7 6 4 3 1 ");
+
+
 }
 
 
@@ -189,22 +222,42 @@ TEST(Inspect, test_bellmanFord) {
  //Uncomment the test below...
 TEST(Inspect, test_floydWarshall) {
     Graph<int> myGraph = CreateTestGraph();
-    myGraph.floydWarshallShortestPath();
+    myGraph.floydWarshallShortestPath(1,0.0001);
     checkSinglePath(myGraph.getfloydWarshallPath(1, 7), "1 2 4 5 7 ");
     checkSinglePath(myGraph.getfloydWarshallPath(5, 6), "5 7 6 ");
     checkSinglePath(myGraph.getfloydWarshallPath(7, 1), "7 6 4 3 1 ");
 }
+TEST(Inspect, test_searchNearestAgEconoTmpViagem){
+
+    Graph<int> gr;
+
+    AgenteEconomico ag1(1,Obras,50,make_pair(9,19),new Denuncias(3,5),new Inspecoes(10,1),new Data(2019,12,11),11);
+    AgenteEconomico ag2(2,Obras,50,make_pair(9,19),new Denuncias(4,5),new Inspecoes(11,1),new Data(2019,12,11),5);
+    AgenteEconomico ag3(3,Obras,50,make_pair(9,19),new Denuncias(2,5),new Inspecoes(9,2),new Data(2019,12,10),9);
+
+
+    AutoridadePublica AtPub(1,3);
+    AtPub.addBrigada(new Brigada (1,8,9,Obras)); //id, h_t, h_i, A_E
+
+    AtPub.addAgenteEcon(&ag1);
+    AtPub.addAgenteEcon(&ag2);
+    AtPub.addAgenteEcon(&ag3);
+    AtPub.setIdNo(0);
+
+    loadGraphNodesInfo(gr,"src/GraphViewer/example/resources/graphs/GridGraphs/4x4/nodes.txt", "src/GraphViewer/example/graphs/GridGraphs/4x4/nodes.txt","src/GraphViewer/example/graphs/GridGraphs/4x4/edges.txt",40.0);
 
 
 
-//Uncomment the test below...
-TEST(Inspect, AutoridadePublicaTest) {
-    AutoridadePublica autoridade;
 
-    cout << "Bem vindo!" << endl;
 
-    mainMenu(autoridade);
+    Vertex<int> *res = searchNearestAgEconoTmpViagem(gr,AtPub,Obras,dijkstra);
+
+    EXPECT_EQ(res->getInfo(), 5);
+
+  //  drawGraph(gr,"Porto_Strong_Component",7776,EdgeType::DIRECTED, true);
 
 
 }
+
+
 

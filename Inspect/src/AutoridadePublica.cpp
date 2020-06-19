@@ -142,7 +142,6 @@ unordered_map<unsigned int, Brigada *> AutoridadePublica::processarFicheiroBriga
     string input;
     unsigned int id, horas_trabalho, hora_inicio;
     AtividadeEconomica atividade;
-
     unordered_map<unsigned int, Brigada *> result;
 
     ficheiro.open("../src/text/brigadas.txt");

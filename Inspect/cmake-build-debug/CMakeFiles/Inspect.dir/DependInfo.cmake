@@ -10,8 +10,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/flavio/CAL/Cal_Proj/Inspect/src/AutoridadePublica.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/AutoridadePublica.cpp.o"
   "/home/flavio/CAL/Cal_Proj/Inspect/src/Brigada.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/Brigada.cpp.o"
   "/home/flavio/CAL/Cal_Proj/Inspect/src/Data.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/Data.cpp.o"
-  "/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o"
-  "/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o"
   "/home/flavio/CAL/Cal_Proj/Inspect/src/Local.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/Local.cpp.o"
   "/home/flavio/CAL/Cal_Proj/Inspect/src/MapImport.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/MapImport.cpp.o"
   "/home/flavio/CAL/Cal_Proj/Inspect/src/menus.cpp" "/home/flavio/CAL/Cal_Proj/Inspect/cmake-build-debug/CMakeFiles/Inspect.dir/src/menus.cpp.o"
@@ -22,6 +20,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../lib/googletest-master/googlemock/include"
+  "../src"
   "../lib/googletest-master/googletest/include"
   "../lib/googletest-master/googletest"
   )

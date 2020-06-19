@@ -42,6 +42,7 @@ CMakeFiles/Inspect.dir/Tests/tests.cpp.o
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
  ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
+ ../src/HeuristicsFindRoute.h
  /home/flavio/CAL/Cal_Proj/Inspect/Tests/tests.cpp
  /home/flavio/CAL/Cal_Proj/Inspect/src/AgenteEconomico.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/AutoridadePublica.h
@@ -50,6 +51,7 @@ CMakeFiles/Inspect.dir/Tests/tests.cpp.o
  /home/flavio/CAL/Cal_Proj/Inspect/src/Erro.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/Graph.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/Local.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/MapImport.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/MutablePriorityQueue.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/menus.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/utils.h
@@ -187,14 +189,6 @@ CMakeFiles/Inspect.dir/src/Data.cpp.o
  /home/flavio/CAL/Cal_Proj/Inspect/src/Data.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/Erro.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/utils.h
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/connection.cpp.o
- /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.cpp
- /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.h
-CMakeFiles/Inspect.dir/src/GraphViewer/cpp/graphviewer.cpp.o
- /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/connection.h
- /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/edgetype.h
- /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.cpp
- /home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/cpp/graphviewer.h
 CMakeFiles/Inspect.dir/src/Local.cpp.o
  /home/flavio/CAL/Cal_Proj/Inspect/src/Local.cpp
  /home/flavio/CAL/Cal_Proj/Inspect/src/Local.h

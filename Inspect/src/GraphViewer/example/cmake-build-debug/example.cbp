@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="example"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example">
+				<Option output="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/example" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/src"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/lib"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/example"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 example"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example/fast">
+				<Option output="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/example" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/src"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/lib"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/example"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 example/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/lib/connection.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/lib/connection.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/lib/graphviewer.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/lib/graphviewer.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/main.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/AgenteEconomico.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/AgenteEconomico.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/AutoridadePublica.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/AutoridadePublica.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Brigada.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Brigada.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Data.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Data.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Erro.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Graph.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/HeuristicsFindRoute.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/HeuristicsFindRoute.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Local.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Local.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/MapImport.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/MapImport.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/MutablePriorityQueue.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/menus.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/menus.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/utils.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/utils.h">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
