@@ -23,7 +23,7 @@
  */
 void loadGraphNodesInfo(Graph<int> &grafo,string nosXYFich,string nosCoordGeoFich, string arestasFich,double velocMediaKH);
 
-void controlCoordsGraphView(Graph<int> &graph,int x, int y);
+void controlCoordsGraphView(Graph<int> &graph,double, double y);
 
 
 

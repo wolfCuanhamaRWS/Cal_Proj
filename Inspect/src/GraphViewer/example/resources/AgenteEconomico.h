@@ -194,12 +194,22 @@ public:
     float gerarTmpInspecao() {
         if (area <= 50.0)
             return 0.5;
+        else if(area <= 200)
+            return 1.0;
+        else if( area <= 500)
+            return 2;
+        else if(area <= 1000)
+            return 3;
         else
             return area / 100;
     }
     float getTmpInpec() const { return tmpInspecao;}
     void  imprimirFicheiro(ostream &out) const;
+    bool operator==(const AgenteEconomico &agEcono){
 
+
+        return this->get_id() == agEcono.get_id();
+    }
 
 };
 

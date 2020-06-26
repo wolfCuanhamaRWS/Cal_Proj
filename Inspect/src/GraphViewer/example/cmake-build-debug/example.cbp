@@ -158,6 +158,12 @@
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/MutablePriorityQueue.h">
 			<Option target="example"/>
 		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/RouteViewCalc.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/RouteViewCalc.h">
+			<Option target="example"/>
+		</Unit>
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/menus.cpp">
 			<Option target="example"/>
 		</Unit>

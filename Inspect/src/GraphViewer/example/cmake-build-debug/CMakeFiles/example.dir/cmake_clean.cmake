@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/example.dir/resources/HeuristicsFindRoute.cpp.o"
   "CMakeFiles/example.dir/resources/Local.cpp.o"
   "CMakeFiles/example.dir/resources/MapImport.cpp.o"
+  "CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o"
   "CMakeFiles/example.dir/resources/menus.cpp.o"
   "CMakeFiles/example.dir/resources/utils.cpp.o"
   "example"

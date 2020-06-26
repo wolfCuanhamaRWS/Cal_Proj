@@ -140,7 +140,7 @@ void loadGraphNodesInfo(Graph<int> &grafo, string  nosXYFich,string nosCoordGeoF
 
 }
 
-void  controlCoordsGraphView(Graph<int> &graph,int x, int y){
+void  controlCoordsGraphView(Graph<int> &graph,double x, double y){
     if(graph.getMinXGraphView() >= x)
         graph.setMinXGraphView(x);
 

@@ -20,9 +20,8 @@
 #include <stdio.h>
 #include <climits>
 #include "math.h"
+
 #define PI 3.14159265358979323846
-
-
 using namespace std;
 
 template <class T> class Edge;
@@ -81,6 +80,7 @@ public:
     void setDist(double dist);
     void setPath(Vertex<T> &path);
     bool getVisited(){ return visited;}
+    Local getLocal(){return local;}
     void setVisited(bool visited){ this->visited = visited;}
 	bool operator<(Vertex<T> & vertex) const; // // required by MutablePriorityQueue comparam fields dist
 	friend class Graph<T>;
@@ -226,6 +226,7 @@ public:
     int getMaxYGraphView() const { return maxYGraphView; }
 
     void setMaxYGraphView(double maxY) { maxYGraphView = maxY; }
+    void  controlCoordsGraphView(double x, double y);
 
     int getMaxId(){
         return MaxIdNo;
@@ -236,16 +237,17 @@ public:
     bool addVertex(const T &in);
 
     bool addCompleteVertex(Vertex<T> *aux) {
-        int size = vertexSet.size();
-        MaxIdNo = max(MaxIdNo, size);
+        controlCoordsGraphView(aux->getLocal().get_xMap(),aux->getLocal().get_yMap());
         MaxIdNo = max(MaxIdNo, aux->getInfo());
-        if (findVertex(aux->getInfo()) != nullptr)//só adicionamos se vértice não existir
+        if (findVertex(aux->getInfo()) != NULL)//só adicionamos se vértice não existir
             return false;
+
+        this->setNumberOfEdges(aux->getEdges().size() + getNumberOfEdges());
 
         vertexSet.push_back(aux);
         return true;
 
-        vertexSet.push_back(aux);
+
     }
 
 	bool addEdge(const T &sourc, const T &dest, double w);
@@ -259,12 +261,10 @@ public:
 	vector<T> getPathTo(const T &dest) const;
 
 	// Distancia mínima entre  todos os pares de vértices para guardar numa tabela de pré-processamento
-	void floydWarshallShortestPath(double errorEPS);   //TODO...
-	vector<T> getfloydWarshallPath(const T &origin, const T &dest) const;   //TODO...
-    //ex3-)b
-    void floydWarshallShortestPath2();
-    vector<T> getfloydWarshallPath3(const T &orig, const T &dest) const;
-    void floydWarshallShortestPath3(unsigned int indexStartidNodes, double errorEPS);
+
+
+    vector<T> getfloydWarshallPath(const T &orig, const T &dest) const;
+    void floydWarshallShortestPath(unsigned int indexStartidNodes, double errorEPS);
     vector<T> bfs(const T &source) const;
 
 
@@ -273,84 +273,31 @@ public:
 
     vector<T> dfs() const;
     void increasingTimeOrder(Vertex<T> *vertex, stack<Vertex<T> *> &stackVertex);
-    Graph<int > getInverseEdgesGraph();
-    vector<vector<int>> KosarajuMainAlgo();
-    void saveStrongCC(Vertex<T> *v,vector<int> &saveSSC);
+    Graph<T > getInverseEdgesGraph();
+    vector<vector<T>> KosarajuMainAlgo();
+    void saveStrongCC(Vertex<T> *v,vector<T> &saveSSC);
+    vector<T> KisorajuGetMaxSizeStrongCC(Graph<T> graph);
 
     bool removeVertex(const T &in);
-    ~Graph();
+
 };
 
-template <class T>
-int Graph<T>::findVertexIdx(const T &in) const {
-    for (unsigned i = 0; i < vertexSet.size(); i++)
-        if (vertexSet[i]->info == in)
-            return i;
-    return -1;
-}
-
-template <class T>
-void deleteMatrix(T **m, int n) {
-    if (m != nullptr) {
-        for (int i = 0; i < n; i++)
-            if (m[i] != nullptr)
-                delete [] m[i];
-        delete [] m;
-    }
-}
-
-template <class T>
-Graph<T>::~Graph() {
-    deleteMatrix(W, vertexSet.size());
-    deleteMatrix(P, vertexSet.size());
-}
-
-
 template<class T>
-void Graph<T>::floydWarshallShortestPath2() {
-    unsigned n = getNumVertex();
-    deleteMatrix(W, n);
-    deleteMatrix(P, n);
-    W = new double *[n];
-    P = new int *[n];
+void  Graph<T>::controlCoordsGraphView(double x, double y){
+    if(this->getMinXGraphView() >= x)
+        this->setMinXGraphView(x);
 
-    /*for(int i = 0; i < vertexSet.size(); i++) {
-
-      vertexSet[i]->info = i;
-
-    }*/
-    cout << "fase 1" << endl;
-    for (unsigned i = 0; i < n; i++) {
-        W[i] = new double[n];
-        P[i] = new int[n];
-        for (unsigned j = 0; j < n; j++) {
-            W[i][j] = i == j? 0 : INF;
-            P[i][j] = -1;
-        }
-        for (Edge<T> e: vertexSet[i]->adj) {
-            int j = findVertexIdx(e.dest->info);
-            W[i][j] = e.weight;
-            P[i][j] = i;
-        }
+    if(this->getMaxXGraphView() <= x){
+        this->setMaxXGraphView(x);
     }
 
-    cout << "fase 2" << endl;
-    for(unsigned k = 0; k < n; k++)
-        for(unsigned i = 0; i < n; i++)
-            for(unsigned j = 0; j < n; j++) {
-                if(W[i][k] == INF || W[k][j] == INF)
-                    continue; // avoid overflow
-                int val = W[i][k] + W[k][j];
-                if (val < W[i][j]) {
-                    W[i][j] = val;
-                    P[i][j] = P[k][j];
-                }
-            }
+    if(this->getMaxYGraphView() <= y)
+        this->setMaxYGraphView(y);
 
+    if(this->getMinYGraphView() >= y)
+        this->setMinYGraphView(y);
 
-    cout << "fase 3" << endl;
 }
-
 
 
 template<class T>
@@ -404,12 +351,6 @@ bool Graph<T>::addVertex(const T &in) {
         return true;
     }
 }
-
-
-
-
-
-
 
 /*
  * Adds an edge to a graph (this), given the contents of the source and
@@ -477,10 +418,6 @@ void Graph<T>::unweightedShortestPath(const T &orig) {
 
 
     }
-
-
-
-
 }
 
 /**FUNÇÃO que verifica relaxamento em relação a uma aresta ,
@@ -505,9 +442,6 @@ bool Graph<T>::relax(Vertex<T> *vOrig, Vertex<T> *wDest, double edgeValue) {
     else
         return false;
 }
-
-
-
 
 /**Parecido com o caso grafo dirigido sem pesos, mas agora arestas têm peso!
  *Sem pesos negativos
@@ -578,11 +512,6 @@ void Graph<T>::dijkstraShortestPath(const T &origin) {
                             //e actualizamos todas as dist acumuladas/path em relação aos seus vértices adjacentes!
 }
 
-
-
-
-
-
 /**Permite existência de arestas negativas
  *
  * @tparam
@@ -629,12 +558,6 @@ void Graph<T>::bellmanFordShortestPath(const T &orig) {
             }
         }
     }
-
-
-
-
-
-
 }
 
 
@@ -671,27 +594,10 @@ vector<T> Graph<T>::getPathTo(const T &dest) const {
     
 	return res;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**************** All Pairs Shortest Path  ***************/
 
-
-
-
-
 template<class T>
-vector<T> Graph<T>::getfloydWarshallPath3(const T &orig, const T &dest) const{
+vector<T> Graph<T>::getfloydWarshallPath(const T &orig, const T &dest) const{
     vector<T> res;
     Vertex<T> *v = pathMin[orig][dest];
 
@@ -711,7 +617,6 @@ vector<T> Graph<T>::getfloydWarshallPath3(const T &orig, const T &dest) const{
     reverse(res.begin(),res.end());//trocar ordem dos elementos de vector pra termos: orig->w->v->...dest
     return res;
 
-
 }
 /**Função que calcula distancias mínimas entre cada par de vértices
  * Possibilita o uso de numeração de vértices começando por 0 ou por 1
@@ -723,7 +628,7 @@ vector<T> Graph<T>::getfloydWarshallPath3(const T &orig, const T &dest) const{
  * @param errorEPS erro pretendido que queremos que seja tido em conta
  */
 template<class T>
-void Graph<T>::floydWarshallShortestPath3(unsigned int indexStartidNodes, double errorEPS) {
+void Graph<T>::floydWarshallShortestPath(unsigned int indexStartidNodes, double errorEPS) {
 
     if(indexStartidNodes< 0 || indexStartidNodes > 1) {
         cerr << "Valor para ajustar indíce do vetor com nós incorreto" << endl;
@@ -786,8 +691,6 @@ void Graph<T>::floydWarshallShortestPath3(unsigned int indexStartidNodes, double
 
 }
 
-
-
 /*
  *  Removes a vertex with a given content (in) from a graph (this), and
  *  all outgoing and incoming edges.
@@ -818,8 +721,6 @@ bool Graph<T>::removeVertex(const T &in) {
     }
     else return false;
 }
-
-
 
 /*
  * Performs a depth-first search (dfs) in a graph (this).
@@ -861,11 +762,7 @@ void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
 
     }
 
-
-
 }
-
-
 /*
  * Performs a breadth-first search (bfs) in a graph (this), starting
  * from the vertex with the given source contents (source).
@@ -902,13 +799,8 @@ vector<T> Graph<T>::bfs(const T & source) const {
             if(!(w.dest->visited))
 
                 bfsV.push(w.dest);//próximos vértices em que vamos explorar vértices adjacentes e marcar como visitado
-
-
         }
-
-
     }
-
 
     return res;
 }
@@ -918,7 +810,7 @@ vector<T> Graph<T>::bfs(const T & source) const {
  * @return
  */
 template <class T>
-void Graph<T> :: saveStrongCC(Vertex<T> *v, vector<int> &saveSSC) {
+void Graph<T> :: saveStrongCC(Vertex<T> *v, vector<T> &saveSSC) {
     v->setVisited(true);
 
     saveSSC.push_back(v->getInfo());
@@ -928,7 +820,6 @@ void Graph<T> :: saveStrongCC(Vertex<T> *v, vector<int> &saveSSC) {
             saveStrongCC(adjV.dest,saveSSC); // chamda recursiva para ir obetendo todos os SCC
         }
 }
-
 
 template <class T>
 void Graph<T> :: increasingTimeOrder(Vertex<T> *vertex, stack<Vertex<T> *> &stackVertex){
@@ -951,8 +842,8 @@ void Graph<T> :: increasingTimeOrder(Vertex<T> *vertex, stack<Vertex<T> *> &stac
  * @return
  */
 template <class T>
-Graph<int> Graph<T> :: getInverseEdgesGraph(){
-    Graph<int> inverseEdgesGraph;
+Graph<T> Graph<T> :: getInverseEdgesGraph(){
+    Graph<T> inverseEdgesGraph;
     for(auto v: vertexSet){
 
         inverseEdgesGraph.addVertex(v->getInfo());
@@ -969,16 +860,15 @@ Graph<int> Graph<T> :: getInverseEdgesGraph(){
     }
     return inverseEdgesGraph;
 }
-
 /**
  *
  * @tparam T
  * @return
  */
 template <class T>
-vector<vector<int >> Graph<T> :: KosarajuMainAlgo(){
+vector<vector<T>> Graph<T> :: KosarajuMainAlgo(){
 
-    vector<vector<int> > saveAllSCC;
+    vector<vector<T> > saveAllSCC;
     stack<Vertex<T> *> stackVertex;
 
     //meter todos os veŕtices como não visitados
@@ -992,7 +882,7 @@ vector<vector<int >> Graph<T> :: KosarajuMainAlgo(){
         increasingTimeOrder(v, stackVertex);
     }
 
-    Graph<int> transpGraph = getInverseEdgesGraph();
+    Graph<T> transpGraph = getInverseEdgesGraph();
     // todos os vértices como não visitados para segunda pesquisa em profundidade
     for(auto v: transpGraph.vertexSet){
         v->setVisited(false);
@@ -1001,7 +891,7 @@ vector<vector<int >> Graph<T> :: KosarajuMainAlgo(){
         v->setVisited(false);
     }
     while(!stackVertex.empty()){
-        vector<int> singleSCC;
+        vector<T> singleSCC;
 
 
         Vertex<T> *v = transpGraph.findVertex(stackVertex.top()->info);
@@ -1016,14 +906,18 @@ vector<vector<int >> Graph<T> :: KosarajuMainAlgo(){
         }
     }
 
-    /*for(auto v: vertexSet){ // retornar a meter tudo como não visitado?
-        v->setVisited(false);
-    }
-    */
     return saveAllSCC;
+
 }
 
-
-
-
+template<class T>
+vector<T> Graph<T>:: KisorajuGetMaxSizeStrongCC(Graph<T> graph){
+    vector<T> res;
+    vector<vector<T>> auxRes = graph.KosarajuMainAlgo();
+    for(auto v: auxRes) {
+        if (v.size() > res.size())
+            res = v;
+    }
+    return res;
+}
 #endif /* GRAPH_H_ */

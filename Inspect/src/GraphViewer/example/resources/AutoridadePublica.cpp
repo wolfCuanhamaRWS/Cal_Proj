@@ -28,6 +28,7 @@ unordered_map<unsigned int, AgenteEconomico *> AutoridadePublica::processarFiche
     float area;
     pair<unsigned int, unsigned int> horario_funcionamento;
     unordered_map<unsigned int, AgenteEconomico *> result;
+    int idNo;
 
     ifstream ficheiro(fich);
 
@@ -98,9 +99,11 @@ unordered_map<unsigned int, AgenteEconomico *> AutoridadePublica::processarFiche
         //Data última inspeção
         getline(ficheiro, input);
         Data *data = new Data(input);
+        getline(ficheiro,input);
+        idNo = stoi(input);
 
         //Agente económico
-        auto *agente = new AgenteEconomico(id, atividade, area, horario_funcionamento, denuncias, inspecoes, data);
+        auto *agente = new AgenteEconomico(id, atividade, area, horario_funcionamento, denuncias, inspecoes, data,idNo);
         result[id] = agente;
 
         this->id_control_agente_economico = id;
@@ -130,6 +133,7 @@ void AutoridadePublica::imprimirAgentesEconomicos() const
              << (*itr).second->getDenuncias()->get_num_total() << setw(11) << " | "
              << (*itr).second->getInspecoes()->get_num_aprovadas() << setw(11) << " | "
              << (*itr).second->getInspecoes()->get_num_reprovadas() << endl;
+
 
     }
 

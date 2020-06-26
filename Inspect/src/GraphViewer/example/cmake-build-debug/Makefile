@@ -393,6 +393,33 @@ resources/MapImport.cpp.s:
 	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/MapImport.cpp.s
 .PHONY : resources/MapImport.cpp.s
 
+resources/RouteViewCalc.o: resources/RouteViewCalc.cpp.o
+
+.PHONY : resources/RouteViewCalc.o
+
+# target to build an object file
+resources/RouteViewCalc.cpp.o:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o
+.PHONY : resources/RouteViewCalc.cpp.o
+
+resources/RouteViewCalc.i: resources/RouteViewCalc.cpp.i
+
+.PHONY : resources/RouteViewCalc.i
+
+# target to preprocess a source file
+resources/RouteViewCalc.cpp.i:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/RouteViewCalc.cpp.i
+.PHONY : resources/RouteViewCalc.cpp.i
+
+resources/RouteViewCalc.s: resources/RouteViewCalc.cpp.s
+
+.PHONY : resources/RouteViewCalc.s
+
+# target to generate assembly for a file
+resources/RouteViewCalc.cpp.s:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/RouteViewCalc.cpp.s
+.PHONY : resources/RouteViewCalc.cpp.s
+
 resources/menus.o: resources/menus.cpp.o
 
 .PHONY : resources/menus.o
@@ -486,6 +513,9 @@ help:
 	@echo "... resources/MapImport.o"
 	@echo "... resources/MapImport.i"
 	@echo "... resources/MapImport.s"
+	@echo "... resources/RouteViewCalc.o"
+	@echo "... resources/RouteViewCalc.i"
+	@echo "... resources/RouteViewCalc.s"
 	@echo "... resources/menus.o"
 	@echo "... resources/menus.i"
 	@echo "... resources/menus.s"

@@ -334,9 +334,9 @@ Vertex<T> * Graph<T>::findVertex(const T &in) const {
  */
 template <class T>
 bool Graph<T>::addVertex(const T &in) {
-   /* int size = vertexSet.size();
+    int size = vertexSet.size();
     MaxIdNo = max(MaxIdNo, size);
-    MaxIdNo = max(MaxIdNo, in);*/
+    MaxIdNo = max(MaxIdNo, in);
 
 	if ( findVertex(in) != nullptr)
 		return false;

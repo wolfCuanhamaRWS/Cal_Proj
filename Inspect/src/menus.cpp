@@ -21,7 +21,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
         int option;
-        option = checkOption(0, 8);
+        option = checkOption(0, 9);
         unsigned int input;
         if (option == 0)
         {
@@ -43,7 +43,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
             case 3: //Inserir denuncia
             {
-                cout << "Escreva a o id do agente economico que deseja prestar uma queixa" << endl;
+                cout << "Escreva  o id do agente economico que deseja inserir uma queixa" << endl;
                 cin >> input;
                 autoridade.inserirDenuncia(input);
                 wait();
@@ -79,9 +79,35 @@ void mainMenu(AutoridadePublica &autoridade) {
                 break;
 
             case 8: //Visualizar rota diária
-                break;
+                cout << "Escolha a cidade:"
+                        "Porto: 1"
+                        "Espinho: 2"
+                        "Penafiel: 3  "
+                        "Exit: 0";
+                cin >> input;
+                if (input == 0) { return; }
 
+                AutoridadePublica AtPub("../resources/agentes.txt", "../resources/brigadas.txt");
+                Graph<int> gr;
+                //loadGraphNodesInfo(gr,"../resources/graphs/PortoTeste/PenafielTeste/penafiel_strong_nodes_xy.txt", "../resources/graphs/PortoTeste/PenafielTeste/penafiel_strong_nodes_latlng.txt","../resources/graphs/PortoTeste/PenafielTeste/penafiel_strong_edges.txt",40.0 );
+
+                loadGraphNodesInfo(gr,"../resources/graphs/PortoTeste/EspinhoTeste/espinho_strong_nodes_xy.txt", "../resources/graphs/PortoTeste/EspinhoTeste/espinho_strong_nodes_latlng.txt","../resources/graphs/PortoTeste/EspinhoTeste/espinho_strong_edges.txt",40.0 );
+                // loadGraphNodesInfo(gr,"../resources/graphs/PortoTeste/porto_strong_nodes_xy.txt", "../resources/graphs/PortoTeste/porto_strong_nodes_latlng.txt","../resources/graphs/PortoTeste/porto_strong_edges.txt",40.0 );
+
+                AtPub.setIdNo(1);
+                if(input == 1)
         }
+    }
+
+    void menuLoadMaps(int input){
+
+
+
+
+
+
+
+
     }
 }
 
