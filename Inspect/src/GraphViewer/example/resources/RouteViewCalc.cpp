@@ -230,9 +230,14 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
     }
 
 
-    cout << "Não fechar janela do graphView se quer continuar no programa: " << endl;
+    cout << "Não fechar janela do graphView se quer continuar no programa: " << endl << endl;
     bool close = true;
    int option = 0;
+   int optionVisual= 0;
+   cout <<"Deseja visualizar de forma automática as rotas: 1 " << endl;
+   cout << "Deseja controlar o aparecimento das rotas: 2" << endl;
+
+   optionVisual = checkOption(1,2);
     while(close) {
         int counterNewEdges = graph.getNumberOfEdges() + 10; // + 10 para evitar sobreposição de arestas existentes ao desenhar rotas com arestas no grafo
         for (auto pairAux: resRoute) {
@@ -257,7 +262,11 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
 
             }
             gv.rearrange();
-            sleep(8);
+            if(optionVisual == 1)
+                sleep(8);
+            else{
+                wait();
+            }
 
             for (auto v: edgesRemove)//remove arestas criadas para de seguida vermos caminho percorrida pela próxima brigada
                 gv.removeEdge(v);
@@ -268,8 +277,13 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
 
         cout <<"Pretende voltar ao menu principal ? (Sim: 1 ou Não: 2)" ;
         option = checkOption(1,2);
-        if(option == 2)
+        if(option == 2) {
+            cout << "Deseja visualizar de forma automática as rotas: 1 " << endl;
+            cout << "Deseja controlar o aparecimento das rotas: 2" << endl;
+
+            optionVisual = checkOption(1, 2);
             wait();
+        }
         else {
             gv.closeWindow();
             return;

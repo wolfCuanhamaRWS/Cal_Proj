@@ -111,10 +111,10 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                     cout << "Introduza velocidade média das brigadas: " << endl;
 
-                    veloMedBrig = checkOption(0.0, 120);
+                    veloMedBrig = checkOption(0.0, 120.0);
                     Graph<int> gr;
                     menuLoadMaps(gr, option2, veloMedBrig);
-                    saveoptionAux = option2;
+
 
 
                     //Escolher localização da autoridade pública
@@ -177,14 +177,23 @@ void mainMenu(AutoridadePublica &autoridade) {
                     } else if( option3 == 2 && algoAuxUrgency == 1)
                             algoAuxUrgency = TmpViagUrgency;
 
+
+                    //Controlo de uso de outro mapa diferente com algoritmo floydWarshall
+                    if(saveoptionAux != 0 && saveoptionAux != option2 && aux == FloyWarshall){
+                        counterFloydWarshallCalc = false;
+                        graphFloydWarshall.eraseGraph();
+
+                    }
+
                     // Caso em que se utiliza floyWarshall, onde o grafo ficará com as distancias mínimas calculadas para calculo de rotas posteriores
                     double errorEPS = 0.0;
                     if(aux == FloyWarshall && !counterFloydWarshallCalc){
-
+                        menuLoadMaps(graphFloydWarshall,option2,veloMedBrig);
                         cout << "Qual a margem de erro que quer utilizar para o algoritmo FloydWarshall: (Exemplo: 0.001) " << endl;
                         errorEPS = checkOption(0, 1);
                         counterFloydWarshallCalc = true;
 
+                        saveoptionAux = option2;
                         graphFloydWarshall.floydWarshallShortestPath(1, errorEPS);
 
                         //Casos considerando urgència
@@ -219,11 +228,11 @@ void mainMenu(AutoridadePublica &autoridade) {
                     else {
 
                         if (option3 == 1 && urgencyOption == 1) {
-                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAuxUrgency,AllEconoAct);
+                            calculateRoutes(gr, autoridade, aux, algoAuxUrgency,AllEconoAct);
                         } else if( option3 == 2 && algoAuxUrgency == 1)
-                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAuxUrgency,AllEconoAct);
+                            calculateRoutes(gr, autoridade, aux, algoAuxUrgency,AllEconoAct);
                         else{
-                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAux,AllEconoAct);
+                            calculateRoutes(gr, autoridade, aux, algoAux,AllEconoAct);
                         }
                     }
 
@@ -253,7 +262,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                     cout << "Introduza velocidade média das brigadas: " << endl;
 
-                    veloMedBrig = checkOption(0.0, 120);
+                    veloMedBrig = checkOption(0.0, 120.0);
 
 
                     cout

@@ -26,14 +26,90 @@ Vertex<T> *searchNearestAgEconoTViagTInspecFullUrgency(T source, Graph<T> &graph
 
 }*/
 
-
-
-
-
-
-
-
 template <class T>
+Vertex<T> *searchNearestAgEconoTmpViagTmpInpecFull(T source, Graph<T> &graph, AutoridadePublica &autPub,AlgorithmMinDist algorithm,vector<AgenteEconomico *> &agEcono,double &tmpViagemCounter,Brigada &brg, bool distOrFullCheck){
+    double tmpViagemInspec = INF;
+    //Aplicação do algoritmo pretendido
+    if(algorithm == dijkstra)
+        graph.dijkstraShortestPath(source);
+    else if( algorithm == Bellman_Ford)
+        graph.bellmanFordShortestPath(source);
+
+    double auxDistOrFullCheck = 0.0;
+    if(distOrFullCheck)
+        auxDistOrFullCheck = 1.0;
+
+    //Variáveis globais usadas para comparações e guardar o agente económico pretendio
+    vector<AgenteEconomico *>:: iterator savePos;
+    bool controlIterator = false;
+    Vertex<T> *resV = NULL;
+    //Valor de pontuação de urgência a ser comparado entre agentes Económicos
+
+
+
+
+    for(auto it = agEcono.begin(); it != agEcono.end(); it++) {
+
+        //Obter nó correspondente ao agente económico a ser avaliado
+        Vertex<T> *v = graph.findVertex((*it)->get_idNo());
+        if(v == NULL) return resV; // se não existe no nosso grafo, não pode ser inspecionado
+        //Valor de pontuação de urgência a ser comparado entre agentes Económicos
+
+        //Hora actual obtida usando tempo de viagens e inspeções a agentes económicos anteriores por uma certa brigada que tem um horário de início de trabalho e horas totais máximas de trabalho diário
+        double distVectV = 0.0;
+        double horaActual = 0.0;
+        double auxVal = 0.0;
+        //Caso em que usamos algoritmo FloydWarshall
+        if(algorithm == FloyWarshall){
+            distVectV = graph.getDistMin()[source][v->getInfo()];
+
+            horaActual = tmpViagemCounter + brg.get_hora_inicio() + distVectV; //Obter hora actual para verificar se inspeção será feita dentro do horário de funcionamento, tendo em conta o tempo de viagem até ao Ag. Econo.
+             auxVal = (distVectV + ((*it)->getTmpInpec() * auxDistOrFullCheck)); //Valor do tempo de viagem até ao Agente económico e inspeção do mesmo
+
+        }else {
+            distVectV = v->getDist();
+            horaActual = tmpViagemCounter + brg.get_hora_inicio() + distVectV; //Obter hora actual para verificar se inspeção será feita dentro do horário de funcionamento, tendo em conta o tempo de viagem até ao Ag. Econo.
+            auxVal = (distVectV  + ((*it)->getTmpInpec() * auxDistOrFullCheck)); //Valor do tempo de viagem até ao Agente económico e inspeção do mesmo
+        }
+        //controla tmpViagem mínimos caso em que é imposśivel ir de um nó para outro, horários de funcionamento, urgencia de inspeções
+        if(tmpViagemInspec >  auxVal && auxVal != INF && horaActual >= (*it)->get_horario_funcionamento().first && horaActual  <= (*it)->get_horario_funcionamento().second && tmpViagemCounter + distVectV  + ((*it)->getTmpInpec() * auxDistOrFullCheck)  <= brg.get_horas_trabalho() ) {
+
+            tmpViagemInspec =  auxVal;
+            resV = v;
+            savePos = it;
+            controlIterator = true;
+
+        }
+
+
+    }
+
+    if(!distOrFullCheck)
+        auxDistOrFullCheck = 1.0;
+    //Verificar se tempos de viagem e inspeções acumuladas ultrapassam o horário de trabalho da brigada em questão
+    if(tmpViagemInspec < INF && (tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck) + tmpViagemCounter) <= (brg.get_hora_inicio() + brg.get_horas_trabalho()) )
+        tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck);
+
+
+    //Controla se itarador "aponta" para algo ou nao, de forma a conseguir eliminar agentes economicos de agEcono sem erros
+    if(controlIterator &&  tmpViagemCounter <= brg.get_horas_trabalho())
+        agEcono.erase(savePos);//apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado
+
+
+
+    if((tmpViagemCounter + brg.get_hora_inicio() )>= (brg.get_hora_inicio() + brg.get_horas_trabalho()))
+        return NULL;
+
+    else
+        return resV;
+}
+
+
+
+
+
+
+/*template <class T>
 Vertex<T> *searchNearestAgEconoTmpViagTmpInpecFull(T source, Graph<T> &graph, AutoridadePublica &autPub,AlgorithmMinDist algorithm,vector<AgenteEconomico *> &agEcono,double &tmpViagemCounter,Brigada &brg, bool distOrFullCheck){
     double tmpViagemInspec = INF;
     //Aplicação do algoritmo pretendido
@@ -78,7 +154,7 @@ Vertex<T> *searchNearestAgEconoTmpViagTmpInpecFull(T source, Graph<T> &graph, Au
 
     else
         return resV;
-}
+}*/
 
 
 
@@ -143,7 +219,7 @@ pair<vector<int>,pair<double,int>> getRotaBrigada(Graph<T> &graph, AutoridadePub
 
 
             else if( algorithmTmpViagInspec == TmpViagInspecFull ){
-                v = searchNearestAgEconoTViagTInspecFullUrgency(v->getInfo(),graph,autPub,algorithm,agEcono,tmpViagInspecCounter,brg,true);
+                v = searchNearestAgEconoTmpViagTmpInpecFull(v->getInfo(),graph,autPub,algorithm,agEcono,tmpViagInspecCounter,brg,true);
 
             }
             else if(algorithmTmpViagInspec == TmpViagInspectFullUrgency){
@@ -260,6 +336,83 @@ Vertex<T> *searchNearestAgEconoTViagTInspecFullUrgency(T source, Graph<T> &graph
         return resV;
 }
 
+template <class T>
+Vertex<T> *searchNearestUrgency(T source, Graph<T> &graph, AutoridadePublica &autPub,AlgorithmMinDist algorithm,vector<AgenteEconomico *> &agEcono,double &tmpViagemCounter,Brigada &brg, bool distOrFullCheck){
+    double tmpViagemInspec = INF;
+    //Aplicação do algoritmo pretendido
+    if(algorithm == dijkstra)
+        graph.dijkstraShortestPath(source);
+    else if( algorithm == Bellman_Ford)
+        graph.bellmanFordShortestPath(source);
+
+    double auxDistOrFullCheck = 0.0;
+    if(distOrFullCheck)
+        auxDistOrFullCheck = 1.0;
+
+    //Variáveis globais usadas para comparações e guardar o agente económico pretendio
+    vector<AgenteEconomico *>:: iterator savePos;
+    bool controlIterator = false;
+    Vertex<T> *resV = NULL;
+    //Valor de pontuação de urgência a ser comparado entre agentes Económicos
+    double pontuacaoUrgencia = (INF - 1) *  -1;
+
+
+
+    for(auto it = agEcono.begin(); it != agEcono.end(); it++) {
+
+        //Obter nó correspondente ao agente económico a ser avaliado
+        Vertex<T> *v = graph.findVertex((*it)->get_idNo());
+        if(v == NULL) return resV; // se não existe no nosso grafo, não pode ser inspecionado
+        //Valor de pontuação de urgência a ser comparado entre agentes Económicos
+
+        //Hora actual obtida usando tempo de viagens e inspeções a agentes económicos anteriores por uma certa brigada que tem um horário de início de trabalho e horas totais máximas de trabalho diário
+        double distVectV = 0.0;
+        double horaActual = 0.0;
+        double auxVal = 0.0;
+        //Caso em que usamos algoritmo FloydWarshall
+        if(algorithm == FloyWarshall){
+            distVectV = graph.getDistMin()[source][v->getInfo()];
+
+            double horaActual = tmpViagemCounter + brg.get_hora_inicio() + distVectV; //Obter hora actual para verificar se inspeção será feita dentro do horário de funcionamento, tendo em conta o tempo de viagem até ao Ag. Econo.
+            double auxVal = (distVectV + ((*it)->getTmpInpec() * auxDistOrFullCheck)); //Valor do tempo de viagem até ao Agente económico e inspeção do mesmo
+
+        }else {
+            distVectV = v->getDist();
+            double horaActual = tmpViagemCounter + brg.get_hora_inicio() + distVectV; //Obter hora actual para verificar se inspeção será feita dentro do horário de funcionamento, tendo em conta o tempo de viagem até ao Ag. Econo.
+            double auxVal = (distVectV  + ((*it)->getTmpInpec() * auxDistOrFullCheck)); //Valor do tempo de viagem até ao Agente económico e inspeção do mesmo
+        }
+        //controla tmpViagem mínimos caso em que é imposśivel ir de um nó para outro, horários de funcionamento, urgencia de inspeções
+        if(tmpViagemInspec >  auxVal && auxVal != INF && horaActual >= (*it)->get_horario_funcionamento().first && horaActual  <= (*it)->get_horario_funcionamento().second && tmpViagemCounter + distVectV  + ((*it)->getTmpInpec() * auxDistOrFullCheck)  <= brg.get_horas_trabalho() && (*it)->getUrgInspec() > pontuacaoUrgencia ) {
+
+            tmpViagemInspec =  auxVal;
+            resV = v;
+            savePos = it;
+            controlIterator = true;
+            pontuacaoUrgencia = (*it)->getUrgInspec();
+        }
+
+
+    }
+
+    if(!distOrFullCheck)
+        auxDistOrFullCheck = 1.0;
+    //Verificar se tempos de viagem e inspeções acumuladas ultrapassam o horário de trabalho da brigada em questão
+    if(tmpViagemInspec < INF && (tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck) + tmpViagemCounter) <= (brg.get_hora_inicio() + brg.get_horas_trabalho()) )
+        tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck);
+
+
+    //Controla se itarador "aponta" para algo ou nao, de forma a conseguir eliminar agentes economicos de agEcono sem erros
+    if(controlIterator &&  tmpViagemCounter <= brg.get_horas_trabalho())
+        agEcono.erase(savePos);//apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado
+
+
+
+    if((tmpViagemCounter + brg.get_hora_inicio() )>= (brg.get_hora_inicio() + brg.get_horas_trabalho()))
+        return NULL;
+
+    else
+        return resV;
+}
 
 
 

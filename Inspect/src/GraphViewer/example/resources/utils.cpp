@@ -29,6 +29,37 @@ double checkOption(double min, double  max) {
 
 }
 
+
+int checkOption(int min, int max) {
+    double input;
+
+    while (true) {
+        try {
+            cout << endl << "Escolha uma opcao (" << min << "-" << max << "): ";
+            cin >> input;
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                throw WrongInput_option("Input invalido. Escreva um inteiro");
+
+            }
+                //recusado se nao esta no intervalo
+            else if (input > max || input < min) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                throw WrongInput_option("Input invalido. Escreva um valor valido");
+            } else
+                return input;
+        }
+        catch (WrongInput_option &error) {
+            cout << error.getInfo() << endl;
+            continue;
+        }
+    }
+
+}
+
+
 string elem_two_spaces(string str) {
     while (str.find("  ") != string::npos) {
         str.erase(str.find("  "), 1);
