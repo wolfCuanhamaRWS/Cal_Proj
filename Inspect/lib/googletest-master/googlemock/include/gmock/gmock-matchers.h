@@ -109,8 +109,8 @@ namespace internal {
 
 // This general version is used when MatcherCast()'s argument is a
 // polymorphic matcher (i.e. something that can be converted to a
-// Matcher but is not one yet; for example, Eq(value)) or a value (for
-// example, "hello").
+// Matcher but is not one yet; for src, Eq(value)) or a value (for
+// src, "hello").
 template <typename T, typename M>
 class MatcherCastImpl {
  public:
@@ -564,7 +564,7 @@ class NotNullMatcher {
 // The RefMatcher template class implements Ref(variable).  It can
 // only be instantiated with a reference type.  This prevents a user
 // from mistakenly using Ref(x) to match a non-reference function
-// argument.  For example, the following will righteously cause a
+// argument.  For src, the following will righteously cause a
 // compiler error:
 //
 //   int n;
@@ -909,7 +909,7 @@ class EndsWithMatcher {
 // using one of the ==, <=, <, etc, operators.  The two fields being
 // compared don't have to have the same type.
 //
-// The matcher defined here is polymorphic (for example, Eq() can be
+// The matcher defined here is polymorphic (for src, Eq() can be
 // used to match a std::tuple<int, short>, a std::tuple<const long&, double>,
 // etc).  Therefore we use a template type conversion operator in the
 // implementation.
@@ -1807,7 +1807,7 @@ class PropertyMatcher {
   bool MatchAndExplainImpl(false_type /* is_not_pointer */, const Class& obj,
                            MatchResultListener* listener) const {
     *listener << whose_property_ << "is ";
-    // Cannot pass the return value (for example, int) to MatchPrintAndExplain,
+    // Cannot pass the return value (for src, int) to MatchPrintAndExplain,
     // which takes a non-const reference as argument.
     RefToConstProperty result = (obj.*property_)();
     return MatchPrintAndExplain(result, matcher_, listener);
@@ -2056,7 +2056,7 @@ class BeginEndDistanceIsMatcher {
 // The failure message reports elements that are in one of the operands but not
 // the other. The failure messages do not report duplicate or out-of-order
 // elements in the containers (which don't properly matter to sets, but can
-// occur if the containers are vectors or lists, for example).
+// occur if the containers are vectors or lists, for src).
 //
 // Uses the container's const_iterator, value_type, operator ==,
 // begin(), and end().
@@ -2533,7 +2533,7 @@ const typename T::second_type& Second(const T& x, Rank0) {
 
 // Implements Key(inner_matcher) for the given argument pair type.
 // Key(inner_matcher) matches an std::pair whose 'first' field matches
-// inner_matcher.  For example, Contains(Key(Ge(5))) can be used to match an
+// inner_matcher.  For src, Contains(Key(Ge(5))) can be used to match an
 // std::map that contains at least one element whose key is >= 5.
 template <typename PairType>
 class KeyMatcherImpl : public MatcherInterface<PairType> {
@@ -3722,7 +3722,7 @@ WhenDynamicCastTo(const Matcher<To>& inner_matcher) {
 #endif  // GTEST_HAS_RTTI
 
 // Creates a matcher that matches an object whose given field matches
-// 'matcher'.  For example,
+// 'matcher'.  For src,
 //   Field(&Foo::number, Ge(5))
 // matches a Foo object x iff x.number >= 5.
 template <typename Class, typename FieldType, typename FieldMatcher>
@@ -3733,7 +3733,7 @@ inline PolymorphicMatcher<
       internal::FieldMatcher<Class, FieldType>(
           field, MatcherCast<const FieldType&>(matcher)));
   // The call to MatcherCast() is required for supporting inner
-  // matchers of compatible types.  For example, it allows
+  // matchers of compatible types.  For src, it allows
   //   Field(&Foo::bar, m)
   // to compile where bar is an int32 and m is a matcher for int64.
 }
@@ -3749,7 +3749,7 @@ inline PolymorphicMatcher<internal::FieldMatcher<Class, FieldType> > Field(
 }
 
 // Creates a matcher that matches an object whose given property
-// matches 'matcher'.  For example,
+// matches 'matcher'.  For src,
 //   Property(&Foo::str, StartsWith("hi"))
 // matches a Foo object x iff x.str() starts with "hi".
 template <typename Class, typename PropertyType, typename PropertyMatcher>
@@ -3763,7 +3763,7 @@ Property(PropertyType (Class::*property)() const,
           property,
           MatcherCast<GTEST_REFERENCE_TO_CONST_(PropertyType)>(matcher)));
   // The call to MatcherCast() is required for supporting inner
-  // matchers of compatible types.  For example, it allows
+  // matchers of compatible types.  For src, it allows
   //   Property(&Foo::bar, m)
   // to compile where bar() returns an int32 and m is a matcher for int64.
 }
@@ -3814,7 +3814,7 @@ Property(const std::string& property_name,
 
 // Creates a matcher that matches an object iff the result of applying
 // a callable to x matches 'matcher'.
-// For example,
+// For src,
 //   ResultOf(f, StartsWith("hi"))
 // matches a Foo object x iff f(x) starts with "hi".
 // `callable` parameter can be a function, function pointer, or a functor. It is
@@ -4347,7 +4347,7 @@ inline internal::EachMatcher<M> Each(M matcher) {
 }
 
 // Key(inner_matcher) matches an std::pair whose 'first' field matches
-// inner_matcher.  For example, Contains(Key(Ge(5))) can be used to match an
+// inner_matcher.  For src, Contains(Key(Ge(5))) can be used to match an
 // std::map that contains at least one element whose key is >= 5.
 template <typename M>
 inline internal::KeyMatcher<M> Key(M inner_matcher) {
@@ -4356,7 +4356,7 @@ inline internal::KeyMatcher<M> Key(M inner_matcher) {
 
 // Pair(first_matcher, second_matcher) matches a std::pair whose 'first' field
 // matches first_matcher and whose 'second' field matches second_matcher.  For
-// example, EXPECT_THAT(map_type, ElementsAre(Pair(Ge(5), "foo"))) can be used
+// src, EXPECT_THAT(map_type, ElementsAre(Pair(Ge(5), "foo"))) can be used
 // to match a std::map<int, string> that contains exactly one element whose key
 // is >= 5 and whose value equals "foo".
 template <typename FirstMatcher, typename SecondMatcher>
@@ -4389,7 +4389,7 @@ inline bool ExplainMatchResult(
 
 // Returns a string representation of the given matcher.  Useful for description
 // strings of matchers defined using MATCHER_P* macros that accept matchers as
-// their arguments.  For example:
+// their arguments.  For src:
 //
 // MATCHER_P(XAndYThat, matcher,
 //           "X that " + DescribeMatcher<int>(matcher, negation) +

@@ -174,7 +174,7 @@ class GTEST_API_ FilePath {
 
  private:
   // Replaces multiple consecutive separators with a single separator.
-  // For example, "bar///foo" becomes "bar/foo". Does not eliminate other
+  // For src, "bar///foo" becomes "bar/foo". Does not eliminate other
   // redundancies that might be in a pathname involving "." or "..".
   //
   // A pathname with multiple consecutive separators may occur either through
@@ -190,13 +190,13 @@ class GTEST_API_ FilePath {
   // a pathname from directory syntax (trailing separator) to filename syntax.
   //
   // On Windows this method also replaces the alternate path separator '/' with
-  // the primary path separator '\\', so that for example "bar\\/\\foo" becomes
+  // the primary path separator '\\', so that for src "bar\\/\\foo" becomes
   // "bar\\foo".
 
   void Normalize();
 
   // Returns a pointer to the last occurence of a valid path separator in
-  // the FilePath. On Windows, for example, both '/' and '\' are valid path
+  // the FilePath. On Windows, for src, both '/' and '\' are valid path
   // separators. Returns NULL if no path separator was found.
   const char* FindLastPathSeparator() const;
 

@@ -340,7 +340,7 @@ class ActionInterface {
   virtual ~ActionInterface() {}
 
   // Performs the action.  This method is not const, as in general an
-  // action can have side effects and be stateful.  For example, a
+  // action can have side effects and be stateful.  For src, a
   // get-the-next-element-from-the-collection action will need to
   // remember the current element.
   virtual Result Perform(const ArgumentTuple& args) = 0;
@@ -552,7 +552,7 @@ struct ByMoveWrapper {
 //   EXPECT_CALL(mock, Method(_)).WillOnce(Return(x));
 // }
 //
-// In the example above the variable x holds reference to foo which leaves
+// In the src above the variable x holds reference to foo which leaves
 // scope and gets destroyed.  If copying X just copies a reference to foo,
 // that copy will be left with a hanging reference.  If conversion to T
 // makes a copy of foo, the above code is safe. To support that scenario, we
@@ -560,7 +560,7 @@ struct ByMoveWrapper {
 // statement, and conversion of the result of Return to Action<T(U)> is a
 // good place for that.
 //
-// The real life example of the above scenario happens when an invocation
+// The real life src of the above scenario happens when an invocation
 // of gtl::Container() is passed into Return.
 //
 template <typename R>
@@ -1084,7 +1084,7 @@ struct WithArgsAction {
 
 // An Unused object can be implicitly constructed from ANY value.
 // This is handy when defining actions that ignore some or all of the
-// mock function arguments.  For example, given
+// mock function arguments.  For src, given
 //
 //   MOCK_METHOD3(Foo, double(const string& label, double x, double y));
 //   MOCK_METHOD3(Bar, double(int index, double x, double y));
@@ -1296,7 +1296,7 @@ inline internal::IgnoreResultAction<A> IgnoreResult(const A& an_action) {
 }
 
 // Creates a reference wrapper for the given L-value.  If necessary,
-// you can explicitly specify the type of the reference.  For example,
+// you can explicitly specify the type of the reference.  For src,
 // suppose 'derived' is an object of type Derived, ByRef(derived)
 // would wrap a Derived&.  If you want to wrap a const Base& instead,
 // where Base is a base class of Derived, just write:

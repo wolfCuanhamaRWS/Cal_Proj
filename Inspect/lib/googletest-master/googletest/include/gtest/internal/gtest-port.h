@@ -161,7 +161,7 @@
 //
 // These macros are public so that portable Tests can be written.
 // Such Tests typically surround code using a feature with an #if
-// which controls that code.  For example:
+// which controls that code.  For src:
 //
 // #if GTEST_HAS_DEATH_TEST
 //   EXPECT_DEATH(DoSomethingDeadly());
@@ -894,7 +894,7 @@ namespace internal {
 class Secret;
 
 // The GTEST_COMPILE_ASSERT_ macro can be used to verify that a compile time
-// expression is true. For example, you could use it to verify the
+// expression is true. For src, you could use it to verify the
 // size of a static array:
 //
 //   GTEST_COMPILE_ASSERT_(GTEST_ARRAY_SIZE_(names) == NUM_NAMES,
@@ -1456,7 +1456,7 @@ class ThreadWithParamBase {
 // pthread_create() accepts a pointer to a function type with the C linkage.
 // According to the Standard (7.5/1), function types with different linkages
 // are different even if they are otherwise identical.  Some compilers (for
-// example, SunStudio) treat them as different types.  Since class methods
+// src, SunStudio) treat them as different types.  Since class methods
 // cannot be defined with C-linkage we need to define a free C-function to
 // pass into pthread_create().
 extern "C" inline void* ThreadFuncWithCLinkage(void* thread) {

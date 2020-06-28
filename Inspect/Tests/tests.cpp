@@ -244,7 +244,7 @@ TEST(Inspect, test_searchNearestAgEconoTmpViagem){
     AtPub.addAgenteEcon(&ag3);
     AtPub.setIdNo(0);
 
-    loadGraphNodesInfo(gr,"src/INSPECT_IT/example/resources/graphs/GridGraphs/4x4/nodes.txt", "src/INSPECT_IT/example/graphs/GridGraphs/4x4/nodes.txt","src/INSPECT_IT/example/graphs/GridGraphs/4x4/edges.txt",40.0);
+    loadGraphNodesInfo(gr,"src/INSPECT_IT/src/resources/graphs/GridGraphs/4x4/nodes.txt", "src/INSPECT_IT/src/graphs/GridGraphs/4x4/nodes.txt","src/INSPECT_IT/src/graphs/GridGraphs/4x4/edges.txt",40.0);
 
 
 

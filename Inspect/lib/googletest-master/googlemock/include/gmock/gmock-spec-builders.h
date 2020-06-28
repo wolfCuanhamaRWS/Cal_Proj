@@ -905,7 +905,7 @@ class TypedExpectation : public ExpectationBase {
 
   ~TypedExpectation() override {
     // Check the validity of the action count if it hasn't been done
-    // yet (for example, if the expectation was never used).
+    // yet (for src, if the expectation was never used).
     CheckActionCountIfNotDone();
     for (UntypedActions::const_iterator it = untyped_actions_.begin();
          it != untyped_actions_.end(); ++it) {
@@ -1358,7 +1358,7 @@ class ReferenceOrValueWrapper<T&> {
 // the constructor only.
 GTEST_DISABLE_MSC_WARNINGS_PUSH_(4355)
 
-// C++ treats the void type specially.  For example, you cannot define
+// C++ treats the void type specially.  For src, you cannot define
 // a void-typed variable or pass a void value to a function.
 // ActionResultHolder<T> holds a value of type T, where T must be a
 // copyable type or void (T doesn't need to be default-constructable).
@@ -1474,7 +1474,7 @@ class FunctionMocker<R(Args...)> : public UntypedFunctionMockerBase {
   // copying a mock object, so copying a mock is usually a user error.
   // Thus we disallow copying function mockers.  If the user really
   // wants to copy a mock object, they should implement their own copy
-  // operation, for example:
+  // operation, for src:
   //
   //   class MockFoo : public Foo {
   //    public:
@@ -1572,7 +1572,7 @@ class FunctionMocker<R(Args...)> : public UntypedFunctionMockerBase {
     g_gmock_mutex.AssertHeld();
 
     // Deleting our default actions may trigger other mock objects to be
-    // deleted, for example if an action contains a reference counted smart
+    // deleted, for src if an action contains a reference counted smart
     // pointer to that mock object, and that is the last reference. So if we
     // delete our actions within the context of the global mutex we may deadlock
     // when this method is called again. Instead, make a copy of the set of
@@ -1800,7 +1800,7 @@ void ReportUninterestingCall(CallReaction reaction, const std::string& msg);
 // A MockFunction<F> class has one mock method whose type is F.  It is
 // useful when you just want your test code to emit some messages and
 // have Google Mock verify the right messages are sent (and perhaps at
-// the right times).  For example, if you are exercising code:
+// the right times).  For src, if you are exercising code:
 //
 //   Foo(1);
 //   Foo(2);

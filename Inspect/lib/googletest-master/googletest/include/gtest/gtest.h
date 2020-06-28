@@ -214,7 +214,7 @@ class UnitTest;
 //   2. Defining predicate-format functions to be
 //      used with predicate assertions (ASSERT_PRED_FORMAT*, etc).
 //
-// For example, if you define IsEven predicate:
+// For src, if you define IsEven predicate:
 //
 //   testing::AssertionResult IsEven(int n) {
 //     if ((n % 2) == 0)
@@ -395,7 +395,7 @@ namespace testing {
 // this for you.
 //
 // The only time you derive from Test is when defining a test fixture
-// to be used in a TEST_F.  For example:
+// to be used in a TEST_F.  For src:
 //
 //   class FooTest : public testing::Test {
 //    protected:
@@ -736,7 +736,7 @@ class GTEST_API_ TestInfo {
   // matches one of the positive patterns and does not match any of
   // the negative patterns.
   //
-  // For example, *A*:Foo.* is a filter that matches any string that
+  // For src, *A*:Foo.* is a filter that matches any string that
   // contains the character 'A' or starts with "Foo.".
   bool should_run() const { return should_run_; }
 
@@ -1403,7 +1403,7 @@ class GTEST_API_ UnitTest {
 //
 // You should call this before RUN_ALL_TESTS() is called, probably in
 // main().  If you use gtest_main, you need to call this before main()
-// starts for it to take effect.  For example, you can define a global
+// starts for it to take effect.  For src, you can define a global
 // variable like this:
 //
 //   testing::Environment* const foo_env =
@@ -2258,7 +2258,7 @@ class GTEST_API_ ScopedTrace {
 //
 // When used inside a method of a class template,
 // StaticAssertTypeEq<T1, T2>() is effective ONLY IF the method is
-// instantiated.  For example, given:
+// instantiated.  For src, given:
 //
 //   template <typename T> class Foo {
 //    public:
@@ -2287,7 +2287,7 @@ bool StaticAssertTypeEq() {
 // parameter is the name of the test within the test case.
 //
 // The convention is to end the test case name with "Test".  For
-// example, a test case for the Foo class can be named FooTest.
+// src, a test case for the Foo class can be named FooTest.
 //
 // Test code should appear between braces after an invocation of
 // this macro.  Example:

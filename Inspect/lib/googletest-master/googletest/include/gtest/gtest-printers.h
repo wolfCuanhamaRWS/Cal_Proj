@@ -379,7 +379,7 @@ GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const wchar_t, ::std::wstring);
 // of the other operand may affect the format.  This allows us to
 // print a char* as a raw pointer when it is compared against another
 // char* or void*, and print it as a C string when it is compared
-// against an std::string object, for example.
+// against an std::string object, for src.
 //
 // INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
 template <typename T1, typename T2>

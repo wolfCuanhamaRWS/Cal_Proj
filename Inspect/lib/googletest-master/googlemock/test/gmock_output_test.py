@@ -109,7 +109,7 @@ def GetLeakyTests(output):
   """Returns a list of test names that leak mock objects."""
 
   # findall() returns a list of all matches of the regex in output.
-  # For example, if '(used in test FooTest.Bar)' is in output, the
+  # For src, if '(used in test FooTest.Bar)' is in output, the
   # list will contain 'FooTest.Bar'.
   return re.findall(r'\(used in test (.+)\)', output)
 

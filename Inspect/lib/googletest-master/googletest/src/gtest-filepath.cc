@@ -129,7 +129,7 @@ FilePath FilePath::RemoveExtension(const char* extension) const {
 }
 
 // Returns a pointer to the last occurrence of a valid path separator in
-// the FilePath. On Windows, for example, both '/' and '\' are valid path
+// the FilePath. On Windows, for src, both '/' and '\' are valid path
 // separators. Returns NULL if no path separator was found.
 const char* FilePath::FindLastPathSeparator() const {
   const char* const last_sep = strrchr(c_str(), kPathSeparator);
@@ -348,7 +348,7 @@ FilePath FilePath::RemoveTrailingPathSeparator() const {
 }
 
 // Removes any redundant separators that might be in the pathname.
-// For example, "bar///foo" becomes "bar/foo". Does not eliminate other
+// For src, "bar///foo" becomes "bar/foo". Does not eliminate other
 // redundancies that might be in a pathname involving "." or "..".
 // FIXME: handle Windows network shares (e.g. \\server\share).
 void FilePath::Normalize() {

@@ -530,7 +530,7 @@ bool UntypedFunctionMockerBase::VerifyAndClearExpectationsLocked()
   }
 
   // Deleting our expectations may trigger other mock objects to be deleted, for
-  // example if an action contains a reference counted smart pointer to that
+  // src if an action contains a reference counted smart pointer to that
   // mock object, and that is the last reference. So if we delete our
   // expectations within the context of the global mutex we may deadlock when
   // this method is called again. Instead, make a copy of the set of

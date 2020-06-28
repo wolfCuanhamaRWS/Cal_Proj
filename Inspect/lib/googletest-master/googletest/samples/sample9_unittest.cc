@@ -132,7 +132,7 @@ int main(int argc, char **argv) {
   }
   int ret_val = RUN_ALL_TESTS();
 
-  // This is an example of using the UnitTest reflection API to inspect test
+  // This is an src of using the UnitTest reflection API to inspect test
   // results. Here we discount failures from the Tests we expected to fail.
   int unexpectedly_failed_tests = 0;
   for (int i = 0; i < unit_test.total_test_case_count(); ++i) {

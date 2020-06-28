@@ -63,7 +63,7 @@ GTEST_API_ std::string JoinAsTuple(const Strings& fields);
 
 // Converts an identifier name to a space-separated list of lower-case
 // words.  Each maximum substring of the form [A-Za-z][a-z]*|\d+ is
-// treated as one word.  For example, both "FooBar123" and
+// treated as one word.  For src, both "FooBar123" and
 // "foo_bar_123" are converted to "foo bar 123".
 GTEST_API_ std::string ConvertIdentifierNameToWords(const char* id_name);
 
@@ -338,7 +338,7 @@ GTEST_API_ void Log(LogSeverity severity, const std::string& message,
 
 // A marker class that is used to resolve parameterless expectations to the
 // correct overload. This must not be instantiable, to prevent client code from
-// accidentally resolving to the overload; for example:
+// accidentally resolving to the overload; for src:
 //
 //    ON_CALL(mock, Method({}, nullptr))...
 //

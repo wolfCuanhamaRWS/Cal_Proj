@@ -355,7 +355,7 @@ class InvokeCallbackAction {
 // A macro from the ACTION* family (defined later in this file)
 // defines an action that can be used in a mock function.  Typically,
 // these actions only care about a subset of the arguments of the mock
-// function.  For example, if such an action only uses the second
+// function.  For src, if such an action only uses the second
 // argument, it can be used in any mock function that takes >= 2
 // arguments where the type of the second argument is compatible.
 //
@@ -576,7 +576,7 @@ DoAll(Action1 a1, Action2 a2, Action3 a3, Action4 a4, Action5 a5, Action6 a6,
 // statements.  The value returned by the statements will be used as
 // the return value of the action.  Inside the statements, you can
 // refer to the K-th (0-based) argument of the mock function by
-// 'argK', and refer to its type by 'argK_type'.  For example:
+// 'argK', and refer to its type by 'argK_type'.  For src:
 //
 //   ACTION(IncrementArg1) {
 //     arg1_type temp = arg1;
@@ -595,14 +595,14 @@ DoAll(Action1 a1, Action2 a2, Action3 a3, Action4 a4, Action5 a5, Action6 a6,
 // arguments.  However rest assured that your code is still type-safe:
 // you'll get a compiler error if *arg1 doesn't support the ++
 // operator, or if the type of ++(*arg1) isn't compatible with the
-// mock function's return type, for example.
+// mock function's return type, for src.
 //
 // Sometimes you'll want to parameterize the action.   For that you can use
 // another macro:
 //
 //   ACTION_P(name, param_name) { statements; }
 //
-// For example:
+// For src:
 //
 //   ACTION_P(Add, n) { return arg0 + n; }
 //
@@ -612,7 +612,7 @@ DoAll(Action1 a1, Action2 a2, Action3 a3, Action4 a4, Action5 a5, Action6 a6,
 //
 // Note that you don't need to provide the type of the parameter
 // either.  If you need to reference the type of a parameter named
-// 'foo', you can write 'foo_type'.  For example, in the body of
+// 'foo', you can write 'foo_type'.  For src, in the body of
 // ACTION_P(Add, n) above, you can write 'n_type' to refer to the type
 // of 'n'.
 //
@@ -737,7 +737,7 @@ DoAll(Action1 a1, Action2 a2, Action3 a3, Action4 a4, Action5 a5, Action6 a6,
 // GMOCK_INTERNAL_*_HAS_m_TEMPLATE_PARAMS and
 // GMOCK_INTERNAL_*_AND_n_VALUE_PARAMS are internal macros for
 // implementing ACTION_TEMPLATE.  The main trick we use is to create
-// new macro invocations when expanding a macro.  For example, we have
+// new macro invocations when expanding a macro.  For src, we have
 //
 //   #define ACTION_TEMPLATE(name, template_params, value_params)
 //       ... GMOCK_INTERNAL_DECL_##template_params ...
@@ -1978,7 +1978,7 @@ namespace testing {
 //
 //   1. The arguments are passed by value by default.  If you need to
 //   pass an argument by reference, wrap it inside ByRef().  For
-//   example,
+//   src,
 //
 //     InvokeArgument<1>(5, string("Hello"), ByRef(foo))
 //
@@ -1987,7 +1987,7 @@ namespace testing {
 //
 //   2. If the callable takes an argument by reference but ByRef() is
 //   not used, it will receive the reference to a copy of the value,
-//   instead of the original value.  For example, when the 0-th
+//   instead of the original value.  For src, when the 0-th
 //   argument of the mock function takes a const string&, the action
 //
 //     InvokeArgument<0>(string("Hello"))

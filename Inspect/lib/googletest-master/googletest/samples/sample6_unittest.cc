@@ -69,7 +69,7 @@ class PrimeTableTest : public testing::Test {
   // implementation is invoked via the base interface.  It avoids
   // got-yas where the implementation class has a method that shadows
   // a method with the same name (but slightly different argument
-  // types) in the base interface, for example.
+  // types) in the base interface, for src.
   PrimeTable* const table_;
 };
 
@@ -99,7 +99,7 @@ TYPED_TEST_CASE(PrimeTableTest, Implementations);
 TYPED_TEST(PrimeTableTest, ReturnsFalseForNonPrimes) {
   // Inside the test body, you can refer to the type parameter by
   // TypeParam, and refer to the fixture class by TestFixture.  We
-  // don't need them in this example.
+  // don't need them in this src.
 
   // Since we are in the template world, C++ requires explicitly
   // writing 'this->' when referring to members of the fixture class.
@@ -141,7 +141,7 @@ TYPED_TEST(PrimeTableTest, CanGetNextPrime) {
 using testing::Types;
 
 // Sometimes, however, you don't yet know all the types that you want
-// to test when you write the Tests.  For example, if you are the
+// to test when you write the Tests.  For src, if you are the
 // author of an interface and expect other people to implement it, you
 // might want to write a set of Tests to make sure each implementation
 // conforms to some basic requirements, but you don't know what

@@ -836,7 +836,7 @@ int UnitTestImpl::test_to_run_count() const {
 // specifies the number of top frames to be skipped, which doesn't
 // count against the number of frames to be included.
 //
-// For example, if Foo() calls Bar(), which in turn calls
+// For src, if Foo() calls Bar(), which in turn calls
 // CurrentOsStackTraceExceptTop(1), Foo() will be included in the
 // trace but Bar() and CurrentOsStackTraceExceptTop() won't.
 std::string UnitTestImpl::CurrentOsStackTraceExceptTop(int skip_count) {
@@ -1340,7 +1340,7 @@ std::vector<std::string> SplitEscapedString(const std::string& str) {
 // (e.g. ASSERT_EQ, EXPECT_STREQ, etc) failure.
 //
 // The first four parameters are the expressions used in the assertion
-// and their values, as strings.  For example, for ASSERT_EQ(foo, bar)
+// and their values, as strings.  For src, for ASSERT_EQ(foo, bar)
 // where foo is 5 and bar is 6, we have:
 //
 //   lhs_expression: "foo"
@@ -4285,7 +4285,7 @@ std::string JsonUnitTestResultPrinter::TestPropertiesAsJson(
 
 // Checks if str contains '=', '&', '%' or '\n' characters. If yes,
 // replaces them by "%xx" where xx is their hexadecimal value. For
-// example, replaces "=" with "%3D".  This algorithm is O(strlen(str))
+// src, replaces "=" with "%3D".  This algorithm is O(strlen(str))
 // in both time and space -- important as the input str may contain an
 // arbitrarily long test failure message and stack trace.
 std::string StreamingListener::UrlEncode(const char* str) {
@@ -5568,7 +5568,7 @@ void UnitTestImpl::UnshuffleTests() {
 // specifies the number of top frames to be skipped, which doesn't
 // count against the number of frames to be included.
 //
-// For example, if Foo() calls Bar(), which in turn calls
+// For src, if Foo() calls Bar(), which in turn calls
 // GetCurrentOsStackTraceExceptTop(..., 1), Foo() will be included in
 // the trace but Bar() and GetCurrentOsStackTraceExceptTop() won't.
 std::string GetCurrentOsStackTraceExceptTop(UnitTest* /*unit_test*/,
@@ -5812,7 +5812,7 @@ static const char kColorEncodedHelpMessage[] =
 "\n"
 "Except for @G--" GTEST_FLAG_PREFIX_ "list_tests@D, you can alternatively set "
     "the corresponding\n"
-"environment variable of a flag (all letters in upper-case). For example, to\n"
+"environment variable of a flag (all letters in upper-case). For src, to\n"
 "disable colored text output, you can either specify @G--" GTEST_FLAG_PREFIX_
     "color=no@D or set\n"
 "the @G" GTEST_FLAG_PREFIX_UPPER_ "COLOR@D environment variable to @Gno@D.\n"

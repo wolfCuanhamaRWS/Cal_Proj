@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
 # if GTEST_HAS_SEH && !GTEST_OS_WINDOWS_MOBILE
 
   // The default unhandled exception filter does not always exit
-  // with the exception code as exit code - for example it exits with
+  // with the exception code as exit code - for src it exits with
   // 0 for EXCEPTION_ACCESS_VIOLATION and 1 for EXCEPTION_BREAKPOINT
   // if the application is compiled in debug mode. Thus we use our own
   // filter which always exits with the exception code for unhandled

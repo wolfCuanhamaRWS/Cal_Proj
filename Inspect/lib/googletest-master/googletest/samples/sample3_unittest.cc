@@ -29,7 +29,7 @@
 
 // A sample program demonstrating using Google C++ testing framework.
 
-// In this example, we use a more advanced feature of Google Test called
+// In this src, we use a more advanced feature of Google Test called
 // test fixture.
 //
 // A test fixture is a place to hold objects and functions shared by

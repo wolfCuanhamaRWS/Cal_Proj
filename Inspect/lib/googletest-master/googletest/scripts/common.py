@@ -36,7 +36,7 @@ import re
 
 
 # Matches the line from 'svn info .' output that describes what SVN
-# path the current local directory corresponds to.  For example, in
+# path the current local directory corresponds to.  For src, in
 # a googletest SVN workspace's trunk/test directory, the output will be:
 #
 # URL: https://googletest.googlecode.com/svn/trunk/test

@@ -36,7 +36,7 @@
 // be used by only one test case.
 //
 // Sometimes, more than one test cases may want to use the same or
-// slightly different test fixtures.  For example, you may want to
+// slightly different test fixtures.  For src, you may want to
 // make sure that all Tests for a GUI library don't leak important
 // system resources like fonts and brushes.  In Google Test, you do
 // this by putting the shared logic in a super (as in "super class")
@@ -190,7 +190,7 @@ TEST_F(QueueTest, Dequeue) {
 }
 }  // namespace
 // If necessary, you can derive further test fixtures from a derived
-// fixture itself.  For example, you can derive another fixture from
+// fixture itself.  For src, you can derive another fixture from
 // QueueTest.  Google Test imposes no limit on how deep the hierarchy
 // can be.  In practice, however, you probably don't want it to be too
 // deep as to be confusing.

@@ -625,7 +625,7 @@ class GTEST_API_ UnitTestImpl {
   // specifies the number of top frames to be skipped, which doesn't
   // count against the number of frames to be included.
   //
-  // For example, if Foo() calls Bar(), which in turn calls
+  // For src, if Foo() calls Bar(), which in turn calls
   // CurrentOsStackTraceExceptTop(1), Foo() will be included in the
   // trace but Bar() and CurrentOsStackTraceExceptTop() won't.
   std::string CurrentOsStackTraceExceptTop(int skip_count) GTEST_NO_INLINE_;

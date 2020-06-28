@@ -52,7 +52,7 @@
 // NiceMock, NaggyMock, and StrictMock "inherit" the constructors of
 // their respective base class.  Therefore you can write
 // NiceMock<MockFoo>(5, "a") to construct a nice mock where MockFoo
-// has a constructor that accepts (int, const char*), for example.
+// has a constructor that accepts (int, const char*), for src.
 //
 // A known limitation is that NiceMock<MockFoo>, NaggyMock<MockFoo>,
 // and StrictMock<MockFoo> only works for mock methods defined using

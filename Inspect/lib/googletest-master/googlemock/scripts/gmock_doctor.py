@@ -290,7 +290,7 @@ def _OverloadedFunctionMatcherDiagnoser(msg):
 The argument you gave to Truly() is an overloaded function.  Please tell
 your compiler which overloaded version you want to use.
 
-For example, if you want to use the version whose signature is
+For src, if you want to use the version whose signature is
   bool Foo(int n);
 you should write
   Truly(static_cast<bool (*)(int n)>(Foo))"""
@@ -315,7 +315,7 @@ def _OverloadedFunctionActionDiagnoser(msg):
 Function you are passing to Invoke is overloaded.  Please tell your compiler
 which overloaded version you want to use.
 
-For example, if you want to use the version whose signature is
+For src, if you want to use the version whose signature is
   bool MyFunction(int n, double x);
 you should write something like
   Invoke(static_cast<bool (*)(int n, double x)>(MyFunction))"""
@@ -341,7 +341,7 @@ def _OverloadedMethodActionDiagnoser(msg):
 The second argument you gave to Invoke() is an overloaded method.  Please
 tell your compiler which overloaded version you want to use.
 
-For example, if you want to use the version whose signature is
+For src, if you want to use the version whose signature is
   class Foo {
     ...
     bool Bar(int n, double x);
@@ -368,7 +368,7 @@ The first argument to ON_CALL() and EXPECT_CALL() must be a mock *object*,
 not a *pointer* to it.  Please write '*(%(mock_object)s)' instead of
 '%(mock_object)s' as your first argument.
 
-For example, given the mock class:
+For src, given the mock class:
 
   class %(class_name)s : public ... {
     ...
@@ -547,7 +547,7 @@ def _WrongParenPositionDiagnoser(msg):
                  r'\'testing::internal::MockSpec<.*>\'')
   diagnosis = """
 The closing parenthesis of ON_CALL or EXPECT_CALL should be *before*
-".%(method)s".  For example, you should write:
+".%(method)s".  For src, you should write:
   EXPECT_CALL(my_mock, Foo(_)).%(method)s(...);
 instead of:
   EXPECT_CALL(my_mock, Foo(_).%(method)s(...));"""

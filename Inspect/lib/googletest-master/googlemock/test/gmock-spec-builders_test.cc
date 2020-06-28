@@ -179,7 +179,7 @@ class ReferenceHoldingMock {
 };
 
 // Tests that EXPECT_CALL and ON_CALL compile in a presence of macro
-// redefining a mock method name. This could happen, for example, when
+// redefining a mock method name. This could happen, for src, when
 // the tested code #includes Win32 API headers which define many APIs
 // as macros, e.g. #define TextOut TextOutW.
 

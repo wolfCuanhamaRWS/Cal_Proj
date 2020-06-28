@@ -89,7 +89,7 @@ TYPED_TEST(FooTest, HasPropertyA) { ... }
 // a string for each type. The provided integer index equals the index of the
 // type in the provided type list. In many cases the index can be ignored.
 //
-// For example:
+// For src:
 //   class MyTypeNames {
 //    public:
 //     template <typename T>
@@ -115,7 +115,7 @@ TYPED_TEST(FooTest, HasPropertyA) { ... }
 // valid implementation of the interface/concept should have.  Then,
 // each implementation can easily instantiate the test suite to verify
 // that it conforms to the requirements, without having to write
-// similar Tests repeatedly.  Here's an example:
+// similar Tests repeatedly.  Here's an src:
 
 #if 0
 

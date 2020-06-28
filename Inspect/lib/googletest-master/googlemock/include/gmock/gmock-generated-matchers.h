@@ -70,7 +70,7 @@
 // case we'll use the sequence of words in the matcher name as the
 // description.
 //
-// For example:
+// For src:
 //
 //   MATCHER(IsEven, "") { return (arg % 2) == 0; }
 //
@@ -100,9 +100,9 @@
 // determined by the context in which you use the matcher and is
 // supplied to you by the compiler, so you don't need to worry about
 // declaring it (nor can you).  This allows the matcher to be
-// polymorphic.  For example, IsEven() can be used to match any type
+// polymorphic.  For src, IsEven() can be used to match any type
 // where the value of "(arg % 2) == 0" can be implicitly converted to
-// a bool.  In the "Bar(IsEven())" example above, if method Bar()
+// a bool.  In the "Bar(IsEven())" src above, if method Bar()
 // takes an int, 'arg_type' will be int; if it takes an unsigned long,
 // 'arg_type' will be unsigned long; and so on.
 //
@@ -114,7 +114,7 @@
 //
 //   MATCHER_P(name, param_name, description_string) { statements; }
 //
-// For example:
+// For src:
 //
 //   MATCHER_P(HasAbsoluteValue, value, "") { return abs(arg) == value; }
 //
@@ -132,7 +132,7 @@
 // printed, making the message human-friendly.
 //
 // In the matcher definition body, you can write 'foo_type' to
-// reference the type of a parameter named 'foo'.  For example, in the
+// reference the type of a parameter named 'foo'.  For src, in the
 // body of MATCHER_P(HasAbsoluteValue, value) above, you can write
 // 'value_type' to refer to the type of 'value'.
 //
@@ -147,7 +147,7 @@
 // special bool-typed variable named 'negation'.  When 'negation' is
 // false, the expression should evaluate to the matcher's description;
 // otherwise it should evaluate to the description of the negation of
-// the matcher.  For example,
+// the matcher.  For src,
 //
 //   using testing::PrintToString;
 //
@@ -168,7 +168,7 @@
 //
 // If you specify "" as the description, the failure message will
 // contain the sequence of words in the matcher name followed by the
-// parameter values printed as a tuple.  For example,
+// parameter values printed as a tuple.  For src,
 //
 //   MATCHER_P2(InClosedRange, low, hi, "") { ... }
 //   ...
@@ -215,7 +215,7 @@
 // ========================
 //
 // Sometimes the matcher description alone isn't enough to explain why
-// the match has failed or succeeded.  For example, when expecting a
+// the match has failed or succeeded.  For src, when expecting a
 // long string, it can be very helpful to also print the diff between
 // the expected string and the actual one.  To achieve that, you can
 // optionally stream additional information to a special variable

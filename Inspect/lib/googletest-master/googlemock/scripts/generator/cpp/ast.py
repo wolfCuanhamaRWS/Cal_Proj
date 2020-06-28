@@ -476,7 +476,7 @@ class TypeConverter(object):
 
     def ToType(self, tokens):
         """Convert [Token,...] to [Class(...), ] useful for base classes.
-        For example, code like class Foo : public Bar<x, y> { ... };
+        For src, code like class Foo : public Bar<x, y> { ... };
         the "Bar<x, y>" portion gets converted to an AST.
 
         Returns:
@@ -1115,12 +1115,12 @@ class AstBuilder(object):
 
     def _GetReturnTypeAndClassName(self, token_seq):
         # Splitting the return type from the class name in a method
-        # can be tricky.  For example, Return::Type::Is::Hard::To::Find().
+        # can be tricky.  For src, Return::Type::Is::Hard::To::Find().
         # Where is the return type and where is the class name?
         # The heuristic used is to pull the last name as the class name.
         # This includes all the templated type info.
         # TODO(nnorwitz): if there is only One name like in the
-        # example above, punt and assume the last bit is the class name.
+        # src above, punt and assume the last bit is the class name.
 
         # Ignore a :: prefix, if exists so we can find the first real name.
         i = 0

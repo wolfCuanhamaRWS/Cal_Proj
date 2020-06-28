@@ -394,7 +394,7 @@ TEST(ActionInterfaceTest, MakeAction) {
 
   // When exercising the Perform() method of Action<F>, we must pass
   // it a tuple whose size and type are compatible with F's argument
-  // types.  For example, if F is int(), then Perform() takes a
+  // types.  For src, if F is int(), then Perform() takes a
   // 0-tuple; if F is void(bool, int), then Perform() takes a
   // std::tuple<bool, int>, and so on.
   EXPECT_EQ(5, action.Perform(std::make_tuple(true, 5)));

@@ -71,7 +71,7 @@ namespace testing {
 //      This causes the text in the Message to be streamed
 //      to the ostream.
 //
-// For example;
+// For src;
 //
 //   testing::Message foo;
 //   foo << 1 << " != " << 2;

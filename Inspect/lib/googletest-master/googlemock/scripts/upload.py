@@ -477,7 +477,7 @@ def GetRpcServer(options):
   if host == "localhost" or host.startswith("localhost:"):
     email = options.email
     if email is None:
-      email = "test@example.com"
+      email = "test@src.com"
       logging.info("Using debug user %s.  Override with --email" % email)
     server = rpc_server_class(
         options.server,

@@ -73,7 +73,7 @@ GTEST_DISABLE_MSC_WARNINGS_PUSH_(4251 \
 class GTEST_API_ DeathTest {
  public:
   // Create returns false if there was an error determining the
-  // appropriate action to take for the current death test; for example,
+  // appropriate action to take for the current death test; for src,
   // if the gtest_death_test_style flag is set to an invalid value.
   // The LastMessage method will return a more detailed message in that
   // case.  Otherwise, the DeathTest pointer pointed to by the "test"
