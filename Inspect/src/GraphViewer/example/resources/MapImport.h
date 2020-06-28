@@ -10,6 +10,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include "AutoridadePublica.h"
 
 
 
@@ -25,6 +26,7 @@ void loadGraphNodesInfo(Graph<int> &grafo,string nosXYFich,string nosCoordGeoFic
 
 void controlCoordsGraphView(Graph<int> &graph,double, double y);
 
+void checkEconoAtPubTags(Graph<int> &gr, AutoridadePublica &AtPub,vector<AgenteEconomico *> &agEcono);
 
 
 

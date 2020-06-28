@@ -137,6 +137,7 @@ class AgenteEconomico {
     Denuncias *denuncias;
     Inspecoes *inspecoes;
     Data *dataUI;
+    double urgencyPontuation = 0.0;
 
 
 
@@ -201,7 +202,7 @@ public:
         else if(area <= 1000)
             return 3;
         else
-            return area / 100;
+            return  5;
     }
     float getTmpInpec() const { return tmpInspecao;}
     void  imprimirFicheiro(ostream &out) const;
@@ -210,6 +211,10 @@ public:
 
         return this->get_id() == agEcono.get_id();
     }
+
+    //cálcula da urgència de visita tendo em conta vários paràmetros dos Ag Económicos
+    double getUrgInspec(){ return urgencyPontuation;}
+    double calcUrgenciaInspec();
 
 };
 

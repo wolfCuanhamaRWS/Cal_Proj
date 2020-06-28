@@ -285,6 +285,33 @@ resources/Brigada.cpp.s:
 	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/Brigada.cpp.s
 .PHONY : resources/Brigada.cpp.s
 
+resources/Conectividade.o: resources/Conectividade.cpp.o
+
+.PHONY : resources/Conectividade.o
+
+# target to build an object file
+resources/Conectividade.cpp.o:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/Conectividade.cpp.o
+.PHONY : resources/Conectividade.cpp.o
+
+resources/Conectividade.i: resources/Conectividade.cpp.i
+
+.PHONY : resources/Conectividade.i
+
+# target to preprocess a source file
+resources/Conectividade.cpp.i:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/Conectividade.cpp.i
+.PHONY : resources/Conectividade.cpp.i
+
+resources/Conectividade.s: resources/Conectividade.cpp.s
+
+.PHONY : resources/Conectividade.s
+
+# target to generate assembly for a file
+resources/Conectividade.cpp.s:
+	$(MAKE) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/resources/Conectividade.cpp.s
+.PHONY : resources/Conectividade.cpp.s
+
 resources/Data.o: resources/Data.cpp.o
 
 .PHONY : resources/Data.o
@@ -501,6 +528,9 @@ help:
 	@echo "... resources/Brigada.o"
 	@echo "... resources/Brigada.i"
 	@echo "... resources/Brigada.s"
+	@echo "... resources/Conectividade.o"
+	@echo "... resources/Conectividade.i"
+	@echo "... resources/Conectividade.s"
 	@echo "... resources/Data.o"
 	@echo "... resources/Data.i"
 	@echo "... resources/Data.s"

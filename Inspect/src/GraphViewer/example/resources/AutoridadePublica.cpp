@@ -116,7 +116,7 @@ unordered_map<unsigned int, AgenteEconomico *> AutoridadePublica::processarFiche
 /***************************************************************************************************************/
 void AutoridadePublica::imprimirAgentesEconomicos() const
 {
-    cout << "ID | ATIVIDADE ECONOMICA | AREA   | HORARIO FUNCIONAMENTO | NUM GRAVES | NUM TOTAL | APROVADAS | REPROVADAS"
+    cout << "ID      |ATIVIDADE ECONOMICA               |AREA         |HORARIO FUNCIONAMENTO|Nº DENÚNCIAS GRAVES |NUM TOTAL     |APROVADAS       |REPROVADAS      |URGÊNCIA DE INSPEÇÃO|ID NÓ      "
          << endl;
 
     int area_size;
@@ -124,15 +124,19 @@ void AutoridadePublica::imprimirAgentesEconomicos() const
     {
         area_size = count_digits((*itr).second->get_area());
 
-        cout << (*itr).second->get_id() << setw (4) << " | "
-             << (*itr).second->getAtividadeString() << setw(17) << " | "
-             << (*itr).second->get_area() << setw(9 - area_size) << " | "
-             << (*itr).second->get_horario_funcionamento().first << "-"
-             << (*itr).second->get_horario_funcionamento().second << setw(20) << " | "
-             << (*itr).second->getDenuncias()->get_num_graves() << setw(12) << " | "
-             << (*itr).second->getDenuncias()->get_num_total() << setw(11) << " | "
-             << (*itr).second->getInspecoes()->get_num_aprovadas() << setw(11) << " | "
-             << (*itr).second->getInspecoes()->get_num_reprovadas() << endl;
+        cout << left << setw (8) << (*itr).second->get_id() << "|"
+             << left << setw(34) << (*itr).second->getAtividadeString() << "|"
+             << left << setw(12) << (*itr).second->get_area()  << " |"
+             << left << (*itr).second->get_horario_funcionamento().first << "-"
+             << left << setw(18) << (*itr).second->get_horario_funcionamento().second << " |"
+             << left <<setw(20) << (*itr).second->getDenuncias()->get_num_graves() << "|"
+             << left << setw(14) <<(*itr).second->getDenuncias()->get_num_total() << "| "
+             << left << setw(14) <<(*itr).second->getInspecoes()->get_num_aprovadas() << " | "
+             << left << setw(14) <<(*itr).second->getInspecoes()->get_num_reprovadas() <<" | "
+             <<left << setw(19) <<(*itr).second->getUrgInspec() << "|"
+             << left << setw(12) << (*itr).second->get_idNo() << endl;
+
+
 
 
     }
@@ -322,7 +326,7 @@ void AutoridadePublica::adicionarBrigada() {
 
     //cin atividade economica
     string atividadeEconomica;
-    cout << "Escreva a tividade economica da brigada" << endl;
+    cout << "Escreva a atividade economica da brigada" << endl;
     cout << "OPCOES:" << endl;
     cout << " - Todas" << endl
          << " - Obras" << endl
@@ -335,7 +339,7 @@ void AutoridadePublica::adicionarBrigada() {
 
     //cin horas de trabalho
     cout << "Escreva quantas horas o comercio permanece aberto" << endl;
-    cout << "(obs. n a possibilidade de colocar minutos, caso seja necessrio aredonde para cima)" << endl;
+    cout << "(em formato decimal (exemplo: 1)" << endl;
     unsigned int horas_trabalho = checkOption(1, 24);
 
     //cin horario de inicio
@@ -432,3 +436,9 @@ void AutoridadePublica:: addAgenteEcon(AgenteEconomico *AgEcon){
     agentes[AgEcon->get_idNo()]= AgEcon;
 
 }
+
+
+
+
+
+

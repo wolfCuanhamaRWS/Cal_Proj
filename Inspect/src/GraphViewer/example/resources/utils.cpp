@@ -1,7 +1,7 @@
 #include"utils.h"
 
-int checkOption(int min, int max) {
-    int input;
+double checkOption(double min, double  max) {
+    double input;
 
     while (true) {
         try {
@@ -93,8 +93,10 @@ void screenClear() {
 
 }
 
-void wait() {
+bool wait() {
     cout << endl << "[PRESS ENTER TO CONTINUE]" << endl;
     cin.ignore();
     while (cin.get() != '\n') {};
+
+    return true;
 }

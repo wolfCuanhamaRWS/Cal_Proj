@@ -15,6 +15,7 @@ CMakeFiles/example.dir/main.cpp.o: ../lib/graphviewer.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/AgenteEconomico.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/AutoridadePublica.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/Brigada.h
+CMakeFiles/example.dir/main.cpp.o: ../resources/Conectividade.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/Data.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/Erro.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/Graph.h
@@ -22,6 +23,8 @@ CMakeFiles/example.dir/main.cpp.o: ../resources/HeuristicsFindRoute.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/Local.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/MapImport.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/MutablePriorityQueue.h
+CMakeFiles/example.dir/main.cpp.o: ../resources/RouteViewCalc.h
+CMakeFiles/example.dir/main.cpp.o: ../resources/menus.h
 CMakeFiles/example.dir/main.cpp.o: ../resources/utils.h
 CMakeFiles/example.dir/main.cpp.o: ../main.cpp
 
@@ -41,6 +44,12 @@ CMakeFiles/example.dir/resources/Brigada.cpp.o: ../resources/AgenteEconomico.h
 CMakeFiles/example.dir/resources/Brigada.cpp.o: ../resources/Brigada.cpp
 CMakeFiles/example.dir/resources/Brigada.cpp.o: ../resources/Brigada.h
 CMakeFiles/example.dir/resources/Brigada.cpp.o: ../resources/Data.h
+
+CMakeFiles/example.dir/resources/Conectividade.cpp.o: ../resources/Conectividade.cpp
+CMakeFiles/example.dir/resources/Conectividade.cpp.o: ../resources/Conectividade.h
+CMakeFiles/example.dir/resources/Conectividade.cpp.o: ../resources/Graph.h
+CMakeFiles/example.dir/resources/Conectividade.cpp.o: ../resources/Local.h
+CMakeFiles/example.dir/resources/Conectividade.cpp.o: ../resources/MutablePriorityQueue.h
 
 CMakeFiles/example.dir/resources/Data.cpp.o: ../resources/Data.cpp
 CMakeFiles/example.dir/resources/Data.cpp.o: ../resources/Data.h
@@ -62,11 +71,17 @@ CMakeFiles/example.dir/resources/HeuristicsFindRoute.cpp.o: ../resources/utils.h
 CMakeFiles/example.dir/resources/Local.cpp.o: ../resources/Local.cpp
 CMakeFiles/example.dir/resources/Local.cpp.o: ../resources/Local.h
 
+CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/AgenteEconomico.h
+CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/AutoridadePublica.h
+CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/Brigada.h
+CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/Data.h
+CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/Erro.h
 CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/Graph.h
 CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/Local.h
 CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/MapImport.cpp
 CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/MapImport.h
 CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/MutablePriorityQueue.h
+CMakeFiles/example.dir/resources/MapImport.cpp.o: ../resources/utils.h
 
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../lib/connection.h
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../lib/edgetype.h
@@ -79,7 +94,6 @@ CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/Erro.h
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/Graph.h
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/HeuristicsFindRoute.h
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/Local.h
-CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/MapImport.h
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/MutablePriorityQueue.h
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/RouteViewCalc.cpp
 CMakeFiles/example.dir/resources/RouteViewCalc.cpp.o: ../resources/RouteViewCalc.h
@@ -91,6 +105,7 @@ CMakeFiles/example.dir/resources/menus.cpp.o: ../lib/graphviewer.h
 CMakeFiles/example.dir/resources/menus.cpp.o: ../resources/AgenteEconomico.h
 CMakeFiles/example.dir/resources/menus.cpp.o: ../resources/AutoridadePublica.h
 CMakeFiles/example.dir/resources/menus.cpp.o: ../resources/Brigada.h
+CMakeFiles/example.dir/resources/menus.cpp.o: ../resources/Conectividade.h
 CMakeFiles/example.dir/resources/menus.cpp.o: ../resources/Data.h
 CMakeFiles/example.dir/resources/menus.cpp.o: ../resources/Erro.h
 CMakeFiles/example.dir/resources/menus.cpp.o: ../resources/Graph.h

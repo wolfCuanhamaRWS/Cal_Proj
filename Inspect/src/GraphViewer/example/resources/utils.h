@@ -8,10 +8,10 @@
 
 using namespace std;
 
-int checkOption(int min, int max);
+double checkOption(double min, double max);
 vector<string> string_split(string str, char sep);
 string elem_two_spaces(string str);
 int count_digits(float num);
-void wait();
+bool wait();
 
 #endif //CAL_UTILS_H

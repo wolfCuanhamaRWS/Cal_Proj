@@ -13,20 +13,16 @@
 #include "AutoridadePublica.h"
 #include <vector>
 #include "Graph.h"
-#include "MapImport.h"
 #include "HeuristicsFindRoute.h"
+#include "sstream"
+#include "fstream"
 string verifyTagColor(Tag type);
 int verifyTagSize(Tag type);
 void drawGraphFromFile(std::string name, unsigned int port);
+GraphViewer &drawGraph( Graph<int> &graph,AutoridadePublica &AtPub, std::string windowFich , unsigned int port,int typeEdge,bool otherLabel);
 
-template<class T>
-GraphViewer &drawGraph( Graph<T> &graph, std::string windowFich , unsigned int port,int typeEdge,bool otherLabel);
-
-enum RouteCalculateAtEconoeRestriction{NoRestriction,AllEconoAct};
-
-
-template<class T>
-void CalculateDrawRoutes(GraphViewer &gv, Graph<T> &graph, AutoridadePublica &autPub,vector<AgenteEconomico *> &agEcono,AlgorithmMinDist algorithm,AlgorithmTmpViagInspec algorithmTmpViagInspec,RouteCalculateAtEconoeRestriction restriction);
+enum RouteCalcRestriction{NoRestriction,AllEconoAct};
+void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &autPub,vector<AgenteEconomico *> &agEcono,AlgorithmMinDist algorithm,AlgorithmTmpViagInspec algorithmTmpViagInspec,RouteCalcRestriction restriction);
 
 
 

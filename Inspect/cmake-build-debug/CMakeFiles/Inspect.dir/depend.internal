@@ -130,27 +130,6 @@ CMakeFiles/Inspect.dir/src/AgenteEconomico.cpp.o
  /home/flavio/CAL/Cal_Proj/Inspect/src/AgenteEconomico.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/Data.h
 CMakeFiles/Inspect.dir/src/AutoridadePublica.cpp.o
- ../lib/googletest-master/googletest/include/gtest/gtest-death-test.h
- ../lib/googletest-master/googletest/include/gtest/gtest-matchers.h
- ../lib/googletest-master/googletest/include/gtest/gtest-message.h
- ../lib/googletest-master/googletest/include/gtest/gtest-param-test.h
- ../lib/googletest-master/googletest/include/gtest/gtest-printers.h
- ../lib/googletest-master/googletest/include/gtest/gtest-test-part.h
- ../lib/googletest-master/googletest/include/gtest/gtest-typed-test.h
- ../lib/googletest-master/googletest/include/gtest/gtest.h
- ../lib/googletest-master/googletest/include/gtest/gtest_pred_impl.h
- ../lib/googletest-master/googletest/include/gtest/gtest_prod.h
- ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-port.h
- ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-printers.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-death-test-internal.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-filepath.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-internal.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util-generated.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-port-arch.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/AgenteEconomico.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/AutoridadePublica.cpp
  /home/flavio/CAL/Cal_Proj/Inspect/src/AutoridadePublica.h
@@ -199,27 +178,6 @@ CMakeFiles/Inspect.dir/src/MapImport.cpp.o
  /home/flavio/CAL/Cal_Proj/Inspect/src/MapImport.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/MutablePriorityQueue.h
 CMakeFiles/Inspect.dir/src/menus.cpp.o
- ../lib/googletest-master/googletest/include/gtest/gtest-death-test.h
- ../lib/googletest-master/googletest/include/gtest/gtest-matchers.h
- ../lib/googletest-master/googletest/include/gtest/gtest-message.h
- ../lib/googletest-master/googletest/include/gtest/gtest-param-test.h
- ../lib/googletest-master/googletest/include/gtest/gtest-printers.h
- ../lib/googletest-master/googletest/include/gtest/gtest-test-part.h
- ../lib/googletest-master/googletest/include/gtest/gtest-typed-test.h
- ../lib/googletest-master/googletest/include/gtest/gtest.h
- ../lib/googletest-master/googletest/include/gtest/gtest_pred_impl.h
- ../lib/googletest-master/googletest/include/gtest/gtest_prod.h
- ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-port.h
- ../lib/googletest-master/googletest/include/gtest/internal/custom/gtest-printers.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-death-test-internal.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-filepath.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-internal.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util-generated.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-param-util.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-port-arch.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-port.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-string.h
- ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/AgenteEconomico.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/AutoridadePublica.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/Brigada.h

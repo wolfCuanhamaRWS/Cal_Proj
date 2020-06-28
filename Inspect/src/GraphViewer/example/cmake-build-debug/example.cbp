@@ -125,6 +125,12 @@
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Brigada.h">
 			<Option target="example"/>
 		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Conectividade.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Conectividade.h">
+			<Option target="example"/>
+		</Unit>
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/GraphViewer/example/resources/Data.cpp">
 			<Option target="example"/>
 		</Unit>

@@ -4,6 +4,8 @@
 
 #include "RouteViewCalc.h"
 
+
+
 string verifyTagColor(Tag type){
     if(type == AutPub){
         return RED;
@@ -32,7 +34,6 @@ int verifyTagSize(Tag type){
     }
 
 }
-
 
 void drawGraphFromFile(std::string name, unsigned int port){
     std::ifstream nodes("../resources/graphs/"+name+"/nodes.txt");
@@ -91,35 +92,43 @@ void drawGraphFromFile(std::string name, unsigned int port){
     gv->rearrange();
 }
 
-template<class T>
-void CalculateDrawRoutes(GraphViewer &gv, Graph<T> &graph, AutoridadePublica &autPub,vector<AgenteEconomico *> &agEcono,AlgorithmMinDist algorithm,AlgorithmTmpViagInspec algorithmTmpViagInspec,RouteCalculateAtEconoeRestriction restriction){
-    vector<pair<vector<Vertex<int> *>,pair<double,int >> > res;
 
+void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &autPub,vector<AgenteEconomico *> &agEcono,AlgorithmMinDist algorithm,AlgorithmTmpViagInspec algorithmTmpViagInspec,RouteCalcRestriction restriction){
+    vector<pair<vector<int>,pair<double,int >> > res;
+
+
+
+    //Visitamos todos os agentes económicos sem ter em conta a atividade económica e especialidades das Brigadas
     if(restriction == NoRestriction) {
         for (int i = 1; i <= autPub.get_brigadas().size(); i++) {
             Brigada brg1 = *autPub.get_brigadas()[i];
-            auto auxRote = getRotaBrigada(graph, autPub, dijkstra, agEcono, algorithmTmpViagInspec, brg1);
+            auto auxRote = getRotaBrigada(graph, autPub, algorithm, agEcono, algorithmTmpViagInspec, brg1);
             res.push_back(auxRote);
+
+            //Imprimir identificação dos agentes económicos, brigada e tempo de trabalho acumulado da rota
+
             if (auxRote.first.size() != 0) {
                 cout << "Agentes Económicos Inspecionados: ";
                 for (auto v: auxRote.first)//imprimir id próprio de cada agente económico inspecionado por uma brigada
                     for(auto w: autPub.get_agentes())
-                        if(w.second->get_idNo() == v->getInfo())
+                        if(w.second->get_idNo() == v)
                             cout << w.second->get_id() << " ";
                 cout << "|TmpViagInspecBrig: " << auxRote.second.first << " |Brigada: " << auxRote.second.second
                      << endl;
             }
         }
     }
-    else if(restriction == AllEconoAct ){
+    else  {
         for (int i = 1; i <= autPub.get_brigadas().size(); i++) {
             Brigada brg1 = *autPub.get_brigadas()[i];
             vector<AgenteEconomico *> aux;
+            //Filtrar agentes económicos
             for(auto AE: agEcono)
                 if(AE->getAtividadeEconomica() == brg1.get_atividades_economicas() || brg1.get_atividades_economicas() == Todas)
                     aux.push_back(AE);
-            auto auxRote = getRotaBrigada(graph, autPub, dijkstra, aux, algorithmTmpViagInspec, brg1);
+            auto auxRote = getRotaBrigada(graph, autPub, algorithm, aux, algorithmTmpViagInspec, brg1);
             res.push_back(auxRote);
+
             //Apagar agentes económicos que já foram distribuídos a uma brigada
             for(auto v = agEcono.begin(); v != agEcono.end(); v++ )
                 if((*v)->getAtividadeEconomica() == brg1.get_atividades_economicas() || brg1.get_atividades_economicas() == Todas)
@@ -127,11 +136,12 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<T> &graph, AutoridadePublica &au
                         agEcono.erase(v);
                         v--;
                     }
+            //Imprimir identificação dos agentes económicos, brigada e tempo de trabalho acumulado da rota
             if (auxRote.first.size() != 0) {
                 cout << "Agentes Económicos Inspecionados: ";
                 for (auto v: auxRote.first)//imprimir id próprio de cada agente económico inspecionado por uma brigada
                     for(auto w: autPub.get_agentes())
-                        if(w.second->get_idNo() == v->getInfo())
+                        if(w.second->get_idNo() == v)
                             cout << w.second->get_id() << " ";
                 cout << "|TmpViagInspecBrig: " << auxRote.second.first << " |Brigada: " << auxRote.second.second
                      << endl;
@@ -153,39 +163,61 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<T> &graph, AutoridadePublica &au
 
         //Para cada par com vector dos vertices/agEcono visitados , e par com TmpViagInspec da brigada e brigada referente a uma determinada rota obtida
         auto agEconoIdNoVector = res.at(v).first;
+        vector<int> auxSave; // vector que será utilizado para obter rotas entre todos os agentes económicos
 
-        //Caminhoda AuPublica até ao primeiro agente económico
-        graph.dijkstraShortestPath(autPub.getIdNo());
-        vector<int> auxSave;
+        if(algorithm == dijkstra) {
+            //Caminhoda AuPtublica até ao primeiro agente económico
+            graph.dijkstraShortestPath(autPub.getIdNo());
 
-        /*pair<vector<int>,pair<double,Brigada *>> pairSave;
-        pairSave.second.second = res.at(v).second.second;
-        pairSave.second.first = res.at(v).second.first;
-       */ //Caminho compelto da AuPublica até ao primeiro agente económico
+        }
+        else if(algorithm == Bellman_Ford)
+            graph.bellmanFordShortestPath(autPub.getIdNo());
+
+        //Caminho compelto da AuPublica até ao primeiro agente económico
+
+
         if(agEconoIdNoVector.size() != 0) {
-            auxSave = graph.getPathTo(agEconoIdNoVector.at(0)->getInfo());
-            //par a guardar referente a cada brigada e caminho completo
+            if(algorithm == FloyWarshall){
+                auxSave = graph.getfloydWarshallPath(autPub.getIdNo(),agEconoIdNoVector.at(0));
+
+            }else {
+                auxSave = graph.getPathTo(agEconoIdNoVector.at(0));
+                //par a guardar referente a cada brigada e caminho completo
+            }
 
 
-
-
+            //Obter totalidade de  cada rota
             for (int i = 0; i < agEconoIdNoVector.size() - 1; i++) {
-                //caminhos desde cada agEcono i para o i+1 referido no vector com os agEcomoVisitados
-                graph.dijkstraShortestPath(agEconoIdNoVector.at(i)->getInfo());
-                auto pathVEc = graph.getPathTo(agEconoIdNoVector.at(i + 1)->getInfo());
-                pathVEc.erase(
-                        pathVEc.begin());//eliminar primeiro vértice, para evitar repetições entre viagens de cada agEcono para outro AgEcono
 
-                for (auto w: pathVEc)
-                    auxSave.push_back(w);
+                if(algorithm == FloyWarshall){
+                    //caminhos desde cada agEcono i para o i+1 referido no vector com os agEcomoVisitados FloydWarshall
+                    auto pathVEc = graph.getfloydWarshallPath(agEconoIdNoVector.at(i),agEconoIdNoVector.at(i + 1));
+                    pathVEc.erase(pathVEc.begin());//eliminar primeiro vértice, para evitar repetições entre viagens de cada agEcono para outro AgEcono
+
+                    for (auto w: pathVEc)
+                        auxSave.push_back(w);
+
+                }else {
+
+                    //caminhos desde cada agEcono i para o i+1 referido no vector com os agEcomoVisitados
+                    graph.dijkstraShortestPath(agEconoIdNoVector.at(i));
+                    auto pathVEc = graph.getPathTo(agEconoIdNoVector.at(i + 1));
+                    pathVEc.erase(
+                            pathVEc.begin());//eliminar primeiro vértice, para evitar repetições entre viagens de cada agEcono para outro AgEcono
+
+                    for (auto w: pathVEc)
+                        auxSave.push_back(w);
+                }
             }
         }
-
+        //Guradamos rota, brigada e tempo de trabalho utilizado nessa mesma rota
         pair<vector<int>,pair<double,int>> pairSave (auxSave,pair<double,int>(res.at(v).second.first,res.at(v).second.second));
 
-        resRoute.push_back(pairSave);//guardar pares com informação de rotas completas para cada brigada
+        //vector com a informação de todas as rotas e respectivas brigadas
+        resRoute.push_back(pairSave);
     }
 
+    //Imprmir e vizualizar rotas de todas as brigadas
     for(auto brigFullRoutes: resRoute) {
         vector<int> resBrig = brigFullRoutes.first;
         cout << "|TmpViagInspecBrig: " << brigFullRoutes.second.first << " |Brigada: " << brigFullRoutes.second.second  << " |";
@@ -198,8 +230,11 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<T> &graph, AutoridadePublica &au
     }
 
 
-    while(true) {
-        int counterNewEdges = graph.getNumberOfEdges() + 10;
+    cout << "Não fechar janela do graphView se quer continuar no programa: " << endl;
+    bool close = true;
+   int option = 0;
+    while(close) {
+        int counterNewEdges = graph.getNumberOfEdges() + 10; // + 10 para evitar sobreposição de arestas existentes ao desenhar rotas com arestas no grafo
         for (auto pairAux: resRoute) {
             vector<int> edgesRemove;
             for (int i = 1; i < pairAux.first.size(); i++) {
@@ -222,22 +257,31 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<T> &graph, AutoridadePublica &au
 
             }
             gv.rearrange();
-            sleep(10);
+            sleep(8);
 
             for (auto v: edgesRemove)//remove arestas criadas para de seguida vermos caminho percorrida pela próxima brigada
                 gv.removeEdge(v);
 
             gv.rearrange();
-            sleep(2);
+            sleep(1);
         }
 
+        cout <<"Pretende voltar ao menu principal ? (Sim: 1 ou Não: 2)" ;
+        option = checkOption(1,2);
+        if(option == 2)
+            wait();
+        else {
+            gv.closeWindow();
+            return;
+        }
     }
-    return;
+
 }
 
 
-template<class T>
-GraphViewer &drawGraph( Graph<T> &graph,AutoridadePublica autPub, std::string windowFich , unsigned int port,int typeEdge,bool otherLabel){
+
+GraphViewer &drawGraph( Graph<int> &graph,AutoridadePublica &AtPub, string windowFich, unsigned int port,int typeEdge,bool otherLabel){
+
 
     std::ifstream window("../resources/graphs/"+windowFich+"/window.txt");
     std::string  background_path;
@@ -287,7 +331,7 @@ GraphViewer &drawGraph( Graph<T> &graph,AutoridadePublica autPub, std::string wi
             gv->setVertexLabel(idNo, "AP: " + to_string(idNo));
         }
         else if(graph.getVertexSet().at(i)->getTagType() == AgEcono) {
-            for(auto w: autPub.get_agentes())
+            for(auto w: AtPub.get_agentes())
                 if(w.second->get_idNo() == idNo)
                     gv->setVertexLabel(idNo,to_string(w.second->get_id()));
         }

@@ -99,7 +99,7 @@ void loadGraphNodesInfo(Graph<int> &grafo, string  nosXYFich,string nosCoordGeoF
 
     //numero de arestas
     int numb_arestas = stoi(arestaLinha);
-    grafo.setNumberOfEdges(numb_arestas);
+  //  grafo.setNumberOfEdges(numb_arestas);
     //Adicionar arestas com o tempo de viagem entre cada par de nós ligados por arestas
     for(int i= 0; i < numb_arestas; i++){
         getline(arestasNos,arestaLinha);
@@ -153,5 +153,23 @@ void  controlCoordsGraphView(Graph<int> &graph,double x, double y){
 
     if(graph.getMinYGraphView() >= y)
         graph.setMinYGraphView(y);
+
+}
+
+void checkEconoAtPubTags(Graph<int> &gr, AutoridadePublica &AtPub,vector<AgenteEconomico *> &agEcono){
+    for(auto AE: AtPub.get_agentes()) {
+        agEcono.push_back(AE.second);
+
+    }
+
+
+
+    gr.findVertex(AtPub.getIdNo())->setTagType(AutPub);
+    for(auto it : agEcono) {
+        auto eV =  gr.findVertex(it->get_idNo());
+        if (eV != NULL) {
+            eV->setTagType(AgEcono);
+        }
+    }
 
 }

@@ -19,6 +19,7 @@ AgenteEconomico::AgenteEconomico(const unsigned int id , const AtividadeEconomic
     this-> inspecoes = inspecoes;
     tmpInspecao = gerarTmpInspecao();
     this->dataUI = dataUI;
+    this->urgencyPontuation = calcUrgenciaInspec();
 }
 
 
@@ -34,6 +35,7 @@ AgenteEconomico::AgenteEconomico(unsigned int id, const AtividadeEconomica &ativ
     this->tmpInspecao = gerarTmpInspecao();
     this->dataUI = dataUI;
     this->id = id;
+    this->urgencyPontuation = calcUrgenciaInspec();
 }
 
 
@@ -76,5 +78,24 @@ void AgenteEconomico :: imprimirFicheiro(ostream &out) const {
 }
 
 
+double AgenteEconomico:: calcUrgenciaInspec(){
 
+    //Fórmula para classificação de urgència dos agentes económicos
+    double urgencyPontuation = 0.0;
+    urgencyPontuation += this->getDenuncias()->get_num_graves()*0.5;
+    urgencyPontuation += this->getDenuncias()->get_num_total() * 0.2;
+    urgencyPontuation += this->get_area()* 0.1;
+    urgencyPontuation += this->getInspecoes()->get_num_reprovadas() * 0.2;
+
+
+
+    if(this->getDataUi()->getAno() < 2020)
+        urgencyPontuation *= 2;
+
+
+
+    return urgencyPontuation;
+
+
+}
 

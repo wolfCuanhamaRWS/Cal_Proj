@@ -10,7 +10,7 @@
 #include <iostream>
 #include <string>
 
-
+#include "AgenteEconomico.h"
 #include "Brigada.h"
 #include "utils.h"
 

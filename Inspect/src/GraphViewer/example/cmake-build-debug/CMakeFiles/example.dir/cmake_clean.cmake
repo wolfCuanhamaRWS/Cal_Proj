@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/example.dir/resources/AgenteEconomico.cpp.o"
   "CMakeFiles/example.dir/resources/AutoridadePublica.cpp.o"
   "CMakeFiles/example.dir/resources/Brigada.cpp.o"
+  "CMakeFiles/example.dir/resources/Conectividade.cpp.o"
   "CMakeFiles/example.dir/resources/Data.cpp.o"
   "CMakeFiles/example.dir/resources/HeuristicsFindRoute.cpp.o"
   "CMakeFiles/example.dir/resources/Local.cpp.o"
