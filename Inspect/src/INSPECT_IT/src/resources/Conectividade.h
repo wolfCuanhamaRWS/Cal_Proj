@@ -1,6 +1,3 @@
-//
-// Created by flavio on 26/06/20.
-//
 
 #ifndef EXAMPLE_CONECTIVIDADE_H
 #define EXAMPLE_CONECTIVIDADE_H

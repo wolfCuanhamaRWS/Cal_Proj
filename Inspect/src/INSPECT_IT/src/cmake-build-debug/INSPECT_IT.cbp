@@ -111,6 +111,12 @@
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AgenteEconomico.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AlgorithmPerformanceTest.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AlgorithmPerformanceTest.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
 		<Unit filename="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AutoridadePublica.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>

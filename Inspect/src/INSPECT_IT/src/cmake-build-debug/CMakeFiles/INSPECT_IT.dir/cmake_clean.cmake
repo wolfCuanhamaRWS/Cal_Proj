@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/INSPECT_IT.dir/lib/graphviewer.cpp.o"
   "CMakeFiles/INSPECT_IT.dir/main.cpp.o"
   "CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o"
+  "CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o"
   "CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.o"
   "CMakeFiles/INSPECT_IT.dir/resources/Brigada.cpp.o"
   "CMakeFiles/INSPECT_IT.dir/resources/Conectividade.cpp.o"

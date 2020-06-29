@@ -166,7 +166,7 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
         vector<int> auxSave; // vector que será utilizado para obter rotas entre todos os agentes económicos
 
         if(algorithm == dijkstra) {
-            //Caminhoda AuPtublica até ao primeiro agente económico
+            //Caminho da AuPtublica até ao primeiro agente económico
             graph.dijkstraShortestPath(autPub.getIdNo());
 
         }
@@ -197,7 +197,7 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
                     for (auto w: pathVEc)
                         auxSave.push_back(w);
 
-                }else {
+                }else if( algorithm == dijkstra) {
 
                     //caminhos desde cada agEcono i para o i+1 referido no vector com os agEcomoVisitados
                     graph.dijkstraShortestPath(agEconoIdNoVector.at(i));
@@ -208,6 +208,19 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
                     for (auto w: pathVEc)
                         auxSave.push_back(w);
                 }
+                else{
+                    graph.bellmanFordShortestPath(agEconoIdNoVector.at(i));
+                    auto pathVEc = graph.getPathTo(agEconoIdNoVector.at(i + 1));
+                    pathVEc.erase(
+                            pathVEc.begin());//eliminar primeiro vértice, para evitar repetições entre viagens de cada agEcono para outro AgEcono
+
+                    for (auto w: pathVEc)
+                        auxSave.push_back(w);
+
+                }
+
+
+
             }
         }
         //Guradamos rota, brigada e tempo de trabalho utilizado nessa mesma rota
@@ -232,12 +245,12 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
 
     cout << "Não fechar janela do graphView se quer continuar no programa: " << endl << endl;
     bool close = true;
-   int option = 0;
-   int optionVisual= 0;
-   cout <<"Deseja visualizar de forma automática as rotas: 1 " << endl;
-   cout << "Deseja controlar o aparecimento das rotas: 2" << endl;
+    int option = 0;
+    int optionVisual= 0;
+    cout <<"Deseja visualizar de forma automática as rotas: 1 " << endl;
+    cout << "Deseja controlar o aparecimento das rotas: 2" << endl;
 
-   optionVisual = checkOption(1,2);
+    optionVisual = checkOption(1,2);
     while(close) {
         int counterNewEdges = graph.getNumberOfEdges() + 10; // + 10 para evitar sobreposição de arestas existentes ao desenhar rotas com arestas no grafo
         for (auto pairAux: resRoute) {
@@ -297,7 +310,7 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
 GraphViewer &drawGraph( Graph<int> &graph,AutoridadePublica &AtPub, string windowFich, unsigned int port,int typeEdge,bool otherLabel){
 
 
-    std::ifstream window("../resources/graphs/"+windowFich+"/window.txt");
+    std::ifstream window("../resources/graphs/MAPS_INSPECT_IT/"+windowFich+"/window.txt");
     std::string  background_path;
 
     int n_nodes, n_edges, height, width, v1, v2,  dynamic, thickness, size, dashed, curved;

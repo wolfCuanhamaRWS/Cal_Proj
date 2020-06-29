@@ -1,6 +1,4 @@
-//
-// Created by Amanda  on 19/05/20.
-//
+
 
 #include <string>
 

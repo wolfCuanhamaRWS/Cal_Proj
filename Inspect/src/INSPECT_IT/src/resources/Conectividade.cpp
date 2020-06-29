@@ -1,6 +1,4 @@
-//
-// Created by flavio on 26/06/20.
-//
+
 #include "Conectividade.h"
 void LargeSSCFilterGraph(Graph<int> &gr){
 

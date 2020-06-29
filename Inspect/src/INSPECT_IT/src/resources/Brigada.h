@@ -78,15 +78,8 @@ public:
      * Escreve para uma ostream out (neste caso, o ficheiro brigadas.txt) o valor dos atributos com a formatação necessária em ficheiros
      * @param out A stream de output para onde serão escritos os valores dos atributos
      */
-    void imprimirFicheiro(ostream & out) const
-    {
-        out << "::::::::::::::::::::::::::" << endl
-            << get_id() << endl
-            << getAtividadeString_() << endl
-            << get_horas_trabalho() << endl
-            << get_hora_inicio() << endl;
+    void imprimirFicheiro(ostream & out) const;
 
-    }
 
     double getVelocidadeMedia() const{
         return this->velocidadeMedia;

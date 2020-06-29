@@ -231,6 +231,33 @@ resources/AgenteEconomico.cpp.s:
 	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.s
 .PHONY : resources/AgenteEconomico.cpp.s
 
+resources/AlgorithmPerformanceTest.o: resources/AlgorithmPerformanceTest.cpp.o
+
+.PHONY : resources/AlgorithmPerformanceTest.o
+
+# target to build an object file
+resources/AlgorithmPerformanceTest.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o
+.PHONY : resources/AlgorithmPerformanceTest.cpp.o
+
+resources/AlgorithmPerformanceTest.i: resources/AlgorithmPerformanceTest.cpp.i
+
+.PHONY : resources/AlgorithmPerformanceTest.i
+
+# target to preprocess a source file
+resources/AlgorithmPerformanceTest.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.i
+.PHONY : resources/AlgorithmPerformanceTest.cpp.i
+
+resources/AlgorithmPerformanceTest.s: resources/AlgorithmPerformanceTest.cpp.s
+
+.PHONY : resources/AlgorithmPerformanceTest.s
+
+# target to generate assembly for a file
+resources/AlgorithmPerformanceTest.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.s
+.PHONY : resources/AlgorithmPerformanceTest.cpp.s
+
 resources/AutoridadePublica.o: resources/AutoridadePublica.cpp.o
 
 .PHONY : resources/AutoridadePublica.o
@@ -522,6 +549,9 @@ help:
 	@echo "... resources/AgenteEconomico.o"
 	@echo "... resources/AgenteEconomico.i"
 	@echo "... resources/AgenteEconomico.s"
+	@echo "... resources/AlgorithmPerformanceTest.o"
+	@echo "... resources/AlgorithmPerformanceTest.i"
+	@echo "... resources/AlgorithmPerformanceTest.s"
 	@echo "... resources/AutoridadePublica.o"
 	@echo "... resources/AutoridadePublica.i"
 	@echo "... resources/AutoridadePublica.s"

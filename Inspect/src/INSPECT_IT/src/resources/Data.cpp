@@ -1,6 +1,3 @@
-//
-// Created by flavio on 06/06/20.
-//
 
 #include "Data.h"
 #include <iostream>

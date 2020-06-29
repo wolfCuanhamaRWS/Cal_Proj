@@ -1,11 +1,4 @@
-/*Flavio 06/06/2020
- * Reutilização de:
- * Algoritmos e funções resolvidos e testados referentes à aula Prática
- * Graph.h
- *
- *
- *
- */
+
 #ifndef GRAPH_H_
 #define GRAPH_H_
 #include "algorithm"

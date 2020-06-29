@@ -1,8 +1,3 @@
-//
-// Created by Amanda  on 05/06/20.
-//
-
-
 #pragma once
 
 #include <string>
@@ -214,7 +209,7 @@ public:
 
     //cálcula da urgència de visita tendo em conta vários paràmetros dos Ag Económicos
     double getUrgInspec(){ return urgencyPontuation;}
-    double calcUrgenciaInspec();
+    double calcUrgenciaInspec() const;
 
 };
 

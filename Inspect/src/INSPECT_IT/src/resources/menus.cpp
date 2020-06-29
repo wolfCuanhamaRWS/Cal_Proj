@@ -223,7 +223,7 @@ void mainMenu(AutoridadePublica &autoridade) {
                     if(aux == FloyWarshall && !counterFloydWarshallCalc){
                         menuLoadMaps(graphFloydWarshall,option2,veloMedBrig);
                         cout << "Qual a margem de erro que quer utilizar para o algoritmo FloydWarshall: (Exemplo: 0.001) " << endl;
-                        errorEPS = checkOption(0, 1);
+                        errorEPS = checkOption(0, 5);
                         counterFloydWarshallCalc = true;
 
                         saveoptionAux = option2;
@@ -325,7 +325,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
 
-                        GraphViewer gv1 = drawGraph(gr1, autoridade, "Porto_Strong_Component", 7778,option5, false);
+                        GraphViewer gv1 = drawGraph(gr1, autoridade, "WindowConfiguration", 7778,option5, false);
 
 
 
@@ -345,7 +345,7 @@ void mainMenu(AutoridadePublica &autoridade) {
                         vector<AgenteEconomico *> agEcono;
                         checkEconoAtPubTags(gr1,autoridade ,agEcono);
 
-                        GraphViewer gv2 = drawGraph(gr1, autoridade, "Porto_Strong_Component", 7778,option5, false);
+                        GraphViewer gv2 = drawGraph(gr1, autoridade, "WindowConfiguration", 7778,option5, false);
 
                         cout << "Não fechar janelas do graphView se quer continuar no programa: " << endl;
                         if(wait()){
@@ -373,7 +373,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                         //Mapa inicial
 
-                        GraphViewer gv1 =   drawGraph(gr2, autoridade, "Porto_Strong_Component", 7778, option5, false);
+                        GraphViewer gv1 =   drawGraph(gr2, autoridade, "WindowConfiguration", 7778, option5, false);
 
 
                         //Achar todas as componentes fortemente conexas
@@ -393,7 +393,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
 
-                        GraphViewer gv2 =   drawGraph(gr2, autoridade, "Porto_Strong_Component", 7778, option5, false);
+                        GraphViewer gv2 =   drawGraph(gr2, autoridade, "WindowConfiguration", 7778, option5, false);
 
                         cout << "Não fechar janelas do graphView se quer continuar no programa: " << endl;
                         if(wait()){
@@ -420,7 +420,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                         //Mapa inicial
 
-                        GraphViewer gv1 =   drawGraph(gr3, autoridade, "Porto_Strong_Component", 7778, option5, false);
+                        GraphViewer gv1 =   drawGraph(gr3, autoridade, "WindowConfiguration", 7778, option5, false);
 
 
                         //Achar todas as componentes fortemente conexas
@@ -440,7 +440,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
 
-                        GraphViewer gv2 =   drawGraph(gr3, autoridade, "Porto_Strong_Component", 7778, option5, false);
+                        GraphViewer gv2 =   drawGraph(gr3, autoridade, "WindowConfiguration", 7778, option5, false);
 
                         cout << "Não fechar janelas do graphView se quer continuar no programa: " << endl;
                         if(wait()){
@@ -502,11 +502,21 @@ void menuLoadMaps(Graph<int> &gr, int input, double velocidadeMediaBrigadas) {
 
 void calculateRoutes(Graph<int> &gr,AutoridadePublica &AtPub,AlgorithmMinDist algorithm ,AlgorithmTmpViagInspec tmpViagInspec,RouteCalcRestriction restriction,bool GPSCheck,pair<int,double> idNoRadius){
     vector<AgenteEconomico *> agEcono;
-    restriction = AllEconoAct;
+    int optionRestrition = 0;
+
+    cout << "Pretende que especialidades das brigadas sejam respeitadas? (Sim: 1 Não: 2): " << endl;
+
+    optionRestrition = checkOption(1,2);
+
+    if(optionRestrition == 1)
+        restriction = AllEconoAct;
+    else
+        restriction = NoRestriction;
+
     //Meter tags de forma  a AE e ATPub  sejam reconhecidas
     checkEconoAtPubTags(gr,AtPub,agEcono);
 
-    GraphViewer gv = drawGraph(gr,AtPub,"Porto_Strong_Component",7778,EdgeType::UNDIRECTED, false);
+    GraphViewer gv = drawGraph(gr,AtPub,"WindowConfiguration",7778,EdgeType::UNDIRECTED, false);
 
 
     CalculateDrawRoutes(gv,gr,AtPub,agEcono,algorithm,tmpViagInspec,restriction,GPSCheck,idNoRadius);

@@ -1,6 +1,4 @@
-//
-// Created by Amanda  on 05/06/20.
-//
+
 
 #include <iomanip>
 #include <algorithm>
@@ -285,8 +283,13 @@ void AutoridadePublica::adicionarAgenteEconomico() {
     cout << "Qual é o nó correspondente no mapa (tem coincidir com valores do mapa que vai usar ): " << endl;
     cin >> auxIdNo;
 
-    auto *agente = new AgenteEconomico(id_control_agente_economico, stringToAE(atividadeEconomica), area,
-                                       horario_funcionamento, denuncias, inpecoes, dataUI,auxIdNo);
+    auto *agente = new AgenteEconomico(id_control_agente_economico, stringToAE(atividadeEconomica), area,horario_funcionamento, denuncias, inpecoes, dataUI,auxIdNo);
+    cout << endl;
+    cout << "Tem a certeza que quer adicionar? (Sim: 1 Não: 2):" << endl;
+    int exitOpt = checkOption(1,2);
+    if(exitOpt == 2)
+        return;
+
     this->agentes[id_control_agente_economico] = agente;
 
     cout<<"Agente economico adicionado com sucesso!"<<endl;
@@ -350,9 +353,14 @@ void AutoridadePublica::adicionarBrigada() {
     cout << "Escreva a hora inicial de trabalho da Brigada: " << endl;
     cout << "(obs. n a possibilidade de colocar minutos, caso seja necessrio arredonde para cima)" << endl;
     unsigned int hora_inico = checkOption(0, 24);//todo problema horario de abertura n n aceita
-
+    cout << endl;
     this->id_control_briagada++;
     auto *brigada = new Brigada(id_control_briagada, horas_trabalho, hora_inico,stringToAE(atividadeEconomica));
+    cout << "Tem a certeza que quer adicionar? (Sim: 1 Não: 2):" << endl;
+    int exitOpt = checkOption(1,2);
+    if(exitOpt == 2)
+        return;
+
     this->brigadas[id_control_briagada] = brigada;
     cout<<"Brigada inserida com sucesso!"<<endl;
 }
@@ -371,8 +379,8 @@ void AutoridadePublica::destrutor()
     /*
      * Escreve nos ficheiros
      */
-    ofstream ficheiro_agentes;
-    ficheiro_agentes.open("../resources/agentes.txt",ofstream::out | ofstream::trunc);
+    fstream ficheiro;
+    ficheiro.open("../resources/agentes.txt");
 
     //criando o vector de keys(ids) ordenadas
     vector<unsigned  int > keys_agentes;
@@ -382,22 +390,22 @@ void AutoridadePublica::destrutor()
         keys_agentes.push_back(it.first);
     }
     sort (keys_agentes.begin(), keys_agentes.end());
-
+    bool control = false;
     for(auto  it : keys_agentes)
     {
+       if(control)
+           ficheiro << endl;
         auto agente = agentes[it];
-        agente->imprimirFicheiro(ficheiro_agentes);
-
+        agente->imprimirFicheiro(ficheiro);
+        control = true;
     }
-    ficheiro_agentes.close();
+    ficheiro.close();
 
 
 
 
-    ofstream ficheiro_brigadas;
-    ficheiro_brigadas.open("..resources/brigadas.txt",ofstream::out | ofstream::trunc);
-    if(ficheiro_brigadas.fail())
-        cout << " shit" ;
+    ficheiro.open("../resources/brigadas.txt");
+
     //criando o vector de keys(ids) ordenadas
     vector<unsigned int> keys_brigadas;
 
@@ -407,13 +415,16 @@ void AutoridadePublica::destrutor()
     }
     sort(keys_brigadas.begin(), keys_brigadas.end());
 
+    control = false;
     for (auto it : keys_brigadas)
-    {
+    {    if(control)
+            ficheiro << endl;
         auto brigada = brigadas[it];
-        brigada->imprimirFicheiro(ficheiro_brigadas);
+        brigada->imprimirFicheiro(ficheiro);
+        control = true;
     }
-    ficheiro_brigadas.close();
-
+    ficheiro.close();
+    ficheiro.open("../resources/brigadas.txt");
 
     /*
      * Apaga os objectos

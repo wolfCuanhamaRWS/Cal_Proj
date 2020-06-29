@@ -1,6 +1,3 @@
-//
-// Created by Amanda  on 05/06/20.
-//
 
 #include "AgenteEconomico.h"
 
@@ -74,11 +71,11 @@ void AgenteEconomico :: imprimirFicheiro(ostream &out) const {
         << getInspecoes()->get_num_aprovadas() << endl
         << getInspecoes()->get_num_reprovadas() << endl
         << getDataUi()->getData() << endl
-        << get_idNo() << endl;
+        << get_idNo();
 }
 
 
-double AgenteEconomico:: calcUrgenciaInspec(){
+double AgenteEconomico:: calcUrgenciaInspec() const{
 
     //Fórmula para classificação de urgència dos agentes económicos
     double urgencyPontuation = 0.0;

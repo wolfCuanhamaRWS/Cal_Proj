@@ -1,7 +1,3 @@
-//
-// Created by flavio on 06/06/20.
-//
-
 
 
 #ifndef CAL_DATA_H
