@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <algorithm>
 #include "AutoridadePublica.h"
-#include <>
+#include <fstream>
 
 /****************************************************************************************************************
                             IMPLEMENTAÇÃO DAS FUNÇÕES RELACIONADAS COM AutoridadePublica
@@ -342,12 +342,12 @@ void AutoridadePublica::adicionarBrigada() {
     cin >> atividadeEconomica;
 
     //cin horas de trabalho
-    cout << "Escreva quantas horas o comercio permanece aberto" << endl;
-    cout << "(em formato decimal (exemplo: 1)" << endl;
+    cout << "Escreva quantas horas trabalhar a Brigada" << endl;
+    cout << "(em formato decimal (exemplo: 1 ou 8)" << endl;
     unsigned int horas_trabalho = checkOption(1, 24);
 
     //cin horario de inicio
-    cout << "Escreva o horario de abertura do comercio" << endl;
+    cout << "Escreva o horario de início do trabalho da Brigada: " << endl;
     cout << "(obs. n a possibilidade de colocar minutos, caso seja necessrio arredonde para cima)" << endl;
     unsigned int hora_inico = checkOption(0, 24);//todo problema horario de abertura n n aceita
 
@@ -372,7 +372,7 @@ void AutoridadePublica::destrutor()
      * Escreve nos ficheiros
      */
     ofstream ficheiro_agentes;
-    ficheiro_agentes.open("..resources/agentes.txt",ofstream::out | ofstream::trunc);
+    ficheiro_agentes.open("../resources/agentes.txt",ofstream::out | ofstream::trunc);
 
     //criando o vector de keys(ids) ordenadas
     vector<unsigned  int > keys_agentes;
@@ -397,9 +397,11 @@ void AutoridadePublica::destrutor()
 
 
 
+
     ofstream ficheiro_brigadas;
     ficheiro_brigadas.open("..resources/brigadas.txt",ofstream::out | ofstream::trunc);
-
+    if(ficheiro_brigadas.is_open())
+        cout << " shit" ;
     //criando o vector de keys(ids) ordenadas
     vector<unsigned int> keys_brigadas;
 

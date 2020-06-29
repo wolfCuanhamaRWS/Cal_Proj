@@ -41,7 +41,7 @@ void mainMenu(AutoridadePublica &autoridade) {
         double veloMedBrig = 0.0;
 
         if (option == 0) {
-            autoridade.destrutor();
+           // autoridade.destrutor();
             break;
         }
         switch (option) {
@@ -458,10 +458,13 @@ void mainMenu(AutoridadePublica &autoridade) {
                 }
 
             default:
-                return;
+                break;
 
         }
     }
+
+
+
 }
 
 void menuLoadMaps(Graph<int> &gr, int input, double velocidadeMediaBrigadas) {
