@@ -26,7 +26,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../lib"
   "../resources"
-  "../example"
   )
 
 # Targets to which this target links.

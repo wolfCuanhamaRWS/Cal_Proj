@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/src -I/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/lib -I/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources -I/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/example 
+CXX_INCLUDES = -I/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/src -I/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/lib -I/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources 
 

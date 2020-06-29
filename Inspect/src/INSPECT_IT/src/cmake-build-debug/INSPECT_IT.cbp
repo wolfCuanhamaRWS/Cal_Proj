@@ -47,7 +47,6 @@
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/src"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/lib"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources"/>
-					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/example"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -74,7 +73,6 @@
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/src"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/lib"/>
 					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources"/>
-					<Add directory="/home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/example"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>

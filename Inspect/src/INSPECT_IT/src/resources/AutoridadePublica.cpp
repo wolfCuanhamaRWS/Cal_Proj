@@ -342,12 +342,12 @@ void AutoridadePublica::adicionarBrigada() {
     cin >> atividadeEconomica;
 
     //cin horas de trabalho
-    cout << "Escreva quantas horas trabalhar a Brigada" << endl;
+    cout << "Escreva quantas horas por dia trabalha a Brigada" << endl;
     cout << "(em formato decimal (exemplo: 1 ou 8)" << endl;
     unsigned int horas_trabalho = checkOption(1, 24);
 
     //cin horario de inicio
-    cout << "Escreva o horario de início do trabalho da Brigada: " << endl;
+    cout << "Escreva a hora inicial de trabalho da Brigada: " << endl;
     cout << "(obs. n a possibilidade de colocar minutos, caso seja necessrio arredonde para cima)" << endl;
     unsigned int hora_inico = checkOption(0, 24);//todo problema horario de abertura n n aceita
 
@@ -385,7 +385,7 @@ void AutoridadePublica::destrutor()
 
     for(auto  it : keys_agentes)
     {
-        auto *agente = agentes[it];
+        auto agente = agentes[it];
         agente->imprimirFicheiro(ficheiro_agentes);
 
     }
@@ -394,13 +394,9 @@ void AutoridadePublica::destrutor()
 
 
 
-
-
-
-
     ofstream ficheiro_brigadas;
     ficheiro_brigadas.open("..resources/brigadas.txt",ofstream::out | ofstream::trunc);
-    if(ficheiro_brigadas.is_open())
+    if(ficheiro_brigadas.fail())
         cout << " shit" ;
     //criando o vector de keys(ids) ordenadas
     vector<unsigned int> keys_brigadas;
@@ -413,7 +409,7 @@ void AutoridadePublica::destrutor()
 
     for (auto it : keys_brigadas)
     {
-        auto *brigada = brigadas[it];
+        auto brigada = brigadas[it];
         brigada->imprimirFicheiro(ficheiro_brigadas);
     }
     ficheiro_brigadas.close();

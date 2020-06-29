@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/INSPECT_IT.iml" filepath="$PROJECT_DIR$/.idea/INSPECT_IT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/INSPECT_IT1.iml" filepath="$PROJECT_DIR$/.idea/INSPECT_IT1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Inspect.iml" filepath="$PROJECT_DIR$/.idea/Inspect.iml" />
     </modules>
   </component>
