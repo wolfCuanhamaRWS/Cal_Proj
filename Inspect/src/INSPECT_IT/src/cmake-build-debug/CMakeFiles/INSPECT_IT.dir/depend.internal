@@ -14,6 +14,7 @@ CMakeFiles/INSPECT_IT.dir/main.cpp.o
  ../lib/edgetype.h
  ../lib/graphviewer.h
  ../resources/AgenteEconomico.h
+ ../resources/AlgorithmPerformanceTest.h
  ../resources/AutoridadePublica.h
  ../resources/Brigada.h
  ../resources/Conectividade.h
@@ -32,6 +33,26 @@ CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AgenteEconomico.cpp
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AgenteEconomico.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Data.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o
+ ../lib/connection.h
+ ../lib/edgetype.h
+ ../lib/graphviewer.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AgenteEconomico.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AlgorithmPerformanceTest.cpp
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AlgorithmPerformanceTest.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AutoridadePublica.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Brigada.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Conectividade.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Data.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Erro.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Graph.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/HeuristicsFindRoute.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Local.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/MapImport.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/MutablePriorityQueue.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/RouteViewCalc.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/menus.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/utils.h
 CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.o
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AgenteEconomico.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AutoridadePublica.cpp
@@ -104,6 +125,7 @@ CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o
  ../lib/edgetype.h
  ../lib/graphviewer.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AgenteEconomico.h
+ /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AlgorithmPerformanceTest.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/AutoridadePublica.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Brigada.h
  /home/flavio/CAL/Cal_Proj/Inspect/src/INSPECT_IT/src/resources/Conectividade.h

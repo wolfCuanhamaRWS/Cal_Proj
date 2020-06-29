@@ -9,6 +9,7 @@
 #include "RouteViewCalc.h"
 #include "MapImport.h"
 #include "Conectividade.h"
+#include "AlgorithmPerformanceTest.h"
 
 using namespace std;
 

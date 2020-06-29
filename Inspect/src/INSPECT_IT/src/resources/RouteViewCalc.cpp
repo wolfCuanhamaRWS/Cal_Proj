@@ -209,6 +209,7 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
                         auxSave.push_back(w);
                 }
                 else{
+
                     graph.bellmanFordShortestPath(agEconoIdNoVector.at(i));
                     auto pathVEc = graph.getPathTo(agEconoIdNoVector.at(i + 1));
                     pathVEc.erase(

@@ -13,6 +13,7 @@ CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../lib/connection.h
 CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../lib/edgetype.h
 CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../lib/graphviewer.h
 CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../resources/AgenteEconomico.h
+CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../resources/AlgorithmPerformanceTest.h
 CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../resources/AutoridadePublica.h
 CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../resources/Brigada.h
 CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../resources/Conectividade.h
@@ -31,6 +32,26 @@ CMakeFiles/INSPECT_IT.dir/main.cpp.o: ../main.cpp
 CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o: ../resources/AgenteEconomico.cpp
 CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o: ../resources/AgenteEconomico.h
 CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o: ../resources/Data.h
+
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../lib/connection.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../lib/edgetype.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../lib/graphviewer.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/AgenteEconomico.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/AlgorithmPerformanceTest.cpp
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/AlgorithmPerformanceTest.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/AutoridadePublica.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/Brigada.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/Conectividade.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/Data.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/Erro.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/Graph.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/HeuristicsFindRoute.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/Local.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/MapImport.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/MutablePriorityQueue.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/RouteViewCalc.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/menus.h
+CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o: ../resources/utils.h
 
 CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.o: ../resources/AgenteEconomico.h
 CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.o: ../resources/AutoridadePublica.cpp
@@ -103,6 +124,7 @@ CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../lib/connection.h
 CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../lib/edgetype.h
 CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../lib/graphviewer.h
 CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../resources/AgenteEconomico.h
+CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../resources/AlgorithmPerformanceTest.h
 CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../resources/AutoridadePublica.h
 CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../resources/Brigada.h
 CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o: ../resources/Conectividade.h

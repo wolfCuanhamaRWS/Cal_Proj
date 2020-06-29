@@ -493,7 +493,7 @@ void Graph<T>::dijkstraShortestPath(const T &origin) {
        // v->visited = false;
     }
     Vertex<T> *originV = findVertex(origin);//vértice inicial
-    originV->dist= 0;//distancia do vértice de origem escolhido a ele próprio é zero!Importante
+    originV->setDist(0.0);//distancia do vértice de origem escolhido a ele próprio é zero!Importante
 
     MutablePriorityQueue<Vertex<T> > min_priority_queue;//fila com vértices, onde estes têm field indexqueue!
 

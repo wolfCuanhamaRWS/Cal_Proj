@@ -36,7 +36,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
         int option;
-        option = checkOption(0, 9);
+        option = checkOption(0, 10);
         unsigned int input;
         double veloMedBrig = 0.0;
 
@@ -456,6 +456,13 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
                 }
+
+
+
+            case 10:
+                globalPerformanceTEst();
+                wait();
+                break;
 
             default:
                 break;

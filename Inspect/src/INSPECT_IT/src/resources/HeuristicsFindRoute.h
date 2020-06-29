@@ -81,7 +81,7 @@ Vertex<T> *searchNearestAgEconoTViagTInspecFullUrgency(T source, Graph<T> &graph
 
 
         //controla tmpViagem mínimos caso em que é imposśivel ir de um nó para outro, horários de funcionamento, urgencia de inspeções
-        if(tmpViagemInspec >  auxVal && auxVal != INF && horaActual >= (*it)->get_horario_funcionamento().first && horaActual  <= (*it)->get_horario_funcionamento().second && tmpViagemCounter + distVectV  + ((*it)->getTmpInpec() * auxDistOrFullCheck)  <= brg.get_horas_trabalho() || (*it)->getUrgInspec() > pontuacaoUrgencia && checkCoords) {
+        if((tmpViagemInspec >  auxVal && auxVal != INF && horaActual >= (*it)->get_horario_funcionamento().first && horaActual  <= (*it)->get_horario_funcionamento().second && tmpViagemCounter + distVectV  + ((*it)->getTmpInpec() * auxDistOrFullCheck)  <= brg.get_horas_trabalho() && checkCoords) || (*it)->getUrgInspec() > pontuacaoUrgencia ) {
 
             tmpViagemInspec =  auxVal;
             resV = v;
@@ -95,22 +95,30 @@ Vertex<T> *searchNearestAgEconoTViagTInspecFullUrgency(T source, Graph<T> &graph
 
     if(!distOrFullCheck)
         auxDistOrFullCheck = 1.0;
+
+    double checkPossiblePastHour;
+    double limitFinalHour = (brg.get_hora_inicio() + brg.get_horas_trabalho());
     //Verificar se tempos de viagem e inspeções acumuladas ultrapassam o horário de trabalho da brigada em questão
-    if(tmpViagemInspec < INF && (tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck) + tmpViagemCounter) <= (brg.get_hora_inicio() + brg.get_horas_trabalho()) )
-        tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck);
+    if(controlIterator) {
+        checkPossiblePastHour =tmpViagemInspec + ((*savePos)->getTmpInpec() * auxDistOrFullCheck) + tmpViagemCounter;
 
 
+        if (tmpViagemInspec < INF && (checkPossiblePastHour + brg.get_hora_inicio()) <= limitFinalHour)
+            tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec() * auxDistOrFullCheck);
+    }
+    //apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado e ou cumpre outras restrições
+    //apagamos agentes economicos viáveis e que são contabilizados e não viáveis para a mesma rota da mesma brigada
     //Controla se itarador "aponta" para algo ou nao, de forma a conseguir eliminar agentes economicos de agEcono sem erros
-    if(controlIterator &&  tmpViagemCounter <= brg.get_horas_trabalho())
-        agEcono.erase(savePos);//apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado
-
-
-
-    if((tmpViagemCounter + brg.get_hora_inicio() )>= (brg.get_hora_inicio() + brg.get_horas_trabalho()))
+    if(controlIterator &&  (checkPossiblePastHour + brg.get_hora_inicio() ) <= limitFinalHour)
+        agEcono.erase(savePos);
+    if(controlIterator &&  (checkPossiblePastHour + brg.get_hora_inicio() ) > limitFinalHour)
+        agEcono.erase(savePos);
+    //salvaguarda todos os casos em que agente economico não é viável a ser visitado, não retornando qualquer agEcono
+    if(controlIterator && (checkPossiblePastHour + brg.get_hora_inicio() ) > limitFinalHour)
         return NULL;
 
     else
-        return resV;
+        return resV; // retorna null se nenhum agEcono for considerado tendo em conta as restrições verificadas
 }
 
 
@@ -202,19 +210,25 @@ Vertex<T> *searchNextUrgency(T source, Graph<T> &graph, AutoridadePublica &autPu
 
     }
 
-
+    double checkPossiblePastHour;
+    double limitFinalHour = (brg.get_hora_inicio() + brg.get_horas_trabalho());
     //Verificar se tempos de viagem e inspeções acumuladas ultrapassam o horário de trabalho da brigada em questão
-    if(tmpViagemInspec < INF && (tmpViagemInspec + ((*savePos)->getTmpInpec()) + tmpViagemCounter) <= (brg.get_hora_inicio() + brg.get_horas_trabalho()) )
-        tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec());
+    if(controlIterator) {
+        checkPossiblePastHour =tmpViagemInspec + ((*savePos)->getTmpInpec() ) + tmpViagemCounter;
 
 
+        if (tmpViagemInspec < INF && (checkPossiblePastHour + brg.get_hora_inicio()) <= limitFinalHour)
+            tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec() );
+    }
+    //apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado e ou cumpre outras restrições
+    //apagamos agentes economicos viáveis e que são contabilizados e não viáveis para a mesma rota da mesma brigada
     //Controla se itarador "aponta" para algo ou nao, de forma a conseguir eliminar agentes economicos de agEcono sem erros
-    if(controlIterator &&  tmpViagemCounter <= brg.get_horas_trabalho())
-        agEcono.erase(savePos);//apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado
-
-
-
-    if((tmpViagemCounter + brg.get_hora_inicio() )>= (brg.get_hora_inicio() + brg.get_horas_trabalho()))
+    if(controlIterator &&  (checkPossiblePastHour + brg.get_hora_inicio() ) <= limitFinalHour)
+        agEcono.erase(savePos);
+    if(controlIterator &&  (checkPossiblePastHour + brg.get_hora_inicio() ) > limitFinalHour)
+        agEcono.erase(savePos);
+    //salvaguarda todos os casos em que agente economico não é viável a ser visitado, não retornando qualquer agEcono
+    if(controlIterator && (checkPossiblePastHour + brg.get_hora_inicio() ) > limitFinalHour)
         return NULL;
 
     else
@@ -323,18 +337,26 @@ Vertex<T> *searchNearestAgEconoTmpViagTmpInpecFull(T source, Graph<T> &graph, Au
 
     if(!distOrFullCheck)
         auxDistOrFullCheck = 1.0;
+
+    double checkPossiblePastHour;
+    double limitFinalHour = (brg.get_hora_inicio() + brg.get_horas_trabalho());
     //Verificar se tempos de viagem e inspeções acumuladas ultrapassam o horário de trabalho da brigada em questão
-    if(tmpViagemInspec < INF && (tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck) + tmpViagemCounter) <= (brg.get_hora_inicio() + brg.get_horas_trabalho()) )
-        tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec()* auxDistOrFullCheck);
+    if(controlIterator) {
+        checkPossiblePastHour =tmpViagemInspec + ((*savePos)->getTmpInpec() * auxDistOrFullCheck) + tmpViagemCounter;
 
 
+        if (tmpViagemInspec < INF && (checkPossiblePastHour + brg.get_hora_inicio()) <= limitFinalHour)
+            tmpViagemCounter += tmpViagemInspec + ((*savePos)->getTmpInpec() * auxDistOrFullCheck);
+    }
+    //apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado e ou cumpre outras restrições
+    //apagamos agentes economicos viáveis e que são contabilizados e não viáveis para a mesma rota da mesma brigada
     //Controla se itarador "aponta" para algo ou nao, de forma a conseguir eliminar agentes economicos de agEcono sem erros
-    if(controlIterator &&  tmpViagemCounter <= brg.get_horas_trabalho())
-        agEcono.erase(savePos);//apagamos agente economico para o qual ja verificamos ser o mais proximo da uma dada origem de partida e que tem maior urgencia em ser inspecionado
-
-
-
-    if((tmpViagemCounter + brg.get_hora_inicio() )>= (brg.get_hora_inicio() + brg.get_horas_trabalho()))
+    if(controlIterator &&  (checkPossiblePastHour + brg.get_hora_inicio() ) <= limitFinalHour)
+        agEcono.erase(savePos);
+    if(controlIterator &&  (checkPossiblePastHour + brg.get_hora_inicio() ) > limitFinalHour)
+        agEcono.erase(savePos);
+    //salvaguarda todos os casos em que agente economico não é viável a ser visitado, não retornando qualquer agEcono
+    if(controlIterator && (checkPossiblePastHour + brg.get_hora_inicio() ) > limitFinalHour)
         return NULL;
 
     else
