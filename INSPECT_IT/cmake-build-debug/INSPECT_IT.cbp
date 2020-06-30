@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="INSPECT_IT"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="INSPECT_IT">
+				<Option output="/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/INSPECT_IT" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 INSPECT_IT"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="INSPECT_IT/fast">
+				<Option output="/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/INSPECT_IT" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib"/>
+					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 INSPECT_IT/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/flavio/CAL/Cal_Proj/INSPECT_IT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/connection.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/connection.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/graphviewer.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/graphviewer.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/main.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AgenteEconomico.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AgenteEconomico.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AlgorithmPerformanceTest.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AlgorithmPerformanceTest.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AutoridadePublica.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AutoridadePublica.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Brigada.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Brigada.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Conectividade.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Conectividade.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Data.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Data.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Erro.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Graph.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/HeuristicsFindRoute.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/HeuristicsFindRoute.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Local.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Local.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/MapImport.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/MapImport.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/MutablePriorityQueue.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/RouteViewCalc.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/RouteViewCalc.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/menus.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/menus.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/utils.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/utils.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
