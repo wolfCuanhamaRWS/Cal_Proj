@@ -42,35 +42,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e5aba22-33f9-44d0-b6c6-fdde9b663e84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/BellmanFord.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/brigadaUmaRota.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/lib/connection.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/lib/connection.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/lib/graphviewer.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/lib/graphviewer.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Brigada.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Brigada.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Conectividade.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Conectividade.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Data.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Data.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/HeuristicsFindRoute.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/HeuristicsFindRoute.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Local.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/Local.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/MapImport.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/MapImport.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/RouteViewCalc.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/RouteViewCalc.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/utils.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/INSPECT_IT.dir/resources/utils.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/INSPECT_IT" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/INSPECT_IT" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/AlgorithmPerformanceTest.h" beforeDir="false" afterPath="$PROJECT_DIR$/resources/AlgorithmPerformanceTest.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/Graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Graph.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/HeuristicsFindRoute.h" beforeDir="false" afterPath="$PROJECT_DIR$/resources/HeuristicsFindRoute.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/RouteViewCalc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/RouteViewCalc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/agentes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/agentes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/brigadas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/brigadas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/menus.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/menus.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/menus.h" beforeDir="false" afterPath="$PROJECT_DIR$/resources/menus.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +106,8 @@
       <workItem from="1593391387423" duration="57000" />
       <workItem from="1593391461859" duration="4844000" />
       <workItem from="1593396415034" duration="17312000" />
-      <workItem from="1593448904499" duration="18345000" />
+      <workItem from="1593448904499" duration="39409000" />
+      <workItem from="1593502923176" duration="9255000" />
     </task>
     <servers />
   </component>
@@ -137,50 +119,50 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="466" y="154" width="424" height="484" key="FileChooserDialogImpl/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593397202020" />
-    <state width="1320" height="252" key="GridCell.Tab.0.bottom" timestamp="1593471433686">
+    <state width="1320" height="33" key="GridCell.Tab.0.bottom" timestamp="1593510750150">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="252" key="GridCell.Tab.0.bottom/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593471433686" />
+    <state width="1320" height="33" key="GridCell.Tab.0.bottom/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510750150" />
     <state width="1220" height="113" key="GridCell.Tab.0.bottom/0.27.1366.741/1366.0.1366.768@1366.0.1366.768" timestamp="1593392089496" />
-    <state width="1320" height="252" key="GridCell.Tab.0.center" timestamp="1593471433686">
+    <state width="1320" height="33" key="GridCell.Tab.0.center" timestamp="1593510750149">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="252" key="GridCell.Tab.0.center/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593471433686" />
+    <state width="1320" height="33" key="GridCell.Tab.0.center/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510750149" />
     <state width="1220" height="113" key="GridCell.Tab.0.center/0.27.1366.741/1366.0.1366.768@1366.0.1366.768" timestamp="1593392089496" />
-    <state width="1320" height="252" key="GridCell.Tab.0.left" timestamp="1593471433686">
+    <state width="1320" height="33" key="GridCell.Tab.0.left" timestamp="1593510750149">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="252" key="GridCell.Tab.0.left/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593471433686" />
+    <state width="1320" height="33" key="GridCell.Tab.0.left/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510750149" />
     <state width="1220" height="113" key="GridCell.Tab.0.left/0.27.1366.741/1366.0.1366.768@1366.0.1366.768" timestamp="1593392089496" />
-    <state width="1320" height="252" key="GridCell.Tab.0.right" timestamp="1593471433686">
+    <state width="1320" height="33" key="GridCell.Tab.0.right" timestamp="1593510750150">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="252" key="GridCell.Tab.0.right/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593471433686" />
+    <state width="1320" height="33" key="GridCell.Tab.0.right/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510750150" />
     <state width="1220" height="113" key="GridCell.Tab.0.right/0.27.1366.741/1366.0.1366.768@1366.0.1366.768" timestamp="1593392089496" />
-    <state width="1320" height="211" key="GridCell.Tab.1.bottom" timestamp="1593467945140">
+    <state width="1320" height="193" key="GridCell.Tab.1.bottom" timestamp="1593510747508">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="211" key="GridCell.Tab.1.bottom/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593467945140" />
-    <state width="1320" height="211" key="GridCell.Tab.1.center" timestamp="1593467945140">
+    <state width="1320" height="193" key="GridCell.Tab.1.bottom/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510747508" />
+    <state width="1320" height="193" key="GridCell.Tab.1.center" timestamp="1593510747508">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="211" key="GridCell.Tab.1.center/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593467945140" />
-    <state width="1320" height="211" key="GridCell.Tab.1.left" timestamp="1593467945140">
+    <state width="1320" height="193" key="GridCell.Tab.1.center/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510747508" />
+    <state width="1320" height="193" key="GridCell.Tab.1.left" timestamp="1593510747508">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="211" key="GridCell.Tab.1.left/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593467945140" />
-    <state width="1320" height="211" key="GridCell.Tab.1.right" timestamp="1593467945140">
+    <state width="1320" height="193" key="GridCell.Tab.1.left/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510747508" />
+    <state width="1320" height="193" key="GridCell.Tab.1.right" timestamp="1593510747508">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="211" key="GridCell.Tab.1.right/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593467945140" />
+    <state width="1320" height="193" key="GridCell.Tab.1.right/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593510747508" />
     <state x="100" y="125" width="1166" height="543" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1593392363307">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="100" y="125" width="1166" height="543" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593392363307" />
-    <state x="1366" y="0" width="885" height="496" maximized="true" key="dock-window-1" timestamp="1593449365288">
-      <screen x="1366" y="0" width="1366" height="768" />
+    <state x="250" y="105" width="875" height="496" maximized="true" key="dock-window-1" timestamp="1593503224581">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="1366" y="0" width="885" height="496" maximized="true" key="dock-window-1/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593449365288" />
+    <state x="250" y="105" width="875" height="496" maximized="true" key="dock-window-1/0.27.1366.741/1366.0.1366.768@0.27.1366.741" timestamp="1593503224580" />
     <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1593464030702">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -211,33 +193,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
-          <line>192</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
-          <line>230</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
-          <line>234</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
-          <line>252</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
           <line>169</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
-          <line>201</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
@@ -248,21 +205,6 @@
           <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
           <line>193</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
-          <line>130</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
-          <line>278</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
-          <line>429</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
@@ -300,49 +242,9 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
-          <line>267</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
-          <line>361</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
-          <line>306</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/HeuristicsFindRoute.h</url>
-          <line>336</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
           <line>122</line>
           <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/RouteViewCalc.cpp</url>
-          <line>128</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
-          <line>92</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
-          <line>96</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
-          <line>100</line>
-          <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
@@ -363,6 +265,91 @@
           <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
           <line>18</line>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/menus.cpp</url>
+          <line>519</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/menus.cpp</url>
+          <line>478</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/menus.cpp</url>
+          <line>554</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/menus.cpp</url>
+          <line>516</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/menus.cpp</url>
+          <line>548</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/menus.cpp</url>
+          <line>551</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>258</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>279</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>267</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>312</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>264</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>269</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>128</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/AlgorithmPerformanceTest.cpp</url>
+          <line>262</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/Graph.h</url>
+          <line>659</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/Graph.h</url>
+          <line>664</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/resources/Graph.h</url>
+          <line>665</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

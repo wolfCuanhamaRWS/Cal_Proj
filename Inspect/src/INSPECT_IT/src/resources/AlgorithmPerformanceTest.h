@@ -11,8 +11,6 @@
 #include <algorithm>
 #include "menus.h"
 
-#define INF std::numeric_limits<double>::max();
-using namespace std::chrono;
 
 using namespace std;
 using namespace std::chrono;
@@ -31,8 +29,7 @@ template<class T>
 void KosarajuConectivityTEst(Graph<T> &graph,string nosXYFich,string nosCoordGeoFich, string arestasFich, double velocMediaKH,unsigned  int numbInter,string nomeCidade);
 
 template<class T>
- void CalRoutesTest(Graph<T> &graph,string nosXYFich,string nosCoordGeoFich, string arestasFich, double velocMediaKH,unsigned  int numbInter,string nomeCidade);
-
+void CalRoutesTest(Graph<T> &gr, int cityOption,double velocMediaKH,unsigned  int numbInter,string nomeCidade,AutoridadePublica &autoridade);
 
 
 

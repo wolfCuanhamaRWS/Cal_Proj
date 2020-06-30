@@ -27,16 +27,17 @@ void mainMenu(AutoridadePublica &autoridade) {
                 << endl
                 << "Inserir denuncia                   [3]   |   Remover brigada                                                   [7] "
                 << endl
-                << "Remover agente economico           [4]   |   Cálculo e Visualização das rotas das Brigadas                     [8] "
+                << "Remover agente economico           [4]   |   Cálculo e Visualização de rotas das brigadas                      [8] "
                 << endl
                 << "Exit                               [0]   |   Conectividade                                                     [9] "
                 << endl
-                << "                                             Performance de Algoritmos                                         [10]"
-                << endl;
+                << "                                         |   Performance de Algoritmos                                         [10]"
+                << endl
+                << "                                             Cálculo de uma rota simples                                       [11]";
 
 
         int option;
-        option = checkOption(0, 10);
+        option = checkOption(0, 11);
         unsigned int input;
         double veloMedBrig = 0.0;
 
@@ -103,6 +104,9 @@ void mainMenu(AutoridadePublica &autoridade) {
                      << "Exit: 0" << endl;
                 option2 = checkOption(1, 3);
 
+
+
+
                 //caso em que escolho voltar atrás
                 if (option2 == 0) {
                     return;
@@ -110,7 +114,9 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
                     cout << "Introduza velocidade média das brigadas: (Km/h)" << endl;
-                    cout << "Se pretende reutilizar um mapa com o algoritmo FloydWarshall o valor inserido fica sem efeito!" << endl;
+                    cout
+                            << "Se pretende reutilizar um mapa com o algoritmo FloydWarshall o valor inserido fica sem efeito!"
+                            << endl;
                     veloMedBrig = checkOption(0.0, 120.0);
                     Graph<int> gr;
                     menuLoadMaps(gr, option2, veloMedBrig);
@@ -136,7 +142,9 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                     }
                     autoridade.setIdNo(idNo);
-                    cout << "Considerar tempo de inspeção de cada Agente Económico no cálculo das rotas? (Sim: 1 ou Não: 2)"<< endl;
+                    cout
+                            << "Considerar tempo de inspeção de cada Agente Económico no cálculo das rotas? (Sim: 1 ou Não: 2)"
+                            << endl;
 
 
                     int option3 = 0;
@@ -162,28 +170,26 @@ void mainMenu(AutoridadePublica &autoridade) {
                         aux = FloyWarshall;
 
 
-                    cout << "Pretende limitar inspeções a uma zona limitada escolhendo um local e raio envolvente? (Sim: 1 Não: 2)" << endl;
+                    cout
+                            << "Pretende limitar as inspeções a uma zona,  escolhendo um local e raio envolvente? (Sim: 1 Não: 2)"
+                            << endl;
 
 
                     //Tratar opção de usar coordenadas GPS ou não
                     int GpsChoice = 0;
-                    GpsChoice = checkOption(1,2);
+                    GpsChoice = checkOption(1, 2);
                     int idNoOptoion = 0;
                     double radius = 0.0;
                     bool GpsCheck = false;
-                    pair<int, double>idNoRadius;
+                    pair<int, double> idNoRadius;
 
-                    if( GpsChoice == 1){
+                    if (GpsChoice == 1) {
                         cout << "Indique o IdNo da zona pretendida no mapa: " << endl;
-                       idNoRadius.first = checkOption(1, gr.getVertexSet().size());
+                        idNoRadius.first = checkOption(1, gr.getVertexSet().size());
                         GpsCheck = true;
                         cout << "Indique o valor do raio pretendido em Km: " << endl;
-                       idNoRadius.second = checkOption(0.0,1000.0);
+                        idNoRadius.second = checkOption(0.0, 1000.0);
                     }
-
-
-
-
 
 
 
@@ -194,7 +200,9 @@ void mainMenu(AutoridadePublica &autoridade) {
                     } else
                         algoAux = TmpViag;
 
-                    cout << "Pretende que seja também utilizado um critèrio de urgència de Inspeção  no cálculo das rotas? (Sim: 1 ou Não: 2) " << endl;
+                    cout
+                            << "Pretende que seja também utilizado um critèrio de urgència de Inspeção  no cálculo das rotas? (Sim: 1 ou Não: 2) "
+                            << endl;
                     cout << "Pretende que a urgència de inspeção seja o principal factor: 3" << endl;
 
                     int urgencyOption = 0;
@@ -203,16 +211,16 @@ void mainMenu(AutoridadePublica &autoridade) {
                     //Filtrar quais critérios utilizar no calculo de rotas
                     if (option3 == 1 && urgencyOption == 1) {
                         algoAuxUrgency = TmpViagInspectFullUrgency;
-                    } else if( option3 == 2 && algoAuxUrgency == 1)
-                            algoAuxUrgency = TmpViagUrgency;
-                      else if(urgencyOption == 3){
-                          algoAux = justUrgency;
+                    } else if (option3 == 2 && algoAuxUrgency == 1)
+                        algoAuxUrgency = TmpViagUrgency;
+                    else if (urgencyOption == 3) {
+                        algoAux = justUrgency;
 
 
-                      }
+                    }
 
                     //Controlo de uso de outro mapa diferente com algoritmo floydWarshall
-                    if(saveoptionAux != 0 && saveoptionAux != option2 && aux == FloyWarshall){
+                    if (saveoptionAux != 0 && saveoptionAux != option2 && aux == FloyWarshall) {
                         counterFloydWarshallCalc = false;
                         graphFloydWarshall.eraseGraph();
 
@@ -220,9 +228,11 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                     // Caso em que se utiliza floyWarshall, onde o grafo ficará com as distancias mínimas calculadas para calculo de rotas posteriores
                     double errorEPS = 0.0;
-                    if(aux == FloyWarshall && !counterFloydWarshallCalc){
-                        menuLoadMaps(graphFloydWarshall,option2,veloMedBrig);
-                        cout << "Qual a margem de erro que quer utilizar para o algoritmo FloydWarshall: (Exemplo: 0.001) " << endl;
+                    if (aux == FloyWarshall && !counterFloydWarshallCalc) {
+                        menuLoadMaps(graphFloydWarshall, option2, veloMedBrig);
+                        cout
+                                << "Qual a margem de erro que quer utilizar para o algoritmo FloydWarshall: (Exemplo: 0.001) "
+                                << endl;
                         errorEPS = checkOption(0, 5);
                         counterFloydWarshallCalc = true;
 
@@ -232,41 +242,40 @@ void mainMenu(AutoridadePublica &autoridade) {
                         //Casos considerando urgència
                         if (urgencyOption == 1) {
 
-                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAuxUrgency,AllEconoAct,GpsCheck,idNoRadius);
-                        }
-                        else{
+                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAuxUrgency, AllEconoAct,
+                                            GpsCheck, idNoRadius);
+                        } else {
                             //Casos sem considerar urgẽncia
-                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAux,AllEconoAct,GpsCheck,idNoRadius);
+                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAux, AllEconoAct, GpsCheck,
+                                            idNoRadius);
                         }
 
 
-
                     }
-                    //Apenas temos de calcular rotas, visto que estamos a usar o mesmmo mapa para o qual já se calculou todas as distancias entre cada par de veŕtices
-                    else if(aux == FloyWarshall && counterFloydWarshallCalc){
+                        //Apenas temos de calcular rotas, visto que estamos a usar o mesmmo mapa para o qual já se calculou todas as distancias entre cada par de veŕtices
+                    else if (aux == FloyWarshall && counterFloydWarshallCalc) {
 
 
-                        if ( urgencyOption == 1) {
-                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAuxUrgency,AllEconoAct,GpsCheck,idNoRadius);
-                        } else
-                            {
+                        if (urgencyOption == 1) {
+                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAuxUrgency, AllEconoAct,
+                                            GpsCheck, idNoRadius);
+                        } else {
                             //Casos considerando urgència
-                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAux,AllEconoAct,GpsCheck,idNoRadius);
-                            }
-
-
+                            calculateRoutes(graphFloydWarshall, autoridade, aux, algoAux, AllEconoAct, GpsCheck,
+                                            idNoRadius);
+                        }
 
 
                     }
-                    //Caso de uso de outros algoritmos
+                        //Caso de uso de outros algoritmos
                     else {
 
                         if (option3 == 1 && urgencyOption == 1) {
-                            calculateRoutes(gr, autoridade, aux, algoAuxUrgency,AllEconoAct,GpsCheck,idNoRadius);
-                        } else if( option3 == 2 && algoAuxUrgency == 1)
-                            calculateRoutes(gr, autoridade, aux, algoAuxUrgency,AllEconoAct,GpsCheck,idNoRadius);
-                        else{
-                            calculateRoutes(gr, autoridade, aux, algoAux,AllEconoAct,GpsCheck,idNoRadius);
+                            calculateRoutes(gr, autoridade, aux, algoAuxUrgency, AllEconoAct, GpsCheck, idNoRadius);
+                        } else if (option3 == 2 && algoAuxUrgency == 1)
+                            calculateRoutes(gr, autoridade, aux, algoAuxUrgency, AllEconoAct, GpsCheck, idNoRadius);
+                        else {
+                            calculateRoutes(gr, autoridade, aux, algoAux, AllEconoAct, GpsCheck, idNoRadius);
                         }
                     }
 
@@ -275,17 +284,17 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
                 }
+
                 break;
 
             case 9:
-
 
 
                 cout << "Porto: 1" << endl
                      << "Espinho: 2" << endl
                      << "Penafiel: 3" << endl
                      << "Exit: 0" << endl;
-                int option4 ;
+                int option4;
                 option4 = checkOption(0, 3);
 
                 //caso em que escolho voltar atrás
@@ -294,7 +303,9 @@ void mainMenu(AutoridadePublica &autoridade) {
                 } else {
 
 
-                    cout << "Introduza velocidade média das brigadas: (Tente ser realista tendo em conta uma zona urbana urbano) " << endl;
+                    cout
+                            << "Introduza velocidade média das brigadas: (Tente ser realista tendo em conta uma zona urbana urbano) "
+                            << endl;
 
                     veloMedBrig = checkOption(0.0, 120.0);
 
@@ -311,9 +322,11 @@ void mainMenu(AutoridadePublica &autoridade) {
                     Graph<int> gr2;
                     Graph<int> gr3;
                     if (option4 == 1) {
-                        loadGraphNodesInfo(gr1, "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
+                        loadGraphNodesInfo(gr1,
+                                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
                                            "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
-                                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt", veloMedBrig);
+                                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt",
+                                           veloMedBrig);
 
                         //escolher se queremos direção das arestas no mapa
                         cout << "Pretende ver a direção das arestas ? (Sim: 1 Não: 0) " << endl;
@@ -325,7 +338,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
 
-                        GraphViewer gv1 = drawGraph(gr1, autoridade, "WindowConfiguration", 7778,option5, false);
+                        GraphViewer gv1 = drawGraph(gr1, autoridade, "WindowConfiguration", 7778, option5, false);
 
 
 
@@ -336,19 +349,19 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
                         //Escolher localização da autoridade pública
-                        getIdNoAtPub(autoridade,gr1);
+                        getIdNoAtPub(autoridade, gr1);
 
 
 
                         //Mapa já com a maior compoente fortemente conexa do mapa inicial
 
                         vector<AgenteEconomico *> agEcono;
-                        checkEconoAtPubTags(gr1,autoridade ,agEcono);
+                        checkEconoAtPubTags(gr1, autoridade, agEcono);
 
-                        GraphViewer gv2 = drawGraph(gr1, autoridade, "WindowConfiguration", 7778,option5, false);
+                        GraphViewer gv2 = drawGraph(gr1, autoridade, "WindowConfiguration", 7778, option5, false);
 
                         cout << "Não fechar janelas do graphView se quer continuar no programa: " << endl;
-                        if(wait()){
+                        if (wait()) {
                             gv1.closeWindow();
                             gv2.closeWindow();
                         }
@@ -357,7 +370,8 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
                     } else if (option4 == 2) {
-                        loadGraphNodesInfo(gr2, "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
+                        loadGraphNodesInfo(gr2,
+                                           "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
                                            "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
                                            "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_edges.txt",
                                            veloMedBrig);
@@ -373,7 +387,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                         //Mapa inicial
 
-                        GraphViewer gv1 =   drawGraph(gr2, autoridade, "WindowConfiguration", 7778, option5, false);
+                        GraphViewer gv1 = drawGraph(gr2, autoridade, "WindowConfiguration", 7778, option5, false);
 
 
                         //Achar todas as componentes fortemente conexas
@@ -384,7 +398,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
                         //Escolher localização da autoridade pública
-                        getIdNoAtPub(autoridade,gr2);
+                        getIdNoAtPub(autoridade, gr2);
 
 
                         //Mapa já com a maior compoente fortemente conexa do mapa inicial
@@ -392,21 +406,20 @@ void mainMenu(AutoridadePublica &autoridade) {
                         checkEconoAtPubTags(gr2, autoridade, agEcono);
 
 
-
-                        GraphViewer gv2 =   drawGraph(gr2, autoridade, "WindowConfiguration", 7778, option5, false);
+                        GraphViewer gv2 = drawGraph(gr2, autoridade, "WindowConfiguration", 7778, option5, false);
 
                         cout << "Não fechar janelas do graphView se quer continuar no programa: " << endl;
-                        if(wait()){
+                        if (wait()) {
                             gv1.closeWindow();
                             gv2.closeWindow();
                         }
 
                         break;
 
-                    }
-                    else{
+                    } else {
 
-                        loadGraphNodesInfo(gr3, "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
+                        loadGraphNodesInfo(gr3,
+                                           "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
                                            "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
                                            "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt",
                                            veloMedBrig);
@@ -420,7 +433,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                         //Mapa inicial
 
-                        GraphViewer gv1 =   drawGraph(gr3, autoridade, "WindowConfiguration", 7778, option5, false);
+                        GraphViewer gv1 = drawGraph(gr3, autoridade, "WindowConfiguration", 7778, option5, false);
 
 
                         //Achar todas as componentes fortemente conexas
@@ -431,7 +444,7 @@ void mainMenu(AutoridadePublica &autoridade) {
 
 
                         //Escolher localização da autoridade pública
-                        getIdNoAtPub(autoridade,gr3);
+                        getIdNoAtPub(autoridade, gr3);
 
 
                         //Mapa já com a maior compoente fortemente conexa do mapa inicial
@@ -439,11 +452,10 @@ void mainMenu(AutoridadePublica &autoridade) {
                         checkEconoAtPubTags(gr3, autoridade, agEcono);
 
 
-
-                        GraphViewer gv2 =   drawGraph(gr3, autoridade, "WindowConfiguration", 7778, option5, false);
+                        GraphViewer gv2 = drawGraph(gr3, autoridade, "WindowConfiguration", 7778, option5, false);
 
                         cout << "Não fechar janelas do graphView se quer continuar no programa: " << endl;
-                        if(wait()){
+                        if (wait()) {
                             gv1.closeWindow();
                             gv2.closeWindow();
                         }
@@ -454,15 +466,97 @@ void mainMenu(AutoridadePublica &autoridade) {
                     }
 
 
-
                 }
-
 
 
             case 10:
                 globalPerformanceTEst();
                 wait();
                 break;
+            case 11:
+            {
+                int option10;
+
+                cout << "Porto: 1" << endl
+                     << "Espinho: 2" << endl
+                     << "Penafiel: 3" << endl
+                     << "Exit: 0" << endl;
+                option10 = checkOption(1, 3);
+
+                cout << "Calcular rota para apenas uma brigada." << endl;
+                cout
+                        << "Trata-se do caso homegéneo de uma brigada que abrange todas as especialidades mas com tempo de trabalho diário limitado de 8 horas!"
+                        << endl;
+                cout
+                        << "Tempo de inspeção será usado na escolha da rota, sem critérios de urgència ou limitação a uma zona e raio escolhido!"
+                        << endl;
+
+
+                int option7 = 0;
+                AlgorithmMinDist algorithmMinDist;
+                cout << ""
+                        "Algoritmos:" << endl
+                     << "Dijkstra: 1" << endl
+                     << "BellManFord: 2" << endl
+                     << "Floyd-Warshall: 3" << endl;
+
+                option7 = checkOption(1, 3);
+                if (option7 == 1) {
+                    algorithmMinDist = dijkstra;
+                } else if (option7 == 2)
+                    algorithmMinDist = Bellman_Ford;
+                else
+                    algorithmMinDist = FloyWarshall;
+
+
+                cout << "Introduza velocidade média das brigadas: (Km/h)" << endl;
+                veloMedBrig = checkOption(0.0, 120.0);
+                Graph<int> gr;
+                menuLoadMaps(gr, option10, veloMedBrig);
+                AutoridadePublica AtPub("../resources/agentes.txt", "../resources/brigadaUmaRota.txt");
+                //Escolher localização da autoridade pública
+                cout << "Introduza o valor para o nó que identifica a Autoridade Pública: " << endl;
+                int idNo = 0;
+                bool check = true;
+                while (check) {
+                    idNo = checkOption(1, gr.getNumVertex());
+                    for (auto w: AtPub.get_agentes()) {
+                        if (!(w.second->get_idNo() == idNo)) {
+                            check = false;
+
+                        } else {
+                            check = true;
+                            break;
+                        }
+
+                    }
+
+                }
+
+
+
+                AtPub.setIdNo(idNo);
+
+                if (algorithmMinDist == FloyWarshall) {
+
+                    cout << "Qual a margem de erro que quer utilizar para o algoritmo FloydWarshall: (Exemplo: 0.001) "
+                         << endl;
+                    double errorEPS = checkOption(0, 5);
+
+                    pair<int, double> aux;
+                    gr.floydWarshallShortestPath(idNo, errorEPS);
+
+                    calculateRoutes(gr, AtPub, algorithmMinDist, TmpViagInspecFull, NoRestriction, false, aux);
+                } else {
+                    pair<int, double> aux;
+                    calculateRoutes(gr, AtPub, algorithmMinDist, TmpViagInspecFull, NoRestriction, false, aux);
+
+
+                }
+                wait();
+        }
+                break;
+
 
             default:
                 break;
