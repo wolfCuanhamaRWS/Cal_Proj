@@ -2,14 +2,14 @@
 #define CAL_MENUS_H
 #include <iostream>
 
-#include "utils.h"
-#include "AutoridadePublica.h"
-#include "graphviewer.h"
-#include "HeuristicsFindRoute.h"
-#include "RouteViewCalc.h"
-#include "MapImport.h"
-#include "Conectividade.h"
-#include "AlgorithmPerformanceTest.h"
+#include "Utils/utils.h"
+#include "Model/AutoridadePublica.h"
+#include "../GraphViewer/graphviewer.h"
+#include "Algorithms/HeuristicsFindRoute.h"
+#include "Controller/RouteViewCalc.h"
+#include "Utils/MapImport.h"
+#include "Algorithms/Conectividade.h"
+#include "Algorithms/AlgorithmPerformanceTest.h"
 
 using namespace std;
 

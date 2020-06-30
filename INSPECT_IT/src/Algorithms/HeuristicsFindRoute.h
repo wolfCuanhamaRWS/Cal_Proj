@@ -3,9 +3,9 @@
 #ifndef EXAMPLE_HEURISTICSFINDROUTE_H
 #define EXAMPLE_HEURISTICSFINDROUTE_H
 #include "algorithm"
-#include "AutoridadePublica.h"
-#include "Graph.h"
-#include "utils.h"
+#include "Model/AutoridadePublica.h"
+#include "Model/Graph.h"
+#include "Utils/utils.h"
 
 
 #define INF std::numeric_limits<double>::max()

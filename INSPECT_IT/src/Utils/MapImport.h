@@ -5,12 +5,12 @@
 #ifndef INSPECT_IT_MAPIMPORT_H
 #define INSPECT_IT_MAPIMPORT_H
 
-#include "Graph.h"
-#include "Graph.h"
+#include "Model/Graph.h"
+#include "Model/Graph.h"
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "AutoridadePublica.h"
+#include "Model/AutoridadePublica.h"
 
 
 

@@ -7,12 +7,13 @@ set(CMAKE_CXX_STANDARD 14)
 #link_libraries(ws2_32 wsock32)
 
 include_directories(src)
-include_directories(lib)
-include_directories(resources)
 
 
-#file(resources *.cpp)
-add_executable( INSPECT_IT main.cpp  lib/connection.cpp lib/graphviewer.cpp resources/Data.h resources/Data.cpp resources/AgenteEconomico.h resources/AgenteEconomico.cpp resources/Brigada.h resources/AutoridadePublica.h
-        resources/MapImport.h resources/menus.cpp resources/Local.h resources/utils.h resources/utils.cpp resources/menus.cpp resources/Brigada.cpp resources/Local.cpp resources/MapImport.cpp resources/AgenteEconomico.cpp
-        resources/Erro.h resources/Graph.h resources/MutablePriorityQueue.h resources/menus.cpp resources/menus.h resources/AutoridadePublica.cpp
-        resources/HeuristicsFindRoute.cpp resources/HeuristicsFindRoute.h resources/RouteViewCalc.cpp resources/RouteViewCalc.h resources/Conectividade.cpp resources/Conectividade.h resources/AlgorithmPerformanceTest.cpp resources/AlgorithmPerformanceTest.h)
+
+
+#file(src *.cpp)
+add_executable( INSPECT_IT main.cpp src/GraphViewer/connection.cpp src/GraphViewer/connection.h
+        src/GraphViewer/edgetype.h src/GraphViewer/graphviewer.cpp src/GraphViewer/graphviewer.h  src/Model/Data.h src/Model/Data.cpp src/Model/AgenteEconomico.h src/Model/AgenteEconomico.cpp src/Model/Brigada.h src/Model/AutoridadePublica.h
+        src/Utils/MapImport.h src/View/menus.cpp src/Model/Local.h src/Utils/utils.h src/Utils/utils.cpp src/View/menus.cpp src/Model/Brigada.cpp src/Model/Local.cpp src/Utils/MapImport.cpp src/Model/AgenteEconomico.cpp
+        src/Utils/Erro.h src/Model/Graph.h src/Model/MutablePriorityQueue.h src/View/menus.cpp src/View/menus.h src/Model/AutoridadePublica.cpp
+        src/Algorithms/HeuristicsFindRoute.cpp src/Algorithms/HeuristicsFindRoute.h src/Controller/RouteViewCalc.cpp src/Controller/RouteViewCalc.h src/Algorithms/Conectividade.cpp src/Algorithms/Conectividade.h src/Algorithms/AlgorithmPerformanceTest.cpp src/Algorithms/AlgorithmPerformanceTest.h)

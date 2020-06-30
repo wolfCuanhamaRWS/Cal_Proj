@@ -1,5 +1,5 @@
 
-#include "../resources/Local.h"
+#include "Local.h"
 
 
 Local::Local() {

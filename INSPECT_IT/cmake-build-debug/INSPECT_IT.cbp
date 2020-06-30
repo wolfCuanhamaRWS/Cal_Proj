@@ -45,8 +45,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src"/>
-					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib"/>
-					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -71,8 +69,6 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src"/>
-					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib"/>
-					<Add directory="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -90,100 +86,103 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/connection.cpp">
-			<Option target="INSPECT_IT"/>
-		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/connection.h">
-			<Option target="INSPECT_IT"/>
-		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/graphviewer.cpp">
-			<Option target="INSPECT_IT"/>
-		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/lib/graphviewer.h">
-			<Option target="INSPECT_IT"/>
-		</Unit>
 		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/main.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AgenteEconomico.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Algorithms/AlgorithmPerformanceTest.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AgenteEconomico.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Algorithms/AlgorithmPerformanceTest.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AlgorithmPerformanceTest.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Algorithms/Conectividade.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AlgorithmPerformanceTest.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Algorithms/Conectividade.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AutoridadePublica.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Algorithms/HeuristicsFindRoute.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/AutoridadePublica.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Algorithms/HeuristicsFindRoute.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Brigada.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Controller/RouteViewCalc.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Brigada.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Controller/RouteViewCalc.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Conectividade.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/GraphViewer/connection.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Conectividade.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/GraphViewer/connection.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Data.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/GraphViewer/edgetype.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Data.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/GraphViewer/graphviewer.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Erro.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/GraphViewer/graphviewer.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Graph.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/AgenteEconomico.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/HeuristicsFindRoute.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/AgenteEconomico.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/HeuristicsFindRoute.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/AutoridadePublica.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Local.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/AutoridadePublica.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/Local.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/Brigada.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/MapImport.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/Brigada.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/MapImport.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/Data.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/MutablePriorityQueue.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/Data.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/RouteViewCalc.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/Graph.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/RouteViewCalc.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/Local.cpp">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/menus.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/Local.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/menus.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Model/MutablePriorityQueue.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/utils.cpp">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Utils/Erro.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
-		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/resources/utils.h">
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Utils/MapImport.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Utils/MapImport.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Utils/utils.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/Utils/utils.h">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/View/menus.cpp">
+			<Option target="INSPECT_IT"/>
+		</Unit>
+		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/src/View/menus.h">
 			<Option target="INSPECT_IT"/>
 		</Unit>
 		<Unit filename="/home/flavio/CAL/Cal_Proj/INSPECT_IT/CMakeLists.txt">

@@ -123,60 +123,6 @@ INSPECT_IT/fast:
 	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/build
 .PHONY : INSPECT_IT/fast
 
-lib/connection.o: lib/connection.cpp.o
-
-.PHONY : lib/connection.o
-
-# target to build an object file
-lib/connection.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/lib/connection.cpp.o
-.PHONY : lib/connection.cpp.o
-
-lib/connection.i: lib/connection.cpp.i
-
-.PHONY : lib/connection.i
-
-# target to preprocess a source file
-lib/connection.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/lib/connection.cpp.i
-.PHONY : lib/connection.cpp.i
-
-lib/connection.s: lib/connection.cpp.s
-
-.PHONY : lib/connection.s
-
-# target to generate assembly for a file
-lib/connection.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/lib/connection.cpp.s
-.PHONY : lib/connection.cpp.s
-
-lib/graphviewer.o: lib/graphviewer.cpp.o
-
-.PHONY : lib/graphviewer.o
-
-# target to build an object file
-lib/graphviewer.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/lib/graphviewer.cpp.o
-.PHONY : lib/graphviewer.cpp.o
-
-lib/graphviewer.i: lib/graphviewer.cpp.i
-
-.PHONY : lib/graphviewer.i
-
-# target to preprocess a source file
-lib/graphviewer.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/lib/graphviewer.cpp.i
-.PHONY : lib/graphviewer.cpp.i
-
-lib/graphviewer.s: lib/graphviewer.cpp.s
-
-.PHONY : lib/graphviewer.s
-
-# target to generate assembly for a file
-lib/graphviewer.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/lib/graphviewer.cpp.s
-.PHONY : lib/graphviewer.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -204,329 +150,383 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-resources/AgenteEconomico.o: resources/AgenteEconomico.cpp.o
+src/Algorithms/AlgorithmPerformanceTest.o: src/Algorithms/AlgorithmPerformanceTest.cpp.o
 
-.PHONY : resources/AgenteEconomico.o
-
-# target to build an object file
-resources/AgenteEconomico.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.o
-.PHONY : resources/AgenteEconomico.cpp.o
-
-resources/AgenteEconomico.i: resources/AgenteEconomico.cpp.i
-
-.PHONY : resources/AgenteEconomico.i
-
-# target to preprocess a source file
-resources/AgenteEconomico.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.i
-.PHONY : resources/AgenteEconomico.cpp.i
-
-resources/AgenteEconomico.s: resources/AgenteEconomico.cpp.s
-
-.PHONY : resources/AgenteEconomico.s
-
-# target to generate assembly for a file
-resources/AgenteEconomico.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AgenteEconomico.cpp.s
-.PHONY : resources/AgenteEconomico.cpp.s
-
-resources/AlgorithmPerformanceTest.o: resources/AlgorithmPerformanceTest.cpp.o
-
-.PHONY : resources/AlgorithmPerformanceTest.o
+.PHONY : src/Algorithms/AlgorithmPerformanceTest.o
 
 # target to build an object file
-resources/AlgorithmPerformanceTest.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.o
-.PHONY : resources/AlgorithmPerformanceTest.cpp.o
+src/Algorithms/AlgorithmPerformanceTest.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/AlgorithmPerformanceTest.cpp.o
+.PHONY : src/Algorithms/AlgorithmPerformanceTest.cpp.o
 
-resources/AlgorithmPerformanceTest.i: resources/AlgorithmPerformanceTest.cpp.i
+src/Algorithms/AlgorithmPerformanceTest.i: src/Algorithms/AlgorithmPerformanceTest.cpp.i
 
-.PHONY : resources/AlgorithmPerformanceTest.i
+.PHONY : src/Algorithms/AlgorithmPerformanceTest.i
 
 # target to preprocess a source file
-resources/AlgorithmPerformanceTest.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.i
-.PHONY : resources/AlgorithmPerformanceTest.cpp.i
+src/Algorithms/AlgorithmPerformanceTest.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/AlgorithmPerformanceTest.cpp.i
+.PHONY : src/Algorithms/AlgorithmPerformanceTest.cpp.i
 
-resources/AlgorithmPerformanceTest.s: resources/AlgorithmPerformanceTest.cpp.s
+src/Algorithms/AlgorithmPerformanceTest.s: src/Algorithms/AlgorithmPerformanceTest.cpp.s
 
-.PHONY : resources/AlgorithmPerformanceTest.s
+.PHONY : src/Algorithms/AlgorithmPerformanceTest.s
 
 # target to generate assembly for a file
-resources/AlgorithmPerformanceTest.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AlgorithmPerformanceTest.cpp.s
-.PHONY : resources/AlgorithmPerformanceTest.cpp.s
+src/Algorithms/AlgorithmPerformanceTest.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/AlgorithmPerformanceTest.cpp.s
+.PHONY : src/Algorithms/AlgorithmPerformanceTest.cpp.s
 
-resources/AutoridadePublica.o: resources/AutoridadePublica.cpp.o
+src/Algorithms/Conectividade.o: src/Algorithms/Conectividade.cpp.o
 
-.PHONY : resources/AutoridadePublica.o
+.PHONY : src/Algorithms/Conectividade.o
 
 # target to build an object file
-resources/AutoridadePublica.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.o
-.PHONY : resources/AutoridadePublica.cpp.o
+src/Algorithms/Conectividade.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/Conectividade.cpp.o
+.PHONY : src/Algorithms/Conectividade.cpp.o
 
-resources/AutoridadePublica.i: resources/AutoridadePublica.cpp.i
+src/Algorithms/Conectividade.i: src/Algorithms/Conectividade.cpp.i
 
-.PHONY : resources/AutoridadePublica.i
+.PHONY : src/Algorithms/Conectividade.i
 
 # target to preprocess a source file
-resources/AutoridadePublica.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.i
-.PHONY : resources/AutoridadePublica.cpp.i
+src/Algorithms/Conectividade.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/Conectividade.cpp.i
+.PHONY : src/Algorithms/Conectividade.cpp.i
 
-resources/AutoridadePublica.s: resources/AutoridadePublica.cpp.s
+src/Algorithms/Conectividade.s: src/Algorithms/Conectividade.cpp.s
 
-.PHONY : resources/AutoridadePublica.s
+.PHONY : src/Algorithms/Conectividade.s
 
 # target to generate assembly for a file
-resources/AutoridadePublica.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/AutoridadePublica.cpp.s
-.PHONY : resources/AutoridadePublica.cpp.s
+src/Algorithms/Conectividade.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/Conectividade.cpp.s
+.PHONY : src/Algorithms/Conectividade.cpp.s
 
-resources/Brigada.o: resources/Brigada.cpp.o
+src/Algorithms/HeuristicsFindRoute.o: src/Algorithms/HeuristicsFindRoute.cpp.o
 
-.PHONY : resources/Brigada.o
+.PHONY : src/Algorithms/HeuristicsFindRoute.o
 
 # target to build an object file
-resources/Brigada.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Brigada.cpp.o
-.PHONY : resources/Brigada.cpp.o
+src/Algorithms/HeuristicsFindRoute.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/HeuristicsFindRoute.cpp.o
+.PHONY : src/Algorithms/HeuristicsFindRoute.cpp.o
 
-resources/Brigada.i: resources/Brigada.cpp.i
+src/Algorithms/HeuristicsFindRoute.i: src/Algorithms/HeuristicsFindRoute.cpp.i
 
-.PHONY : resources/Brigada.i
+.PHONY : src/Algorithms/HeuristicsFindRoute.i
 
 # target to preprocess a source file
-resources/Brigada.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Brigada.cpp.i
-.PHONY : resources/Brigada.cpp.i
+src/Algorithms/HeuristicsFindRoute.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/HeuristicsFindRoute.cpp.i
+.PHONY : src/Algorithms/HeuristicsFindRoute.cpp.i
 
-resources/Brigada.s: resources/Brigada.cpp.s
+src/Algorithms/HeuristicsFindRoute.s: src/Algorithms/HeuristicsFindRoute.cpp.s
 
-.PHONY : resources/Brigada.s
+.PHONY : src/Algorithms/HeuristicsFindRoute.s
 
 # target to generate assembly for a file
-resources/Brigada.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Brigada.cpp.s
-.PHONY : resources/Brigada.cpp.s
+src/Algorithms/HeuristicsFindRoute.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Algorithms/HeuristicsFindRoute.cpp.s
+.PHONY : src/Algorithms/HeuristicsFindRoute.cpp.s
 
-resources/Conectividade.o: resources/Conectividade.cpp.o
+src/Controller/RouteViewCalc.o: src/Controller/RouteViewCalc.cpp.o
 
-.PHONY : resources/Conectividade.o
+.PHONY : src/Controller/RouteViewCalc.o
 
 # target to build an object file
-resources/Conectividade.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Conectividade.cpp.o
-.PHONY : resources/Conectividade.cpp.o
+src/Controller/RouteViewCalc.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Controller/RouteViewCalc.cpp.o
+.PHONY : src/Controller/RouteViewCalc.cpp.o
 
-resources/Conectividade.i: resources/Conectividade.cpp.i
+src/Controller/RouteViewCalc.i: src/Controller/RouteViewCalc.cpp.i
 
-.PHONY : resources/Conectividade.i
+.PHONY : src/Controller/RouteViewCalc.i
 
 # target to preprocess a source file
-resources/Conectividade.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Conectividade.cpp.i
-.PHONY : resources/Conectividade.cpp.i
+src/Controller/RouteViewCalc.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Controller/RouteViewCalc.cpp.i
+.PHONY : src/Controller/RouteViewCalc.cpp.i
 
-resources/Conectividade.s: resources/Conectividade.cpp.s
+src/Controller/RouteViewCalc.s: src/Controller/RouteViewCalc.cpp.s
 
-.PHONY : resources/Conectividade.s
+.PHONY : src/Controller/RouteViewCalc.s
 
 # target to generate assembly for a file
-resources/Conectividade.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Conectividade.cpp.s
-.PHONY : resources/Conectividade.cpp.s
+src/Controller/RouteViewCalc.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Controller/RouteViewCalc.cpp.s
+.PHONY : src/Controller/RouteViewCalc.cpp.s
 
-resources/Data.o: resources/Data.cpp.o
+src/GraphViewer/connection.o: src/GraphViewer/connection.cpp.o
 
-.PHONY : resources/Data.o
+.PHONY : src/GraphViewer/connection.o
 
 # target to build an object file
-resources/Data.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Data.cpp.o
-.PHONY : resources/Data.cpp.o
+src/GraphViewer/connection.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/GraphViewer/connection.cpp.o
+.PHONY : src/GraphViewer/connection.cpp.o
 
-resources/Data.i: resources/Data.cpp.i
+src/GraphViewer/connection.i: src/GraphViewer/connection.cpp.i
 
-.PHONY : resources/Data.i
+.PHONY : src/GraphViewer/connection.i
 
 # target to preprocess a source file
-resources/Data.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Data.cpp.i
-.PHONY : resources/Data.cpp.i
+src/GraphViewer/connection.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/GraphViewer/connection.cpp.i
+.PHONY : src/GraphViewer/connection.cpp.i
 
-resources/Data.s: resources/Data.cpp.s
+src/GraphViewer/connection.s: src/GraphViewer/connection.cpp.s
 
-.PHONY : resources/Data.s
+.PHONY : src/GraphViewer/connection.s
 
 # target to generate assembly for a file
-resources/Data.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Data.cpp.s
-.PHONY : resources/Data.cpp.s
+src/GraphViewer/connection.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/GraphViewer/connection.cpp.s
+.PHONY : src/GraphViewer/connection.cpp.s
 
-resources/HeuristicsFindRoute.o: resources/HeuristicsFindRoute.cpp.o
+src/GraphViewer/graphviewer.o: src/GraphViewer/graphviewer.cpp.o
 
-.PHONY : resources/HeuristicsFindRoute.o
+.PHONY : src/GraphViewer/graphviewer.o
 
 # target to build an object file
-resources/HeuristicsFindRoute.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/HeuristicsFindRoute.cpp.o
-.PHONY : resources/HeuristicsFindRoute.cpp.o
+src/GraphViewer/graphviewer.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/GraphViewer/graphviewer.cpp.o
+.PHONY : src/GraphViewer/graphviewer.cpp.o
 
-resources/HeuristicsFindRoute.i: resources/HeuristicsFindRoute.cpp.i
+src/GraphViewer/graphviewer.i: src/GraphViewer/graphviewer.cpp.i
 
-.PHONY : resources/HeuristicsFindRoute.i
+.PHONY : src/GraphViewer/graphviewer.i
 
 # target to preprocess a source file
-resources/HeuristicsFindRoute.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/HeuristicsFindRoute.cpp.i
-.PHONY : resources/HeuristicsFindRoute.cpp.i
+src/GraphViewer/graphviewer.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/GraphViewer/graphviewer.cpp.i
+.PHONY : src/GraphViewer/graphviewer.cpp.i
 
-resources/HeuristicsFindRoute.s: resources/HeuristicsFindRoute.cpp.s
+src/GraphViewer/graphviewer.s: src/GraphViewer/graphviewer.cpp.s
 
-.PHONY : resources/HeuristicsFindRoute.s
+.PHONY : src/GraphViewer/graphviewer.s
 
 # target to generate assembly for a file
-resources/HeuristicsFindRoute.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/HeuristicsFindRoute.cpp.s
-.PHONY : resources/HeuristicsFindRoute.cpp.s
+src/GraphViewer/graphviewer.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/GraphViewer/graphviewer.cpp.s
+.PHONY : src/GraphViewer/graphviewer.cpp.s
 
-resources/Local.o: resources/Local.cpp.o
+src/Model/AgenteEconomico.o: src/Model/AgenteEconomico.cpp.o
 
-.PHONY : resources/Local.o
+.PHONY : src/Model/AgenteEconomico.o
 
 # target to build an object file
-resources/Local.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Local.cpp.o
-.PHONY : resources/Local.cpp.o
+src/Model/AgenteEconomico.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/AgenteEconomico.cpp.o
+.PHONY : src/Model/AgenteEconomico.cpp.o
 
-resources/Local.i: resources/Local.cpp.i
+src/Model/AgenteEconomico.i: src/Model/AgenteEconomico.cpp.i
 
-.PHONY : resources/Local.i
+.PHONY : src/Model/AgenteEconomico.i
 
 # target to preprocess a source file
-resources/Local.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Local.cpp.i
-.PHONY : resources/Local.cpp.i
+src/Model/AgenteEconomico.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/AgenteEconomico.cpp.i
+.PHONY : src/Model/AgenteEconomico.cpp.i
 
-resources/Local.s: resources/Local.cpp.s
+src/Model/AgenteEconomico.s: src/Model/AgenteEconomico.cpp.s
 
-.PHONY : resources/Local.s
+.PHONY : src/Model/AgenteEconomico.s
 
 # target to generate assembly for a file
-resources/Local.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/Local.cpp.s
-.PHONY : resources/Local.cpp.s
+src/Model/AgenteEconomico.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/AgenteEconomico.cpp.s
+.PHONY : src/Model/AgenteEconomico.cpp.s
 
-resources/MapImport.o: resources/MapImport.cpp.o
+src/Model/AutoridadePublica.o: src/Model/AutoridadePublica.cpp.o
 
-.PHONY : resources/MapImport.o
+.PHONY : src/Model/AutoridadePublica.o
 
 # target to build an object file
-resources/MapImport.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/MapImport.cpp.o
-.PHONY : resources/MapImport.cpp.o
+src/Model/AutoridadePublica.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/AutoridadePublica.cpp.o
+.PHONY : src/Model/AutoridadePublica.cpp.o
 
-resources/MapImport.i: resources/MapImport.cpp.i
+src/Model/AutoridadePublica.i: src/Model/AutoridadePublica.cpp.i
 
-.PHONY : resources/MapImport.i
+.PHONY : src/Model/AutoridadePublica.i
 
 # target to preprocess a source file
-resources/MapImport.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/MapImport.cpp.i
-.PHONY : resources/MapImport.cpp.i
+src/Model/AutoridadePublica.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/AutoridadePublica.cpp.i
+.PHONY : src/Model/AutoridadePublica.cpp.i
 
-resources/MapImport.s: resources/MapImport.cpp.s
+src/Model/AutoridadePublica.s: src/Model/AutoridadePublica.cpp.s
 
-.PHONY : resources/MapImport.s
+.PHONY : src/Model/AutoridadePublica.s
 
 # target to generate assembly for a file
-resources/MapImport.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/MapImport.cpp.s
-.PHONY : resources/MapImport.cpp.s
+src/Model/AutoridadePublica.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/AutoridadePublica.cpp.s
+.PHONY : src/Model/AutoridadePublica.cpp.s
 
-resources/RouteViewCalc.o: resources/RouteViewCalc.cpp.o
+src/Model/Brigada.o: src/Model/Brigada.cpp.o
 
-.PHONY : resources/RouteViewCalc.o
+.PHONY : src/Model/Brigada.o
 
 # target to build an object file
-resources/RouteViewCalc.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/RouteViewCalc.cpp.o
-.PHONY : resources/RouteViewCalc.cpp.o
+src/Model/Brigada.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Brigada.cpp.o
+.PHONY : src/Model/Brigada.cpp.o
 
-resources/RouteViewCalc.i: resources/RouteViewCalc.cpp.i
+src/Model/Brigada.i: src/Model/Brigada.cpp.i
 
-.PHONY : resources/RouteViewCalc.i
+.PHONY : src/Model/Brigada.i
 
 # target to preprocess a source file
-resources/RouteViewCalc.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/RouteViewCalc.cpp.i
-.PHONY : resources/RouteViewCalc.cpp.i
+src/Model/Brigada.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Brigada.cpp.i
+.PHONY : src/Model/Brigada.cpp.i
 
-resources/RouteViewCalc.s: resources/RouteViewCalc.cpp.s
+src/Model/Brigada.s: src/Model/Brigada.cpp.s
 
-.PHONY : resources/RouteViewCalc.s
+.PHONY : src/Model/Brigada.s
 
 # target to generate assembly for a file
-resources/RouteViewCalc.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/RouteViewCalc.cpp.s
-.PHONY : resources/RouteViewCalc.cpp.s
+src/Model/Brigada.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Brigada.cpp.s
+.PHONY : src/Model/Brigada.cpp.s
 
-resources/menus.o: resources/menus.cpp.o
+src/Model/Data.o: src/Model/Data.cpp.o
 
-.PHONY : resources/menus.o
+.PHONY : src/Model/Data.o
 
 # target to build an object file
-resources/menus.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.o
-.PHONY : resources/menus.cpp.o
+src/Model/Data.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Data.cpp.o
+.PHONY : src/Model/Data.cpp.o
 
-resources/menus.i: resources/menus.cpp.i
+src/Model/Data.i: src/Model/Data.cpp.i
 
-.PHONY : resources/menus.i
+.PHONY : src/Model/Data.i
 
 # target to preprocess a source file
-resources/menus.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.i
-.PHONY : resources/menus.cpp.i
+src/Model/Data.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Data.cpp.i
+.PHONY : src/Model/Data.cpp.i
 
-resources/menus.s: resources/menus.cpp.s
+src/Model/Data.s: src/Model/Data.cpp.s
 
-.PHONY : resources/menus.s
+.PHONY : src/Model/Data.s
 
 # target to generate assembly for a file
-resources/menus.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/menus.cpp.s
-.PHONY : resources/menus.cpp.s
+src/Model/Data.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Data.cpp.s
+.PHONY : src/Model/Data.cpp.s
 
-resources/utils.o: resources/utils.cpp.o
+src/Model/Local.o: src/Model/Local.cpp.o
 
-.PHONY : resources/utils.o
+.PHONY : src/Model/Local.o
 
 # target to build an object file
-resources/utils.cpp.o:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/utils.cpp.o
-.PHONY : resources/utils.cpp.o
+src/Model/Local.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Local.cpp.o
+.PHONY : src/Model/Local.cpp.o
 
-resources/utils.i: resources/utils.cpp.i
+src/Model/Local.i: src/Model/Local.cpp.i
 
-.PHONY : resources/utils.i
+.PHONY : src/Model/Local.i
 
 # target to preprocess a source file
-resources/utils.cpp.i:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/utils.cpp.i
-.PHONY : resources/utils.cpp.i
+src/Model/Local.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Local.cpp.i
+.PHONY : src/Model/Local.cpp.i
 
-resources/utils.s: resources/utils.cpp.s
+src/Model/Local.s: src/Model/Local.cpp.s
 
-.PHONY : resources/utils.s
+.PHONY : src/Model/Local.s
 
 # target to generate assembly for a file
-resources/utils.cpp.s:
-	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/resources/utils.cpp.s
-.PHONY : resources/utils.cpp.s
+src/Model/Local.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Model/Local.cpp.s
+.PHONY : src/Model/Local.cpp.s
+
+src/Utils/MapImport.o: src/Utils/MapImport.cpp.o
+
+.PHONY : src/Utils/MapImport.o
+
+# target to build an object file
+src/Utils/MapImport.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Utils/MapImport.cpp.o
+.PHONY : src/Utils/MapImport.cpp.o
+
+src/Utils/MapImport.i: src/Utils/MapImport.cpp.i
+
+.PHONY : src/Utils/MapImport.i
+
+# target to preprocess a source file
+src/Utils/MapImport.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Utils/MapImport.cpp.i
+.PHONY : src/Utils/MapImport.cpp.i
+
+src/Utils/MapImport.s: src/Utils/MapImport.cpp.s
+
+.PHONY : src/Utils/MapImport.s
+
+# target to generate assembly for a file
+src/Utils/MapImport.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Utils/MapImport.cpp.s
+.PHONY : src/Utils/MapImport.cpp.s
+
+src/Utils/utils.o: src/Utils/utils.cpp.o
+
+.PHONY : src/Utils/utils.o
+
+# target to build an object file
+src/Utils/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Utils/utils.cpp.o
+.PHONY : src/Utils/utils.cpp.o
+
+src/Utils/utils.i: src/Utils/utils.cpp.i
+
+.PHONY : src/Utils/utils.i
+
+# target to preprocess a source file
+src/Utils/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Utils/utils.cpp.i
+.PHONY : src/Utils/utils.cpp.i
+
+src/Utils/utils.s: src/Utils/utils.cpp.s
+
+.PHONY : src/Utils/utils.s
+
+# target to generate assembly for a file
+src/Utils/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/Utils/utils.cpp.s
+.PHONY : src/Utils/utils.cpp.s
+
+src/View/menus.o: src/View/menus.cpp.o
+
+.PHONY : src/View/menus.o
+
+# target to build an object file
+src/View/menus.cpp.o:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/View/menus.cpp.o
+.PHONY : src/View/menus.cpp.o
+
+src/View/menus.i: src/View/menus.cpp.i
+
+.PHONY : src/View/menus.i
+
+# target to preprocess a source file
+src/View/menus.cpp.i:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/View/menus.cpp.i
+.PHONY : src/View/menus.cpp.i
+
+src/View/menus.s: src/View/menus.cpp.s
+
+.PHONY : src/View/menus.s
+
+# target to generate assembly for a file
+src/View/menus.cpp.s:
+	$(MAKE) -f CMakeFiles/INSPECT_IT.dir/build.make CMakeFiles/INSPECT_IT.dir/src/View/menus.cpp.s
+.PHONY : src/View/menus.cpp.s
 
 # Help Target
 help:
@@ -537,51 +537,51 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... INSPECT_IT"
-	@echo "... lib/connection.o"
-	@echo "... lib/connection.i"
-	@echo "... lib/connection.s"
-	@echo "... lib/graphviewer.o"
-	@echo "... lib/graphviewer.i"
-	@echo "... lib/graphviewer.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... resources/AgenteEconomico.o"
-	@echo "... resources/AgenteEconomico.i"
-	@echo "... resources/AgenteEconomico.s"
-	@echo "... resources/AlgorithmPerformanceTest.o"
-	@echo "... resources/AlgorithmPerformanceTest.i"
-	@echo "... resources/AlgorithmPerformanceTest.s"
-	@echo "... resources/AutoridadePublica.o"
-	@echo "... resources/AutoridadePublica.i"
-	@echo "... resources/AutoridadePublica.s"
-	@echo "... resources/Brigada.o"
-	@echo "... resources/Brigada.i"
-	@echo "... resources/Brigada.s"
-	@echo "... resources/Conectividade.o"
-	@echo "... resources/Conectividade.i"
-	@echo "... resources/Conectividade.s"
-	@echo "... resources/Data.o"
-	@echo "... resources/Data.i"
-	@echo "... resources/Data.s"
-	@echo "... resources/HeuristicsFindRoute.o"
-	@echo "... resources/HeuristicsFindRoute.i"
-	@echo "... resources/HeuristicsFindRoute.s"
-	@echo "... resources/Local.o"
-	@echo "... resources/Local.i"
-	@echo "... resources/Local.s"
-	@echo "... resources/MapImport.o"
-	@echo "... resources/MapImport.i"
-	@echo "... resources/MapImport.s"
-	@echo "... resources/RouteViewCalc.o"
-	@echo "... resources/RouteViewCalc.i"
-	@echo "... resources/RouteViewCalc.s"
-	@echo "... resources/menus.o"
-	@echo "... resources/menus.i"
-	@echo "... resources/menus.s"
-	@echo "... resources/utils.o"
-	@echo "... resources/utils.i"
-	@echo "... resources/utils.s"
+	@echo "... src/Algorithms/AlgorithmPerformanceTest.o"
+	@echo "... src/Algorithms/AlgorithmPerformanceTest.i"
+	@echo "... src/Algorithms/AlgorithmPerformanceTest.s"
+	@echo "... src/Algorithms/Conectividade.o"
+	@echo "... src/Algorithms/Conectividade.i"
+	@echo "... src/Algorithms/Conectividade.s"
+	@echo "... src/Algorithms/HeuristicsFindRoute.o"
+	@echo "... src/Algorithms/HeuristicsFindRoute.i"
+	@echo "... src/Algorithms/HeuristicsFindRoute.s"
+	@echo "... src/Controller/RouteViewCalc.o"
+	@echo "... src/Controller/RouteViewCalc.i"
+	@echo "... src/Controller/RouteViewCalc.s"
+	@echo "... src/GraphViewer/connection.o"
+	@echo "... src/GraphViewer/connection.i"
+	@echo "... src/GraphViewer/connection.s"
+	@echo "... src/GraphViewer/graphviewer.o"
+	@echo "... src/GraphViewer/graphviewer.i"
+	@echo "... src/GraphViewer/graphviewer.s"
+	@echo "... src/Model/AgenteEconomico.o"
+	@echo "... src/Model/AgenteEconomico.i"
+	@echo "... src/Model/AgenteEconomico.s"
+	@echo "... src/Model/AutoridadePublica.o"
+	@echo "... src/Model/AutoridadePublica.i"
+	@echo "... src/Model/AutoridadePublica.s"
+	@echo "... src/Model/Brigada.o"
+	@echo "... src/Model/Brigada.i"
+	@echo "... src/Model/Brigada.s"
+	@echo "... src/Model/Data.o"
+	@echo "... src/Model/Data.i"
+	@echo "... src/Model/Data.s"
+	@echo "... src/Model/Local.o"
+	@echo "... src/Model/Local.i"
+	@echo "... src/Model/Local.s"
+	@echo "... src/Utils/MapImport.o"
+	@echo "... src/Utils/MapImport.i"
+	@echo "... src/Utils/MapImport.s"
+	@echo "... src/Utils/utils.o"
+	@echo "... src/Utils/utils.i"
+	@echo "... src/Utils/utils.s"
+	@echo "... src/View/menus.o"
+	@echo "... src/View/menus.i"
+	@echo "... src/View/menus.s"
 .PHONY : help
 
 

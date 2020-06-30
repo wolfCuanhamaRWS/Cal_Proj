@@ -9,7 +9,7 @@
 
 #include "AgenteEconomico.h"
 #include "Brigada.h"
-#include "utils.h"
+#include "Utils/utils.h"
 
 using namespace std;
 

@@ -4,16 +4,16 @@
 
 #ifndef EXAMPLE_ROUTEVIEWCALC_H
 #define EXAMPLE_ROUTEVIEWCALC_H
-#include "Graph.h"
+#include "Model/Graph.h"
 #include <string>
 #include <cstdio>
-#include "graphviewer.h"
+#include "../GraphViewer/graphviewer.h"
 #include <csignal>
-#include "AgenteEconomico.h"
-#include "AutoridadePublica.h"
+#include "Model/AgenteEconomico.h"
+#include "Model/AutoridadePublica.h"
 #include <vector>
-#include "Graph.h"
-#include "HeuristicsFindRoute.h"
+#include "Model/Graph.h"
+#include "Algorithms/HeuristicsFindRoute.h"
 #include "sstream"
 #include "fstream"
 string verifyTagColor(Tag type);

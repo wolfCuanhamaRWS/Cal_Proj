@@ -380,7 +380,7 @@ void AutoridadePublica::destrutor()
      * Escreve nos ficheiros
      */
     fstream ficheiro;
-    ficheiro.open("../resources/agentes.txt");
+    ficheiro.open("../src/agentes.txt");
 
     //criando o vector de keys(ids) ordenadas
     vector<unsigned  int > keys_agentes;
@@ -404,7 +404,7 @@ void AutoridadePublica::destrutor()
 
 
 
-    ficheiro.open("../resources/brigadas.txt");
+    ficheiro.open("../src/brigadas.txt");
 
     //criando o vector de keys(ids) ordenadas
     vector<unsigned int> keys_brigadas;
@@ -424,7 +424,7 @@ void AutoridadePublica::destrutor()
         control = true;
     }
     ficheiro.close();
-    ficheiro.open("../resources/brigadas.txt");
+    ficheiro.open("../src/brigadas.txt");
 
     /*
      * Apaga os objectos

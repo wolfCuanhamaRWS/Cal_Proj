@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <vector>
-#include "AutoridadePublica.h"
+#include "Model/AutoridadePublica.h"
 #include "menus.h"
 
 
@@ -323,9 +323,9 @@ void mainMenu(AutoridadePublica &autoridade) {
                     Graph<int> gr3;
                     if (option4 == 1) {
                         loadGraphNodesInfo(gr1,
-                                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
-                                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
-                                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt",
                                            veloMedBrig);
 
                         //escolher se queremos direção das arestas no mapa
@@ -371,9 +371,9 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                     } else if (option4 == 2) {
                         loadGraphNodesInfo(gr2,
-                                           "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
-                                           "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
-                                           "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_edges.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_edges.txt",
                                            veloMedBrig);
 
 
@@ -419,9 +419,9 @@ void mainMenu(AutoridadePublica &autoridade) {
                     } else {
 
                         loadGraphNodesInfo(gr3,
-                                           "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
-                                           "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
-                                           "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
+                                           "../src/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt",
                                            veloMedBrig);
 
 
@@ -513,7 +513,7 @@ void mainMenu(AutoridadePublica &autoridade) {
                 veloMedBrig = checkOption(0.0, 120.0);
                 Graph<int> gr;
                 menuLoadMaps(gr, option10, veloMedBrig);
-                AutoridadePublica AtPub("../resources/agentes.txt", "../resources/brigadaUmaRota.txt");
+                AutoridadePublica AtPub("../src/agentes.txt", "../src/brigadaUmaRota.txt");
                 //Escolher localização da autoridade pública
                 cout << "Introduza o valor para o nó que identifica a Autoridade Pública: " << endl;
                 int idNo = 0;
@@ -569,30 +569,56 @@ void mainMenu(AutoridadePublica &autoridade) {
 }
 
 void menuLoadMaps(Graph<int> &gr, int input, double velocidadeMediaBrigadas) {
-    AutoridadePublica AtPub("../resources/agentes.txt", "../resources/brigadas.txt");
+    AutoridadePublica AtPub("../src/agentes.txt", "../src/brigadas.txt");
 
 
     if (input == 1) {
-        loadGraphNodesInfo(gr, "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
-                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_latlng.txt",
-                           "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_edges.txt", velocidadeMediaBrigadas);
+        loadGraphNodesInfo(gr, "../srcMAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
+                           "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_latlng.txt",
+                           "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_edges.txt", velocidadeMediaBrigadas);
 
 
     } else if (input == 2) {
-        loadGraphNodesInfo(gr, "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_xy.txt",
-                           "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_latlng.txt",
-                           "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt",
+        loadGraphNodesInfo(gr, "../src//MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_xy.txt",
+                           "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_latlng.txt",
+                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt",
                            velocidadeMediaBrigadas);
 
-    } else {
+    } else if(input == 3) {
 
-        loadGraphNodesInfo(gr, "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_xy.txt",
-                           "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_latlng.txt",
-                           "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_edges.txt",
+        loadGraphNodesInfo(gr, "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_xy.txt",
+                           "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_latlng.txt",
+                           "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_edges.txt",
                            velocidadeMediaBrigadas);
 
 
     }
+    else if(input == 4){
+
+        loadGraphNodesInfo(gr, "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                           "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                           "../src/MAPS_INSPECT_IT/4x4/edges.txt", velocidadeMediaBrigadas);
+
+    }
+    else if(input == 5){
+
+        loadGraphNodesInfo(gr, "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                           "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                           "../src/MAPS_INSPECT_IT/8x8/edges.txt", velocidadeMediaBrigadas);
+
+    }
+    else{
+
+        loadGraphNodesInfo(gr, "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                           "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                           "../src/MAPS_INSPECT_IT/16x16/edges.txt", velocidadeMediaBrigadas);
+
+
+    }
+
+
+
+
 
     for(int v = 1; v <= gr.getVertexSet().size();  v++)
         gr.getVertexSet()[v -1]->setInfo(v);
@@ -617,7 +643,7 @@ void calculateRoutes(Graph<int> &gr,AutoridadePublica &AtPub,AlgorithmMinDist al
     //Meter tags de forma  a AE e ATPub  sejam reconhecidas
     checkEconoAtPubTags(gr,AtPub,agEcono);
 
-    GraphViewer gv = drawGraph(gr,AtPub,"WindowConfiguration",7778,EdgeType::UNDIRECTED, false);
+    GraphViewer gv = drawGraph(gr,AtPub,"WindowConfiguration",7777,EdgeType::UNDIRECTED, false);
 
 
     CalculateDrawRoutes(gv,gr,AtPub,agEcono,algorithm,tmpViagInspec,restriction,GPSCheck,idNoRadius);

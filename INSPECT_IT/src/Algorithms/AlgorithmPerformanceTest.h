@@ -4,12 +4,12 @@
 
 #include <limits>
 #include <chrono>
-#include "Graph.h"
-#include "MapImport.h"
+#include "Model/Graph.h"
+#include "Utils/MapImport.h"
 #include <algorithm>
 #include <random>
 #include <algorithm>
-#include "menus.h"
+#include "View/menus.h"
 
 
 using namespace std;

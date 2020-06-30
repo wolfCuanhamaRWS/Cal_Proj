@@ -1,7 +1,7 @@
 
 #ifndef EXAMPLE_CONECTIVIDADE_H
 #define EXAMPLE_CONECTIVIDADE_H
-#include "Graph.h"
+#include "Model/Graph.h"
 #include <vector>
 #include "algorithm"
 

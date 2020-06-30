@@ -67,6 +67,9 @@ void globalPerformanceTEst(){
     Graph<int> gr1;
     Graph<int> gr2;
     Graph<int> gr3;
+    Graph<int > gr4;
+    Graph<int> gr5;
+    Graph<int> gr6;
 
 
 
@@ -83,90 +86,223 @@ void globalPerformanceTEst(){
     cout << "Kosaraju (Conetividade): 5" << endl;
     option = checkOption(1,5);
 
-    AutoridadePublica autoridade ("../resources/agentes.txt","../resources/brigadas.txt");
+    AutoridadePublica autoridade ("../src/agentes.txt","../src/brigadas.txt");
 
     cout << "Número de iterações para os testes: " << endl;
     int iter = checkOption(1, 10000000);
 
     switch (option) {
         case 1:
+        {
             cout << endl;
-            DijkstraTest(gr1, "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_latlng.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_edges.txt", velocMediaKH,iter,"Porto");
-            cout << endl;
-            DijkstraTest(gr2, "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_xy.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_latlng.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt", velocMediaKH,iter,"Espinho");
-            cout << endl;
-            DijkstraTest(gr3, "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_xy.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_latlng.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_edges.txt", velocMediaKH,iter,"Penafiel");
+            DijkstraTest(gr1, "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/4x4/edges.txt", velocMediaKH, iter, "MapGrid 4x4");
             cout << endl;
 
+            cout << endl;
+            DijkstraTest(gr2, "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/8x8/edges.txt", velocMediaKH, iter, "MapGrid 8x8");
+            cout << endl;
+
+            cout << endl;
+            DijkstraTest(gr3, "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/16x16/edges.txt", velocMediaKH, iter, "MapGrid 16x16");
+            cout << endl;
+
+            cout << endl;
+            cout
+                    << "Também deseja testar para o mapa Porto, Espinho e Penafiel? (Requer algum tempo ): 1"
+                    << endl;
+            cout << "Não: 2" << endl;
+            cout << endl;
+            int optionFloyd = checkOption(1, 2);
+            if (optionFloyd == 1) {
+
+
+                DijkstraTest(gr4, "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
+                             "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
+                             "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt", velocMediaKH, iter, "Porto");
+                cout << endl;
+                DijkstraTest(gr5, "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
+                             "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
+                             "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt", velocMediaKH, iter,
+                             "Espinho");
+                cout << endl;
+                DijkstraTest(gr6, "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
+                             "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
+                             "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt", velocMediaKH, iter,
+                             "Penafiel");
+                cout << endl;
+            }
+    }
             break;
         case 2:
+        {
+            cout << endl;
+            BellManFordTest(gr1, "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                            "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                            "../src/MAPS_INSPECT_IT/4x4/edges.txt", velocMediaKH, iter, "MapGrid 4x4");
+            cout << endl;
 
             cout << endl;
-            BellManFordTest(gr1, "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_latlng.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_edges.txt", velocMediaKH,iter,"Porto");
+            BellManFordTest(gr2, "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                            "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                            "../src/MAPS_INSPECT_IT/8x8/edges.txt", velocMediaKH, iter, "MapGrid 8x8");
             cout << endl;
-            BellManFordTest(gr2, "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_xy.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_latlng.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt", velocMediaKH,iter,"Espinho");
+
             cout << endl;
-            BellManFordTest(gr3, "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_xy.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_latlng.txt",
-                         "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_edges.txt", velocMediaKH,iter,"Penafiel");
+            BellManFordTest(gr3, "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                            "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                            "../src/MAPS_INSPECT_IT/16x16/edges.txt", velocMediaKH, iter, "MapGrid 16x16");
             cout << endl;
+
+            cout << endl;
+
+            cout << "Também deseja testar para o mapa Porto, Espinho e Penafiel? (Requer um tempo  considerável ): 1"
+                 << endl;
+            cout << "Não: 2" << endl;
+            cout << endl;
+            int optionFloyd = checkOption(1, 2);
+            if (optionFloyd == 1) {
+
+
+                BellManFordTest(gr4, "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
+                                "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
+                                "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt", velocMediaKH, iter, "Porto");
+                cout << endl;
+                BellManFordTest(gr5, "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
+                                "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
+                                "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt", velocMediaKH, iter,
+                                "Espinho");
+                cout << endl;
+                BellManFordTest(gr6, "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
+                                "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
+                                "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt", velocMediaKH, iter,
+                                "Penafiel");
+                cout << endl;
+            }
             break;
-
+    }
         case 3:
+        {
+
+            cout << endl;
+            FloydWarshallTestAllGraph(gr1, "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/4x4/edges.txt", velocMediaKH,iter,"MapGrid 4x4");
+            cout << endl;
+
+            cout << endl;
+            FloydWarshallTestAllGraph(gr2, "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/8x8/edges.txt", velocMediaKH,iter,"MapGrid 8x8");
+            cout << endl;
+
+            cout << endl;
+            FloydWarshallTestAllGraph(gr3, "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                         "../src/MAPS_INSPECT_IT/16x16/edges.txt", velocMediaKH,iter,"MapGrid 16x16");
+            cout << endl;
 
 
             cout << endl;
-           /*FloydWarshallTestAllGraph(gr1, "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
-                            "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_latlng.txt",
-                            "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_strong_edges.txt", velocMediaKH,iter,"Porto");
-*/
-           cout << endl;
-            FloydWarshallTestAllGraph(gr2, "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_xy.txt",
-                            "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_latlng.txt",
-                            "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt", velocMediaKH,iter,"Espinho");
-          cout << endl;
-            FloydWarshallTestAllGraph(gr3, "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_xy.txt",
-                            "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_nodes_latlng.txt",
-                            "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_strong_edges.txt", velocMediaKH,iter,"Penafiel");
+
+            cout << "Também deseja testar para o mapa Porto, Espinho e Penafiel? (Requer um tempo bastante considerável ): 1"<< endl;
+            cout << "Não: 2" << endl;
+            cout << endl;
+            int optionFloyd = checkOption(1,2);
+            if(optionFloyd == 1) {
+                FloydWarshallTestAllGraph(gr4, "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
+                                          "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_latlng.txt",
+                                          "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_edges.txt", velocMediaKH,
+                                          iter, "Porto");
+
+
+                cout << endl;
+                FloydWarshallTestAllGraph(gr3, "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                                          "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                                          "../src/MAPS_INSPECT_IT/16x16/edges.txt", velocMediaKH,iter,"MapGrid 16x16");
+                cout << endl;
+
+                cout << endl;
+                FloydWarshallTestAllGraph(gr6, "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
+                                          "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
+                                          "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt", velocMediaKH,iter,"Penafiel");
+                cout << endl;
+
+
+            }
+            wait();
+        }
+
+            break;
+
+        case 4: {
+            cout << endl;
+            CalRoutesTest(gr1, 4, velocMediaKH, iter, "MapGrid 4x4,", autoridade);
+            cout << endl;
+            CalRoutesTest(gr2, 5, velocMediaKH, iter, "MapGrid 8x8,", autoridade);
+            cout << endl;
+            CalRoutesTest(gr3, 6, velocMediaKH, iter, "MapGrid 16x16,", autoridade);
+            cout << endl;
+            CalRoutesTest(gr5, 1, velocMediaKH, iter, "Porto", autoridade);
+            cout << endl;
+            CalRoutesTest(gr5, 2, velocMediaKH, iter, "Espinho", autoridade);
+            cout << endl;
+            CalRoutesTest(gr6, 3, velocMediaKH, iter, "Penafiel", autoridade);
             cout << endl;
             break;
 
-        case 4:
+            case 5:
+
+                cout << endl;
+            KosarajuConectivityTEst(gr1, "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                                    "../src/MAPS_INSPECT_IT/4x4/nodes.txt",
+                                    "../src/MAPS_INSPECT_IT/4x4/edges.txt", velocMediaKH, iter, "MapGrid 4x4");
+            cout << endl;
 
             cout << endl;
-            CalRoutesTest(gr1, 1, velocMediaKH,iter,"Porto",autoridade);
+            KosarajuConectivityTEst(gr2, "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                                    "../src/MAPS_INSPECT_IT/8x8/nodes.txt",
+                                    "../src/MAPS_INSPECT_IT/8x8/edges.txt", velocMediaKH, iter, "MapGrid 8x8");
             cout << endl;
-            CalRoutesTest(gr2, 2, velocMediaKH,iter,"Espinho",autoridade);
-            cout << endl;
-            CalRoutesTest(gr3, 3, velocMediaKH,iter,"Penafiel",autoridade);
-            cout << endl;
-            break;
-
-        case 5:
 
             cout << endl;
-            KosarajuConectivityTEst(gr1, "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
-                          "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
-                          "../resources/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt", velocMediaKH,iter,"Porto");
+            KosarajuConectivityTEst(gr3, "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                                    "../src/MAPS_INSPECT_IT/16x16/nodes.txt",
+                                    "../src/MAPS_INSPECT_IT/16x16/edges.txt", velocMediaKH, iter, "MapGrid 16x16");
             cout << endl;
-            KosarajuConectivityTEst(gr2, "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
-                          "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
-                          "../resources/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt", velocMediaKH,iter,"Espinho");
+
             cout << endl;
-            KosarajuConectivityTEst(gr3, "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
-                          "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
-                          "../resources/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt", velocMediaKH,iter,"Penafiel");
+
+            cout << "Também deseja testar para o mapa Porto, Espinho e Penafiel? (Requer um tempo  considerável ): 1"
+                 << endl;
+            cout << "Não: 2" << endl;
             cout << endl;
+            int optionFloyd = checkOption(1, 2);
+            if (optionFloyd == 1) {
+
+
+                KosarajuConectivityTEst(gr4, "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
+                                        "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
+                                        "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt", velocMediaKH, iter,
+                                        "Porto");
+                cout << endl;
+                KosarajuConectivityTEst(gr5, "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
+                                        "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
+                                        "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt", velocMediaKH,
+                                        iter, "Espinho");
+                cout << endl;
+                KosarajuConectivityTEst(gr6, "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
+                                        "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
+                                        "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt", velocMediaKH,
+                                        iter, "Penafiel");
+                cout << endl;
+            }
+        }
             break;
 
         default:
@@ -349,6 +485,8 @@ void KosarajuConectivityTEst(Graph<T> &graph,string nosXYFich,string nosCoordGeo
     double media = 0.0;
 
     loadGraphNodesInfo(graph,nosXYFich,nosCoordGeoFich, arestasFich,  velocMediaKH);
+    for(int v = 1; v <= graph.getVertexSet().size();  v++)
+        graph.getVertexSet()[v -1]->setInfo(v);
 
     for(int n = 0; n< numbInter; n++){
 

@@ -36,9 +36,9 @@ int verifyTagSize(Tag type){
 }
 
 void drawGraphFromFile(std::string name, unsigned int port){
-    std::ifstream nodes("../resources/graphs/"+name+"/nodes.txt");
-    std::ifstream edges("../resources/graphs/"+name+"/edges.txt");
-    std::ifstream window("../resources/graphs/"+name+"/window.txt");
+    std::ifstream nodes("../src/graphs/"+name+"/nodes.txt");
+    std::ifstream edges("../src/graphs/"+name+"/edges.txt");
+    std::ifstream window("../src/graphs/"+name+"/window.txt");
     std::string line, background_path;
     std::istringstream iss;
     unsigned int n_nodes, n_edges, height, width, v1, v2, type, scale, dynamic, thickness, size, dashed, curved;
@@ -311,7 +311,7 @@ void CalculateDrawRoutes(GraphViewer &gv, Graph<int> &graph, AutoridadePublica &
 GraphViewer &drawGraph( Graph<int> &graph,AutoridadePublica &AtPub, string windowFich, unsigned int port,int typeEdge,bool otherLabel){
 
 
-    std::ifstream window("../resources/graphs/MAPS_INSPECT_IT/"+windowFich+"/window.txt");
+    std::ifstream window("../src/MAPS_INSPECT_IT/"+windowFich+"/window.txt");
     std::string  background_path;
 
     int n_nodes, n_edges, height, width, v1, v2,  dynamic, thickness, size, dashed, curved;
