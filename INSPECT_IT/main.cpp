@@ -8,7 +8,7 @@
 
 int main() {
     //evitar problemas ao fechar grapView
-    //signal(SIGINT, SIG_IGN);
+    signal(SIGINT, SIG_IGN);
 
     //semente aleatória para ser usada nos testes de performance
     srand(time(NULL));

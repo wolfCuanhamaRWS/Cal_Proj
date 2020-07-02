@@ -248,7 +248,7 @@ void globalPerformanceTEst(){
             cout << endl;
             CalRoutesTest(gr3, 6, velocMediaKH, iter, "MapGrid 16x16,", autoridade);
             cout << endl;
-            CalRoutesTest(gr5, 1, velocMediaKH, iter, "Porto", autoridade);
+            CalRoutesTest(gr4, 1, velocMediaKH, iter, "Porto", autoridade);
             cout << endl;
             CalRoutesTest(gr5, 2, velocMediaKH, iter, "Espinho", autoridade);
             cout << endl;

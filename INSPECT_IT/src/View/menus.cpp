@@ -323,9 +323,9 @@ void mainMenu(AutoridadePublica &autoridade) {
                     Graph<int> gr3;
                     if (option4 == 1) {
                         loadGraphNodesInfo(gr1,
-                                           "../src/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
-                                           "../src/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
-                                           "../src/graphs/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt",
+                                           "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_xy.txt",
+                                           "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_nodes_latlng.txt",
+                                           "../src/MAPS_INSPECT_IT/PortoTeste/porto_full_edges.txt",
                                            veloMedBrig);
 
                         //escolher se queremos direção das arestas no mapa
@@ -371,9 +371,9 @@ void mainMenu(AutoridadePublica &autoridade) {
 
                     } else if (option4 == 2) {
                         loadGraphNodesInfo(gr2,
-                                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
-                                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
-                                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_edges.txt",
+                                           "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_xy.txt",
+                                           "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_nodes_latlng.txt",
+                                           "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_full_edges.txt",
                                            veloMedBrig);
 
 
@@ -419,9 +419,9 @@ void mainMenu(AutoridadePublica &autoridade) {
                     } else {
 
                         loadGraphNodesInfo(gr3,
-                                           "../src/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
-                                           "../src/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
-                                           "../src/graphs/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt",
+                                           "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_xy.txt",
+                                           "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_nodes_latlng.txt",
+                                           "../src/MAPS_INSPECT_IT/PenafielTeste/penafiel_full_edges.txt",
                                            veloMedBrig);
 
 
@@ -573,15 +573,15 @@ void menuLoadMaps(Graph<int> &gr, int input, double velocidadeMediaBrigadas) {
 
 
     if (input == 1) {
-        loadGraphNodesInfo(gr, "../srcMAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
+        loadGraphNodesInfo(gr, "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_xy.txt",
                            "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_nodes_latlng.txt",
                            "../src/MAPS_INSPECT_IT/PortoTeste/porto_strong_edges.txt", velocidadeMediaBrigadas);
 
 
     } else if (input == 2) {
-        loadGraphNodesInfo(gr, "../src//MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_xy.txt",
+        loadGraphNodesInfo(gr, "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_xy.txt",
                            "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_nodes_latlng.txt",
-                           "../src/graphs/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt",
+                           "../src/MAPS_INSPECT_IT/EspinhoTeste/espinho_strong_edges.txt",
                            velocidadeMediaBrigadas);
 
     } else if(input == 3) {

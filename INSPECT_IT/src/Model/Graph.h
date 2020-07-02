@@ -216,7 +216,7 @@ class Graph {
 
 
 public:
-    //Graph();
+
     vector<vector<Vertex<T> *>> getPathMin() { return pathMin; }
     int findVertexIdx(const T &in) const;
     vector<vector<double>> getDistMin() { return distMin; }
